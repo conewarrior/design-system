@@ -78,6 +78,59 @@ npm install @geniefy/ui
 
 ---
 
+## 컴포넌트 사용 예제
+
+### Button
+
+```tsx
+import { Button } from '@geniefy/ui';
+
+// Variants: primary, secondary, outline, ghost, destructive
+<Button variant="primary">저장</Button>
+<Button variant="secondary">취소</Button>
+<Button variant="outline">더보기</Button>
+<Button variant="destructive">삭제</Button>
+
+// Sizes: sm, md, lg
+<Button size="sm">작은 버튼</Button>
+<Button size="md">기본 버튼</Button>
+<Button size="lg">큰 버튼</Button>
+
+// Disabled
+<Button disabled>비활성화</Button>
+```
+
+### Input
+
+```tsx
+import { Input } from '@geniefy/ui';
+
+// Basic usage
+<Input placeholder="이름을 입력하세요" />
+
+// Sizes: sm, md, lg
+<Input inputSize="sm" placeholder="작은 입력" />
+<Input inputSize="md" placeholder="기본 입력" />
+<Input inputSize="lg" placeholder="큰 입력" />
+
+// Error state
+<Input error placeholder="오류 상태" />
+
+// Disabled
+<Input disabled placeholder="비활성화" />
+```
+
+### 토큰 필수
+
+컴포넌트가 올바르게 렌더링되려면 `tokens.css`가 로드되어야 합니다:
+
+```css
+/* globals.css 상단에 추가 */
+@import url('https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css');
+```
+
+---
+
 ## 개발
 
 ```bash
