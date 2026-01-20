@@ -6,7 +6,11 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "tokens.css"
+    "tokens.css",
+    "design-rules.md",
+    ".claude/commands",
+    ".claude/skills",
+    ".claude/scripts"
   ],
   "scripts": {
     "build": "tsc",
