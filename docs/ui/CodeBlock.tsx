@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 interface CodeBlockProps {
   children: string;
-  language?: 'bash' | 'tsx' | 'html' | 'css' | 'json' | 'text';
+  language?: 'bash' | 'tsx' | 'html' | 'css' | 'json' | 'yaml' | 'text';
   filename?: string;
 }
 

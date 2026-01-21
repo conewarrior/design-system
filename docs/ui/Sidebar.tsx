@@ -21,6 +21,7 @@ const docsNavigation: NavGroup[] = [
     links: [
       { href: '/', label: 'Introduction' },
       { href: '/install/', label: 'Install' },
+      { href: '/install/how-it-works/', label: 'How it Works' },
     ],
   },
   {
