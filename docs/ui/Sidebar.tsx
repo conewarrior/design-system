@@ -1,10 +1,21 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Section } from './TopNav';
 
-const navigation = [
+interface NavLink {
+  href: string;
+  label: string;
+}
+
+interface NavGroup {
+  title: string;
+  links: NavLink[];
+}
+
+// Docs 네비게이션
+const docsNavigation: NavGroup[] = [
   {
     title: 'Getting Started',
     links: [
@@ -28,41 +39,72 @@ const navigation = [
   },
 ];
 
-export function Sidebar() {
+// Status 네비게이션
+const statusNavigation: NavGroup[] = [
+  {
+    title: 'Overview',
+    links: [
+      { href: '/status/', label: 'Dashboard' },
+    ],
+  },
+  {
+    title: 'Changes',
+    links: [
+      { href: '/status/changes/', label: 'All Changes' },
+      { href: '/status/changes/components/', label: 'Components' },
+      { href: '/status/changes/tokens/', label: 'Tokens' },
+    ],
+  },
+  {
+    title: 'Adoption',
+    links: [
+      { href: '/status/adoption/', label: 'Dashboard' },
+      { href: '/status/adoption/projects/', label: 'By Project' },
+      { href: '/status/adoption/pending/', label: 'Pending PRs' },
+    ],
+  },
+  {
+    title: 'Planning',
+    links: [
+      { href: '/status/roadmap/', label: 'Roadmap' },
+      { href: '/status/migration/', label: 'Migration Guide' },
+    ],
+  },
+];
+
+interface SidebarProps {
+  section: Section;
+  isMobileOpen?: boolean;
+  onMobileClose?: () => void;
+}
+
+export function Sidebar({ section, isMobileOpen, onMobileClose }: SidebarProps) {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const navigation = section === 'docs' ? docsNavigation : statusNavigation;
+
+  const isActive = (href: string) => {
+    if (pathname === href) return true;
+    if (pathname === href.replace(/\/$/, '')) return true;
+    if (pathname + '/' === href) return true;
+    return false;
+  };
 
   return (
     <>
-      {/* Mobile Header */}
-      <header className="mobile-header">
-        <div className="mobile-header-logo">
-          <div className="sidebar-logo-icon" />
-          <span>@geniefy/ui</span>
-        </div>
-        <button
-          className="mobile-menu-btn"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="메뉴 열기"
-        >
-          {isOpen ? '✕' : '☰'}
-        </button>
-      </header>
-
       {/* Mobile Nav Overlay */}
-      {isOpen && (
-        <div className="mobile-nav-overlay" onClick={() => setIsOpen(false)}>
+      {isMobileOpen && (
+        <div className="mobile-nav-overlay" onClick={onMobileClose}>
           <nav className="mobile-nav" onClick={(e) => e.stopPropagation()}>
-            {navigation.map((section) => (
-              <div key={section.title} className="sidebar-section">
-                <div className="sidebar-section-title">{section.title}</div>
+            {navigation.map((group) => (
+              <div key={group.title} className="sidebar-section">
+                <div className="sidebar-section-title">{group.title}</div>
                 <div className="sidebar-nav">
-                  {section.links.map((link) => (
+                  {group.links.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`sidebar-link ${pathname === link.href ? 'active' : ''}`}
-                      onClick={() => setIsOpen(false)}
+                      className={`sidebar-link ${isActive(link.href) ? 'active' : ''}`}
+                      onClick={onMobileClose}
                     >
                       {link.label}
                     </Link>
@@ -76,20 +118,15 @@ export function Sidebar() {
 
       {/* Desktop Sidebar */}
       <aside className="sidebar">
-        <div className="sidebar-logo">
-          <div className="sidebar-logo-icon" />
-          <span>@geniefy/ui</span>
-        </div>
-
-        {navigation.map((section) => (
-          <div key={section.title} className="sidebar-section">
-            <div className="sidebar-section-title">{section.title}</div>
+        {navigation.map((group) => (
+          <div key={group.title} className="sidebar-section">
+            <div className="sidebar-section-title">{group.title}</div>
             <nav className="sidebar-nav">
-              {section.links.map((link) => (
+              {group.links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`sidebar-link ${pathname === link.href ? 'active' : ''}`}
+                  className={`sidebar-link ${isActive(link.href) ? 'active' : ''}`}
                 >
                   {link.label}
                 </Link>

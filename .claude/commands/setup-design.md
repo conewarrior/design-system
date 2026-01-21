@@ -2,6 +2,14 @@
 
 프로젝트에 @geniefy/ui 디자인 시스템을 자동 설정합니다.
 
+**한 번 실행으로 완료되는 항목:**
+- npm 패키지 설치
+- CLAUDE.md에 디자인 규칙 추가
+- UI 생성 시 규칙 자동 적용 (Hook)
+- Dependabot 자동 업데이트 설정
+
+---
+
 ## 실행 단계
 
 ### Step 1: 프로젝트 타입 감지
@@ -12,6 +20,23 @@
 package.json이 있으면 실행:
 ```bash
 npm install @geniefy/ui
+```
+
+### Step 2.5: 토큰 import 추가
+
+**Next.js 프로젝트** (`app/layout.tsx`에 추가):
+```tsx
+import '@geniefy/ui/tokens.css';
+```
+
+**React (CRA/Vite)** (`src/index.tsx` 또는 `src/main.tsx`에 추가):
+```tsx
+import '@geniefy/ui/tokens.css';
+```
+
+**HTML/CSS 프로젝트** (`<head>`에 추가):
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css">
 ```
 
 ### Step 3: CLAUDE.md 설정
@@ -82,6 +107,11 @@ GITHUB_TOKEN 환경변수가 설정되어 있는지 확인합니다.
 ### Step 6: 자동 업데이트 설정 (Dependabot)
 `.github/` 폴더에 자동 업데이트 설정 파일들을 생성합니다.
 
+```bash
+# 디렉토리 생성
+mkdir -p .github/workflows
+```
+
 #### .github/dependabot.yml
 ```yaml
 version: 2
@@ -90,8 +120,17 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+      time: "09:00"
+      timezone: "Asia/Seoul"
     allow:
       - dependency-name: "@geniefy/ui"
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "auto-merge"
+    open-pull-requests-limit: 5
 ```
 
 #### .github/workflows/dependabot-auto-merge.yml
@@ -100,6 +139,7 @@ name: Auto-merge Dependabot PRs
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
@@ -114,16 +154,58 @@ jobs:
       - name: Check if @geniefy/ui update
         id: check
         run: |
-          if [[ "${{ github.event.pull_request.title }}" == *"@geniefy/ui"* ]]; then
-            echo "match=true" >> $GITHUB_OUTPUT
+          TITLE="${{ github.event.pull_request.title }}"
+          if [[ "$TITLE" == *"@geniefy/ui"* ]]; then
+            echo "is_geniefy_ui=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_geniefy_ui=false" >> $GITHUB_OUTPUT
           fi
 
+      - name: Check for major version bump
+        id: major
+        if: steps.check.outputs.is_geniefy_ui == 'true'
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          if [[ "$TITLE" =~ from\ ([0-9]+)\.[0-9]+\.[0-9]+\ to\ ([0-9]+)\.[0-9]+\.[0-9]+ ]]; then
+            FROM_MAJOR="${BASH_REMATCH[1]}"
+            TO_MAJOR="${BASH_REMATCH[2]}"
+            if [[ "$FROM_MAJOR" != "$TO_MAJOR" ]]; then
+              echo "is_major=true" >> $GITHUB_OUTPUT
+            else
+              echo "is_major=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "is_major=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Wait for CI checks
+        if: steps.check.outputs.is_geniefy_ui == 'true' && steps.major.outputs.is_major != 'true'
+        uses: lewagon/wait-on-check-action@v1.3.4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+          running-workflow-name: 'Auto-merge Dependabot PRs'
+
       - name: Enable auto-merge
-        if: steps.check.outputs.match == 'true'
+        if: steps.check.outputs.is_geniefy_ui == 'true' && steps.major.outputs.is_major != 'true'
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment on major update
+        if: steps.major.outputs.is_major == 'true'
+        run: |
+          gh pr comment "$PR_URL" --body "## Major 버전 업데이트
+
+          Breaking change가 포함되어 있을 수 있습니다.
+          수동 리뷰 후 머지해 주세요.
+
+          - [CHANGELOG 확인](https://github.com/geniefy/design-system/blob/main/CHANGELOG.md)"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ### Step 7: 완료 메시지

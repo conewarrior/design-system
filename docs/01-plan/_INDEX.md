@@ -18,6 +18,7 @@
 | auto-update | [auto-update.plan.md](./features/auto-update.plan.md) | ✅ Done | 최신 업데이트 자동화 |
 | update-dashboard | [update-dashboard.plan.md](./features/update-dashboard.plan.md) | ✅ Done | 버전 채택 현황 대시보드 |
 | changelog | [changelog.plan.md](./features/changelog.plan.md) | ✅ Done | 컴포넌트 변경 로그 |
+| navigation-restructure | [navigation-restructure.plan.md](./features/navigation-restructure.plan.md) | 📋 Planning | 탑바+사이드바 구조 변경 |
 
 ---
 

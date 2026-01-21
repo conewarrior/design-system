@@ -1,5 +1,5 @@
-/* Import design tokens from parent directory */
-@import '../../tokens.css';
+/* Import design tokens */
+@import './tokens.css';
 
 /* Reset */
 *,
@@ -29,10 +29,97 @@ a {
 
 /* Layout */
 .layout {
-  display: block;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Mobile Header - 기본 숨김, 모바일에서 표시 */
+.layout-body {
+  display: flex;
+  flex: 1;
+  padding-top: 56px; /* TopNav 높이 */
+}
+
+/* ===========================================
+   TopNav
+   =========================================== */
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-4);
+  z-index: var(--z-index-sticky);
+}
+
+.top-nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.top-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-foreground);
+  text-decoration: none;
+}
+
+.top-nav-logo-icon {
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.top-nav-menu {
+  display: flex;
+  gap: var(--spacing-1);
+}
+
+.top-nav-link {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-muted);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all 0.15s ease;
+}
+
+.top-nav-link:hover {
+  color: var(--color-foreground);
+  background: var(--color-secondary);
+}
+
+.top-nav-link.active {
+  color: var(--color-primary);
+  background: rgba(234, 88, 12, 0.1);
+}
+
+.top-nav-mobile-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+}
+
+/* Mobile Header - 더 이상 사용 안함, TopNav로 대체 */
 .mobile-header {
   display: none;
   position: fixed;
@@ -94,7 +181,7 @@ a {
   border-right: 1px solid var(--color-border);
   padding: var(--spacing-4);
   position: fixed;
-  top: 0;
+  top: 56px; /* TopNav 높이 */
   left: 0;
   bottom: 0;
   overflow-y: auto;
@@ -1560,5 +1647,522 @@ pre code {
     width: 100%;
     flex: none;
     margin-top: var(--spacing-1);
+  }
+}
+
+/* ===========================================
+   Status Dashboard Page
+   =========================================== */
+
+.status-page {
+  max-width: 900px;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.status-card {
+  display: block;
+  padding: var(--spacing-4);
+  background: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.status-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.status-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+}
+
+.status-card-icon {
+  font-size: var(--font-size-2xl);
+}
+
+.status-card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-foreground);
+  margin: 0;
+}
+
+.status-card-value {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-1);
+}
+
+.status-card-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+  margin-bottom: var(--spacing-2);
+}
+
+.status-card-links {
+  display: flex;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-muted);
+}
+
+.status-card-links span {
+  padding: var(--spacing-0-5) var(--spacing-1);
+  background: var(--color-background);
+  border-radius: var(--radius-sm);
+}
+
+.status-note {
+  padding: var(--spacing-3);
+  background: var(--color-secondary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+.status-generated {
+  font-size: var(--font-size-xs);
+  opacity: 0.7;
+}
+
+/* ===========================================
+   Projects Page (By Project)
+   =========================================== */
+
+.projects-page {
+  max-width: 900px;
+}
+
+.project-group {
+  margin-bottom: var(--spacing-6);
+}
+
+.project-group-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-3);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-3);
+}
+
+.project-card {
+  padding: var(--spacing-4);
+  background: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2);
+}
+
+.project-card-name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+
+.project-card-status {
+  font-size: var(--font-size-sm);
+}
+
+.project-card-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+  margin-bottom: var(--spacing-3);
+}
+
+.project-card-meta {
+  display: flex;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-3);
+}
+
+.project-card-version {
+  font-size: var(--font-size-sm);
+}
+
+.project-card-version .label {
+  color: var(--color-muted);
+  margin-right: var(--spacing-1);
+}
+
+.project-card-version .value {
+  font-family: var(--font-family-mono);
+}
+
+.project-card-link,
+.project-card-repo {
+  display: inline-block;
+  margin-right: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+}
+
+.project-card-link:hover,
+.project-card-repo:hover {
+  text-decoration: underline;
+}
+
+.projects-empty,
+.projects-note {
+  padding: var(--spacing-3);
+  background: var(--color-secondary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+.projects-generated {
+  font-size: var(--font-size-xs);
+  opacity: 0.7;
+}
+
+/* ===========================================
+   Pending PRs Page
+   =========================================== */
+
+.pending-page {
+  max-width: 800px;
+}
+
+.pending-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+.pending-item {
+  padding: var(--spacing-4);
+  background: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.pending-info {
+  margin-bottom: var(--spacing-2);
+}
+
+.pending-name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.pending-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.pending-versions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-mono);
+}
+
+.pending-current {
+  color: var(--color-muted);
+}
+
+.pending-arrow {
+  color: var(--color-primary);
+}
+
+.pending-target {
+  color: var(--color-foreground);
+  font-weight: var(--font-weight-medium);
+}
+
+.pending-link {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-2);
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+}
+
+.pending-link:hover {
+  opacity: 0.9;
+}
+
+.pending-empty {
+  padding: var(--spacing-6);
+  text-align: center;
+  background: var(--color-secondary);
+  border-radius: var(--radius-lg);
+}
+
+.pending-empty p:first-child {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-1);
+}
+
+.pending-empty-sub {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+.pending-note {
+  padding: var(--spacing-3);
+  background: var(--color-secondary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+.pending-generated {
+  font-size: var(--font-size-xs);
+  opacity: 0.7;
+}
+
+/* ===========================================
+   Roadmap Page
+   =========================================== */
+
+.roadmap-page {
+  max-width: 800px;
+}
+
+.roadmap-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.roadmap-quarter {
+  padding: var(--spacing-4);
+  background: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.roadmap-quarter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-3);
+}
+
+.roadmap-quarter-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.roadmap-quarter-status {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.roadmap-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.roadmap-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-sm);
+}
+
+.roadmap-item-icon {
+  font-size: var(--font-size-base);
+}
+
+.roadmap-item-title {
+  color: var(--color-foreground);
+}
+
+.roadmap-note {
+  padding: var(--spacing-3);
+  background: var(--color-secondary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+/* ===========================================
+   Migration Page
+   =========================================== */
+
+.migration-page {
+  max-width: 800px;
+}
+
+.migration-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.migration-version {
+  padding: var(--spacing-4);
+  background: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.migration-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-3);
+  padding-bottom: var(--spacing-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.migration-version-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.migration-date {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+.migration-breaking,
+.migration-features {
+  margin-bottom: var(--spacing-3);
+}
+
+.migration-section-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.migration-item {
+  padding: var(--spacing-3);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-2);
+}
+
+.migration-item-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.migration-item-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.migration-code {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.migration-before,
+.migration-after {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-sm);
+}
+
+.migration-label {
+  width: 50px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-muted);
+}
+
+.migration-before code {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.migration-after code {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.migration-feature-list {
+  margin: 0;
+  padding-left: var(--spacing-4);
+}
+
+.migration-feature-list li {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-1);
+}
+
+.migration-note {
+  padding: var(--spacing-3);
+  background: var(--color-secondary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+/* Status Pages Responsive */
+@media (max-width: 768px) {
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .pending-versions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pending-arrow {
+    transform: rotate(90deg);
+  }
+
+  /* TopNav 모바일 대응 */
+  .top-nav-menu {
+    display: none;
+  }
+
+  .top-nav-mobile-btn {
+    display: flex;
+  }
+
+  /* Main 영역 TopNav 대응 */
+  .main {
+    margin-top: 56px;
   }
 }

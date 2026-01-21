@@ -1,0 +1,90 @@
+name: Auto-merge Dependabot PRs
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    # Dependabot이 생성한 PR만 처리
+    if: github.actor == 'dependabot[bot]'
+
+    steps:
+      # 1. @geniefy/ui 업데이트인지 확인
+      - name: Check if @geniefy/ui update
+        id: check
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          if [[ "$TITLE" == *"@geniefy/ui"* ]]; then
+            echo "is_geniefy_ui=true" >> $GITHUB_OUTPUT
+            echo "::notice::@geniefy/ui 업데이트 PR 감지"
+          else
+            echo "is_geniefy_ui=false" >> $GITHUB_OUTPUT
+            echo "::notice::@geniefy/ui가 아닌 업데이트, 스킵"
+          fi
+
+      # 2. Major 버전 업데이트 감지 (Breaking Change)
+      - name: Check for major version bump
+        id: major
+        if: steps.check.outputs.is_geniefy_ui == 'true'
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          # "from 1.x.x to 2.x.x" 패턴 감지
+          if [[ "$TITLE" =~ from\ ([0-9]+)\.[0-9]+\.[0-9]+\ to\ ([0-9]+)\.[0-9]+\.[0-9]+ ]]; then
+            FROM_MAJOR="${BASH_REMATCH[1]}"
+            TO_MAJOR="${BASH_REMATCH[2]}"
+            if [[ "$FROM_MAJOR" != "$TO_MAJOR" ]]; then
+              echo "is_major=true" >> $GITHUB_OUTPUT
+              echo "::warning::Major 버전 업데이트 감지: $FROM_MAJOR → $TO_MAJOR"
+            else
+              echo "is_major=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "is_major=false" >> $GITHUB_OUTPUT
+          fi
+
+      # 3. CI 완료 대기
+      - name: Wait for CI checks
+        if: steps.check.outputs.is_geniefy_ui == 'true' && steps.major.outputs.is_major != 'true'
+        uses: lewagon/wait-on-check-action@v1.3.4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+          running-workflow-name: 'Auto-merge Dependabot PRs'
+
+      # 4. 자동 머지 활성화
+      - name: Enable auto-merge
+        if: steps.check.outputs.is_geniefy_ui == 'true' && steps.major.outputs.is_major != 'true'
+        run: |
+          gh pr merge --auto --squash "$PR_URL"
+          echo "::notice::자동 머지 활성화됨"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 5. Major 업데이트 시 알림
+      - name: Comment on major update
+        if: steps.major.outputs.is_major == 'true'
+        run: |
+          gh pr comment "$PR_URL" --body "## Major 버전 업데이트
+
+          **Breaking change가 포함되어 있을 수 있습니다.**
+
+          수동 리뷰 후 머지해 주세요.
+
+          ### 확인 사항
+          - [ ] [CHANGELOG 확인](https://github.com/geniefy/design-system/blob/main/CHANGELOG.md)
+          - [ ] Breaking change 영향 범위 파악
+          - [ ] 필요 시 코드 수정
+
+          ### 참고
+          - [마이그레이션 가이드](https://design.geniefy.ai/migration)"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

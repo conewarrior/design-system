@@ -16,6 +16,7 @@
 | auto-update | [auto-update.design.md](./features/auto-update.design.md) | ✅ Done | 2026-01-21 |
 | update-dashboard | [update-dashboard.design.md](./features/update-dashboard.design.md) | ✅ Done | 2026-01-21 |
 | changelog | [changelog.design.md](./features/changelog.design.md) | ✅ Done | 2026-01-21 |
+| navigation-restructure | [navigation-restructure.design.md](./features/navigation-restructure.design.md) | 📐 Design | 2026-01-21 |
 
 ---
 

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Sidebar } from '../ui/Sidebar';
+import { LayoutClient } from '../ui/LayoutClient';
 import '../styles/globals.css';
 
 export const viewport: Viewport = {
@@ -20,10 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <div className="layout">
-          <Sidebar />
-          <main className="main">{children}</main>
-        </div>
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );

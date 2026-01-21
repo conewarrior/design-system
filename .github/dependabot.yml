@@ -1,0 +1,26 @@
+version: 2
+updates:
+  # npm 패키지 업데이트
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "09:00"
+      timezone: "Asia/Seoul"
+
+    # @geniefy/ui만 자동 업데이트
+    allow:
+      - dependency-name: "@geniefy/ui"
+
+    # 커밋 메시지 형식
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+
+    # PR 라벨
+    labels:
+      - "dependencies"
+      - "auto-merge"
+
+    # PR 제한
+    open-pull-requests-limit: 5
