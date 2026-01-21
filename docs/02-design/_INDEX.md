@@ -12,8 +12,11 @@
 | Feature | 문서 | Status | Created |
 |---------|------|--------|---------|
 | design-system-sync | [design-system-sync.design.md](./features/design-system-sync.design.md) | ✅ Done | 2026-01-20 |
-| install-page | [install-page.design.md](./features/install-page.design.md) | 📐 Design | 2026-01-20 |
+| install-page | [install-page.design.md](./features/install-page.design.md) | ✅ Done | 2026-01-20 |
+| auto-update | [auto-update.design.md](./features/auto-update.design.md) | ✅ Done | 2026-01-21 |
+| update-dashboard | [update-dashboard.design.md](./features/update-dashboard.design.md) | ✅ Done | 2026-01-21 |
+| changelog | [changelog.design.md](./features/changelog.design.md) | ✅ Done | 2026-01-21 |
 
 ---
 
-*Last updated: 2026-01-20*
+*Last updated: 2026-01-21*
