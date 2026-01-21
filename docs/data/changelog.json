@@ -1,7 +1,30 @@
 {
-  "generatedAt": "2026-01-21T04:44:12.632Z",
-  "totalChanges": 5,
+  "generatedAt": "2026-01-21T06:19:11.811Z",
+  "totalChanges": 6,
   "data": [
+    {
+      "date": "2026-01-21",
+      "items": [
+        {
+          "id": "ce2799b",
+          "type": "token",
+          "title": "feat: 문서 사이트 네비게이션 구조 개선 및 Status 섹션 추가",
+          "author": "김한솔",
+          "date": "2026-01-21",
+          "time": "13:56",
+          "files": [
+            "docs/app/components/button/page.tsx",
+            "docs/app/components/input/page.tsx",
+            "docs/app/status/changes/components/page.tsx",
+            "docs/components/Button/index.tsx",
+            "docs/components/Input/index.tsx",
+            "docs/styles/tokens.css",
+            "tokens.css"
+          ],
+          "commitUrl": "https://github.com/geniefy/design-system/commit/ce2799b6b5c092252245401881832be812fdc08c"
+        }
+      ]
+    },
     {
       "date": "2026-01-20",
       "items": [
