@@ -332,7 +332,7 @@ export default function CorporateProPage() {
               { value: '24/7', label: 'Support' },
             ].map((stat, idx) => (
               <div key={idx}>
-                <div style={{ fontSize: '24px', fontWeight: 700, color: '#007AFF' }}>{stat.value}</div>
+                <div style={{ fontSize: '24px', fontWeight: 700, color: '#0F172A' }}>{stat.value}</div>
                 <div style={{ fontSize: '12px', color: '#64748B' }}>{stat.label}</div>
               </div>
             ))}

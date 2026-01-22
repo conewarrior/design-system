@@ -216,10 +216,14 @@ export default function SoftGradientPage() {
           borderRadius: '16px',
           border: '1px solid #E5E7EB',
           overflow: 'hidden',
-          backgroundImage: 'url(/soft-gradient-bg.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          background: '#FFFFFF',
         }}>
+          {/* Background Image Section */}
+          <div style={{
+            backgroundImage: 'url(/soft-gradient-bg.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}>
           {/* Navigation */}
           <div style={{
             display: 'flex',
@@ -234,14 +238,15 @@ export default function SoftGradientPage() {
               <div style={{
                 width: '28px',
                 height: '28px',
-                background: 'linear-gradient(135deg, #F9A8D4 0%, #C4B5FD 25%, #93C5FD 50%, #86EFAC 75%, #FDE68A 100%)',
+                background: 'rgba(255, 255, 255, 0.9)',
                 borderRadius: '8px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#FFFFFF',
+                color: '#6B7280',
                 fontWeight: 700,
                 fontSize: '12px',
+                border: '1px solid rgba(255, 255, 255, 0.5)',
               }}>S</div>
               <span style={{ fontWeight: 600, fontSize: '15px', color: '#1F2937' }}>SoftUI</span>
             </div>
@@ -294,9 +299,7 @@ export default function SoftGradientPage() {
                 marginBottom: '12px',
               }}>
                 Design with <span style={{
-                  background: 'linear-gradient(135deg, #F9A8D4 0%, #C4B5FD 25%, #93C5FD 50%, #86EFAC 75%, #FDE68A 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                  color: '#F472B6',
                 }}>warmth</span>
               </div>
               <p style={{
@@ -365,7 +368,7 @@ export default function SoftGradientPage() {
                   <div style={{ width: '60%', height: '10px', background: 'linear-gradient(90deg, #F472B6 0%, #FDF2F8 100%)', borderRadius: '5px' }} />
                   <div style={{ width: '80%', height: '8px', background: '#F3F4F6', borderRadius: '4px' }} />
                   <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
-                    <div style={{ width: '60px', height: '24px', background: 'linear-gradient(135deg, #F9A8D4 0%, #C4B5FD 25%, #93C5FD 50%, #86EFAC 75%, #FDE68A 100%)', borderRadius: '6px' }} />
+                    <div style={{ width: '60px', height: '24px', background: 'rgba(255, 255, 255, 0.9)', borderRadius: '6px', border: '1px solid #E5E7EB' }} />
                     <div style={{ width: '60px', height: '24px', background: '#F3F4F6', borderRadius: '6px' }} />
                   </div>
                 </div>
@@ -376,9 +379,10 @@ export default function SoftGradientPage() {
           {/* Stats Section */}
           <div style={{
             padding: '28px 24px',
-            background: 'rgba(253, 242, 248, 0.5)',
-            borderTop: '1px solid rgba(244, 114, 182, 0.1)',
-            borderBottom: '1px solid rgba(244, 114, 182, 0.1)',
+            background: 'rgba(255, 255, 255, 0.3)',
+            backdropFilter: 'blur(10px)',
+            borderTop: '1px solid rgba(255, 255, 255, 0.3)',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '16px',
@@ -394,17 +398,16 @@ export default function SoftGradientPage() {
                 <div style={{
                   fontSize: '22px',
                   fontWeight: 700,
-                  background: 'linear-gradient(135deg, #F9A8D4 0%, #C4B5FD 25%, #93C5FD 50%, #86EFAC 75%, #FDE68A 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                  color: '#1F2937',
                 }}>{stat.value}</div>
-                <div style={{ fontSize: '12px', color: '#9CA3AF' }}>{stat.label}</div>
+                <div style={{ fontSize: '12px', color: '#6B7280' }}>{stat.label}</div>
               </div>
             ))}
           </div>
+          </div>
 
           {/* Features Section */}
-          <div style={{ padding: '36px 24px' }}>
+          <div style={{ padding: '36px 24px', background: '#FFFFFF' }}>
             <div style={{ textAlign: 'center', marginBottom: '28px' }}>
               <div style={{ fontSize: '20px', fontWeight: 700, color: '#1F2937', marginBottom: '6px' }}>
                 Designed for comfort
@@ -419,19 +422,24 @@ export default function SoftGradientPage() {
               gap: '16px',
             }}>
               {[
-                { icon: '🌸', title: 'Soft Colors', desc: 'Gentle on the eyes' },
-                { icon: '🎨', title: 'Gradients', desc: 'Smooth transitions' },
-                { icon: '✨', title: 'Friendly Feel', desc: 'Welcoming design' },
+                { title: 'Soft Colors', desc: 'Gentle on the eyes', gradient: 'linear-gradient(135deg, #F9A8D4 0%, #C4B5FD 100%)' },
+                { title: 'Gradients', desc: 'Smooth transitions', gradient: 'linear-gradient(135deg, #C4B5FD 0%, #93C5FD 100%)' },
+                { title: 'Friendly Feel', desc: 'Welcoming design', gradient: 'linear-gradient(135deg, #93C5FD 0%, #86EFAC 100%)' },
               ].map((feature, idx) => (
                 <div key={idx} style={{
                   padding: '20px',
-                  background: 'rgba(255, 255, 255, 0.8)',
-                  border: '1px solid rgba(244, 114, 182, 0.1)',
+                  background: '#FAFAFA',
+                  border: '1px solid #E5E7EB',
                   borderRadius: '14px',
                   textAlign: 'center',
-                  backdropFilter: 'blur(4px)',
                 }}>
-                  <div style={{ fontSize: '24px', marginBottom: '10px' }}>{feature.icon}</div>
+                  <div style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '50%',
+                    background: feature.gradient,
+                    margin: '0 auto 10px',
+                  }} />
                   <div style={{ fontSize: '14px', fontWeight: 600, color: '#1F2937', marginBottom: '4px' }}>{feature.title}</div>
                   <div style={{ fontSize: '12px', color: '#9CA3AF' }}>{feature.desc}</div>
                 </div>
@@ -442,13 +450,13 @@ export default function SoftGradientPage() {
           {/* CTA Section */}
           <div style={{
             padding: '36px 24px',
-            background: 'linear-gradient(135deg, #F9A8D4 0%, #C4B5FD 25%, #93C5FD 50%, #86EFAC 75%, #FDE68A 100%)',
+            background: '#FFFFFF',
             textAlign: 'center',
           }}>
-            <div style={{ fontSize: '20px', fontWeight: 700, color: '#FFFFFF', marginBottom: '10px' }}>
+            <div style={{ fontSize: '20px', fontWeight: 700, color: '#1F2937', marginBottom: '10px' }}>
               Ready to create something beautiful?
             </div>
-            <p style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.8)', marginBottom: '20px' }}>
+            <p style={{ fontSize: '13px', color: '#6B7280', marginBottom: '20px' }}>
               Join thousands of happy designers
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
@@ -456,19 +464,20 @@ export default function SoftGradientPage() {
                 height: '36px',
                 padding: '0 20px',
                 background: '#FFFFFF',
-                color: '#F472B6',
+                color: '#4B5563',
                 borderRadius: '10px',
                 fontSize: '13px',
                 fontWeight: 600,
                 display: 'flex',
                 alignItems: 'center',
+                border: '1px solid #E5E7EB',
               }}>Get Started</div>
               <div style={{
                 height: '36px',
                 padding: '0 20px',
                 background: 'transparent',
-                color: '#FFFFFF',
-                border: '1px solid rgba(255, 255, 255, 0.5)',
+                color: '#F472B6',
+                border: '1px solid #F472B6',
                 borderRadius: '10px',
                 fontSize: '13px',
                 fontWeight: 600,
@@ -481,8 +490,8 @@ export default function SoftGradientPage() {
           {/* Footer */}
           <div style={{
             padding: '16px 24px',
-            borderTop: '1px solid rgba(244, 114, 182, 0.1)',
-            background: 'rgba(255, 255, 255, 0.5)',
+            borderTop: '1px solid #E5E7EB',
+            background: '#FFFFFF',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -491,7 +500,7 @@ export default function SoftGradientPage() {
               <div style={{
                 width: '18px',
                 height: '18px',
-                background: 'linear-gradient(135deg, #F9A8D4 0%, #C4B5FD 25%, #93C5FD 50%, #86EFAC 75%, #FDE68A 100%)',
+                background: '#F472B6',
                 borderRadius: '5px',
               }} />
               <span style={{ fontWeight: 600, fontSize: '12px', color: '#4B5563' }}>SoftUI Design</span>
@@ -750,14 +759,13 @@ export default function SoftGradientPage() {
           <button style={{
             height: '44px',
             padding: '10px 20px',
-            background: 'linear-gradient(135deg, #F9A8D4 0%, #C4B5FD 25%, #93C5FD 50%, #86EFAC 75%, #FDE68A 100%)',
-            color: '#FFFFFF',
-            border: 'none',
+            background: '#FFFFFF',
+            color: '#4B5563',
+            border: '1px solid #E5E7EB',
             borderRadius: '12px',
             fontSize: '15px',
             fontWeight: 600,
             cursor: 'pointer',
-            boxShadow: '0 4px 12px rgba(244, 114, 182, 0.3)',
           }}>Primary Button</button>
           <button style={{
             height: '44px',
