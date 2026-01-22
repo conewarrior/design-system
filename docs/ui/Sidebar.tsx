@@ -37,6 +37,24 @@ const docsNavigation: NavGroup[] = [
       { href: '/components/', label: 'Overview' },
       { href: '/components/button/', label: 'Button' },
       { href: '/components/input/', label: 'Input' },
+      { href: '/components/badge/', label: 'Badge' },
+      { href: '/components/card/', label: 'Card' },
+      { href: '/components/checkbox/', label: 'Checkbox' },
+      { href: '/components/radio/', label: 'Radio' },
+      { href: '/components/select/', label: 'Select' },
+      { href: '/components/textarea/', label: 'Textarea' },
+      { href: '/components/switch/', label: 'Switch' },
+      { href: '/components/avatar/', label: 'Avatar' },
+      { href: '/components/modal/', label: 'Modal' },
+      { href: '/components/toast/', label: 'Toast' },
+      { href: '/components/tooltip/', label: 'Tooltip' },
+      { href: '/components/tabs/', label: 'Tabs' },
+      { href: '/components/accordion/', label: 'Accordion' },
+      { href: '/components/skeleton/', label: 'Skeleton' },
+      { href: '/components/progress/', label: 'Progress' },
+      { href: '/components/spinner/', label: 'Spinner' },
+      { href: '/components/alert/', label: 'Alert' },
+      { href: '/components/dropdown/', label: 'Dropdown' },
     ],
   },
 ];
@@ -74,15 +92,49 @@ const statusNavigation: NavGroup[] = [
   },
 ];
 
+// Templates 네비게이션
+const templatesNavigation: NavGroup[] = [
+  {
+    title: 'Overview',
+    links: [
+      { href: '/templates/', label: 'All Templates' },
+    ],
+  },
+  {
+    title: 'Design Concepts',
+    links: [
+      { href: '/templates/gpters-brand/', label: 'GPTers Brand' },
+      { href: '/templates/minimal-clean/', label: 'Minimal Clean' },
+      { href: '/templates/dark-modern/', label: 'Dark Modern' },
+      { href: '/templates/glassmorphism/', label: 'Glassmorphism' },
+      { href: '/templates/soft-gradient/', label: 'Soft Gradient' },
+      { href: '/templates/bold-vibrant/', label: 'Bold & Vibrant' },
+      { href: '/templates/corporate-pro/', label: 'Corporate Pro' },
+      { href: '/templates/futuristic/', label: 'Futuristic' },
+    ],
+  },
+];
+
 interface SidebarProps {
   section: Section;
   isMobileOpen?: boolean;
   onMobileClose?: () => void;
 }
 
+function getNavigation(section: Section): NavGroup[] {
+  switch (section) {
+    case 'docs':
+      return docsNavigation;
+    case 'status':
+      return statusNavigation;
+    case 'templates':
+      return templatesNavigation;
+  }
+}
+
 export function Sidebar({ section, isMobileOpen, onMobileClose }: SidebarProps) {
   const pathname = usePathname();
-  const navigation = section === 'docs' ? docsNavigation : statusNavigation;
+  const navigation = getNavigation(section);
 
   const isActive = (href: string) => {
     if (pathname === href) return true;

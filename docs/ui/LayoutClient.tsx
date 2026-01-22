@@ -9,6 +9,9 @@ function getSection(pathname: string): Section {
   if (pathname.startsWith('/status')) {
     return 'status';
   }
+  if (pathname.startsWith('/templates')) {
+    return 'templates';
+  }
   return 'docs';
 }
 

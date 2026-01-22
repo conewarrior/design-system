@@ -1,0 +1,210 @@
+/**
+ * Genify Design System Tokens
+ * Version: 1.0.0
+ * 
+ * 지니파이 브랜드 가이드라인 기반 디자인 토큰
+ */
+
+:root {
+  /* ================================
+     Brand Colors
+     ================================ */
+  --color-brand: #FF6900;
+  --color-brand-hover: #FFF0D3;
+  --color-brand-soft: #FFF0D3;
+
+  /* ================================
+     Layer (Background)
+     ================================ */
+  --layer-base: #FFFFFF;
+  --layer-mid: #FAFAFA;
+  --layer-low: #F4F4F5;
+  --layer-dim: rgba(16, 24, 40, 0.50);
+  --layer-brand: #FF6900;
+
+  /* ================================
+     Content (Text)
+     ================================ */
+  --content-highlight: #09090B;
+  --content-primary: #3F4146;
+  --content-subtle: #71717A;
+  --content-muted: #B5B5BA;
+  --content-inverse: #FFFFFF;
+  --content-brand: #FF6900;
+
+  /* ================================
+     Border
+     ================================ */
+  --border-subtle: #E4E4E7;
+  --border-strong: #B5B5BA;
+  --border-divider: #E4E4E7;
+  --border-brand: #FF6900;
+
+  /* ================================
+     Status / Informative Colors
+     ================================ */
+  /* Red (Error) */
+  --informative-red: #E7000B;
+  --informative-red-soft: #FFE8E9;
+  --informative-red-subtle: #FFF5F5;
+
+  /* Green (Success) */
+  --informative-green: #008236;
+  --informative-green-soft: #B9F8CF;
+  --informative-green-subtle: #EFFDF4;
+
+  /* Blue (Info) */
+  --informative-blue: #509EDA;
+  --informative-blue-soft: #DBEAFE;
+
+  /* ================================
+     Interactive States
+     ================================ */
+  --status-hover-layer: #FAFAFA;
+  --status-hover-layer-brand: #FFF0D3;
+  --status-hover-content: #09090B;
+  --status-hover-border: #F4F4F5;
+  --status-hover-accent: #FAFAFA;
+  --status-disabled: #E4E4E7;
+
+  /* ================================
+     Typography - Font Family
+     ================================ */
+  --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* ================================
+     Typography - Font Sizes
+     ================================ */
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+
+  /* ================================
+     Typography - Font Weights
+     ================================ */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ================================
+     Typography - Line Heights
+     ================================ */
+  --line-height-xs: 18px;
+  --line-height-sm: 19.5px;
+  --line-height-md: 21px;
+  --line-height-lg: 24px;
+  --line-height-xl: 30px;
+  --line-height-2xl: 36px;
+
+  /* ================================
+     Typography - Presets
+     ================================ */
+  /* Display */
+  --text-display-size: 24px;
+  --text-display-weight: 600;
+  --text-display-line-height: 36px;
+
+  /* Heading */
+  --text-heading-size: 20px;
+  --text-heading-weight: 600;
+  --text-heading-line-height: 30px;
+
+  /* Label Large */
+  --text-label-l-size: 16px;
+  --text-label-l-weight: 600;
+  --text-label-l-line-height: 24px;
+
+  /* Label Medium */
+  --text-label-m-size: 14px;
+  --text-label-m-weight: 500;
+  --text-label-m-line-height: 21px;
+
+  /* Label Regular */
+  --text-label-r-size: 13px;
+  --text-label-r-weight: 700;
+  --text-label-r-line-height: 19.5px;
+
+  /* Body Large */
+  --text-body-l-size: 16px;
+  --text-body-l-weight: 400;
+  --text-body-l-line-height: 24px;
+
+  /* Body Regular */
+  --text-body-r-size: 14px;
+  --text-body-r-weight: 400;
+  --text-body-r-line-height: 21px;
+
+  /* ================================
+     Spacing
+     ================================ */
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-14: 14px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+
+  /* ================================
+     Border Radius
+     ================================ */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* ================================
+     Shadows
+     ================================ */
+  --shadow-sm: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  --shadow-md: 0px 4px 6px rgba(16, 24, 40, 0.09);
+  --shadow-lg: 0px 8px 8px -4px rgba(16, 24, 40, 0.09);
+  --shadow-xl: 0px 8px 16px -2px rgba(16, 24, 40, 0.09);
+
+  /* ================================
+     Icon
+     ================================ */
+  --icon-size-sm: 16px;
+  --icon-size-md: 20px;
+  --icon-size-lg: 24px;
+  --icon-stroke-width: 2;
+
+  /* ================================
+     Component Sizes
+     ================================ */
+  /* Button */
+  --button-height-sm: 28px;
+  --button-height-md: 32px;
+  --button-height-lg: 44px;
+
+  /* Input */
+  --input-height: 44px;
+
+  /* Touch Target (Accessibility) */
+  --touch-target-min: 44px;
+}
+
+/* ================================
+   Dark Mode (Optional)
+   ================================ */
+/*
+[data-theme="dark"] {
+  --layer-base: #09090B;
+  --layer-mid: #18181B;
+  --layer-low: #27272A;
+  --content-highlight: #FAFAFA;
+  --content-primary: #E4E4E7;
+  --content-subtle: #A1A1AA;
+  --border-subtle: #27272A;
+  --border-strong: #3F3F46;
+}
+*/
