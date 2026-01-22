@@ -3,43 +3,43 @@
 import { useState } from 'react';
 
 const brandColors = [
-  { name: 'Brand', value: '#F472B6', token: '--color-brand', textColor: '#FFFFFF' },
-  { name: 'Brand Hover', value: '#EC4899', token: '--color-brand-hover', textColor: '#FFFFFF' },
-  { name: 'Brand Soft', value: '#FDF2F8', token: '--color-brand-soft', textColor: '#F472B6' },
+  { name: 'Brand', value: '#F37BB5', token: '--color-brand', textColor: '#FFFFFF' },
+  { name: 'Brand Hover', value: '#E85DA0', token: '--color-brand-hover', textColor: '#FFFFFF' },
+  { name: 'Brand Soft', value: '#FDF2F8', token: '--color-brand-soft', textColor: '#F37BB5' },
 ];
 
 const combinationSets = [
   {
     name: 'Set 1 - Blossom',
-    description: '핑크 + 라벤더 유사색 조화',
+    description: '핑크 → 보라 소프트 그라디언트',
     colors: [
-      { value: '#F472B6', name: 'Pink' },
-      { value: '#E879F9', name: 'Fuchsia' },
-      { value: '#C4B5FD', name: 'Lavender' },
-      { value: '#FDF2F8', name: 'Pink 50' },
-      { value: '#FFFFFF', name: 'White' },
+      { value: '#F37BB5', name: 'Pink' },
+      { value: '#E89BC6', name: 'Pink Mauve' },
+      { value: '#DAADD8', name: 'Mauve' },
+      { value: '#CCBFE8', name: 'Lavender' },
+      { value: '#C4B5FD', name: 'Soft Violet' },
     ],
   },
   {
     name: 'Set 2 - Sunrise',
-    description: '핑크 + 피치/코랄 따뜻한 조화',
+    description: '주황 → 노랑 소프트 그라디언트',
     colors: [
-      { value: '#F472B6', name: 'Pink' },
-      { value: '#FB7185', name: 'Rose' },
-      { value: '#FDBA74', name: 'Peach' },
-      { value: '#FEF3C7', name: 'Yellow 50' },
-      { value: '#FFFBEB', name: 'Cream' },
+      { value: '#FDBA74', name: 'Soft Orange' },
+      { value: '#FDC88A', name: 'Peach' },
+      { value: '#FDE68A', name: 'Soft Yellow' },
+      { value: '#FEF08A', name: 'Light Yellow' },
+      { value: '#FEF9C3', name: 'Cream' },
     ],
   },
   {
-    name: 'Set 3 - Ocean Breeze',
-    description: '핑크 + 민트/스카이 대비 조화',
+    name: 'Set 3 - Meadow',
+    description: '초록 → 하늘 소프트 그라디언트',
     colors: [
-      { value: '#F472B6', name: 'Pink' },
-      { value: '#5EEAD4', name: 'Mint' },
-      { value: '#7DD3FC', name: 'Sky' },
-      { value: '#ECFEFF', name: 'Cyan 50' },
-      { value: '#F0FDF4', name: 'Green 50' },
+      { value: '#B5E8C3', name: 'Soft Green' },
+      { value: '#B8E5D8', name: 'Mint' },
+      { value: '#C2E6E6', name: 'Teal' },
+      { value: '#C9E8F0', name: 'Cyan' },
+      { value: '#D4EAFA', name: 'Soft Sky' },
     ],
   },
 ];
@@ -54,7 +54,7 @@ const contentColors = [
 const borderColors = [
   { name: 'Subtle', value: '#F3F4F6', token: '--border-subtle' },
   { name: 'Medium', value: '#E5E7EB', token: '--border-medium' },
-  { name: 'Brand', value: '#F472B6', token: '--border-brand' },
+  { name: 'Brand', value: '#F37BB5', token: '--border-brand' },
 ];
 
 const statusColors = [
@@ -64,10 +64,10 @@ const statusColors = [
 ];
 
 const shadowTokens = [
-  { name: 'sm', value: '0 1px 2px rgba(244, 114, 182, 0.05)' },
-  { name: 'md', value: '0 4px 12px rgba(244, 114, 182, 0.08)' },
-  { name: 'lg', value: '0 8px 24px rgba(244, 114, 182, 0.1)' },
-  { name: 'xl', value: '0 16px 32px rgba(244, 114, 182, 0.12)' },
+  { name: 'sm', value: '0 1px 2px rgba(243, 123, 181, 0.05)' },
+  { name: 'md', value: '0 4px 12px rgba(243, 123, 181, 0.08)' },
+  { name: 'lg', value: '0 8px 24px rgba(243, 123, 181, 0.1)' },
+  { name: 'xl', value: '0 16px 32px rgba(243, 123, 181, 0.12)' },
 ];
 
 const typographyTokens = [
@@ -79,7 +79,7 @@ const typographyTokens = [
   { name: 'Body R', size: '14px', weight: '400', lineHeight: '1.5' },
 ];
 
-const miniPrompt = `Soft Gradient 디자인 가이드:
+const prompt = `Soft Gradient 디자인 가이드:
 
 [디자인 철학]
 - 부드러운 색상이 따뜻하고 친근한 느낌을 만든다
@@ -94,18 +94,25 @@ const miniPrompt = `Soft Gradient 디자인 가이드:
 - 부드러운 트랜지션으로 우아한 인터랙션
 
 [컬러]
-- Primary: #F472B6 (Pink), Hover: #EC4899
+- Primary: #F37BB5 (Pink), Hover: #E85DA0
 - Background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)
 - Secondary BG: #FDF2F8, Cards: #FFFFFF
 - Text: #1F2937 (제목), #4B5563 (본문), #9CA3AF (보조)
-- Border: #E5E7EB, Focus: #F472B6
+- Border: #E5E7EB, Focus: #F37BB5
 
 [사이즈]
 - Spacing: 요소 내부 12px, 요소 간격 16px, 섹션 간격 48px
 - Radius: 버튼/인풋 10~12px, 카드 14~16px, 배지 pill (13px)
 - 버튼: 44px (기본), 36px (소형)
 - 인풋: 44px
-- Font: Pretendard, 14px 본문, 32px 디스플레이`;
+- Font: Pretendard, 14px 본문, 32px 디스플레이
+
+[적용 가이드]
+이 가이드는 기본 지침이며, 앱의 특성과 성격에 따라 유연하게 조정하세요:
+- 웹 vs 모바일: 모바일은 터치 타겟 48px 이상, 대중적인 디바이스의 기준을 따른다.
+- 정보 밀도: 대시보드는 적당히 촘촘하게, 랜딩/마케팅은 여유롭게
+- 브랜드 톤: 친근함은 컬러를 조금 더 사용하고, 신뢰감은 화이트 위주 + 포인트 컬러는 적게
+→ 컬러와 디자인 철학은 유지하되, 사이즈/간격/컬러 사용량은 상황에 맞게 조정`;
 
 export default function SoftGradientPage() {
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
@@ -284,12 +291,12 @@ export default function SoftGradientPage() {
                 display: 'inline-block',
                 padding: '4px 12px',
                 background: '#FDF2F8',
-                color: '#F472B6',
+                color: '#F37BB5',
                 borderRadius: '20px',
                 fontSize: '11px',
                 fontWeight: 600,
                 marginBottom: '16px',
-                border: '1px solid rgba(244, 114, 182, 0.2)',
+                border: '1px solid rgba(243, 123, 181, 0.2)',
               }}>Introducing SoftUI</span>
               <div style={{
                 fontSize: '32px',
@@ -299,7 +306,7 @@ export default function SoftGradientPage() {
                 marginBottom: '12px',
               }}>
                 Design with <span style={{
-                  color: '#F472B6',
+                  color: '#F37BB5',
                 }}>warmth</span>
               </div>
               <p style={{
@@ -344,7 +351,7 @@ export default function SoftGradientPage() {
               height: '220px',
               background: 'rgba(255, 255, 255, 0.6)',
               borderRadius: '16px',
-              border: '1px solid rgba(244, 114, 182, 0.1)',
+              border: '1px solid rgba(243, 123, 181, 0.1)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -355,9 +362,9 @@ export default function SoftGradientPage() {
                 height: '85%',
                 background: 'linear-gradient(135deg, #FFFFFF 0%, #FDF2F8 100%)',
                 borderRadius: '12px',
-                border: '1px solid rgba(244, 114, 182, 0.15)',
+                border: '1px solid rgba(243, 123, 181, 0.15)',
                 padding: '16px',
-                boxShadow: '0 8px 24px rgba(244, 114, 182, 0.1)',
+                boxShadow: '0 8px 24px rgba(243, 123, 181, 0.1)',
               }}>
                 <div style={{ display: 'flex', gap: '6px', marginBottom: '14px' }}>
                   <div style={{ width: '10px', height: '10px', background: '#FECACA', borderRadius: '50%' }} />
@@ -365,7 +372,7 @@ export default function SoftGradientPage() {
                   <div style={{ width: '10px', height: '10px', background: '#A7F3D0', borderRadius: '50%' }} />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  <div style={{ width: '60%', height: '10px', background: 'linear-gradient(90deg, #F472B6 0%, #FDF2F8 100%)', borderRadius: '5px' }} />
+                  <div style={{ width: '60%', height: '10px', background: 'linear-gradient(90deg, #F37BB5 0%, #FDF2F8 100%)', borderRadius: '5px' }} />
                   <div style={{ width: '80%', height: '8px', background: '#F3F4F6', borderRadius: '4px' }} />
                   <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
                     <div style={{ width: '60px', height: '24px', background: 'rgba(255, 255, 255, 0.9)', borderRadius: '6px', border: '1px solid #E5E7EB' }} />
@@ -476,8 +483,8 @@ export default function SoftGradientPage() {
                 height: '36px',
                 padding: '0 20px',
                 background: 'transparent',
-                color: '#F472B6',
-                border: '1px solid #F472B6',
+                color: '#F37BB5',
+                border: '1px solid #F37BB5',
                 borderRadius: '10px',
                 fontSize: '13px',
                 fontWeight: 600,
@@ -500,7 +507,7 @@ export default function SoftGradientPage() {
               <div style={{
                 width: '18px',
                 height: '18px',
-                background: '#F472B6',
+                background: '#F37BB5',
                 borderRadius: '5px',
               }} />
               <span style={{ fontWeight: 600, fontSize: '12px', color: '#4B5563' }}>SoftUI Design</span>
@@ -537,7 +544,7 @@ export default function SoftGradientPage() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: ['#F472B6', '#EC4899', '#E879F9'].includes(color.value) ? '#FFFFFF' : '#4B5563',
+                      color: ['#F37BB5', '#E89BC6'].includes(color.value) ? '#FFFFFF' : '#4B5563',
                       fontSize: '11px',
                       fontWeight: 300,
                     }}
@@ -557,9 +564,9 @@ export default function SoftGradientPage() {
         <h2 className="section-title">Mini Prompt</h2>
         <p className="section-desc">AI에게 바로 붙여넣을 수 있는 Soft Gradient 디자인 지침입니다.</p>
         <div style={{ position: 'relative' }}>
-          <pre><code>{miniPrompt}</code></pre>
+          <pre><code>{prompt}</code></pre>
           <button
-            onClick={() => copyToClipboard(miniPrompt)}
+            onClick={() => copyToClipboard(prompt)}
             style={{
               position: 'absolute',
               top: 'var(--spacing-2)',
@@ -652,7 +659,7 @@ export default function SoftGradientPage() {
                 alignItems: 'center',
                 justifyContent: 'flex-end',
                 padding: '8px',
-                color: color.value === '#F472B6' ? '#FFFFFF' : '#4B5563',
+                color: color.value === '#F37BB5' ? '#FFFFFF' : '#4B5563',
                 fontSize: '11px',
                 fontWeight: 300,
               }}
@@ -782,8 +789,8 @@ export default function SoftGradientPage() {
             height: '36px',
             padding: '8px 16px',
             background: '#FDF2F8',
-            color: '#F472B6',
-            border: '1px solid rgba(244, 114, 182, 0.2)',
+            color: '#F37BB5',
+            border: '1px solid rgba(243, 123, 181, 0.2)',
             borderRadius: '10px',
             fontSize: '14px',
             fontWeight: 500,
@@ -812,12 +819,12 @@ export default function SoftGradientPage() {
             style={{
               height: '44px',
               padding: '10px 16px',
-              border: '2px solid #F472B6',
+              border: '2px solid #F37BB5',
               borderRadius: '10px',
               fontSize: '14px',
               outline: 'none',
               background: '#FFFFFF',
-              boxShadow: '0 0 0 3px rgba(244, 114, 182, 0.1)',
+              boxShadow: '0 0 0 3px rgba(243, 123, 181, 0.1)',
             }}
           />
           <input
@@ -840,9 +847,9 @@ export default function SoftGradientPage() {
           <div style={{
             padding: '24px',
             background: 'linear-gradient(135deg, #FFFFFF 0%, #FDF2F8 100%)',
-            border: '1px solid rgba(244, 114, 182, 0.1)',
+            border: '1px solid rgba(243, 123, 181, 0.1)',
             borderRadius: '16px',
-            boxShadow: '0px 8px 24px rgba(244, 114, 182, 0.1)',
+            boxShadow: '0px 8px 24px rgba(243, 123, 181, 0.1)',
           }}>
             <div style={{ fontSize: '16px', fontWeight: 600, color: '#1F2937', marginBottom: '8px' }}>Gradient Card</div>
             <div style={{ fontSize: '14px', color: '#9CA3AF' }}>Beautiful soft gradient background.</div>
@@ -865,13 +872,13 @@ export default function SoftGradientPage() {
             height: '26px',
             padding: '0 12px',
             background: '#FDF2F8',
-            color: '#F472B6',
+            color: '#F37BB5',
             borderRadius: '13px',
             fontSize: '12px',
             fontWeight: 600,
             display: 'inline-flex',
             alignItems: 'center',
-            border: '1px solid rgba(244, 114, 182, 0.2)',
+            border: '1px solid rgba(243, 123, 181, 0.2)',
           }}>Brand</span>
           <span style={{
             height: '26px',
