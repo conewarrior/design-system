@@ -28,6 +28,7 @@ const docsNavigation: NavGroup[] = [
     title: 'Foundations',
     links: [
       { href: '/tokens/', label: 'Design Tokens' },
+      { href: '/rules/', label: 'Design Rules' },
     ],
   },
   {

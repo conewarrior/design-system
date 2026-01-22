@@ -17,6 +17,7 @@
 | update-dashboard | [update-dashboard.design.md](./features/update-dashboard.design.md) | ✅ Done | 2026-01-21 |
 | changelog | [changelog.design.md](./features/changelog.design.md) | ✅ Done | 2026-01-21 |
 | navigation-restructure | [navigation-restructure.design.md](./features/navigation-restructure.design.md) | 📐 Design | 2026-01-21 |
+| design-rules-update | [design-rules-update.design.md](./features/design-rules-update.design.md) | ✅ Done | 2026-01-21 |
 
 ---
 

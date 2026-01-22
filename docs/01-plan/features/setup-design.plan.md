@@ -43,6 +43,9 @@ design-system/
 user-project/
 ├── CLAUDE.md                    # (수정) design-rules 참조 추가
 ├── package.json                 # (수정) @geniefy/ui 의존성 추가
+├── .claude/
+│   └── skills/
+│       └── design-rules.md      # (복사) 양방향 동기화 대상
 └── .github/
     ├── dependabot.yml           # (생성) 자동 업데이트
     └── workflows/
@@ -59,11 +62,12 @@ user-project/
 1. 프로젝트 타입 감지 (Next.js/React/HTML)
 2. `npm install @geniefy/ui`
 3. 토큰 import 추가 안내
-4. CLAUDE.md 업데이트
-5. Hook 설정
-6. GitHub 토큰 확인
-7. Dependabot + auto-merge 설정
-8. 완료 메시지
+4. **design-rules.md 복사** (node_modules → .claude/skills/)
+5. CLAUDE.md 업데이트
+6. Hook 설정
+7. GitHub 토큰 확인
+8. Dependabot + auto-merge 설정
+9. 완료 메시지
 
 ### 3.2 design-rules Skill (skills/design-rules.md)
 
@@ -87,6 +91,7 @@ user-project/
 
 **동작:**
 - `components/` 폴더에 파일 생성/수정 시 자동 실행
+- `.claude/skills/design-rules.md` 수정 시 자동 실행
 - GitHub API로 design-system 저장소에 직접 커밋
 - GITHUB_TOKEN 필요 (없으면 조용히 스킵)
 
@@ -122,7 +127,7 @@ feat: Auto-contribute components/Card/index.tsx
         "hooks": [
           {
             "type": "command",
-            "command": "if [[ \"$CLAUDE_TOOL_ARG_file_path\" == *\"components/\"* ]]; then .claude/scripts/auto-contribute.sh \"$CLAUDE_TOOL_ARG_file_path\"; fi"
+            "command": "if [[ \"$CLAUDE_TOOL_ARG_file_path\" == *\"components/\"* ]] || [[ \"$CLAUDE_TOOL_ARG_file_path\" == *\"design-rules.md\"* ]]; then .claude/scripts/auto-contribute.sh \"$CLAUDE_TOOL_ARG_file_path\"; fi"
           }
         ]
       }
@@ -156,6 +161,7 @@ feat: Auto-contribute components/Card/index.tsx
 ┌─────────────────────────────────────────────────────────────┐
 │                    design-system (중앙)                      │
 │  components/ ←────────────────────────────────────────────┐ │
+│  .claude/skills/design-rules.md ←─────────────────────────┤ │
 │  tokens.css                                               │ │
 │  @geniefy/ui (npm)                                        │ │
 └─────────────────────────────────────────────────────────────┘
@@ -166,9 +172,18 @@ feat: Auto-contribute components/Card/index.tsx
 ┌─────────────────────────────────────────────────────────────┐
 │                    사용자 프로젝트                           │
 │  - @geniefy/ui 사용                                        │
-│  - components/ 생성 시 자동 기여 ──────────────────────────┘ │
+│  - .claude/skills/design-rules.md (복사본)                 │
+│  - components/ 생성 시 자동 기여 ──────────────────────────┤ │
+│  - design-rules.md 수정 시 자동 기여 ─────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+### 4.1 design-rules.md 동기화 상세
+
+| 방향 | 트리거 | 결과 |
+|------|--------|------|
+| 다운스트림 | npm install/update | node_modules → .claude/skills/ 복사 |
+| 업스트림 | .claude/skills/design-rules.md 수정 | auto-contribute → 중앙 저장소 커밋 |
 
 ---
 

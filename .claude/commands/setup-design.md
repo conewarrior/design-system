@@ -4,6 +4,7 @@
 
 **한 번 실행으로 완료되는 항목:**
 - npm 패키지 설치
+- design-rules.md 복사 (양방향 동기화 대상)
 - CLAUDE.md에 디자인 규칙 추가
 - UI 생성 시 규칙 자동 적용 (Hook)
 - Dependabot 자동 업데이트 설정
@@ -39,7 +40,16 @@ import '@geniefy/ui/tokens.css';
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css">
 ```
 
-### Step 3: CLAUDE.md 설정
+### Step 3: design-rules.md 복사
+npm 패키지에서 프로젝트로 design-rules.md를 복사합니다.
+이 복사본이 양방향 동기화 대상이 됩니다.
+
+```bash
+mkdir -p .claude/skills
+cp node_modules/@geniefy/ui/.claude/skills/design-rules.md .claude/skills/
+```
+
+### Step 3.5: CLAUDE.md 설정
 기존 CLAUDE.md를 읽고, 없으면 새로 생성합니다.
 다음 내용을 CLAUDE.md에 추가합니다:
 
@@ -73,18 +83,22 @@ components/ 폴더에 새 컴포넌트 생성 시 자동으로 design-system 저
     "UserPromptSubmit": [
       {
         "matcher": "UI|컴포넌트|버튼|카드|폼|레이아웃|스타일|CSS|디자인",
-        "command": "cat ~/.claude/skills/design-rules.md"
+        "command": "cat .claude/skills/design-rules.md"
       }
     ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit",
-        "command": "if [[ \"$CLAUDE_TOOL_ARG_file_path\" == *\"components/\"* ]]; then ~/.claude/scripts/auto-contribute.sh \"$CLAUDE_TOOL_ARG_file_path\"; fi"
+        "command": "if [[ \"$CLAUDE_TOOL_ARG_file_path\" == *\"components/\"* ]] || [[ \"$CLAUDE_TOOL_ARG_file_path\" == *\"design-rules.md\"* ]]; then .claude/scripts/auto-contribute.sh \"$CLAUDE_TOOL_ARG_file_path\"; fi"
       }
     ]
   }
 }
 ```
+
+**Hook 설명:**
+- `UserPromptSubmit`: UI 관련 키워드 입력 시 프로젝트 내 design-rules.md 로딩
+- `PostToolUse`: components/ 또는 design-rules.md 변경 시 자동 기여
 
 ### Step 5: GitHub 토큰 확인
 GITHUB_TOKEN 환경변수가 설정되어 있는지 확인합니다.
@@ -215,13 +229,14 @@ jobs:
 
 설치된 항목:
 - npm 패키지: @geniefy/ui
+- design-rules.md: .claude/skills/에 복사됨
 - CLAUDE.md: 디자인 규칙 추가됨
 - Hook: UI 생성 시 자동 규칙 적용
-- Hook: 컴포넌트 생성 시 자동 기여
+- Hook: 컴포넌트/규칙 변경 시 자동 기여
 - Dependabot: 자동 업데이트 + 자동 머지
 
 양방향 동기화:
-- 업로드: components/ 폴더에 생성 → 자동 커밋
+- 업로드: components/ 또는 design-rules.md 변경 → 자동 커밋
 - 다운로드: 새 버전 배포 → Dependabot PR → 자동 머지
 
 토큰 참조:
