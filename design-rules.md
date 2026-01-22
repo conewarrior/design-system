@@ -273,9 +273,51 @@ tokens.css와 @geniefy/ui에서 사용할 요소를 선택한다.
 
 ---
 
-## 5. 컴포넌트 사용 규칙
+## 5. 토큰 보호 규칙 (Token Safety)
 
-### 5.1 @geniefy/ui 우선 사용
+CDN으로 즉시 반영되는 tokens.css의 Breaking Change를 방지하기 위한 규칙.
+
+### 5.1 토큰 삭제 금지
+
+**기존 토큰명을 삭제하거나 변경하면 Breaking Change 발생**
+
+```css
+/* ❌ 금지: 기존 토큰 삭제 */
+/* --color-primary 삭제 시 모든 프로젝트 스타일 깨짐 */
+
+/* ❌ 금지: 기존 토큰명 변경 */
+/* --color-primary → --color-brand 변경 불가 */
+
+/* ✅ 허용: 새 토큰 추가 */
+--color-brand: #327039;  /* 새 토큰 추가는 안전 */
+
+/* ✅ 허용: 기존 토큰 값 변경 */
+--color-primary: #327039;  /* 값 변경은 의도적 디자인 변경 */
+```
+
+### 5.2 토큰 변경 시 검증 체크리스트
+
+```
+토큰 변경 전 확인:
+- [ ] 삭제하려는 토큰을 사용 중인 프로젝트가 없는가?
+- [ ] 토큰명 변경 시 모든 프로젝트에서 동시 업데이트 가능한가?
+- [ ] 대체 토큰이 있다면 마이그레이션 가이드를 작성했는가?
+- [ ] CODEOWNERS 리뷰를 받았는가?
+```
+
+### 5.3 Safety Guard 체계
+
+| 보호 장치 | 파일 | 역할 |
+|----------|------|------|
+| CODEOWNERS | `.github/CODEOWNERS` | tokens.css 변경 시 관리자 리뷰 필수 |
+| CI Check | `.github/workflows/token-change-check.yml` | PR에서 토큰 삭제 감지 및 경고 |
+| Generation Protocol | Step 3 검증 | 토큰 미사용 코드 생성 차단 |
+
+---
+
+## 6. 컴포넌트 사용 규칙
+
+### 6.1 @geniefy/ui 우선 사용
 
 동일 기능의 컴포넌트가 `@geniefy/ui`에 있으면 반드시 사용한다.
 
@@ -287,7 +329,7 @@ import { Button, Card, Input } from '@geniefy/ui';
 const MyButton = () => <button className="...">...</button>;
 ```
 
-### 5.2 커스텀 컴포넌트 생성 시
+### 6.2 커스텀 컴포넌트 생성 시
 
 @geniefy/ui에 없는 컴포넌트만 생성하며, 토큰 규칙을 준수한다.
 
@@ -317,3 +359,4 @@ const StatCard = ({ label, value }) => (
 |------|------|-----------|
 | 2026-01-19 | v0.1 | 초기 스캐폴딩 (구조만) |
 | 2026-01-19 | v1.0 | 모호 표현 금지, 필수 제약 5가지, Generation Protocol 4단계, 토큰 예시 추가 |
+| 2026-01-22 | v1.1 | Token Safety 섹션 추가 (CODEOWNERS, CI Check, 토큰 보호 규칙) |

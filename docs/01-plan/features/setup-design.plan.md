@@ -30,10 +30,16 @@ design-system/
 │   ├── commands/
 │   │   └── setup-design.md      ✅ 설치 명령어
 │   ├── skills/
-│   │   └── design-rules.md      ✅ UI 생성 규칙
+│   │   └── design-rules.md      ✅ UI 생성 규칙 + Token Safety
 │   ├── scripts/
 │   │   └── auto-contribute.sh   ✅ 자동 기여 스크립트
 │   └── settings.local.json      ✅ Hook 설정
+├── .github/
+│   ├── CODEOWNERS               ✅ tokens.css 변경 시 리뷰 필수
+│   └── workflows/
+│       ├── publish.yml          ✅ npm 자동 배포
+│       ├── dependabot-auto-merge.yml  ✅ 자동 머지
+│       └── token-change-check.yml     ✅ 토큰 변경 감지
 └── ...
 ```
 
@@ -152,6 +158,30 @@ feat: Auto-contribute components/Card/index.tsx
 | patch (0.0.x) | CI 통과 후 자동 머지 |
 | minor (0.x.0) | CI 통과 후 자동 머지 |
 | major (x.0.0) | 수동 리뷰 필요 (코멘트 알림) |
+
+### 3.7 Token Safety Guard (2026-01-22 추가)
+
+CDN으로 즉시 반영되는 tokens.css의 Breaking Change를 방지하기 위한 안전장치.
+
+**구성 파일:**
+| 파일 | 역할 |
+|------|------|
+| `.github/CODEOWNERS` | tokens.css 변경 시 관리자 리뷰 필수 |
+| `.github/workflows/token-change-check.yml` | PR에서 토큰 삭제 감지 및 경고 |
+| `.claude/skills/design-rules.md` | 토큰 보호 규칙 (섹션 3) |
+
+**token-change-check.yml 동작:**
+1. PR에서 tokens.css 변경 감지
+2. base 브랜치와 토큰명 비교
+3. 삭제된 토큰 있으면 경고 코멘트 추가
+4. 추가된 토큰만 있으면 Safe 표시
+
+**CODEOWNERS 보호 대상:**
+- `/tokens.css` - 토큰 파일
+- `/package.json` - 패키지 설정
+- `/.github/workflows/` - CI/CD 워크플로우
+- `/.claude/skills/design-rules.md` - 규칙 파일
+- `/components/` - 컴포넌트
 
 ---
 

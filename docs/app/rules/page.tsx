@@ -22,20 +22,6 @@ export default function RulesPage() {
           <RenderSection key={i} section={section} />
         ))}
       </article>
-
-      <section className="rules-changelog">
-        <h2>Changelog</h2>
-        <div className="changelog-list">
-          <div className="changelog-item">
-            <span className="changelog-date">2026-01-21</span>
-            <span className="changelog-desc">Generation Protocol 4단계 추가, 컴포넌트 사용 규칙 명시</span>
-          </div>
-          <div className="changelog-item">
-            <span className="changelog-date">2026-01-20</span>
-            <span className="changelog-desc">초기 버전 - 토큰 규칙 정의</span>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

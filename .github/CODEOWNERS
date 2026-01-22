@@ -1,0 +1,21 @@
+# CODEOWNERS - 코드 리뷰 필수 파일 지정
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# tokens.css 변경 시 디자인 시스템 관리자 리뷰 필수
+# CDN으로 즉시 반영되므로 신중한 변경 필요
+/tokens.css @geniefy/design-system-admins
+
+# 루트 설정 파일들 - 관리자 리뷰 필수
+/package.json @geniefy/design-system-admins
+/tsconfig.json @geniefy/design-system-admins
+
+# CI/CD 워크플로우 변경 - 관리자 리뷰 필수
+/.github/workflows/ @geniefy/design-system-admins
+
+# design-rules 변경 - 관리자 리뷰 필수
+# 모든 프로젝트에 영향을 미치는 규칙
+/.claude/skills/design-rules.md @geniefy/design-system-admins
+/design-rules.md @geniefy/design-system-admins
+
+# 컴포넌트 변경 - npm 배포되므로 리뷰 권장
+/components/ @geniefy/design-system-admins

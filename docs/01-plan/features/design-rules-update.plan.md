@@ -82,7 +82,24 @@ design-rules.md는 양방향 동기화를 지원합니다.
 
 ---
 
-## 7. 참고자료
+## 7. Token Safety Guard (2026-01-22 추가)
+
+design-rules.md에 토큰 보호 규칙(섹션 3)이 추가되었습니다.
+
+### 추가된 규칙
+- **3.1 토큰 삭제 금지**: 기존 토큰명 삭제/변경 시 Breaking Change 경고
+- **3.2 토큰 변경 시 검증 체크리스트**: 삭제 전 확인 항목
+- **3.3 Safety Guard 체계**: CODEOWNERS + CI + Generation Protocol
+
+### 관련 파일
+| 파일 | 역할 |
+|------|------|
+| `.github/CODEOWNERS` | tokens.css, design-rules.md 변경 시 리뷰 필수 |
+| `.github/workflows/token-change-check.yml` | PR에서 토큰 삭제 감지 |
+
+---
+
+## 8. 참고자료
 
 - [design-rules.md](/.claude/skills/design-rules.md) - 원본 파일
 - [Sidebar.tsx](/docs/ui/Sidebar.tsx) - 사이드바 네비게이션

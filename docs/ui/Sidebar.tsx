@@ -25,10 +25,23 @@ const docsNavigation: NavGroup[] = [
     ],
   },
   {
+    title: 'Rules',
+    links: [
+      { href: '/rules/philosophy/', label: 'Philosophy' },
+      { href: '/rules/', label: 'Markdown' },
+      { href: '/rules/changelog/', label: 'Changelog' },
+    ],
+  },
+  {
     title: 'Foundations',
     links: [
-      { href: '/tokens/', label: 'Design Tokens' },
-      { href: '/rules/', label: 'Design Rules' },
+      { href: '/tokens/', label: 'Overview' },
+      { href: '/tokens/colors/', label: 'Colors' },
+      { href: '/tokens/typography/', label: 'Typography' },
+      { href: '/tokens/spacing/', label: 'Spacing' },
+      { href: '/tokens/radius/', label: 'Radius' },
+      { href: '/tokens/border/', label: 'Border' },
+      { href: '/tokens/effects/', label: 'Effects' },
     ],
   },
   {

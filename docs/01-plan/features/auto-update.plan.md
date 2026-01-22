@@ -180,9 +180,10 @@ jobs:
 - [x] auto-merge workflow 템플릿 작성
 - [x] /setup-design 명령어에 포함
 
-### Phase 2: 알림 연동
+### Phase 2: 알림 연동 + Safety Guard (2026-01-22 추가)
 - [ ] Slack/Discord 알림 추가
-- [ ] Breaking change 감지 시 자동 머지 스킵
+- [x] Breaking change 감지 시 경고 (token-change-check.yml)
+- [x] CODEOWNERS로 리뷰 필수화
 - [ ] 업데이트 대시보드
 
 ### Phase 3: 고급 기능
@@ -209,7 +210,41 @@ jobs:
 
 ---
 
-## 8. 고려사항
+## 8. Token Safety Guard (2026-01-22 추가)
+
+CDN으로 배포되는 tokens.css는 버전 관리 없이 즉시 반영되므로, Breaking Change 방지를 위한 별도 안전장치 필요.
+
+### 구현된 보호 장치
+
+| 파일 | 역할 |
+|------|------|
+| `.github/CODEOWNERS` | tokens.css 변경 시 관리자 리뷰 필수 |
+| `.github/workflows/token-change-check.yml` | PR에서 토큰 삭제 감지 |
+| `.claude/skills/design-rules.md` 섹션 3 | 토큰 보호 규칙 명시 |
+
+### token-change-check.yml 동작 흐름
+
+```
+1. PR에서 tokens.css 변경 감지
+       ↓
+2. base 브랜치와 토큰명 비교
+       ↓
+3. 삭제된 토큰 있으면
+       ↓
+4. PR에 경고 코멘트 추가
+   "⚠️ Breaking Change: 다음 토큰이 삭제됩니다"
+```
+
+### 보호 대상 (CODEOWNERS)
+- `/tokens.css` - CDN 배포 토큰
+- `/package.json` - 패키지 메타데이터
+- `/.github/workflows/` - CI/CD
+- `/.claude/skills/design-rules.md` - UI 규칙
+- `/components/` - npm 배포 컴포넌트
+
+---
+
+## 9. 고려사항
 
 ### 보안
 - Dependabot은 GitHub 공식 기능으로 안전
@@ -225,8 +260,9 @@ jobs:
 
 ---
 
-## 9. 참고
+## 10. 참고
 
 - [Dependabot 문서](https://docs.github.com/en/code-security/dependabot)
 - [Auto-merge PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)
+- [CODEOWNERS 문서](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)
 - [setup-design.md](/setup-design 명령어)
