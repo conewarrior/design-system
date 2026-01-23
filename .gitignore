@@ -13,3 +13,4 @@ docs/out/
 
 # PDCA status
 .pdca-status.json
+.DS_Store
