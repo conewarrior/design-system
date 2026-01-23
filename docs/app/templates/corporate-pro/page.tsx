@@ -21,25 +21,25 @@ const combinationSets = [
     ],
   },
   {
-    name: 'Set 2 - Data',
-    description: '블루 + 그린/오렌지 (데이터 시각화)',
+    name: 'Set 2 - Navy',
+    description: '블루 + 네이비 (깊이감 있는 신뢰)',
     colors: [
       { value: '#007AFF', name: 'Blue' },
-      { value: '#16A34A', name: 'Green' },
-      { value: '#D97706', name: 'Orange' },
-      { value: '#7C3AED', name: 'Purple' },
-      { value: '#64748B', name: 'Slate' },
+      { value: '#1E3A5F', name: 'Navy' },
+      { value: '#0F172A', name: 'Dark Navy' },
+      { value: '#CBD5E1', name: 'Slate 300' },
+      { value: '#F1F5F9', name: 'Slate 100' },
     ],
   },
   {
-    name: 'Set 3 - Status',
-    description: '상태 표시용 컬러 조합',
+    name: 'Set 3 - Teal Accent',
+    description: '블루 + 틸 (테크/혁신 느낌)',
     colors: [
-      { value: '#007AFF', name: 'Info' },
-      { value: '#16A34A', name: 'Success' },
-      { value: '#D97706', name: 'Warning' },
-      { value: '#DC2626', name: 'Error' },
-      { value: '#64748B', name: 'Neutral' },
+      { value: '#007AFF', name: 'Blue' },
+      { value: '#0D9488', name: 'Teal' },
+      { value: '#0F172A', name: 'Dark' },
+      { value: '#CCFBF1', name: 'Teal 100' },
+      { value: '#F0FDFA', name: 'Teal 50' },
     ],
   },
 ];
@@ -79,7 +79,7 @@ const typographyTokens = [
   { name: 'Body R', size: '14px', weight: '400', lineHeight: '20px' },
 ];
 
-const miniPrompt = `Corporate Pro 디자인 가이드:
+const prompt = `Corporate Pro 디자인 가이드:
 
 [디자인 철학]
 - 블루는 신뢰, 안정, 전문성을 전달한다. 비즈니스의 핵심 가치
@@ -104,7 +104,14 @@ const miniPrompt = `Corporate Pro 디자인 가이드:
 - Radius: 버튼/인풋 6px, 카드 8px, 배지 4px
 - 버튼: 36px (기본), 44px (큰 CTA)
 - 인풋: 44px
-- Font: Pretendard, 14px 본문, 24px 타이틀`;
+- Font: Pretendard, 14px 본문, 24px 타이틀
+
+[적용 가이드]
+이 가이드는 기본 지침이며, 앱의 특성과 성격에 따라 유연하게 조정하세요:
+- 웹 vs 모바일: 모바일은 터치 타겟 48px 이상, 대중적인 디바이스의 기준을 따른다.
+- 정보 밀도: 대시보드는 적당히 촘촘하게, 랜딩/마케팅은 여유롭게
+- 브랜드 톤: 친근함은 컬러를 조금 더 사용하고, 신뢰감은 화이트 위주 + 포인트 컬러는 적게
+→ 컬러와 디자인 철학은 유지하되, 사이즈/간격/컬러 사용량은 상황에 맞게 조정`;
 
 export default function CorporateProPage() {
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
@@ -463,7 +470,7 @@ export default function CorporateProPage() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: ['#0F172A', '#1E293B', '#007AFF', '#0066CC', '#16A34A', '#D97706', '#DC2626', '#7C3AED', '#64748B'].includes(color.value) ? '#FFFFFF' : '#1E293B',
+                      color: ['#0F172A', '#1E293B', '#007AFF', '#0066CC', '#1E3A5F', '#0D9488', '#64748B'].includes(color.value) ? '#FFFFFF' : '#1E293B',
                       fontSize: '11px',
                       fontWeight: 300,
                     }}
@@ -480,12 +487,12 @@ export default function CorporateProPage() {
 
       {/* 미니 프롬프트 섹션 */}
       <section>
-        <h2 className="section-title">Mini Prompt</h2>
+        <h2 className="section-title">Prompt</h2>
         <p className="section-desc">AI에게 바로 붙여넣을 수 있는 디자인 지침입니다.</p>
         <div style={{ position: 'relative' }}>
-          <pre><code>{miniPrompt}</code></pre>
+          <pre><code>{prompt}</code></pre>
           <button
-            onClick={() => copyToClipboard(miniPrompt)}
+            onClick={() => copyToClipboard(prompt)}
             style={{
               position: 'absolute',
               top: 'var(--spacing-2)',

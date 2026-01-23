@@ -11,35 +11,35 @@ const brandColors = [
 const combinationSets = [
   {
     name: 'Set 1 - Cosmic',
-    description: '퍼플 + 블루 + 핑크 코스믹',
+    description: '퍼플 + 블루 우주 느낌',
     colors: [
       { value: '#A855F7', name: 'Purple' },
-      { value: '#3B82F6', name: 'Blue' },
-      { value: '#EC4899', name: 'Pink' },
-      { value: '#06B6D4', name: 'Cyan' },
-      { value: 'rgba(255,255,255,0.2)', name: 'Glass' },
-    ],
-  },
-  {
-    name: 'Set 2 - Neon',
-    description: '시안 + 퍼플 네온 글로우',
-    colors: [
-      { value: '#06B6D4', name: 'Cyan' },
       { value: '#8B5CF6', name: 'Violet' },
-      { value: '#F472B6', name: 'Pink' },
-      { value: '#22D3EE', name: 'Sky' },
-      { value: 'rgba(255,255,255,0.15)', name: 'Glass' },
+      { value: '#3B82F6', name: 'Blue' },
+      { value: '#1E1B4B', name: 'Deep Space' },
+      { value: '#E9D5FF', name: 'Light Purple' },
     ],
   },
   {
-    name: 'Set 3 - Aurora',
-    description: '블루 + 그린 + 퍼플 오로라',
+    name: 'Set 2 - Sunset',
+    description: '오렌지 + 핑크 선셋 글로우',
     colors: [
-      { value: '#3B82F6', name: 'Blue' },
-      { value: '#10B981', name: 'Emerald' },
-      { value: '#8B5CF6', name: 'Purple' },
-      { value: '#14B8A6', name: 'Teal' },
-      { value: 'rgba(255,255,255,0.1)', name: 'Glass' },
+      { value: '#F97316', name: 'Orange' },
+      { value: '#FB7185', name: 'Rose' },
+      { value: '#EC4899', name: 'Pink' },
+      { value: '#7C2D12', name: 'Deep Orange' },
+      { value: '#FED7AA', name: 'Light Orange' },
+    ],
+  },
+  {
+    name: 'Set 3 - Frost',
+    description: '서리 낀 유리처럼 투명하고 시원한',
+    colors: [
+      { value: '#FFFFFF', name: 'White' },
+      { value: '#F0F9FF', name: 'Ice' },
+      { value: '#E0E7FF', name: 'Pale Indigo' },
+      { value: '#C4B5FD', name: 'Soft Violet' },
+      { value: '#A5B4FC', name: 'Light Indigo' },
     ],
   },
 ];
@@ -81,7 +81,7 @@ const typographyTokens = [
   { name: 'Body R', size: '14px', weight: '400', lineHeight: '1.5' },
 ];
 
-const miniPrompt = `Glassmorphism 디자인 가이드:
+const prompt = `Glassmorphism 디자인 가이드:
 
 [디자인 철학]
 - 프로스트 유리 효과가 깊이감을 만든다. 레이어가 겹치는 느낌
@@ -110,7 +110,14 @@ const miniPrompt = `Glassmorphism 디자인 가이드:
 - Blur: 12px(약), 16px(중), 24px(강)
 - 버튼: 44px (기본), 36px (소형)
 - 인풋: 44px
-- Font: Pretendard, 14px 본문, 36px 디스플레이`;
+- Font: Pretendard, 14px 본문, 36px 디스플레이
+
+[적용 가이드]
+이 가이드는 기본 지침이며, 앱의 특성과 성격에 따라 유연하게 조정하세요:
+- 웹 vs 모바일: 모바일은 터치 타겟 48px 이상, 대중적인 디바이스의 기준을 따른다.
+- 정보 밀도: 대시보드는 적당히 촘촘하게, 랜딩/마케팅은 여유롭게
+- 브랜드 톤: 친근함은 컬러를 조금 더 사용하고, 신뢰감은 화이트 위주 + 포인트 컬러는 적게
+→ 컬러와 디자인 철학은 유지하되, 사이즈/간격/컬러 사용량은 상황에 맞게 조정`;
 
 export default function GlassmorphismPage() {
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
@@ -610,14 +617,14 @@ export default function GlassmorphismPage() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#FFFFFF',
+                      color: ['#FFFFFF', '#F0F9FF', '#E0E7FF', '#C4B5FD', '#A5B4FC', '#E9D5FF', '#FED7AA', '#A5F3FC'].includes(color.value) ? '#6B7280' : '#FFFFFF',
                       fontSize: '10px',
-                      fontWeight: 300,
-                      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+                      fontWeight: 500,
+                      textShadow: ['#FFFFFF', '#F0F9FF', '#E0E7FF', '#C4B5FD', '#A5B4FC', '#E9D5FF', '#FED7AA', '#A5F3FC'].includes(color.value) ? 'none' : '0 1px 2px rgba(0,0,0,0.3)',
                     }}
                     title={color.name}
                   >
-                    {copiedColor === `${set.name}-${idx}` ? 'Copied!' : color.name}
+                    {copiedColor === `${set.name}-${idx}` ? 'Copied!' : color.value}
                   </button>
                 ))}
               </div>
@@ -628,12 +635,12 @@ export default function GlassmorphismPage() {
 
       {/* 미니 프롬프트 섹션 */}
       <section>
-        <h2 className="section-title">Mini Prompt</h2>
+        <h2 className="section-title">Prompt</h2>
         <p className="section-desc">AI에게 바로 붙여넣을 수 있는 디자인 지침입니다.</p>
         <div style={{ position: 'relative' }}>
-          <pre><code>{miniPrompt}</code></pre>
+          <pre><code>{prompt}</code></pre>
           <button
-            onClick={() => copyToClipboard(miniPrompt)}
+            onClick={() => copyToClipboard(prompt)}
             style={{
               position: 'absolute',
               top: 'var(--spacing-2)',

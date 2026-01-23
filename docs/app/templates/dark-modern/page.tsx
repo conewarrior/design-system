@@ -20,25 +20,25 @@ const combinationSets = [
     ],
   },
   {
-    name: 'Set 2 - Deep Space',
-    description: '퍼플 + 블루 그라디언트',
+    name: 'Set 2 - Neon Emerald',
+    description: '에메랄드 + 틸 테크 느낌',
     colors: [
-      { value: '#6D36F6', name: 'Purple' },
-      { value: '#6366F1', name: 'Indigo' },
-      { value: '#3B82F6', name: 'Blue' },
-      { value: '#1E1B4B', name: 'Dark Indigo' },
+      { value: '#10B981', name: 'Emerald' },
+      { value: '#14B8A6', name: 'Teal' },
       { value: '#0F0F0F', name: 'Black' },
+      { value: '#052E16', name: 'Dark Green' },
+      { value: '#D1FAE5', name: 'Mint' },
     ],
   },
   {
-    name: 'Set 3 - Midnight',
-    description: '퍼플 + 그레이 모노톤',
+    name: 'Set 3 - Crimson Night',
+    description: '레드 + 오렌지 강렬한 악센트',
     colors: [
-      { value: '#6D36F6', name: 'Purple' },
-      { value: '#9B7BFA', name: 'Light Purple' },
-      { value: '#27272A', name: 'Gray 800' },
-      { value: '#3F3F46', name: 'Gray 700' },
-      { value: '#71717A', name: 'Gray 500' },
+      { value: '#EF4444', name: 'Red' },
+      { value: '#F97316', name: 'Orange' },
+      { value: '#0F0F0F', name: 'Black' },
+      { value: '#450A0A', name: 'Dark Red' },
+      { value: '#FEE2E2', name: 'Light Red' },
     ],
   },
 ];
@@ -78,7 +78,7 @@ const typographyTokens = [
   { name: 'Body R', size: '14px', weight: '400', lineHeight: '1.5' },
 ];
 
-const miniPrompt = `Dark Modern 디자인 가이드:
+const prompt = `Dark Modern 디자인 가이드:
 
 [디자인 철학]
 - 다크 테마는 집중력을 높인다. 눈의 피로를 줄이고 콘텐츠에 몰입
@@ -103,7 +103,14 @@ const miniPrompt = `Dark Modern 디자인 가이드:
 - Radius: 버튼/인풋 8px, 카드 12px, 배지 12px (pill)
 - 버튼: 44px (기본), 32px (소형)
 - 인풋: 44px
-- Font: Pretendard, 14px 본문, 32px 디스플레이`;
+- Font: Pretendard, 14px 본문, 32px 디스플레이
+
+[적용 가이드]
+이 가이드는 기본 지침이며, 앱의 특성과 성격에 따라 유연하게 조정하세요:
+- 웹 vs 모바일: 모바일은 터치 타겟 48px 이상, 대중적인 디바이스의 기준을 따른다.
+- 정보 밀도: 대시보드는 적당히 촘촘하게, 랜딩/마케팅은 여유롭게
+- 브랜드 톤: 친근함은 컬러를 조금 더 사용하고, 신뢰감은 화이트 위주 + 포인트 컬러는 적게
+→ 컬러와 디자인 철학은 유지하되, 사이즈/간격/컬러 사용량은 상황에 맞게 조정`;
 
 export default function DarkModernPage() {
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
@@ -565,12 +572,12 @@ export default function DarkModernPage() {
 
       {/* 미니 프롬프트 섹션 */}
       <section>
-        <h2 className="section-title">Mini Prompt</h2>
+        <h2 className="section-title">Prompt</h2>
         <p className="section-desc">AI에게 바로 붙여넣을 수 있는 다크 모던 디자인 지침입니다.</p>
         <div style={{ position: 'relative' }}>
-          <pre style={{ background: '#1A1A1A', border: '1px solid #27272A' }}><code style={{ color: '#E4E4E7' }}>{miniPrompt}</code></pre>
+          <pre style={{ background: '#1A1A1A', border: '1px solid #27272A' }}><code style={{ color: '#E4E4E7' }}>{prompt}</code></pre>
           <button
-            onClick={() => copyToClipboard(miniPrompt)}
+            onClick={() => copyToClipboard(prompt)}
             style={{
               position: 'absolute',
               top: 'var(--spacing-2)',

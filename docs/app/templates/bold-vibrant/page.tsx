@@ -79,7 +79,7 @@ const typographyTokens = [
   { name: 'Body R', size: '14px', weight: '500', lineHeight: '1.5' },
 ];
 
-const miniPrompt = `Bold & Vibrant 디자인 가이드:
+const prompt = `Bold & Vibrant 디자인 가이드:
 
 [디자인 철학]
 - 대담한 색상이 주목을 끈다. 눈에 확 들어오는 첫인상
@@ -105,7 +105,14 @@ const miniPrompt = `Bold & Vibrant 디자인 가이드:
 - Radius: 버튼/인풋 12px, 카드 16px, 배지 14px (pill)
 - 버튼: 52px (기본), 40px (소형)
 - 인풋: 52px
-- Font: Pretendard, 16px 본문 (bold weight), 48px 디스플레이 (extrabold)`;
+- Font: Pretendard, 16px 본문 (bold weight), 48px 디스플레이 (extrabold)
+
+[적용 가이드]
+이 가이드는 기본 지침이며, 앱의 특성과 성격에 따라 유연하게 조정하세요:
+- 웹 vs 모바일: 모바일은 터치 타겟 48px 이상, 대중적인 디바이스의 기준을 따른다.
+- 정보 밀도: 대시보드는 적당히 촘촘하게, 랜딩/마케팅은 여유롭게
+- 브랜드 톤: 친근함은 컬러를 조금 더 사용하고, 신뢰감은 화이트 위주 + 포인트 컬러는 적게
+→ 컬러와 디자인 철학은 유지하되, 사이즈/간격/컬러 사용량은 상황에 맞게 조정`;
 
 export default function BoldVibrantPage() {
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
@@ -522,12 +529,12 @@ export default function BoldVibrantPage() {
 
       {/* 미니 프롬프트 섹션 */}
       <section>
-        <h2 className="section-title">Mini Prompt</h2>
+        <h2 className="section-title">Prompt</h2>
         <p className="section-desc">AI에게 바로 붙여넣을 수 있는 디자인 지침입니다.</p>
         <div style={{ position: 'relative' }}>
-          <pre><code>{miniPrompt}</code></pre>
+          <pre><code>{prompt}</code></pre>
           <button
-            onClick={() => copyToClipboard(miniPrompt)}
+            onClick={() => copyToClipboard(prompt)}
             style={{
               position: 'absolute',
               top: 'var(--spacing-2)',
