@@ -14,3 +14,7 @@ docs/out/
 # PDCA status
 .pdca-status.json
 .DS_Store
+
+# Portfolio planning documents (internal only, should not be updated)
+**/portfolio_plan.*
+**/portfolio-make-guide.md
