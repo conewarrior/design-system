@@ -1,0 +1,80 @@
+/* Dark Modern Design Tokens */
+
+:root {
+  /* Brand Colors */
+  --color-brand: #8B5CF6;
+  --color-brand-hover: #A78BFA;
+  --color-brand-soft: rgba(139, 92, 246, 0.2);
+
+  /* Background */
+  --bg-primary: #0F0F0F;
+  --bg-secondary: #1A1A1A;
+  --bg-tertiary: #262626;
+
+  /* Content (Text) */
+  --content-highlight: #FFFFFF;
+  --content-primary: #E4E4E7;
+  --content-subtle: #A1A1AA;
+  --content-muted: #71717A;
+  --content-inverse: #0F0F0F;
+
+  /* Border */
+  --border-subtle: #27272A;
+  --border-strong: #3F3F46;
+  --border-brand: #8B5CF6;
+
+  /* Status */
+  --color-error: #EF4444;
+  --color-error-soft: #7F1D1D;
+  --color-success: #22C55E;
+  --color-success-soft: #14532D;
+  --color-info: #3B82F6;
+  --color-info-soft: #1E3A8A;
+
+  /* Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-8: 48px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadow & Glow */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.4);
+  --glow-brand: 0 0 20px rgba(139, 92, 246, 0.3);
+  --glow-brand-strong: 0 0 30px rgba(139, 92, 246, 0.5);
+
+  /* Typography */
+  --font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 32px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* Component Sizes */
+  --button-height-sm: 32px;
+  --button-height-md: 36px;
+  --button-height-lg: 44px;
+  --input-height: 44px;
+}

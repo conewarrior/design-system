@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export type Section = 'docs' | 'status';
+export type Section = 'docs' | 'status' | 'templates';
 
 interface TopNavProps {
   currentSection: Section;
@@ -13,6 +13,7 @@ interface TopNavProps {
 const sections = [
   { id: 'docs' as const, label: 'Docs', href: '/' },
   { id: 'status' as const, label: 'Status', href: '/status/' },
+  { id: 'templates' as const, label: 'Templates', href: '/templates/' },
 ];
 
 export function TopNav({ currentSection, onMobileMenuToggle, isMobileMenuOpen }: TopNavProps) {
