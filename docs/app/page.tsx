@@ -1,7 +1,7 @@
 export default function HomePage() {
   return (
     <div>
-      <h1 className="page-title">@geniefy/ui</h1>
+      <h1 className="page-title">@design-geniefy/ui</h1>
       <p className="page-description">
         Geniefy 제품을 위한 디자인 토큰과 React 컴포넌트 라이브러리
       </p>
@@ -10,7 +10,7 @@ export default function HomePage() {
         <h2 className="section-title">설치</h2>
 
         <h3 className="subsection-title">npm 패키지</h3>
-        <pre><code>npm install @geniefy/ui</code></pre>
+        <pre><code>npm install @design-geniefy/ui</code></pre>
 
         <h3 className="subsection-title">CDN (토큰만)</h3>
         <pre><code>{`<link
@@ -21,7 +21,7 @@ export default function HomePage() {
 
       <section>
         <h2 className="section-title">빠른 시작</h2>
-        <pre><code>{`import { Button, Input } from '@geniefy/ui';
+        <pre><code>{`import { Button, Input } from '@design-geniefy/ui';
 
 function App() {
   return (

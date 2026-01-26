@@ -9,7 +9,7 @@
 
 ## 1. 개요
 
-@geniefy/ui 패키지의 자동 업데이트 시스템 설계. Dependabot을 활용하여 새 버전 감지 → PR 생성 → CI 통과 → 자동 머지까지 완전 자동화한다.
+@design-geniefy/ui 패키지의 자동 업데이트 시스템 설계. Dependabot을 활용하여 새 버전 감지 → PR 생성 → CI 통과 → 자동 머지까지 완전 자동화한다.
 
 ---
 
@@ -22,7 +22,7 @@
 │                    design-system (중앙 저장소)                    │
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │  npm publish (새 버전 배포)                              │   │
-│  │  @geniefy/ui@0.0.2 → @geniefy/ui@0.0.3                  │   │
+│  │  @design-geniefy/ui@0.0.2 → @design-geniefy/ui@0.0.3                  │   │
 │  └──────────────────────────┬──────────────────────────────┘   │
 └─────────────────────────────│──────────────────────────────────┘
                               │
@@ -30,7 +30,7 @@
 ┌─────────────────────────────────────────────────────────────────┐
 │                         npm Registry                             │
 │  ┌─────────────────────────────────────────────────────────┐   │
-│  │  @geniefy/ui                                            │   │
+│  │  @design-geniefy/ui                                            │   │
 │  │  latest: 0.0.3                                          │   │
 │  └──────────────────────────┬──────────────────────────────┘   │
 └─────────────────────────────│──────────────────────────────────┘
@@ -111,9 +111,9 @@ updates:
       time: "09:00"
       timezone: "Asia/Seoul"
 
-    # @geniefy/ui만 자동 업데이트
+    # @design-geniefy/ui만 자동 업데이트
     allow:
-      - dependency-name: "@geniefy/ui"
+      - dependency-name: "@design-geniefy/ui"
 
     # 커밋 메시지 형식
     commit-message:
@@ -139,7 +139,7 @@ updates:
 |------|-----|------|
 | `interval` | daily | 매일 체크 |
 | `time` | 09:00 | 오전 9시 (KST) |
-| `allow` | @geniefy/ui | 이 패키지만 허용 |
+| `allow` | @design-geniefy/ui | 이 패키지만 허용 |
 | `prefix` | chore(deps) | 커밋 메시지 접두사 |
 
 ### 3.2 자동 머지 Workflow
@@ -164,17 +164,17 @@ jobs:
     if: github.actor == 'dependabot[bot]'
 
     steps:
-      # 1. @geniefy/ui 업데이트인지 확인
-      - name: Check if @geniefy/ui update
+      # 1. @design-geniefy/ui 업데이트인지 확인
+      - name: Check if @design-geniefy/ui update
         id: check
         run: |
           TITLE="${{ github.event.pull_request.title }}"
-          if [[ "$TITLE" == *"@geniefy/ui"* ]]; then
+          if [[ "$TITLE" == *"@design-geniefy/ui"* ]]; then
             echo "is_geniefy_ui=true" >> $GITHUB_OUTPUT
-            echo "✅ @geniefy/ui 업데이트 PR 감지"
+            echo "✅ @design-geniefy/ui 업데이트 PR 감지"
           else
             echo "is_geniefy_ui=false" >> $GITHUB_OUTPUT
-            echo "⏭️ @geniefy/ui가 아닌 업데이트, 스킵"
+            echo "⏭️ @design-geniefy/ui가 아닌 업데이트, 스킵"
           fi
 
       # 2. Major 버전 업데이트 감지 (Breaking Change)
@@ -270,7 +270,7 @@ updates:
     schedule:
       interval: "daily"
     allow:
-      - dependency-name: "@geniefy/ui"
+      - dependency-name: "@design-geniefy/ui"
     commit-message:
       prefix: "chore(deps)"
     labels:
@@ -338,7 +338,7 @@ Settings → Code security and analysis → Dependabot
 
 | 테스트 | 예상 결과 |
 |--------|----------|
-| @geniefy/ui 업데이트 PR | 자동 머지 활성화 |
+| @design-geniefy/ui 업데이트 PR | 자동 머지 활성화 |
 | 다른 패키지 PR | 스킵 |
 | Major 버전 업데이트 | 코멘트 추가, 자동 머지 스킵 |
 | CI 실패 | 자동 머지 안 됨 |
@@ -346,7 +346,7 @@ Settings → Code security and analysis → Dependabot
 ### 7.2 통합 테스트
 
 1. 테스트 저장소 생성
-2. @geniefy/ui 0.0.1 설치
+2. @design-geniefy/ui 0.0.1 설치
 3. 0.0.2 버전 배포
 4. Dependabot PR 생성 확인
 5. CI 통과 후 자동 머지 확인

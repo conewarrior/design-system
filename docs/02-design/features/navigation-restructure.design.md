@@ -32,7 +32,7 @@ export function TopNav({ currentSection }: TopNavProps) {
   return (
     <header className="top-nav">
       <div className="top-nav-logo">
-        <Link href="/">@geniefy/ui</Link>
+        <Link href="/">@design-geniefy/ui</Link>
       </div>
       <nav className="top-nav-menu">
         {sections.map((section) => (
@@ -183,7 +183,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: '@geniefy/ui - Design System',
+  title: '@design-geniefy/ui - Design System',
   description: 'Design tokens and React components for Geniefy products',
 };
 

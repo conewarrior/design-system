@@ -8,7 +8,7 @@
 ## 1. 배경 및 문제 정의
 
 ### 현재 상황
-- @geniefy/ui 패키지가 npm에 배포됨
+- @design-geniefy/ui 패키지가 npm에 배포됨
 - 새 버전 출시 시 각 프로젝트에서 수동으로 업데이트 필요
 - `/setup-design` 명령어로 초기 설정은 자동화됨
 
@@ -89,7 +89,7 @@ updates:
     schedule:
       interval: "daily"
     allow:
-      - dependency-name: "@geniefy/ui"
+      - dependency-name: "@design-geniefy/ui"
     commit-message:
       prefix: "chore(deps)"
     labels:
@@ -118,10 +118,10 @@ jobs:
     if: github.actor == 'dependabot[bot]'
 
     steps:
-      - name: Check if @geniefy/ui update
+      - name: Check if @design-geniefy/ui update
         id: check
         run: |
-          if [[ "${{ github.event.pull_request.title }}" == *"@geniefy/ui"* ]]; then
+          if [[ "${{ github.event.pull_request.title }}" == *"@design-geniefy/ui"* ]]; then
             echo "match=true" >> $GITHUB_OUTPUT
           fi
 
@@ -152,17 +152,17 @@ jobs:
 
 | 파일 | 용도 |
 |------|------|
-| `.github/dependabot.yml` | @geniefy/ui 업데이트 감지 |
+| `.github/dependabot.yml` | @design-geniefy/ui 업데이트 감지 |
 | `.github/workflows/dependabot-auto-merge.yml` | 자동 머지 |
 
 ### 동작 흐름
 
 ```
-1. @geniefy/ui 새 버전 배포 (npm publish)
+1. @design-geniefy/ui 새 버전 배포 (npm publish)
      ↓
 2. Dependabot이 버전 차이 감지 (매일 체크)
      ↓
-3. PR 자동 생성 (chore(deps): bump @geniefy/ui from x to y)
+3. PR 자동 생성 (chore(deps): bump @design-geniefy/ui from x to y)
      ↓
 4. CI 테스트 실행 (build, lint, test)
      ↓
@@ -197,7 +197,7 @@ jobs:
 
 1. **Dependabot 동작 확인**
    - 테스트 프로젝트에 설정 적용
-   - @geniefy/ui 새 버전 배포
+   - @design-geniefy/ui 새 버전 배포
    - PR 자동 생성 확인
 
 2. **자동 머지 확인**
@@ -206,7 +206,7 @@ jobs:
 
 3. **실패 케이스**
    - CI 실패 시 머지 안 됨 확인
-   - @geniefy/ui 외 패키지는 자동 머지 안 됨 확인
+   - @design-geniefy/ui 외 패키지는 자동 머지 안 됨 확인
 
 ---
 

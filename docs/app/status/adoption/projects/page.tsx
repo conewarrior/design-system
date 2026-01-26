@@ -108,7 +108,7 @@ export default async function ProjectsPage() {
     <div className="projects-page">
       <h1 className="page-title">By Project</h1>
       <p className="page-description">
-        프로젝트별 @geniefy/ui 버전 상세 현황
+        프로젝트별 @design-geniefy/ui 버전 상세 현황
       </p>
 
       {Object.entries(groupedProjects).map(([status, statusProjects]) => {

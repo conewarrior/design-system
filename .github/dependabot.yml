@@ -8,9 +8,9 @@ updates:
       time: "09:00"
       timezone: "Asia/Seoul"
 
-    # @geniefy/ui만 자동 업데이트
+    # @design-geniefy/ui만 자동 업데이트
     allow:
-      - dependency-name: "@geniefy/ui"
+      - dependency-name: "@design-geniefy/ui"
 
     # 커밋 메시지 형식
     commit-message:

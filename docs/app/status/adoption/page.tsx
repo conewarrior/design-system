@@ -1,5 +1,5 @@
 // Adoption Dashboard
-// GitHub API 기반 조직 내 프로젝트들의 @geniefy/ui 버전 채택 현황 (기존 updates에서 이전)
+// GitHub API 기반 조직 내 프로젝트들의 @design-geniefy/ui 버전 채택 현황 (기존 updates에서 이전)
 
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -152,7 +152,7 @@ export default async function AdoptionPage() {
     <div className="updates-page">
       <h1 className="page-title">Adoption Dashboard</h1>
       <p className="page-description">
-        조직 내 프로젝트들의 @geniefy/ui 버전 현황
+        조직 내 프로젝트들의 @design-geniefy/ui 버전 현황
       </p>
 
       {error && (

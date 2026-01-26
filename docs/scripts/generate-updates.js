@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * GitHub API를 통해 프로젝트별 @geniefy/ui 버전 현황 조회
+ * GitHub API를 통해 프로젝트별 @design-geniefy/ui 버전 현황 조회
  * 빌드 시 실행되어 정적 데이터 생성
  *
  * 환경변수:
@@ -76,7 +76,7 @@ async function getDependabotPR(repo, packageName, token) {
 
     if (!prs) return null;
 
-    // @geniefy/ui 업데이트 PR 찾기
+    // @design-geniefy/ui 업데이트 PR 찾기
     const dependabotPR = prs.find(pr =>
       pr.user?.login === 'dependabot[bot]' &&
       pr.title.toLowerCase().includes(packageName.toLowerCase().replace('@', ''))

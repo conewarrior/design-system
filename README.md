@@ -1,4 +1,4 @@
-# @geniefy/ui
+# @design-geniefy/ui
 
 AX 조직을 위한 디자인 시스템 저장소.
 
@@ -35,11 +35,11 @@ AX 조직을 위한 디자인 시스템 저장소.
 npm 패키지로 배포되며, 프로젝트에서 import하여 사용한다.
 
 ```bash
-npm install @geniefy/ui
+npm install @design-geniefy/ui
 ```
 
 ```tsx
-import { Button } from '@geniefy/ui'
+import { Button } from '@design-geniefy/ui'
 ```
 
 ### `design-rules.md`
@@ -62,7 +62,7 @@ Claude Code는 `src/components/` 작업 시 이 규칙을 참조한다.
 위 커맨드가 다음을 자동으로 처리:
 - `globals.css`에 토큰 CDN import 추가
 - `design-rules.md` 로컬 복사
-- `@geniefy/ui` 패키지 설치
+- `@design-geniefy/ui` 패키지 설치
 - `CLAUDE.md`에 규칙 참조 추가
 
 ### 2. 수동 설정
@@ -73,7 +73,7 @@ Claude Code는 `src/components/` 작업 시 이 규칙을 참조한다.
 ```
 
 ```bash
-npm install @geniefy/ui
+npm install @design-geniefy/ui
 ```
 
 ---
@@ -83,7 +83,7 @@ npm install @geniefy/ui
 ### Button
 
 ```tsx
-import { Button } from '@geniefy/ui';
+import { Button } from '@design-geniefy/ui';
 
 // Variants: primary, secondary, outline, ghost, destructive
 <Button variant="primary">저장</Button>
@@ -103,7 +103,7 @@ import { Button } from '@geniefy/ui';
 ### Input
 
 ```tsx
-import { Input } from '@geniefy/ui';
+import { Input } from '@design-geniefy/ui';
 
 // Basic usage
 <Input placeholder="이름을 입력하세요" />

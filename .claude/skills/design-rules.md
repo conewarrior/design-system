@@ -84,7 +84,7 @@ UI 생성 시 반드시 다음 4단계를 수행합니다.
 ### Step 1: 목적 파악
 - 이 UI의 주요 사용자 액션은?
 - 어떤 정보를 전달해야 하는가?
-- @geniefy/ui 컴포넌트로 해결 가능한가?
+- @design-geniefy/ui 컴포넌트로 해결 가능한가?
 
 ### Step 2: 토큰/컴포넌트 선택
 ```
@@ -92,7 +92,7 @@ UI 생성 시 반드시 다음 4단계를 수행합니다.
 - [ ] 사용할 색상 토큰 (최대 3개)
 - [ ] 사용할 간격 토큰
 - [ ] 사용할 radius 토큰
-- [ ] @geniefy/ui에서 재사용할 컴포넌트
+- [ ] @design-geniefy/ui에서 재사용할 컴포넌트
 ```
 
 ### Step 3: 검증
@@ -159,17 +159,17 @@ UI 생성 시 반드시 다음 4단계를 수행합니다.
 
 ## 4. 컴포넌트 사용 규칙
 
-### 4.1 @geniefy/ui 우선 사용
+### 4.1 @design-geniefy/ui 우선 사용
 ```tsx
 // ✅ 올바른 사용
-import { Button, Input } from '@geniefy/ui';
+import { Button, Input } from '@design-geniefy/ui';
 
 // ❌ 금지: 동일 기능 중복 생성
 const MyButton = () => <button>...</button>;
 ```
 
 ### 4.2 커스텀 컴포넌트 생성 시
-@geniefy/ui에 없는 컴포넌트만 생성하며, 토큰 규칙을 준수합니다.
+@design-geniefy/ui에 없는 컴포넌트만 생성하며, 토큰 규칙을 준수합니다.
 
 ```tsx
 const StatCard = ({ label, value }) => (

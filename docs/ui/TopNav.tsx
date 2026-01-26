@@ -22,7 +22,7 @@ export function TopNav({ currentSection, onMobileMenuToggle, isMobileMenuOpen }:
       <div className="top-nav-left">
         <Link href="/" className="top-nav-logo">
           <div className="top-nav-logo-icon" />
-          <span>@geniefy/ui</span>
+          <span>@design-geniefy/ui</span>
         </Link>
       </div>
 

@@ -45,7 +45,7 @@
                           ▼
 ┌─────────────────────────────────────────────────────────┐
 │ Step 2: npm 패키지 설치 (Node.js 프로젝트인 경우)        │
-│ Bash: npm install @geniefy/ui                           │
+│ Bash: npm install @design-geniefy/ui                           │
 └─────────────────────────────────────────────────────────┘
                           │
                           ▼
@@ -82,14 +82,14 @@
 |------|------|------|
 | `CLAUDE.md` | 수정/생성 | design-rules 참조, CDN 링크 추가 |
 | `.claude/settings.local.json` | 생성 | hook 등록 |
-| `package.json` | 수정 | @geniefy/ui 의존성 추가 (npm install 시) |
+| `package.json` | 수정 | @design-geniefy/ui 의존성 추가 (npm install 시) |
 
 ### 2.4 CLAUDE.md 추가 내용
 
 ```markdown
 ## 디자인 시스템
 
-이 프로젝트는 @geniefy/ui 디자인 시스템을 사용합니다.
+이 프로젝트는 @design-geniefy/ui 디자인 시스템을 사용합니다.
 
 ### 토큰
 - CDN: https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css
@@ -250,7 +250,7 @@ user-project/
 │   └── settings.local.json      # hook 설정
 ├── CLAUDE.md                     # 규칙 참조 추가됨
 ├── node_modules/
-│   └── @geniefy/ui/              # npm 패키지 설치됨
+│   └── @design-geniefy/ui/              # npm 패키지 설치됨
 └── package.json                  # 의존성 추가됨
 ```
 
@@ -331,7 +331,7 @@ Dependabot + 자동 머지로 **양방향 모두 자동화**.
 ### 9.2 동작 흐름
 
 ```
-@geniefy/ui@0.0.2 배포됨
+@design-geniefy/ui@0.0.2 배포됨
          │
          ▼
 ┌─────────────────────────────────┐
@@ -344,7 +344,7 @@ Dependabot + 자동 머지로 **양방향 모두 자동화**.
 ┌─────────────────────────────────┐
 │ 🔄 GitHub Actions               │
 │    1. 빌드 테스트                │
-│    2. @geniefy/ui 업데이트 PR 확인│
+│    2. @design-geniefy/ui 업데이트 PR 확인│
 │    3. 자동 머지 실행             │
 └─────────────────────────────────┘
          │
@@ -369,7 +369,7 @@ updates:
     schedule:
       interval: "daily"
     allow:
-      - dependency-name: "@geniefy/ui"
+      - dependency-name: "@design-geniefy/ui"
 ```
 
 #### .github/workflows/dependabot-auto-merge.yml
@@ -390,10 +390,10 @@ jobs:
     if: github.actor == 'dependabot[bot]'
 
     steps:
-      - name: Check if @geniefy/ui update
+      - name: Check if @design-geniefy/ui update
         id: check
         run: |
-          if [[ "${{ github.event.pull_request.title }}" == *"@geniefy/ui"* ]]; then
+          if [[ "${{ github.event.pull_request.title }}" == *"@design-geniefy/ui"* ]]; then
             echo "match=true" >> $GITHUB_OUTPUT
           fi
 
@@ -416,7 +416,7 @@ user-project/
 │   └── workflows/
 │       └── dependabot-auto-merge.yml  # 자동 머지 ← NEW
 ├── CLAUDE.md                     # 규칙 참조
-└── package.json                  # @geniefy/ui 의존성
+└── package.json                  # @design-geniefy/ui 의존성
 ```
 
 ### 9.5 안전장치
@@ -424,7 +424,7 @@ user-project/
 | 조건 | 설명 |
 |------|------|
 | Dependabot PR만 | 사람이 만든 PR은 자동 머지 안 됨 |
-| @geniefy/ui만 | 다른 패키지 업데이트는 수동 |
+| @design-geniefy/ui만 | 다른 패키지 업데이트는 수동 |
 | CI 통과 필수 | 테스트 실패 시 머지 안 됨 |
 
 ---

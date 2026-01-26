@@ -132,7 +132,7 @@ interface CodeBlockProps {
 ┌─────────────────────────────────────────┐
 │ app/layout.tsx                    [복사] │  ← 헤더 (선택)
 ├─────────────────────────────────────────┤
-│ 1  import '@geniefy/ui/tokens.css';     │
+│ 1  import '@design-geniefy/ui/tokens.css';     │
 │ 2                                       │
 │ 3  export default function Layout() {   │
 │ 4    return <html>...</html>;           │
@@ -223,7 +223,7 @@ interface StepProps {
 │      npm을 사용하여 설치합니다.           │
 │                                         │
 │      ┌─────────────────────────────┐    │
-│      │ npm install @geniefy/ui     │    │
+│      │ npm install @design-geniefy/ui     │    │
 │      └─────────────────────────────┘    │
 └─────────────────────────────────────────┘
 ```

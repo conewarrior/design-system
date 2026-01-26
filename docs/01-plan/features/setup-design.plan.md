@@ -11,7 +11,7 @@
 ### 현재 상황
 design-system 저장소는 다음과 같이 배포됨:
 - `tokens.css` → CDN (jsDelivr)
-- `components/` → npm 패키지 (@geniefy/ui)
+- `components/` → npm 패키지 (@design-geniefy/ui)
 - `design-rules.md` → Skill로 자동 적용
 - `docs/` → 문서 사이트 (Vercel)
 
@@ -48,7 +48,7 @@ design-system/
 ```
 user-project/
 ├── CLAUDE.md                    # (수정) design-rules 참조 추가
-├── package.json                 # (수정) @geniefy/ui 의존성 추가
+├── package.json                 # (수정) @design-geniefy/ui 의존성 추가
 ├── .claude/
 │   └── skills/
 │       └── design-rules.md      # (복사) 양방향 동기화 대상
@@ -66,7 +66,7 @@ user-project/
 
 **실행 단계:**
 1. 프로젝트 타입 감지 (Next.js/React/HTML)
-2. `npm install @geniefy/ui`
+2. `npm install @design-geniefy/ui`
 3. 토큰 import 추가 안내
 4. **design-rules.md 복사** (node_modules → .claude/skills/)
 5. CLAUDE.md 업데이트
@@ -146,7 +146,7 @@ feat: Auto-contribute components/Card/index.tsx
 
 **dependabot.yml:**
 - 매일 09:00 (Asia/Seoul) 체크
-- `@geniefy/ui`만 대상
+- `@design-geniefy/ui`만 대상
 - 커밋 prefix: `chore(deps)`
 - 라벨: `dependencies`, `auto-merge`
 
@@ -193,7 +193,7 @@ CDN으로 즉시 반영되는 tokens.css의 Breaking Change를 방지하기 위�
 │  components/ ←────────────────────────────────────────────┐ │
 │  .claude/skills/design-rules.md ←─────────────────────────┤ │
 │  tokens.css                                               │ │
-│  @geniefy/ui (npm)                                        │ │
+│  @design-geniefy/ui (npm)                                        │ │
 └─────────────────────────────────────────────────────────────┘
         │                                                   ↑
         │ npm install                          auto-contribute.sh
@@ -201,7 +201,7 @@ CDN으로 즉시 반영되는 tokens.css의 Breaking Change를 방지하기 위�
         ↓                                                   │
 ┌─────────────────────────────────────────────────────────────┐
 │                    사용자 프로젝트                           │
-│  - @geniefy/ui 사용                                        │
+│  - @design-geniefy/ui 사용                                        │
 │  - .claude/skills/design-rules.md (복사본)                 │
 │  - components/ 생성 시 자동 기여 ──────────────────────────┤ │
 │  - design-rules.md 수정 시 자동 기여 ─────────────────────┘ │

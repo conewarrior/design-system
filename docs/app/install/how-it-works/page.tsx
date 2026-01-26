@@ -56,7 +56,7 @@ export default function HowItWorksPage() {
 │       │              │                                      │
 │       ▼              ▼                                      │
 │   npm publish    CDN (jsDelivr)                             │
-│   @geniefy/ui    즉시 반영                                   │
+│   @design-geniefy/ui    즉시 반영                                   │
 └───────────────────────┬─────────────────────────────────────┘
                         │
           ┌─────────────┴─────────────┐
@@ -80,14 +80,14 @@ export default function HowItWorksPage() {
       <section className="hw-section">
         <h2>배포 채널</h2>
 
-        <h3>npm 패키지 (@geniefy/ui)</h3>
+        <h3>npm 패키지 (@design-geniefy/ui)</h3>
         <p>Node.js 프로젝트 (Next.js, React, Vue 등)에서 사용합니다.</p>
         <ul>
           <li>React 컴포넌트 (Button, Input 등)</li>
           <li>tokens.css (CSS 변수)</li>
           <li>TypeScript 타입 정의</li>
         </ul>
-        <CodeBlock language="bash">npm install @geniefy/ui</CodeBlock>
+        <CodeBlock language="bash">npm install @design-geniefy/ui</CodeBlock>
 
         <h3>CDN (jsDelivr)</h3>
         <p>HTML/CSS 프로젝트, 빠른 프로토타이핑에서 사용합니다. tokens.css만 제공됩니다.</p>
@@ -126,7 +126,7 @@ updates:
       time: "09:00"
       timezone: "Asia/Seoul"
     allow:
-      - dependency-name: "@geniefy/ui"`}</CodeBlock>
+      - dependency-name: "@design-geniefy/ui"`}</CodeBlock>
         </Accordion>
       </section>
 

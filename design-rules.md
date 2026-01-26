@@ -134,14 +134,14 @@ UI 생성 시 반드시 다음 4단계를 순서대로 수행한다.
 
 ### Step 2: 토큰/컴포넌트 선택 (Selection)
 
-tokens.css와 @geniefy/ui에서 사용할 요소를 선택한다.
+tokens.css와 @design-geniefy/ui에서 사용할 요소를 선택한다.
 
 ```
 체크리스트:
 - [ ] 사용할 색상 토큰 목록 (최대 3개)
 - [ ] 사용할 간격 토큰 목록
 - [ ] 사용할 radius 토큰
-- [ ] @geniefy/ui 컴포넌트 중 재사용 가능한 것
+- [ ] @design-geniefy/ui 컴포넌트 중 재사용 가능한 것
 ```
 
 **토큰 선택 예시**:
@@ -317,13 +317,13 @@ CDN으로 즉시 반영되는 tokens.css의 Breaking Change를 방지하기 위�
 
 ## 6. 컴포넌트 사용 규칙
 
-### 6.1 @geniefy/ui 우선 사용
+### 6.1 @design-geniefy/ui 우선 사용
 
-동일 기능의 컴포넌트가 `@geniefy/ui`에 있으면 반드시 사용한다.
+동일 기능의 컴포넌트가 `@design-geniefy/ui`에 있으면 반드시 사용한다.
 
 ```tsx
 // ✅ 올바른 사용
-import { Button, Card, Input } from '@geniefy/ui';
+import { Button, Card, Input } from '@design-geniefy/ui';
 
 // ❌ 금지: 동일 기능 컴포넌트 중복 생성
 const MyButton = () => <button className="...">...</button>;
@@ -331,7 +331,7 @@ const MyButton = () => <button className="...">...</button>;
 
 ### 6.2 커스텀 컴포넌트 생성 시
 
-@geniefy/ui에 없는 컴포넌트만 생성하며, 토큰 규칙을 준수한다.
+@design-geniefy/ui에 없는 컴포넌트만 생성하며, 토큰 규칙을 준수한다.
 
 ```tsx
 // 커스텀 컴포넌트 예시

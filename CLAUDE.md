@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | 파일 | 배포 방식 | 업데이트 반영 |
 |------|-----------|---------------|
 | `tokens.css` | jsDelivr CDN | 즉시 반영 |
-| `components/` | npm 패키지 (@geniefy/ui) | 버전 업데이트 후 설치 |
+| `components/` | npm 패키지 (@design-geniefy/ui) | 버전 업데이트 후 설치 |
 | `docs/` | 문서 사이트 (Next.js) | 개발용 |
 
 ## 명령어

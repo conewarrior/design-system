@@ -69,7 +69,7 @@
 design-rules.md는 양방향 동기화를 지원합니다.
 
 **다운스트림 (중앙 → 프로젝트):**
-1. `npm install @geniefy/ui` 실행
+1. `npm install @design-geniefy/ui` 실행
 2. `/setup-design` 명령어가 node_modules에서 `.claude/skills/`로 복사
 3. Dependabot이 새 버전 감지 시 자동 PR + 머지
 

@@ -16,7 +16,7 @@ function NpmGuide() {
   return (
     <div className="guide">
       <Step number={1} title="패키지 설치">
-        <CodeBlock language="bash">npm install @geniefy/ui</CodeBlock>
+        <CodeBlock language="bash">npm install @design-geniefy/ui</CodeBlock>
       </Step>
 
       <Step
@@ -24,7 +24,7 @@ function NpmGuide() {
         title="스타일 import"
         description="앱 진입점에서 tokens.css를 import합니다."
       >
-        <CodeBlock language="tsx" filename="app/layout.tsx">{`import '@geniefy/ui/tokens.css';
+        <CodeBlock language="tsx" filename="app/layout.tsx">{`import '@design-geniefy/ui/tokens.css';
 
 export default function RootLayout({
   children,
@@ -44,7 +44,7 @@ export default function RootLayout({
         title="컴포넌트 사용"
         description="Button, Input 등의 컴포넌트를 import하여 사용합니다."
       >
-        <CodeBlock language="tsx">{`import { Button, Input } from '@geniefy/ui';
+        <CodeBlock language="tsx">{`import { Button, Input } from '@design-geniefy/ui';
 
 export default function Page() {
   return (
@@ -114,7 +114,7 @@ function ClaudeGuide() {
         <div className="auto-install-list">
           <div className="auto-install-item">
             <span className="auto-install-icon">✅</span>
-            <span>npm install @geniefy/ui</span>
+            <span>npm install @design-geniefy/ui</span>
           </div>
           <div className="auto-install-item">
             <span className="auto-install-icon">✅</span>
@@ -147,7 +147,7 @@ function AutoUpdateSection() {
     <section className="auto-update-section">
       <h2 className="section-title">자동 업데이트</h2>
       <p className="section-description">
-        Dependabot이 설정되면 @geniefy/ui의 새 버전이 출시될 때 자동으로 PR이 생성되고,
+        Dependabot이 설정되면 @design-geniefy/ui의 새 버전이 출시될 때 자동으로 PR이 생성되고,
         CI 테스트 통과 시 자동으로 머지됩니다.
       </p>
       <div className="auto-update-flow">

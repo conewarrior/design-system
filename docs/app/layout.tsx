@@ -8,7 +8,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: '@geniefy/ui - Design System',
+  title: '@design-geniefy/ui - Design System',
   description: 'Design tokens and React components for Geniefy products',
 };
 

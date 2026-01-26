@@ -10,7 +10,7 @@
 ### 현재 상황
 design-system 저장소는 다음과 같이 배포됨:
 - `tokens.css` → CDN (jsDelivr)
-- `components/` → npm 패키지 (@geniefy/ui)
+- `components/` → npm 패키지 (@design-geniefy/ui)
 - `design-rules.md` → CDN
 
 ### 문제점
@@ -90,7 +90,7 @@ design-system/
 ├── tokens.css            # 디자인 토큰 (기존)
 ├── design-rules.md       # 디자인 규칙 (기존)
 ├── index.ts              # exports (기존)
-├── package.json          # @geniefy/ui (기존)
+├── package.json          # @design-geniefy/ui (기존)
 │
 ├── docs/                 # 📌 문서 사이트 (새로 추가)
 │   ├── app/
@@ -196,7 +196,7 @@ export default function ButtonPage() {
 
       {/* 코드 예시 */}
       <CodeBlock language="tsx">
-        {`import { Button } from '@geniefy/ui';
+        {`import { Button } from '@design-geniefy/ui';
 
 <Button variant="primary" size="md">
   Click me

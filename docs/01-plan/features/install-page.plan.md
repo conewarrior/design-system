@@ -25,7 +25,7 @@
 ```
 현재 메인 페이지:
 ├── 설치 섹션
-│   ├── npm 패키지: npm install @geniefy/ui
+│   ├── npm 패키지: npm install @design-geniefy/ui
 │   └── CDN: <link href="...tokens.css">
 ├── 빠른 시작: 코드 예시
 └── Features, 컴포넌트 목록
@@ -138,18 +138,18 @@
 
 **Step 1: 패키지 설치**
 ```bash
-npm install @geniefy/ui
+npm install @design-geniefy/ui
 ```
 
 **Step 2: 스타일 import** (앱 진입점에서)
 ```tsx
 // app/layout.tsx 또는 _app.tsx
-import '@geniefy/ui/tokens.css';
+import '@design-geniefy/ui/tokens.css';
 ```
 
 **Step 3: 컴포넌트 사용**
 ```tsx
-import { Button, Input } from '@geniefy/ui';
+import { Button, Input } from '@design-geniefy/ui';
 
 export default function Page() {
   return (
@@ -190,7 +190,7 @@ export default function Page() {
 
 **Step 2: 자동 설치 항목**
 ```
-✅ npm install @geniefy/ui
+✅ npm install @design-geniefy/ui
 ✅ CLAUDE.md에 디자인 규칙 추가
 ✅ Hook 설정 (UI 생성 시 규칙 자동 적용)
 ✅ Dependabot 자동 업데이트 설정

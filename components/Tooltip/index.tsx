@@ -40,7 +40,7 @@ const positionStyles: Record<TooltipPosition, React.CSSProperties> = {
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   ({ content, position = 'top', delay = 200, style, children, ...props }, ref) => {
     const [isVisible, setIsVisible] = useState(false);
-    const timeoutRef = useRef<NodeJS.Timeout>();
+    const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
     const handleMouseEnter = () => {
       timeoutRef.current = setTimeout(() => setIsVisible(true), delay);

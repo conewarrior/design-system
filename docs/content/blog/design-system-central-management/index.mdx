@@ -39,7 +39,7 @@ published: true
 컴포넌트는 npm 패키지로 배포했다. `main` 브랜치에 push하면 GitHub Actions가 자동으로 npm에 배포한다. 각 프로젝트는 `package.json`에 버전을 명시해서 Breaking Change로부터 보호받는다.
 
 ```bash
-npm install @geniefy/ui@1.2.0
+npm install @design-geniefy/ui@1.2.0
 ```
 
 하지만 여전히 문제가 있었다. 중앙에서 `v1.2.0`을 배포했는데 어느 프로젝트가 아직 `v1.0.0`을 쓰고 있는지 알 수 없었다. 관리자가 일일이 독촉할 수도 없는 노릇이었다.
@@ -72,7 +72,7 @@ CDN 링크를 추가하고, npm 패키지를 설치하고, 규칙 문서를 복�
 
 이 명령어 하나로 다음 작업이 자동 실행된다:
 
-1. `@geniefy/ui` npm 패키지 설치
+1. `@design-geniefy/ui` npm 패키지 설치
 2. `index.html`에 tokens.css CDN 링크 추가
 3. `design-rules.md`를 `.claude/skills/`에 복사
 4. PostToolUse Hook 등록 (AI가 코드 생성 시 자동 검증)

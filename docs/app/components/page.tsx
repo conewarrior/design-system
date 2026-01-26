@@ -148,7 +148,7 @@ export default function ComponentsPage() {
     <div>
       <h1 className="page-title">Components</h1>
       <p className="page-description">
-        @geniefy/ui에서 제공하는 React 컴포넌트 목록입니다. 총 {components.length}개의 컴포넌트를 제공합니다.
+        @design-geniefy/ui에서 제공하는 React 컴포넌트 목록입니다. 총 {components.length}개의 컴포넌트를 제공합니다.
       </p>
 
       <div className="card-grid">
@@ -165,10 +165,10 @@ export default function ComponentsPage() {
 
       <section style={{ marginTop: 'var(--spacing-6)' }}>
         <h2 className="section-title">Installation</h2>
-        <pre><code>npm install @geniefy/ui</code></pre>
+        <pre><code>npm install @design-geniefy/ui</code></pre>
 
         <h2 className="section-title">Usage</h2>
-        <pre><code>{`import { Button, Input, Card, Badge } from '@geniefy/ui';
+        <pre><code>{`import { Button, Input, Card, Badge } from '@design-geniefy/ui';
 
 function MyComponent() {
   return (

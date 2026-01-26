@@ -45,7 +45,7 @@ Getting Started 섹션에 **"How it Works"** 페이지를 추가하여:
    - 한눈에 보는 아키텍처
 
 2. 배포 채널 (Distribution Channels)
-   - npm 패키지 (@geniefy/ui)
+   - npm 패키지 (@design-geniefy/ui)
    - CDN (jsDelivr)
    - 언제 무엇을 사용하는가?
 
@@ -89,7 +89,7 @@ Getting Started 섹션에 **"How it Works"** 페이지를 추가하여:
 └─────────┼────────────────┼──────────────────────────────────────┘
           │                │
           ▼                ▼
-    @geniefy/ui      직접 링크
+    @design-geniefy/ui      직접 링크
      (패키지)         (즉시 반영)
           │
           ▼

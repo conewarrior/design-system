@@ -1,5 +1,5 @@
 // Design System Components
-// @geniefy/ui
+// @design-geniefy/ui
 
 export { Button } from './components/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './components/Button';

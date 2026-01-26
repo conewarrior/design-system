@@ -46,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### 저장소 구조 (EDU-5229)
 - `tokens.css`: CDN 배포 (jsDelivr)
-- `components/`: npm 패키지 (@geniefy/ui)
+- `components/`: npm 패키지 (@design-geniefy/ui)
 - `design-rules.md`: CDN + 로컬 복사 방식
 
 ### Infrastructure
@@ -63,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 1. design-rules.md CDN 다운로드
 2. CLAUDE.md 규칙 참조 추가
 3. globals.css 토큰 import
-4. @geniefy/ui npm 설치
+4. @design-geniefy/ui npm 설치
 5. settings.local.json hook 설정
 
 ### ui-generation 스킬 (EDU-5236)
@@ -78,4 +78,4 @@ src/components/ 작업 시 Generation Protocol 자동 적용:
 
 - [Linear 프로젝트](https://linear.app/geniefy/project/ax-조직을-위한-디자인-워크플로우-구축-7911e033ac99)
 - CDN: `https://cdn.jsdelivr.net/gh/conewarrior/design-system@main/tokens.css`
-- npm: `@geniefy/ui`
+- npm: `@design-geniefy/ui`
