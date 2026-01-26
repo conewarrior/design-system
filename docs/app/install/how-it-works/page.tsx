@@ -50,7 +50,7 @@ export default function HowItWorksPage() {
         <div className="hw-diagram">
           <pre>{`
 ┌─────────────────────────────────────────────────────────────┐
-│                 geniefy/design-system (중앙)                 │
+│                 conewarrior/design-system (중앙)                 │
 │                                                             │
 │   components/    tokens.css    docs/                        │
 │       │              │                                      │
@@ -91,7 +91,7 @@ export default function HowItWorksPage() {
 
         <h3>CDN (jsDelivr)</h3>
         <p>HTML/CSS 프로젝트, 빠른 프로토타이핑에서 사용합니다. tokens.css만 제공됩니다.</p>
-        <CodeBlock language="html">{`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css">`}</CodeBlock>
+        <CodeBlock language="html">{`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css">`}</CodeBlock>
       </section>
 
       <hr className="hw-divider" />

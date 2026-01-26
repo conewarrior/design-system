@@ -226,7 +226,7 @@ jobs:
           Breaking change가 포함되어 있을 수 있습니다.
           수동 리뷰 후 머지해 주세요.
 
-          - [CHANGELOG 확인](https://github.com/geniefy/design-system/blob/main/CHANGELOG.md)
+          - [CHANGELOG 확인](https://github.com/conewarrior/design-system/blob/main/CHANGELOG.md)
           - [마이그레이션 가이드](https://design.geniefy.ai/migration)"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}

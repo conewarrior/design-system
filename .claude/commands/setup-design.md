@@ -36,7 +36,7 @@ import '@design-geniefy/ui/tokens.css';
 
 **HTML/CSS 프로젝트** (`<head>`에 추가):
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css">
 ```
 
 ### Step 3: CLAUDE.md 설정
@@ -49,7 +49,7 @@ import '@design-geniefy/ui/tokens.css';
 이 프로젝트는 @design-geniefy/ui 디자인 시스템을 사용합니다.
 
 ### 토큰
-- CDN: https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css
+- CDN: https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css
 - 모든 색상, 간격, radius는 tokens.css의 CSS 변수 사용 필수
 
 ### 규칙 (자동 적용)
@@ -208,7 +208,7 @@ jobs:
           Breaking change가 포함되어 있을 수 있습니다.
           수동 리뷰 후 머지해 주세요.
 
-          - [CHANGELOG 확인](https://github.com/geniefy/design-system/blob/main/CHANGELOG.md)"
+          - [CHANGELOG 확인](https://github.com/conewarrior/design-system/blob/main/CHANGELOG.md)"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -232,7 +232,7 @@ jobs:
   ✓ 컴포넌트, design-rules.md, tokens.css 모두 자동 업데이트
 
 토큰 참조:
-- CDN: https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css
+- CDN: https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css
 - 문서: https://design.geniefy.ai (또는 localhost:3333)
 ```
 

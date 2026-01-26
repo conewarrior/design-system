@@ -21,7 +21,7 @@ const CONFIG = {
   // 출력 경로
   outputPath: path.join(__dirname, '../data/changelog.json'),
   // GitHub 저장소 URL
-  repoUrl: 'https://github.com/geniefy/design-system',
+  repoUrl: 'https://github.com/conewarrior/design-system',
 };
 
 // 변경 유형 판별

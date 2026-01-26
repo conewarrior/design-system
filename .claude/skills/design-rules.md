@@ -188,7 +188,7 @@ const StatCard = ({ label, value }) => (
 
 ## 5. 토큰 참조
 
-CDN: `https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css`
+CDN: `https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css`
 
 ### 색상
 | 토큰 | 용도 |

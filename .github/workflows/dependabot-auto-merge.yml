@@ -79,7 +79,7 @@ jobs:
           수동 리뷰 후 머지해 주세요.
 
           ### 확인 사항
-          - [ ] [CHANGELOG 확인](https://github.com/geniefy/design-system/blob/main/CHANGELOG.md)
+          - [ ] [CHANGELOG 확인](https://github.com/conewarrior/design-system/blob/main/CHANGELOG.md)
           - [ ] Breaking change 영향 범위 파악
           - [ ] 필요 시 코드 수정
 

@@ -345,7 +345,7 @@ node_modules/@design-geniefy/ui/
 |------|------|----------|
 | Next.js | `app/layout.tsx` | `import '@design-geniefy/ui/tokens.css';` |
 | React (CRA/Vite) | `src/index.tsx` | `import '@design-geniefy/ui/tokens.css';` |
-| HTML/CSS | `index.html` | `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css">` |
+| HTML/CSS | `index.html` | `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css">` |
 
 **Next.js 예시:**
 ```tsx
@@ -372,7 +372,7 @@ export default function RootLayout({ children }) {
 이 프로젝트는 @design-geniefy/ui 디자인 시스템을 사용합니다.
 
 ### 토큰
-- CDN: https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css
+- CDN: https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css
 - 모든 색상, 간격, radius는 tokens.css의 CSS 변수 사용 필수
 
 ### 규칙 (자동 적용)
@@ -525,7 +525,7 @@ jobs:
   ✓ 컴포넌트, tokens.css, design-rules.md 모두 자동 업데이트
 
 토큰 참조:
-- CDN: https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css
+- CDN: https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css
 - 문서: https://design.geniefy.ai
 ```
 
@@ -565,7 +565,7 @@ Heading-1: 토큰은 왜 CDN으로 배포하는가
 │ 즉시 반영이 필요한          │                                             │
 │ 디자인 토큰에 적합          │ <link rel="stylesheet"                      │
 │                             │   href="https://cdn.jsdelivr.net/           │
-│                             │         gh/geniefy/design-system/           │
+│                             │         gh/conewarrior/design-system/           │
 │ ┌─────────────────────────┐ │         tokens.css">                        │
 │ │ CDN vs npm 비교         │ │                                             │
 │ │                         │ │ CSS에서 사용:                               │

@@ -114,10 +114,10 @@ A       components/Card/Card.module.css
 
 ```typescript
 // 커밋 목록 조회
-GET /repos/geniefy/design-system/commits?path=components/
+GET /repos/conewarrior/design-system/commits?path=components/
 
 // 커밋 상세 조회 (변경 파일 목록)
-GET /repos/geniefy/design-system/commits/{sha}
+GET /repos/conewarrior/design-system/commits/{sha}
 ```
 
 ### 3.3 데이터 구조

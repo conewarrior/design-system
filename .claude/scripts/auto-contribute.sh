@@ -8,7 +8,7 @@
 set -e
 
 FILE_PATH="$1"
-REPO="geniefy/design-system"
+REPO="conewarrior/design-system"
 BRANCH="main"
 API_URL="https://api.github.com/repos/$REPO/contents/$FILE_PATH"
 

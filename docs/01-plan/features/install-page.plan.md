@@ -167,7 +167,7 @@ export default function Page() {
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css"
+  href="https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css"
 >
 ```
 

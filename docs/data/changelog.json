@@ -21,7 +21,7 @@
             "docs/styles/tokens.css",
             "tokens.css"
           ],
-          "commitUrl": "https://github.com/geniefy/design-system/commit/ce2799b6b5c092252245401881832be812fdc08c"
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/ce2799b6b5c092252245401881832be812fdc08c"
         }
       ]
     },
@@ -40,7 +40,7 @@
             "docs/app/components/input/page.tsx",
             "docs/app/components/page.tsx"
           ],
-          "commitUrl": "https://github.com/geniefy/design-system/commit/e0bef6eb54eb79a7822f0ff9463ee685988f091c"
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/e0bef6eb54eb79a7822f0ff9463ee685988f091c"
         }
       ]
     },
@@ -59,7 +59,7 @@
             "components/Button/index.tsx",
             "components/Input/index.tsx"
           ],
-          "commitUrl": "https://github.com/geniefy/design-system/commit/85ccf113c51d33a0e97017db2a4c406f0a4358c3"
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/85ccf113c51d33a0e97017db2a4c406f0a4358c3"
         },
         {
           "id": "69f90a6",
@@ -71,7 +71,7 @@
           "files": [
             "tokens.css"
           ],
-          "commitUrl": "https://github.com/geniefy/design-system/commit/69f90a6a2a88a589df0ac62390a083f4a1e7e6b0"
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/69f90a6a2a88a589df0ac62390a083f4a1e7e6b0"
         },
         {
           "id": "8d57e18",
@@ -83,7 +83,7 @@
           "files": [
             "tokens.css"
           ],
-          "commitUrl": "https://github.com/geniefy/design-system/commit/8d57e186aefa3c0f528c74a5d63133d6c3c3c04c"
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/8d57e186aefa3c0f528c74a5d63133d6c3c3c04c"
         }
       ]
     },
@@ -101,7 +101,7 @@
             "components/.gitkeep",
             "tokens.css"
           ],
-          "commitUrl": "https://github.com/geniefy/design-system/commit/56f26c8d0164c5698488b6ae658ed420e5e72f46"
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/56f26c8d0164c5698488b6ae658ed420e5e72f46"
         }
       ]
     }

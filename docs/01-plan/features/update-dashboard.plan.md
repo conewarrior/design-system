@@ -140,7 +140,7 @@ Next.js + GitHub API로 커스텀 대시보드
 
 ```typescript
 // 1. 최신 버전 조회
-GET /repos/geniefy/design-system/releases/latest
+GET /repos/conewarrior/design-system/releases/latest
 
 // 2. 조직 내 저장소 목록
 GET /orgs/geniefy/repos

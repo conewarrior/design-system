@@ -35,7 +35,7 @@
     },
     {
       "name": "docs-site",
-      "repo": "geniefy/design-system",
+      "repo": "conewarrior/design-system",
       "description": "디자인 시스템 문서 사이트",
       "version": null,
       "status": "not-installed"

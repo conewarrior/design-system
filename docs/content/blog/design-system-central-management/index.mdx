@@ -33,7 +33,7 @@ published: true
 `tokens.css`는 jsDelivr CDN으로 배포했다. GitHub에 push하면 CDN이 자동으로 캐시를 무효화하고 최신 파일을 제공한다. 각 프로젝트는 `index.html`에 CDN 링크만 추가하면 끝이다.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css">
 ```
 
 컴포넌트는 npm 패키지로 배포했다. `main` 브랜치에 push하면 GitHub Actions가 자동으로 npm에 배포한다. 각 프로젝트는 `package.json`에 버전을 명시해서 Breaking Change로부터 보호받는다.

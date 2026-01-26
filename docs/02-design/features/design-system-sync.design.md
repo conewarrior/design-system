@@ -92,7 +92,7 @@
 이 프로젝트는 @design-geniefy/ui 디자인 시스템을 사용합니다.
 
 ### 토큰
-- CDN: https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css
+- CDN: https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css
 - 모든 색상, 간격, radius는 tokens.css의 CSS 변수 사용 필수
 
 ### 규칙
@@ -146,7 +146,7 @@ UI/컴포넌트 관련 요청 시 자동 적용
 4. 위반 시 거부 및 수정
 
 ### 토큰 참조
-- CDN: https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css
+- CDN: https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css
 ```
 
 ---
@@ -183,7 +183,7 @@ UI/컴포넌트 관련 요청 시 자동 적용
                           ▼
 ┌─────────────────────────────────────────────────────────┐
 │ GitHub API로 design-system 저장소에 커밋                │
-│ - PUT /repos/geniefy/design-system/contents/{path}     │
+│ - PUT /repos/conewarrior/design-system/contents/{path}     │
 │ - GITHUB_TOKEN 사용                                    │
 └─────────────────────────────────────────────────────────┘
                           │
@@ -202,7 +202,7 @@ UI/컴포넌트 관련 요청 시 자동 적용
 # 사용법: auto-contribute.sh <file_path>
 
 FILE_PATH=$1
-REPO="geniefy/design-system"
+REPO="conewarrior/design-system"
 BRANCH="main"
 
 # 파일 내용 읽기

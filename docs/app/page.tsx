@@ -15,7 +15,7 @@ export default function HomePage() {
         <h3 className="subsection-title">CDN (토큰만)</h3>
         <pre><code>{`<link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css"
+  href="https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css"
 />`}</code></pre>
       </section>
 

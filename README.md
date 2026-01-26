@@ -26,7 +26,7 @@ AX 조직을 위한 디자인 시스템 저장소.
 모든 프로젝트는 이 파일을 CDN으로 import하여 동일한 토큰 값을 사용한다.
 
 ```css
-@import url('https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css');
+@import url('https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css');
 ```
 
 ### `components/`
@@ -69,7 +69,7 @@ Claude Code는 `src/components/` 작업 시 이 규칙을 참조한다.
 
 ```css
 /* globals.css */
-@import url('https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css');
+@import url('https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css');
 ```
 
 ```bash
@@ -126,7 +126,7 @@ import { Input } from '@design-geniefy/ui';
 
 ```css
 /* globals.css 상단에 추가 */
-@import url('https://cdn.jsdelivr.net/gh/geniefy/design-system/tokens.css');
+@import url('https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css');
 ```
 
 ---
