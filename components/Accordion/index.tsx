@@ -104,11 +104,11 @@ export const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerPr
           width: '100%',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: 'var(--spacing-3) var(--spacing-4)',
+          padding: 'var(--spacing-6) var(--spacing-8)',
           background: 'var(--color-bg-surface)',
           border: 'none',
           cursor: 'pointer',
-          fontSize: 'var(--font-size-sm)',
+          fontSize: 'var(--font-size-base)',
           fontWeight: 'var(--font-weight-medium)' as unknown as number,
           color: 'var(--color-text-default)',
           textAlign: 'left',
@@ -118,14 +118,25 @@ export const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerPr
         {...props}
       >
         {children}
-        <span
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 16 16"
+          fill="none"
           style={{
             transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
             transition: 'transform 0.2s ease',
+            flexShrink: 0,
           }}
         >
-          ▼
-        </span>
+          <path
+            d="M4 6L8 10L12 6"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
     );
   }
@@ -149,7 +160,7 @@ export const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps
       <div
         ref={ref}
         style={{
-          padding: 'var(--spacing-3) var(--spacing-4)',
+          padding: 'var(--spacing-6) var(--spacing-8)',
           fontSize: 'var(--font-size-sm)',
           color: 'var(--color-text-secondary)',
           background: 'var(--color-bg-surface)',

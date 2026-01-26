@@ -78,11 +78,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           .checkbox-input:checked::after {
             content: '';
             position: absolute;
-            width: 30%;
-            height: 60%;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg) translate(-10%, -10%);
+            width: 10px;
+            height: 10px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3,8 6,11 13,4'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
           }
           .checkbox-input:focus {
             outline: none;

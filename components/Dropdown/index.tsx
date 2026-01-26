@@ -54,7 +54,7 @@ DropdownTrigger.displayName = 'DropdownTrigger';
 export interface DropdownMenuProps extends HTMLAttributes<HTMLDivElement> {
   open: boolean;
   onClose: () => void;
-  align?: 'start' | 'center' | 'end';
+  align?: 'start' | 'center' | 'right';
 }
 
 export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
@@ -82,7 +82,7 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
     const alignStyles: Record<string, React.CSSProperties> = {
       start: { left: 0 },
       center: { left: '50%', transform: 'translateX(-50%)' },
-      end: { right: 0 },
+      right: { right: 0 },
     };
 
     return (
@@ -98,7 +98,10 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
           borderRadius: 'var(--radius-md)',
           boxShadow: 'var(--shadow-lg)',
           zIndex: 'var(--z-index-dropdown)' as unknown as number,
-          padding: 'var(--spacing-1)',
+          padding: 'var(--spacing-2) 0',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--spacing-1)',
           ...alignStyles[align],
           ...style,
         }}
@@ -128,6 +131,7 @@ export const DropdownItem = forwardRef<HTMLButtonElement, DropdownItemProps>(
           width: '100%',
           alignItems: 'center',
           padding: 'var(--spacing-2) var(--spacing-3)',
+          margin: '0 var(--spacing-1)',
           background: 'transparent',
           border: 'none',
           borderRadius: 'var(--radius-sm)',
@@ -165,7 +169,7 @@ export const DropdownSeparator = forwardRef<HTMLDivElement, HTMLAttributes<HTMLD
         style={{
           height: '1px',
           background: 'var(--color-border)',
-          margin: 'var(--spacing-1) 0',
+          margin: 'var(--spacing-1) calc(var(--spacing-1) + var(--spacing-3))',
           ...style,
         }}
         {...props}

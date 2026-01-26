@@ -14,28 +14,28 @@ const variantStyles: Record<BadgeVariant, React.CSSProperties> = {
     color: 'var(--color-secondary-foreground)',
   },
   primary: {
-    background: 'var(--color-primary-bg)',
-    color: 'var(--color-primary-text)',
+    background: 'var(--color-primary)',
+    color: 'white',
   },
   secondary: {
     background: 'var(--color-secondary)',
     color: 'var(--color-secondary-foreground)',
   },
   success: {
-    background: 'var(--color-success-bg)',
-    color: 'var(--color-success-text)',
+    background: 'var(--color-success)',
+    color: 'white',
   },
   warning: {
-    background: 'var(--color-warning-bg)',
-    color: 'var(--color-warning-text)',
+    background: 'var(--color-warning)',
+    color: 'white',
   },
   error: {
-    background: 'var(--color-error-bg)',
-    color: 'var(--color-error-text)',
+    background: 'var(--color-error)',
+    color: 'white',
   },
   info: {
-    background: 'var(--color-info-bg)',
-    color: 'var(--color-info-text)',
+    background: 'var(--color-info)',
+    color: 'white',
   },
 };
 
