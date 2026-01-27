@@ -1,6 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../../../../components/Card';
 import { Button } from '../../../../components/Button';
-import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function CardPage() {
   return (
@@ -117,7 +116,6 @@ export default function CardPage() {
         </table>
       </section>
 
-      <ComponentVersionHistory componentName="Card" />
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { Toast } from '../../../../components/Toast';
-import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function ToastPage() {
   return (
@@ -65,7 +64,6 @@ export default function ToastPage() {
         </table>
       </section>
 
-      <ComponentVersionHistory componentName="Toast" />
     </div>
   );
 }

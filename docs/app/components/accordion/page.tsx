@@ -1,7 +1,6 @@
 'use client';
 
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../../../../components/Accordion';
-import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function AccordionPage() {
   return (
@@ -89,7 +88,6 @@ export default function AccordionPage() {
         </table>
       </section>
 
-      <ComponentVersionHistory componentName="Accordion" />
     </div>
   );
 }

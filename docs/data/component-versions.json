@@ -1,13 +1,14 @@
 {
-  "generatedAt": "2026-01-27T03:22:27.458Z",
+  "generatedAt": "2026-01-27T03:31:44.116Z",
   "totalComponents": 20,
-  "totalVersions": 5,
+  "totalVersions": 6,
   "tags": [
     "v0.0.2",
     "v0.0.3",
     "v0.0.4",
     "v0.0.5",
-    "v0.0.6"
+    "v0.0.6",
+    "v0.0.7"
   ],
   "data": {
     "Accordion": {
@@ -47,6 +48,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"
@@ -95,6 +104,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
         }
       ]
     },
@@ -135,6 +152,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"
@@ -183,6 +208,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
         }
       ]
     },
@@ -227,6 +260,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "feat: design-rules 확장 및 컴포넌트 문서 업데이트"
+          ]
         }
       ]
     },
@@ -267,6 +308,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"
@@ -315,6 +364,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
         }
       ]
     },
@@ -355,6 +412,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"
@@ -403,6 +468,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
         }
       ]
     },
@@ -443,6 +516,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"
@@ -491,6 +572,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
         }
       ]
     },
@@ -531,6 +620,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"
@@ -579,6 +676,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
         }
       ]
     },
@@ -619,6 +724,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"
@@ -667,6 +780,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
         }
       ]
     },
@@ -707,6 +828,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"
@@ -755,6 +884,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
         }
       ]
     },
@@ -795,6 +932,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"
@@ -843,6 +988,14 @@
           "changes": [
             "No changes recorded"
           ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
         }
       ]
     },
@@ -883,6 +1036,14 @@
         {
           "version": "0.0.6",
           "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.7",
+          "tag": "v0.0.7",
           "date": "2026-01-27",
           "changes": [
             "No changes recorded"

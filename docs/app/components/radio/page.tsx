@@ -1,5 +1,4 @@
 import { Radio } from '../../../../components/Radio';
-import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function RadioPage() {
   return (
@@ -73,7 +72,6 @@ export default function RadioPage() {
         </table>
       </section>
 
-      <ComponentVersionHistory componentName="Radio" />
     </div>
   );
 }

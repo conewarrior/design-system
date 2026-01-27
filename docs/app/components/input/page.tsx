@@ -1,5 +1,4 @@
 import { Input } from '../../../components/Input';
-import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function InputPage() {
   return (
@@ -75,7 +74,6 @@ export default function InputPage() {
         </table>
       </section>
 
-      <ComponentVersionHistory componentName="Input" />
     </div>
   );
 }

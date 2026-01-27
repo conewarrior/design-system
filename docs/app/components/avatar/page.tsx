@@ -1,5 +1,4 @@
 import { Avatar } from '../../../../components/Avatar';
-import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function AvatarPage() {
   return (
@@ -79,7 +78,6 @@ export default function AvatarPage() {
         </table>
       </section>
 
-      <ComponentVersionHistory componentName="Avatar" />
     </div>
   );
 }
