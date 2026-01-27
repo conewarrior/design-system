@@ -34,13 +34,9 @@ export default function SelectPage() {
           <Select selectSize="md">
             <option>Medium (default)</option>
           </Select>
-          <Select selectSize="lg">
-            <option>Large</option>
-          </Select>
         </div>
         <pre><code>{`<Select selectSize="sm">...</Select>
-<Select selectSize="md">...</Select>
-<Select selectSize="lg">...</Select>`}</code></pre>
+<Select selectSize="md">...</Select>`}</code></pre>
       </section>
 
       <section>
@@ -76,7 +72,7 @@ export default function SelectPage() {
           <tbody>
             <tr style={{ borderBottom: '1px solid var(--color-border)' }}>
               <td style={{ padding: 'var(--spacing-2)' }}><code>selectSize</code></td>
-              <td style={{ padding: 'var(--spacing-2)' }}><code>sm | md | lg</code></td>
+              <td style={{ padding: 'var(--spacing-2)' }}><code>sm | md</code></td>
               <td style={{ padding: 'var(--spacing-2)' }}><code>md</code></td>
             </tr>
             <tr style={{ borderBottom: '1px solid var(--color-border)' }}>

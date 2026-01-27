@@ -1,6 +1,6 @@
 import React, { forwardRef, SelectHTMLAttributes } from 'react';
 
-export type SelectSize = 'sm' | 'md' | 'lg';
+export type SelectSize = 'sm' | 'md';
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   selectSize?: SelectSize;
@@ -9,16 +9,12 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 
 const sizeStyles: Record<SelectSize, React.CSSProperties> = {
   sm: {
-    padding: 'var(--spacing-1) var(--spacing-2)',
+    padding: 'var(--spacing-2) var(--spacing-4)',
     fontSize: 'var(--font-size-sm)',
   },
   md: {
-    padding: 'var(--spacing-1-5) var(--spacing-3)',
+    padding: 'var(--spacing-3) var(--spacing-6)',
     fontSize: 'var(--font-size-base)',
-  },
-  lg: {
-    padding: 'var(--spacing-2) var(--spacing-4)',
-    fontSize: 'var(--font-size-lg)',
   },
 };
 
@@ -34,7 +30,7 @@ const baseStyles: React.CSSProperties = {
   cursor: 'pointer',
   transition: 'border-color 0.15s ease, box-shadow 0.15s ease',
   appearance: 'none',
-  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23737373' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`,
+  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%23737373' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'right 12px center',
   paddingRight: '36px',

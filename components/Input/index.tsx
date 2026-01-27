@@ -1,6 +1,6 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react';
 
-export type InputSize = 'sm' | 'md' | 'lg';
+export type InputSize = 'sm' | 'md';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize?: InputSize;
@@ -9,25 +9,21 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const sizeStyles: Record<InputSize, React.CSSProperties> = {
   sm: {
-    padding: 'var(--spacing-1) var(--spacing-1-5)',
+    padding: 'var(--spacing-2) var(--spacing-4)',
     fontSize: 'var(--font-size-sm)',
   },
   md: {
-    padding: 'var(--spacing-1-5) var(--spacing-2)',
+    padding: 'var(--spacing-3) var(--spacing-6)',
     fontSize: 'var(--font-size-base)',
-  },
-  lg: {
-    padding: 'var(--spacing-2) var(--spacing-2-5)',
-    fontSize: 'var(--font-size-lg)',
   },
 };
 
 const baseStyles: React.CSSProperties = {
   display: 'block',
   width: '100%',
-  background: 'var(--color-background)',
-  color: 'var(--color-foreground)',
-  border: '1px solid var(--color-input)',
+  background: 'var(--color-bg-surface)',
+  color: 'var(--color-text-default)',
+  border: '1px solid var(--color-border)',
   borderRadius: 'var(--radius-md)',
   lineHeight: 'var(--line-height-normal)',
   outline: 'none',

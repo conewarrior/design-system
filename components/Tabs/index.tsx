@@ -54,10 +54,8 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         role="tablist"
         style={{
           display: 'inline-flex',
-          background: 'var(--color-secondary)',
-          borderRadius: 'var(--radius-md)',
-          padding: 'var(--spacing-0-5)',
-          gap: 'var(--spacing-0-5)',
+          borderBottom: '1px solid var(--color-border)',
+          gap: 'var(--spacing-1)',
           ...style,
         }}
         {...props}
@@ -87,16 +85,17 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         aria-selected={isActive}
         onClick={() => setActiveTab(value)}
         style={{
-          padding: 'var(--spacing-1-5) var(--spacing-3)',
+          padding: 'var(--spacing-2) var(--spacing-4)',
           fontSize: 'var(--font-size-sm)',
           fontWeight: 'var(--font-weight-medium)' as unknown as number,
-          background: isActive ? 'var(--color-bg-surface)' : 'transparent',
-          color: isActive ? 'var(--color-text-default)' : 'var(--color-text-secondary)',
+          background: 'transparent',
+          color: isActive ? 'var(--color-primary)' : 'var(--color-text-secondary)',
           border: 'none',
-          borderRadius: 'var(--radius-sm)',
+          borderBottom: isActive ? '2px solid var(--color-primary)' : '2px solid transparent',
+          borderRadius: '0',
           cursor: 'pointer',
           transition: 'all 0.15s ease',
-          boxShadow: isActive ? 'var(--shadow-sm)' : 'none',
+          marginBottom: '-1px',
           ...style,
         }}
         {...props}

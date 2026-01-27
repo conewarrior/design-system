@@ -15,23 +15,23 @@ export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
 const variantStyles: Record<ToastVariant, React.CSSProperties> = {
   default: {
     background: 'var(--color-bg-surface)',
-    borderLeft: '4px solid var(--color-border)',
+    borderLeft: '6px solid var(--color-border)',
   },
   success: {
     background: 'var(--color-bg-surface)',
-    borderLeft: '4px solid var(--color-success)',
+    borderLeft: '6px solid var(--color-success)',
   },
   warning: {
     background: 'var(--color-bg-surface)',
-    borderLeft: '4px solid var(--color-warning)',
+    borderLeft: '6px solid var(--color-warning)',
   },
   error: {
     background: 'var(--color-bg-surface)',
-    borderLeft: '4px solid var(--color-error)',
+    borderLeft: '6px solid var(--color-error)',
   },
   info: {
     background: 'var(--color-bg-surface)',
-    borderLeft: '4px solid var(--color-info)',
+    borderLeft: '6px solid var(--color-info)',
   },
 };
 
@@ -57,7 +57,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         role="alert"
         style={{
           padding: 'var(--spacing-3) var(--spacing-4)',
-          borderRadius: 'var(--radius-md)',
+          borderRadius: 'var(--radius-sm)',
           boxShadow: 'var(--shadow-lg)',
           minWidth: '300px',
           maxWidth: '400px',

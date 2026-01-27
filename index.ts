@@ -55,8 +55,5 @@ export type { ProgressProps, ProgressSize, ProgressVariant } from './components/
 export { Spinner } from './components/Spinner';
 export type { SpinnerProps, SpinnerSize } from './components/Spinner';
 
-export { Alert } from './components/Alert';
-export type { AlertProps, AlertVariant } from './components/Alert';
-
 export { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSeparator } from './components/Dropdown';
 export type { DropdownProps, DropdownTriggerProps, DropdownMenuProps, DropdownItemProps } from './components/Dropdown';

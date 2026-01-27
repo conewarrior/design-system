@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../../../../components/Card';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '../../../../components/Card';
 import { Button } from '../../../../components/Button';
 
 export default function CardPage() {
@@ -15,7 +15,6 @@ export default function CardPage() {
           <Card variant="default" style={{ width: '280px' }}>
             <CardHeader>
               <CardTitle>Default Card</CardTitle>
-              <CardDescription>기본 카드 스타일입니다.</CardDescription>
             </CardHeader>
             <CardContent>
               <p style={{ margin: 0, color: 'var(--color-text-secondary)' }}>카드 내용이 여기에 들어갑니다.</p>
@@ -24,7 +23,6 @@ export default function CardPage() {
           <Card variant="outline" style={{ width: '280px' }}>
             <CardHeader>
               <CardTitle>Outline Card</CardTitle>
-              <CardDescription>테두리만 있는 카드입니다.</CardDescription>
             </CardHeader>
             <CardContent>
               <p style={{ margin: 0, color: 'var(--color-text-secondary)' }}>카드 내용이 여기에 들어갑니다.</p>
@@ -33,7 +31,6 @@ export default function CardPage() {
           <Card variant="elevated" style={{ width: '280px' }}>
             <CardHeader>
               <CardTitle>Elevated Card</CardTitle>
-              <CardDescription>그림자가 있는 카드입니다.</CardDescription>
             </CardHeader>
             <CardContent>
               <p style={{ margin: 0, color: 'var(--color-text-secondary)' }}>카드 내용이 여기에 들어갑니다.</p>
@@ -50,7 +47,6 @@ export default function CardPage() {
         <Card style={{ maxWidth: '400px' }}>
           <CardHeader>
             <CardTitle>프로젝트 설정</CardTitle>
-            <CardDescription>프로젝트의 기본 설정을 변경합니다.</CardDescription>
           </CardHeader>
           <CardContent>
             <p style={{ margin: 0, color: 'var(--color-text-secondary)' }}>설정 내용이 여기에 표시됩니다.</p>

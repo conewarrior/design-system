@@ -88,7 +88,6 @@ export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
         ref={ref}
         style={{
           padding: 'var(--spacing-4)',
-          borderBottom: '1px solid var(--color-border)',
           ...style,
         }}
         {...props}
@@ -158,7 +157,6 @@ export const ModalFooter = forwardRef<HTMLDivElement, ModalFooterProps>(
         ref={ref}
         style={{
           padding: 'var(--spacing-4)',
-          borderTop: '1px solid var(--color-border)',
           display: 'flex',
           justifyContent: 'flex-end',
           gap: 'var(--spacing-2)',
