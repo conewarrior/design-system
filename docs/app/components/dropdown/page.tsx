@@ -50,9 +50,9 @@ export default function DropdownPage() {
         <div className="card" style={{ display: 'flex', gap: 'var(--spacing-4)' }}>
           <Dropdown>
             <DropdownTrigger onClick={() => setOpen2(!open2)} style={{ all: 'unset' }}>
-              <Button variant="outline" size="sm">End 정렬</Button>
+              <Button variant="outline" size="sm">Right 정렬</Button>
             </DropdownTrigger>
-            <DropdownMenu open={open2} onClose={() => setOpen2(false)} align="end">
+            <DropdownMenu open={open2} onClose={() => setOpen2(false)} align="right">
               <DropdownItem onClick={() => setOpen2(false)}>옵션 1</DropdownItem>
               <DropdownItem onClick={() => setOpen2(false)}>옵션 2</DropdownItem>
             </DropdownMenu>
@@ -60,7 +60,7 @@ export default function DropdownPage() {
         </div>
         <pre><code>{`<DropdownMenu align="start">...</DropdownMenu>
 <DropdownMenu align="center">...</DropdownMenu>
-<DropdownMenu align="end">...</DropdownMenu>`}</code></pre>
+<DropdownMenu align="right">...</DropdownMenu>`}</code></pre>
       </section>
 
       <section>
