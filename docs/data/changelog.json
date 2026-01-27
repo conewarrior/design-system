@@ -1,10 +1,58 @@
 {
-  "generatedAt": "2026-01-27T07:01:47.368Z",
-  "totalChanges": 12,
+  "generatedAt": "2026-01-27T08:49:31.376Z",
+  "totalChanges": 16,
   "data": [
     {
       "date": "2026-01-27",
       "items": [
+        {
+          "id": "943765c",
+          "type": "token",
+          "title": "refactor: symlink docs/styles/tokens.css to root",
+          "author": "김한솔",
+          "date": "2026-01-27",
+          "time": "17:15",
+          "files": [
+            "docs/styles/tokens.css"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/943765c2faa5e3857444ce117263a7b2c19373f0"
+        },
+        {
+          "id": "9e160a1",
+          "type": "docs",
+          "title": "docs: gh CLI 설정 가이드 추가 및 Blockquote 페이지 수정",
+          "author": "김한솔",
+          "date": "2026-01-27",
+          "time": "16:44",
+          "files": [
+            "docs/app/components/blockquote/page.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/9e160a19e467aade656646a99bf0ba5469dab78c"
+        },
+        {
+          "id": "1bc8e59",
+          "type": "add",
+          "title": "feat(components): add Table (#2)",
+          "author": "conewarrior",
+          "date": "2026-01-27",
+          "time": "16:32",
+          "files": [
+            "components/Table/index.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/1bc8e597a6b3b249c6de613dfc81c439db6783bf"
+        },
+        {
+          "id": "4f18f02",
+          "type": "add",
+          "title": "feat(components): add Blockquote (#1)",
+          "author": "conewarrior",
+          "date": "2026-01-27",
+          "time": "16:22",
+          "files": [
+            "components/Blockquote/index.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/4f18f020e69d698e1ba7c70a95ce31fbdcf0d77c"
+        },
         {
           "id": "68689e9",
           "type": "docs",

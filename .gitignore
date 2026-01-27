@@ -15,3 +15,7 @@ docs/out/
 # Portfolio planning documents (internal only, should not be updated)
 **/portfolio_plan.*
 **/portfolio-make-guide.md
+
+# BKit memory files
+**/.bkit-memory.json
+
