@@ -79,7 +79,7 @@ const typographyTokens = [
   { name: 'Body R', size: '14px', weight: '400', lineHeight: '21px' },
 ];
 
-const miniPrompt = `GPTers 브랜드 디자인 가이드:
+const prompt = `GPTers 브랜드 디자인 가이드:
 
 [디자인 철학]
 - 깔끔하고 미니멀한 느낌. 복잡함 없이 핵심만 보여준다
@@ -104,7 +104,14 @@ const miniPrompt = `GPTers 브랜드 디자인 가이드:
 - Radius: 버튼/인풋 8px, 카드 12px, 배지 full
 - 버튼: 32px (기본), 44px (큰 CTA)
 - 인풋: 44px
-- Font: Pretendard, 14px 본문, 24px 타이틀`;
+- Font: Pretendard, 14px 본문, 24px 타이틀
+
+[적용 가이드]
+이 가이드는 기본 지침이며, 앱의 특성과 성격에 따라 유연하게 조정하세요:
+- 웹 vs 모바일: 모바일은 터치 타겟 48px 이상, 대중적인 디바이스의 기준을 따른다.
+- 정보 밀도: 대시보드는 적당히 촘촘하게, 랜딩/마케팅은 여유롭게
+- 브랜드 톤: 친근함은 컬러를 조금 더 사용하고, 신뢰감은 화이트 위주 + 포인트 컬러는 적게
+→ 컬러와 디자인 철학은 유지하되, 사이즈/간격/컬러 사용량은 상황에 맞게 조정`;
 
 export default function GPTersBrandPage() {
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
@@ -212,7 +219,7 @@ export default function GPTersBrandPage() {
       <section>
         <h2 className="section-title">Landing Page Sample</h2>
         <div style={{
-          borderRadius: '12px',
+          borderRadius: '16px',
           border: '1px solid #E4E4E7',
           overflow: 'hidden',
           background: '#FFFFFF',
@@ -222,36 +229,36 @@ export default function GPTersBrandPage() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            padding: '12px 24px',
+            padding: '16px 24px',
             borderBottom: '1px solid #E4E4E7',
             background: '#FFFFFF',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <div style={{
-                width: '24px',
-                height: '24px',
+                width: '28px',
+                height: '28px',
                 background: '#FF6900',
-                borderRadius: '4px',
+                borderRadius: '6px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: '#FFFFFF',
                 fontWeight: 700,
-                fontSize: '11px',
+                fontSize: '12px',
               }}>G</div>
-              <span style={{ fontWeight: 600, fontSize: '14px', color: '#09090B' }}>GPTers</span>
+              <span style={{ fontWeight: 600, fontSize: '15px', color: '#09090B' }}>GPTers</span>
             </div>
-            <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-              <span style={{ color: '#71717A', fontSize: '12px' }}>Features</span>
-              <span style={{ color: '#71717A', fontSize: '12px' }}>Pricing</span>
-              <span style={{ color: '#71717A', fontSize: '12px' }}>About</span>
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+              <span style={{ color: '#71717A', fontSize: '13px' }}>Features</span>
+              <span style={{ color: '#71717A', fontSize: '13px' }}>Pricing</span>
+              <span style={{ color: '#71717A', fontSize: '13px' }}>About</span>
               <div style={{
-                height: '28px',
-                padding: '0 12px',
+                height: '32px',
+                padding: '0 16px',
                 background: '#FF6900',
                 color: '#FFFFFF',
-                borderRadius: '6px',
-                fontSize: '12px',
+                borderRadius: '8px',
+                fontSize: '13px',
                 fontWeight: 600,
                 display: 'flex',
                 alignItems: 'center',
@@ -261,59 +268,59 @@ export default function GPTersBrandPage() {
 
           {/* Hero Section */}
           <div style={{
-            padding: '40px 24px',
+            padding: '48px 24px',
             display: 'flex',
             alignItems: 'center',
-            gap: '32px',
+            gap: '40px',
           }}>
             <div style={{ flex: 1 }}>
               <span style={{
                 display: 'inline-block',
-                padding: '3px 10px',
+                padding: '4px 12px',
                 background: '#FFF0D3',
                 color: '#FF6900',
-                borderRadius: '10px',
-                fontSize: '10px',
+                borderRadius: '12px',
+                fontSize: '11px',
                 fontWeight: 600,
-                marginBottom: '12px',
+                marginBottom: '16px',
               }}>New Feature</span>
               <div style={{
-                fontSize: '28px',
+                fontSize: '32px',
                 fontWeight: 700,
                 color: '#09090B',
                 lineHeight: 1.2,
-                marginBottom: '8px',
+                marginBottom: '12px',
               }}>
                 Build faster with <span style={{ color: '#FF6900' }}>GPTers</span>
               </div>
               <p style={{
-                fontSize: '13px',
+                fontSize: '14px',
                 color: '#71717A',
-                lineHeight: 1.5,
-                marginBottom: '16px',
+                lineHeight: 1.6,
+                marginBottom: '20px',
               }}>
                 A complete design system for building modern web applications.
               </p>
-              <div style={{ display: 'flex', gap: '8px' }}>
+              <div style={{ display: 'flex', gap: '12px' }}>
                 <div style={{
-                  height: '36px',
-                  padding: '0 16px',
+                  height: '40px',
+                  padding: '0 20px',
                   background: '#FF6900',
                   color: '#FFFFFF',
-                  borderRadius: '6px',
-                  fontSize: '13px',
+                  borderRadius: '8px',
+                  fontSize: '14px',
                   fontWeight: 600,
                   display: 'flex',
                   alignItems: 'center',
                 }}>Start Free</div>
                 <div style={{
-                  height: '36px',
-                  padding: '0 16px',
+                  height: '40px',
+                  padding: '0 20px',
                   background: '#FFFFFF',
                   color: '#3F4146',
                   border: '1px solid #B5B5BA',
-                  borderRadius: '6px',
-                  fontSize: '13px',
+                  borderRadius: '8px',
+                  fontSize: '14px',
                   fontWeight: 600,
                   display: 'flex',
                   alignItems: 'center',
@@ -322,33 +329,33 @@ export default function GPTersBrandPage() {
             </div>
             <div style={{
               flex: 1,
-              height: '200px',
+              height: '220px',
               background: '#FAFAFA',
-              borderRadius: '12px',
+              borderRadius: '16px',
               border: '1px solid #E4E4E7',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}>
               <div style={{
-                width: '80%',
-                height: '80%',
+                width: '85%',
+                height: '85%',
                 background: '#FFFFFF',
-                borderRadius: '8px',
+                borderRadius: '12px',
                 border: '1px solid #E4E4E7',
                 padding: '16px',
               }}>
-                <div style={{ display: 'flex', gap: '6px', marginBottom: '12px' }}>
-                  <div style={{ width: '8px', height: '8px', background: '#FFE8E9', borderRadius: '50%' }} />
-                  <div style={{ width: '8px', height: '8px', background: '#FFF0D3', borderRadius: '50%' }} />
-                  <div style={{ width: '8px', height: '8px', background: '#B9F8CF', borderRadius: '50%' }} />
+                <div style={{ display: 'flex', gap: '6px', marginBottom: '14px' }}>
+                  <div style={{ width: '10px', height: '10px', background: '#FFE8E9', borderRadius: '50%' }} />
+                  <div style={{ width: '10px', height: '10px', background: '#FFF0D3', borderRadius: '50%' }} />
+                  <div style={{ width: '10px', height: '10px', background: '#B9F8CF', borderRadius: '50%' }} />
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <div style={{ width: '50%', height: '8px', background: '#E4E4E7', borderRadius: '4px' }} />
-                  <div style={{ width: '70%', height: '6px', background: '#F4F4F5', borderRadius: '3px' }} />
-                  <div style={{ display: 'flex', gap: '6px', marginTop: '8px' }}>
-                    <div style={{ width: '50px', height: '20px', background: '#FF6900', borderRadius: '4px' }} />
-                    <div style={{ width: '50px', height: '20px', background: '#F4F4F5', borderRadius: '4px' }} />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <div style={{ width: '50%', height: '10px', background: '#E4E4E7', borderRadius: '5px' }} />
+                  <div style={{ width: '70%', height: '8px', background: '#F4F4F5', borderRadius: '4px' }} />
+                  <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
+                    <div style={{ width: '60px', height: '24px', background: '#FF6900', borderRadius: '6px' }} />
+                    <div style={{ width: '60px', height: '24px', background: '#F4F4F5', borderRadius: '6px' }} />
                   </div>
                 </div>
               </div>
@@ -357,7 +364,7 @@ export default function GPTersBrandPage() {
 
           {/* Stats Section */}
           <div style={{
-            padding: '24px',
+            padding: '28px 24px',
             background: '#FAFAFA',
             borderTop: '1px solid #E4E4E7',
             borderBottom: '1px solid #E4E4E7',
@@ -373,41 +380,70 @@ export default function GPTersBrandPage() {
               { value: '99%', label: 'Satisfaction' },
             ].map((stat, idx) => (
               <div key={idx}>
-                <div style={{ fontSize: '20px', fontWeight: 700, color: '#FF6900' }}>{stat.value}</div>
-                <div style={{ fontSize: '11px', color: '#71717A' }}>{stat.label}</div>
+                <div style={{ fontSize: '22px', fontWeight: 700, color: '#FF6900' }}>{stat.value}</div>
+                <div style={{ fontSize: '12px', color: '#71717A' }}>{stat.label}</div>
               </div>
             ))}
           </div>
 
           {/* Features Section */}
-          <div style={{ padding: '32px 24px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-              <div style={{ fontSize: '18px', fontWeight: 700, color: '#09090B', marginBottom: '4px' }}>
+          <div style={{ padding: '36px 24px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+              <div style={{ fontSize: '20px', fontWeight: 700, color: '#09090B', marginBottom: '6px' }}>
                 Everything you need
               </div>
-              <p style={{ fontSize: '12px', color: '#71717A' }}>
+              <p style={{ fontSize: '13px', color: '#71717A' }}>
                 Build beautiful, consistent interfaces
               </p>
             </div>
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '12px',
+              gap: '16px',
             }}>
               {[
-                { icon: '🎨', title: 'Design Tokens' },
-                { icon: '🧩', title: 'Components' },
-                { icon: '📱', title: 'Responsive' },
+                {
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6900" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="13.5" cy="6.5" r="2.5"/>
+                      <circle cx="6.5" cy="13.5" r="2.5"/>
+                      <circle cx="17.5" cy="17.5" r="2.5"/>
+                      <path d="M13.5 9v2a2 2 0 0 1-2 2H9"/>
+                      <path d="M6.5 16v2"/>
+                    </svg>
+                  ),
+                  title: 'Design Tokens'
+                },
+                {
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6900" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="3" width="7" height="7" rx="1"/>
+                      <rect x="14" y="3" width="7" height="7" rx="1"/>
+                      <rect x="3" y="14" width="7" height="7" rx="1"/>
+                      <rect x="14" y="14" width="7" height="7" rx="1"/>
+                    </svg>
+                  ),
+                  title: 'Components'
+                },
+                {
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6900" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="2"/>
+                      <path d="M12 18h.01"/>
+                    </svg>
+                  ),
+                  title: 'Responsive'
+                },
               ].map((feature, idx) => (
                 <div key={idx} style={{
-                  padding: '16px',
+                  padding: '20px',
                   background: '#FFFFFF',
                   border: '1px solid #E4E4E7',
-                  borderRadius: '8px',
+                  borderRadius: '12px',
                   textAlign: 'center',
                 }}>
-                  <div style={{ fontSize: '20px', marginBottom: '8px' }}>{feature.icon}</div>
-                  <div style={{ fontSize: '12px', fontWeight: 600, color: '#09090B' }}>{feature.title}</div>
+                  <div style={{ marginBottom: '10px', display: 'flex', justifyContent: 'center' }}>{feature.icon}</div>
+                  <div style={{ fontSize: '14px', fontWeight: 600, color: '#09090B' }}>{feature.title}</div>
                 </div>
               ))}
             </div>
@@ -415,36 +451,36 @@ export default function GPTersBrandPage() {
 
           {/* CTA Section */}
           <div style={{
-            padding: '32px 24px',
+            padding: '36px 24px',
             background: '#09090B',
             textAlign: 'center',
           }}>
-            <div style={{ fontSize: '18px', fontWeight: 700, color: '#FFFFFF', marginBottom: '8px' }}>
+            <div style={{ fontSize: '20px', fontWeight: 700, color: '#FFFFFF', marginBottom: '10px' }}>
               Ready to get started?
             </div>
-            <p style={{ fontSize: '12px', color: '#B5B5BA', marginBottom: '16px' }}>
+            <p style={{ fontSize: '13px', color: '#B5B5BA', marginBottom: '20px' }}>
               Join thousands of developers
             </p>
-            <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
               <div style={{
-                height: '32px',
-                padding: '0 16px',
+                height: '36px',
+                padding: '0 20px',
                 background: '#FF6900',
                 color: '#FFFFFF',
-                borderRadius: '6px',
-                fontSize: '12px',
+                borderRadius: '8px',
+                fontSize: '13px',
                 fontWeight: 600,
                 display: 'flex',
                 alignItems: 'center',
               }}>Get Started</div>
               <div style={{
-                height: '32px',
-                padding: '0 16px',
+                height: '36px',
+                padding: '0 20px',
                 background: 'transparent',
                 color: '#FFFFFF',
                 border: '1px solid #71717A',
-                borderRadius: '6px',
-                fontSize: '12px',
+                borderRadius: '8px',
+                fontSize: '13px',
                 fontWeight: 600,
                 display: 'flex',
                 alignItems: 'center',
@@ -461,16 +497,16 @@ export default function GPTersBrandPage() {
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <div style={{
-                width: '16px',
-                height: '16px',
+                width: '18px',
+                height: '18px',
                 background: '#FF6900',
-                borderRadius: '3px',
+                borderRadius: '5px',
               }} />
-              <span style={{ fontWeight: 600, fontSize: '11px', color: '#3F4146' }}>GPTers Design</span>
+              <span style={{ fontWeight: 600, fontSize: '12px', color: '#3F4146' }}>GPTers Design</span>
             </div>
-            <div style={{ color: '#B5B5BA', fontSize: '10px' }}>
+            <div style={{ color: '#B5B5BA', fontSize: '11px' }}>
               © 2025 GPTers
             </div>
           </div>
@@ -519,12 +555,12 @@ export default function GPTersBrandPage() {
 
       {/* 미니 프롬프트 섹션 */}
       <section>
-        <h2 className="section-title">Mini Prompt</h2>
+        <h2 className="section-title">Prompt</h2>
         <p className="section-desc">AI에게 바로 붙여넣을 수 있는 디자인 지침입니다.</p>
         <div style={{ position: 'relative' }}>
-          <pre><code>{miniPrompt}</code></pre>
+          <pre><code>{prompt}</code></pre>
           <button
-            onClick={() => copyToClipboard(miniPrompt)}
+            onClick={() => copyToClipboard(prompt)}
             style={{
               position: 'absolute',
               top: 'var(--spacing-2)',

@@ -561,7 +561,7 @@ export default function SoftGradientPage() {
 
       {/* 미니 프롬프트 섹션 */}
       <section>
-        <h2 className="section-title">Mini Prompt</h2>
+        <h2 className="section-title">Prompt</h2>
         <p className="section-desc">AI에게 바로 붙여넣을 수 있는 Soft Gradient 디자인 지침입니다.</p>
         <div style={{ position: 'relative' }}>
           <pre><code>{prompt}</code></pre>
