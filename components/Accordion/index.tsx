@@ -7,6 +7,7 @@ interface AccordionContextValue {
   openItems: string[];
   toggleItem: (value: string) => void;
   multiple: boolean;
+  size: 'sm' | 'lg';
 }
 
 const AccordionContext = createContext<AccordionContextValue | null>(null);
@@ -21,10 +22,11 @@ const useAccordionContext = () => {
 export interface AccordionProps extends HTMLAttributes<HTMLDivElement> {
   type?: 'single' | 'multiple';
   defaultValue?: string[];
+  size?: 'sm' | 'lg';
 }
 
 export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ type = 'single', defaultValue = [], style, children, ...props }, ref) => {
+  ({ type = 'single', defaultValue = [], size = 'lg', style, children, ...props }, ref) => {
     const [openItems, setOpenItems] = useState<string[]>(defaultValue);
 
     const toggleItem = (value: string) => {
@@ -40,7 +42,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
     };
 
     return (
-      <AccordionContext.Provider value={{ openItems, toggleItem, multiple: type === 'multiple' }}>
+      <AccordionContext.Provider value={{ openItems, toggleItem, multiple: type === 'multiple', size }}>
         <div
           ref={ref}
           style={{
@@ -92,8 +94,23 @@ export interface AccordionTriggerProps extends HTMLAttributes<HTMLButtonElement>
 
 export const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
   ({ value, style, children, ...props }, ref) => {
-    const { openItems, toggleItem } = useAccordionContext();
+    const { openItems, toggleItem, size } = useAccordionContext();
     const isOpen = openItems.includes(value);
+
+    const sizeStyles = {
+      sm: {
+        padding: 'var(--spacing-3) var(--spacing-4)',
+        fontSize: 'var(--font-size-sm)',
+        fontWeight: 'var(--font-weight-medium)' as unknown as number,
+      },
+      lg: {
+        padding: 'var(--spacing-5) var(--spacing-6)',
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)' as unknown as number,
+      },
+    };
+
+    const iconSize = size === 'sm' ? 16 : 24;
 
     return (
       <button
@@ -104,23 +121,21 @@ export const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerPr
           width: '100%',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: 'var(--spacing-6) var(--spacing-8)',
           background: 'var(--color-bg-surface)',
           border: 'none',
           cursor: 'pointer',
-          fontSize: 'var(--font-size-base)',
-          fontWeight: 'var(--font-weight-medium)' as unknown as number,
           color: 'var(--color-text-default)',
           textAlign: 'left',
           transition: 'background 0.15s ease',
+          ...sizeStyles[size],
           ...style,
         }}
         {...props}
       >
         {children}
         <svg
-          width="20"
-          height="20"
+          width={iconSize}
+          height={iconSize}
           viewBox="0 0 16 16"
           fill="none"
           style={{
@@ -151,19 +166,29 @@ export interface AccordionContentProps extends HTMLAttributes<HTMLDivElement> {
 
 export const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
   ({ value, style, children, ...props }, ref) => {
-    const { openItems } = useAccordionContext();
+    const { openItems, size } = useAccordionContext();
     const isOpen = openItems.includes(value);
 
     if (!isOpen) return null;
+
+    const sizeStyles = {
+      sm: {
+        padding: 'var(--spacing-3) var(--spacing-4)',
+        fontSize: 'var(--font-size-sm)',
+      },
+      lg: {
+        padding: 'var(--spacing-5) var(--spacing-6)',
+        fontSize: 'var(--font-size-base)',
+      },
+    };
 
     return (
       <div
         ref={ref}
         style={{
-          padding: 'var(--spacing-6) var(--spacing-8)',
-          fontSize: 'var(--font-size-sm)',
           color: 'var(--color-text-secondary)',
           background: 'var(--color-bg-surface)',
+          ...sizeStyles[size],
           ...style,
         }}
         {...props}
