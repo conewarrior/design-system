@@ -100,22 +100,29 @@ function ClaudeGuide() {
     <div className="guide">
       <Step
         number={1}
-        title="GitHub 토큰 설정"
-        description="자동 기여 기능을 위해 먼저 GitHub 토큰을 설정합니다."
+        title="GitHub 인증 설정 (선택)"
+        description="자동 기여 기능을 사용하려면 GitHub 인증이 필요합니다."
       >
         <div className="token-setup-guide">
-          <p className="token-step"><strong>1.</strong> <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener noreferrer">GitHub 토큰 생성 페이지</a> 열기</p>
-          <p className="token-step"><strong>2.</strong> 설정값 입력:</p>
-          <ul className="token-settings">
-            <li>Note: <code>design-system-auto-contribute</code></li>
-            <li>Expiration: <code>No expiration</code></li>
-            <li>Select scopes: <code>repo</code> (전체 체크)</li>
-          </ul>
-          <p className="token-step"><strong>3.</strong> "Generate token" 클릭 후 토큰 복사</p>
-          <p className="token-step"><strong>4.</strong> 터미널에서 실행:</p>
-          <CodeBlock language="bash">{`echo 'export GITHUB_TOKEN="붙여넣기"' >> ~/.zshrc && source ~/.zshrc`}</CodeBlock>
-          <p className="token-step"><strong>5.</strong> 설정 확인:</p>
-          <CodeBlock language="bash">echo $GITHUB_TOKEN</CodeBlock>
+          <p className="token-step"><strong>방법 1: gh CLI (권장)</strong></p>
+          <p className="token-desc">Hook에서도 안정적으로 작동합니다.</p>
+          <CodeBlock language="bash">{`# 설치 (macOS)
+brew install gh
+
+# 인증 (브라우저 로그인)
+gh auth login
+
+# 확인
+gh auth status`}</CodeBlock>
+
+          <p className="token-step" style={{ marginTop: 'var(--spacing-4)' }}><strong>방법 2: GITHUB_TOKEN (CI/CD용)</strong></p>
+          <p className="token-desc">환경변수 방식은 CI/CD 환경에서 사용합니다.</p>
+          <ol className="token-settings">
+            <li><a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener noreferrer">GitHub 토큰 생성</a> (repo 권한)</li>
+            <li>터미널에서 설정:
+              <CodeBlock language="bash">{`echo 'export GITHUB_TOKEN="토큰"' >> ~/.zshrc && source ~/.zshrc`}</CodeBlock>
+            </li>
+          </ol>
         </div>
       </Step>
 
@@ -151,7 +158,7 @@ function ClaudeGuide() {
           </div>
           <div className="auto-install-item">
             <span className="auto-install-icon">✅</span>
-            <span>컴포넌트 자동 기여 (GITHUB_TOKEN 설정 시)</span>
+            <span>컴포넌트 자동 기여 (gh CLI 설정 시)</span>
           </div>
         </div>
       </Step>

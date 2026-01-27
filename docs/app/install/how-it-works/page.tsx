@@ -144,7 +144,7 @@ updates:
           </li>
           <li>
             <strong>auto-contribute.sh</strong><br />
-            GitHub API를 사용하여 design-system 저장소에 직접 커밋
+            gh CLI 또는 GitHub API를 사용하여 design-system 저장소에 직접 커밋
           </li>
           <li>
             <strong>npm 배포</strong><br />
@@ -153,7 +153,7 @@ updates:
         </ol>
 
         <p className="hw-note">
-          GITHUB_TOKEN 환경변수가 설정되어 있어야 합니다.
+          <strong>gh CLI</strong> (권장) 또는 <strong>GITHUB_TOKEN</strong> 환경변수가 설정되어 있어야 합니다.
         </p>
       </section>
 
@@ -248,21 +248,25 @@ jobs:
         <Accordion title="자동 기여가 안 될 때">
           <ol>
             <li>
-              <strong>GITHUB_TOKEN 확인</strong>
+              <strong>gh CLI 확인 (권장)</strong>
+              <CodeBlock language="bash">gh auth status</CodeBlock>
+              <p>인증되지 않았다면:</p>
+              <CodeBlock language="bash">{`# 설치
+brew install gh
+
+# 인증 (브라우저 로그인)
+gh auth login`}</CodeBlock>
+            </li>
+            <li>
+              <strong>또는 GITHUB_TOKEN 확인 (CI/CD용)</strong>
               <CodeBlock language="bash">echo $GITHUB_TOKEN</CodeBlock>
               <p>값이 출력되지 않으면 토큰 설정 필요:</p>
-            </li>
-            <li>
-              <strong>토큰 생성 방법</strong>
-              <p>1. <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener noreferrer">GitHub 토큰 생성 페이지</a> 열기</p>
-              <p>2. Note: <code>design-system-auto-contribute</code></p>
-              <p>3. Expiration: <code>No expiration</code></p>
-              <p>4. Scopes: <code>repo</code> 전체 체크</p>
-              <p>5. "Generate token" 클릭 후 복사</p>
-            </li>
-            <li>
-              <strong>토큰 저장</strong>
+              <p>1. <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener noreferrer">GitHub 토큰 생성</a> (repo 권한)</p>
               <CodeBlock language="bash">{`echo 'export GITHUB_TOKEN="복사한_토큰"' >> ~/.zshrc && source ~/.zshrc`}</CodeBlock>
+            </li>
+            <li>
+              <strong>왜 gh CLI를 권장하나요?</strong>
+              <p>Hook은 별도 subprocess에서 실행되어 터미널의 환경변수를 상속받지 못합니다. gh CLI는 keychain/config 파일에 인증 정보를 저장하므로 어떤 프로세스에서든 작동합니다.</p>
             </li>
           </ol>
         </Accordion>
