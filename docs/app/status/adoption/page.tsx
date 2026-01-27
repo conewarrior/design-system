@@ -186,6 +186,30 @@ export default async function AdoptionPage() {
           </span>
         </p>
       </div>
+
+      <div className="optin-section">
+        <h3>프로젝트 등록 (Opt-in)</h3>
+        <p>
+          패키지 설치 시 자동으로 채택 현황을 보고하려면 다음 중 하나를 설정하세요:
+        </p>
+        <div className="optin-methods">
+          <div className="optin-method">
+            <strong>1. 환경변수</strong>
+            <code>DESIGN_SYSTEM_REPORT=true npm install</code>
+          </div>
+          <div className="optin-method">
+            <strong>2. .designrc 파일</strong>
+            <code>{`{ "report": true }`}</code>
+          </div>
+          <div className="optin-method">
+            <strong>3. package.json</strong>
+            <code>{`"designSystem": { "report": true }`}</code>
+          </div>
+        </div>
+        <p className="optin-note">
+          보고되는 정보: 프로젝트명, 저장소 URL, 설치된 버전
+        </p>
+      </div>
     </div>
   );
 }

@@ -10,11 +10,13 @@
     "design-rules.md",
     ".claude/commands",
     ".claude/skills",
-    ".claude/scripts"
+    ".claude/scripts",
+    "scripts"
   ],
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "postinstall": "node scripts/report-adoption.js || true"
   },
   "peerDependencies": {
     "react": ">=18",
