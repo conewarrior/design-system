@@ -1,4 +1,5 @@
 import { Progress } from '../../../../components/Progress';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function ProgressPage() {
   return (
@@ -93,6 +94,8 @@ export default function ProgressPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Progress" />
     </div>
   );
 }

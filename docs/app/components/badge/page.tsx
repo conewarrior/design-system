@@ -1,4 +1,5 @@
 import { Badge } from '../../../../components/Badge';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function BadgePage() {
   return (
@@ -63,6 +64,8 @@ export default function BadgePage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Badge" />
     </div>
   );
 }

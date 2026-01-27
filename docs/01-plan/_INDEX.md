@@ -21,7 +21,8 @@
 | navigation-restructure | [navigation-restructure.plan.md](./features/navigation-restructure.plan.md) | 📋 Planning | 탑바+사이드바 구조 변경 |
 | how-it-works | [how-it-works-page.plan.md](./features/how-it-works-page.plan.md) | ✅ Done | How it Works 페이지 |
 | design-rules-update | [design-rules-update.plan.md](./features/design-rules-update.plan.md) | ✅ Done | design-rules 업데이트 |
+| component-version-history | [component-version-history.plan.md](./features/component-version-history.plan.md) | 🔄 In Progress | 컴포넌트 버전 히스토리 (렌더링 + diff) |
 
 ---
 
-*Last updated: 2026-01-21*
+*Last updated: 2026-01-27*

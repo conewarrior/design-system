@@ -39,15 +39,15 @@ const variantStyles: Record<ButtonVariant, React.CSSProperties> = {
 const sizeStyles: Record<ButtonSize, React.CSSProperties> = {
   sm: {
     padding: 'var(--spacing-1) var(--spacing-2)',
-    fontSize: 'var(--font-size-sm)',
+    fontSize: 'var(--font-size-2xs)', // 13px
   },
   md: {
     padding: 'var(--spacing-1-5) var(--spacing-3)',
-    fontSize: 'var(--font-size-sm)',
+    fontSize: 'var(--font-size-sm)', // 14px
   },
   lg: {
     padding: 'var(--spacing-2) var(--spacing-4)',
-    fontSize: 'var(--font-size-base)',
+    fontSize: 'var(--font-size-base)', // 16px
   },
 };
 

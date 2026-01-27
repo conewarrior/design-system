@@ -1,4 +1,5 @@
 import { Alert } from '../../../../components/Alert';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function AlertPage() {
   return (
@@ -58,6 +59,8 @@ export default function AlertPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Alert" />
     </div>
   );
 }

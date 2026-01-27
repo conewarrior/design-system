@@ -1,4 +1,5 @@
 import { Button } from '../../../components/Button';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function ButtonPage() {
   return (
@@ -74,6 +75,8 @@ export default function ButtonPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Button" />
     </div>
   );
 }

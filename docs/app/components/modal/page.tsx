@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter } from '../../../../components/Modal';
 import { Button } from '../../../../components/Button';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function ModalPage() {
   const [open, setOpen] = useState(false);
@@ -105,6 +106,8 @@ export default function ModalPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Modal" />
     </div>
   );
 }

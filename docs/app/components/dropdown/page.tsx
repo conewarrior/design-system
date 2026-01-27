@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSeparator } from '../../../../components/Dropdown';
 import { Button } from '../../../../components/Button';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function DropdownPage() {
   const [open, setOpen] = useState(false);
@@ -111,6 +112,8 @@ export default function DropdownPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Dropdown" />
     </div>
   );
 }

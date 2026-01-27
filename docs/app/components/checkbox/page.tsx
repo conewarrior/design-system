@@ -1,4 +1,5 @@
 import { Checkbox } from '../../../../components/Checkbox';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function CheckboxPage() {
   return (
@@ -69,6 +70,8 @@ export default function CheckboxPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Checkbox" />
     </div>
   );
 }
