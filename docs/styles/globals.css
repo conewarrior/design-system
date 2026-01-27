@@ -755,6 +755,46 @@ pre code {
   font-size: var(--font-size-base);
 }
 
+/* Token Setup Guide */
+.token-setup-guide {
+  background: var(--color-secondary);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+}
+
+.token-setup-guide a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.token-step {
+  margin: var(--spacing-2) 0;
+}
+
+.token-step:first-child {
+  margin-top: 0;
+}
+
+.token-settings {
+  margin: var(--spacing-1) 0 var(--spacing-2) var(--spacing-4);
+  padding: 0;
+  list-style: disc;
+}
+
+.token-settings li {
+  margin: var(--spacing-1) 0;
+}
+
+.token-settings code,
+.token-step code {
+  background: var(--color-background);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+}
+
 /* Auto Update Section */
 .auto-update-section {
   margin-top: var(--spacing-6);

@@ -104,7 +104,7 @@ export default function HowItWorksPage() {
         <ol>
           <li>
             <strong>npm publish</strong><br />
-            main 브랜치에 push되면 GitHub Actions가 자동으로 npm에 배포
+            버전 태그(v*)를 push하면 GitHub Actions가 자동으로 npm에 배포
           </li>
           <li>
             <strong>Dependabot 감지</strong><br />
@@ -199,7 +199,7 @@ updates:
         <p>GitHub Actions를 통해 자동으로 npm에 배포됩니다.</p>
 
         <p className="hw-flow">
-          코드 변경 → main push → GitHub Actions → npm publish
+          코드 변경 → npm version patch → git push --tags → GitHub Actions → npm publish
         </p>
 
         <Accordion title="publish.yml 보기">
@@ -207,11 +207,8 @@ updates:
 
 on:
   push:
-    branches: [main]
-    paths:
-      - 'components/**'
-      - 'package.json'
-      - 'index.ts'
+    tags:
+      - 'v*'  # v0.0.1, v1.0.0 등 태그 푸시 시 실행
 
 jobs:
   publish:
@@ -254,11 +251,19 @@ jobs:
             <li>
               <strong>GITHUB_TOKEN 확인</strong>
               <CodeBlock language="bash">echo $GITHUB_TOKEN</CodeBlock>
-              <p>값이 출력되지 않으면 토큰 설정 필요</p>
+              <p>값이 출력되지 않으면 토큰 설정 필요:</p>
             </li>
             <li>
-              <strong>토큰 권한 확인</strong>
-              <p>repo (Full control of private repositories) 권한 필요</p>
+              <strong>토큰 생성 방법</strong>
+              <p>1. <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener noreferrer">GitHub 토큰 생성 페이지</a> 열기</p>
+              <p>2. Note: <code>design-system-auto-contribute</code></p>
+              <p>3. Expiration: <code>No expiration</code></p>
+              <p>4. Scopes: <code>repo</code> 전체 체크</p>
+              <p>5. "Generate token" 클릭 후 복사</p>
+            </li>
+            <li>
+              <strong>토큰 저장</strong>
+              <CodeBlock language="bash">{`echo 'export GITHUB_TOKEN="복사한_토큰"' >> ~/.zshrc && source ~/.zshrc`}</CodeBlock>
             </li>
           </ol>
         </Accordion>

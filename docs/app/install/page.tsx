@@ -100,6 +100,27 @@ function ClaudeGuide() {
     <div className="guide">
       <Step
         number={1}
+        title="GitHub 토큰 설정"
+        description="자동 기여 기능을 위해 먼저 GitHub 토큰을 설정합니다."
+      >
+        <div className="token-setup-guide">
+          <p className="token-step"><strong>1.</strong> <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener noreferrer">GitHub 토큰 생성 페이지</a> 열기</p>
+          <p className="token-step"><strong>2.</strong> 설정값 입력:</p>
+          <ul className="token-settings">
+            <li>Note: <code>design-system-auto-contribute</code></li>
+            <li>Expiration: <code>No expiration</code></li>
+            <li>Select scopes: <code>repo</code> (전체 체크)</li>
+          </ul>
+          <p className="token-step"><strong>3.</strong> "Generate token" 클릭 후 토큰 복사</p>
+          <p className="token-step"><strong>4.</strong> 터미널에서 실행:</p>
+          <CodeBlock language="bash">{`echo 'export GITHUB_TOKEN="붙여넣기"' >> ~/.zshrc && source ~/.zshrc`}</CodeBlock>
+          <p className="token-step"><strong>5.</strong> 설정 확인:</p>
+          <CodeBlock language="bash">echo $GITHUB_TOKEN</CodeBlock>
+        </div>
+      </Step>
+
+      <Step
+        number={2}
         title="명령어 실행"
         description="Claude Code에서 setup 명령어를 실행합니다."
       >
@@ -107,7 +128,7 @@ function ClaudeGuide() {
       </Step>
 
       <Step
-        number={2}
+        number={3}
         title="자동 설치 확인"
         description="다음 항목들이 자동으로 설치됩니다."
       >
@@ -128,15 +149,11 @@ function ClaudeGuide() {
             <span className="auto-install-icon">✅</span>
             <span>Dependabot 자동 업데이트 설정</span>
           </div>
+          <div className="auto-install-item">
+            <span className="auto-install-icon">✅</span>
+            <span>컴포넌트 자동 기여 (GITHUB_TOKEN 설정 시)</span>
+          </div>
         </div>
-      </Step>
-
-      <Step
-        number={3}
-        title="GitHub 토큰 설정 (선택)"
-        description="컴포넌트 자동 기여 기능을 사용하려면 GitHub 토큰을 설정하세요."
-      >
-        <CodeBlock language="bash">export GITHUB_TOKEN="your_token_here"</CodeBlock>
       </Step>
     </div>
   );

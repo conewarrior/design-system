@@ -1,7 +1,99 @@
 {
-  "generatedAt": "2026-01-21T08:59:27.902Z",
-  "totalChanges": 6,
+  "generatedAt": "2026-01-27T01:13:58.720Z",
+  "totalChanges": 9,
   "data": [
+    {
+      "date": "2026-01-26",
+      "items": [
+        {
+          "id": "ad4563e",
+          "type": "token",
+          "title": "chore: update GitHub org references from geniefy to conewarrior",
+          "author": "김한솔",
+          "date": "2026-01-26",
+          "time": "18:34",
+          "files": [
+            "docs/styles/tokens.css",
+            "tokens.css"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/ad4563ecb9cc875cf85519ec0502d61d896dfb9e"
+        },
+        {
+          "id": "8c8e593",
+          "type": "docs",
+          "title": "feat: rename package @geniefy/ui to @design-geniefy/ui and publish to npm",
+          "author": "김한솔",
+          "date": "2026-01-26",
+          "time": "18:30",
+          "files": [
+            "components/Tooltip/index.tsx",
+            "docs/app/components/page.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/8c8e593736eef2b4c26c3470699ee5ee69f66297"
+        }
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "items": [
+        {
+          "id": "22a4823",
+          "type": "token",
+          "title": "feat: 템플릿 페이지 및 컴포넌트 문서 추가",
+          "author": "lily",
+          "date": "2026-01-22",
+          "time": "16:45",
+          "files": [
+            "components/Accordion/index.tsx",
+            "components/Alert/index.tsx",
+            "components/Avatar/index.tsx",
+            "components/Badge/index.tsx",
+            "components/Card/index.tsx",
+            "components/Checkbox/index.tsx",
+            "components/Dropdown/index.tsx",
+            "components/Modal/index.tsx",
+            "components/Progress/index.tsx",
+            "components/Radio/index.tsx",
+            "components/Select/index.tsx",
+            "components/Skeleton/index.tsx",
+            "components/Spinner/index.tsx",
+            "components/Switch/index.tsx",
+            "components/Tabs/index.tsx",
+            "components/Textarea/index.tsx",
+            "components/Toast/index.tsx",
+            "components/Tooltip/index.tsx",
+            "docs/app/components/accordion/page.tsx",
+            "docs/app/components/alert/page.tsx",
+            "docs/app/components/avatar/page.tsx",
+            "docs/app/components/badge/page.tsx",
+            "docs/app/components/card/page.tsx",
+            "docs/app/components/checkbox/page.tsx",
+            "docs/app/components/dropdown/page.tsx",
+            "docs/app/components/modal/page.tsx",
+            "docs/app/components/page.tsx",
+            "docs/app/components/progress/page.tsx",
+            "docs/app/components/radio/page.tsx",
+            "docs/app/components/select/page.tsx",
+            "docs/app/components/skeleton/page.tsx",
+            "docs/app/components/spinner/page.tsx",
+            "docs/app/components/switch/page.tsx",
+            "docs/app/components/tabs/page.tsx",
+            "docs/app/components/textarea/page.tsx",
+            "docs/app/components/toast/page.tsx",
+            "docs/app/components/tooltip/page.tsx",
+            "docs/public/downloads/bold-vibrant-tokens.css",
+            "docs/public/downloads/corporate-pro-tokens.css",
+            "docs/public/downloads/dark-modern-tokens.css",
+            "docs/public/downloads/futuristic-tokens.css",
+            "docs/public/downloads/glassmorphism-tokens.css",
+            "docs/public/downloads/gpters-brand-tokens.css",
+            "docs/public/downloads/minimal-clean-tokens.css",
+            "docs/public/downloads/soft-gradient-tokens.css"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/22a4823552a5cad5f72a29ae416cbeafbcffd829"
+        }
+      ]
+    },
     {
       "date": "2026-01-21",
       "items": [
