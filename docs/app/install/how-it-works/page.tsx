@@ -165,13 +165,12 @@ updates:
 
         <h3>UserPromptSubmit</h3>
         <p>
-          UI 관련 키워드(버튼, 카드, 폼 등)를 입력하면
+          모든 프롬프트 제출 시
           자동으로 design-rules가 로딩되어 토큰 사용을 강제합니다.
         </p>
         <CodeBlock language="json">{`{
   "hooks": {
     "UserPromptSubmit": [{
-      "matcher": {"prompt_contains": "UI|컴포넌트|버튼|카드|폼|레이아웃|스타일|CSS|디자인"},
       "hooks": [{"type": "command", "command": "cat node_modules/@design-geniefy/ui/.claude/skills/design-rules.md"}]
     }]
   }
@@ -184,7 +183,7 @@ updates:
         <CodeBlock language="json">{`{
   "hooks": {
     "PostToolUse": [{
-      "matcher": {"tools": ["Write", "Edit"]},
+      "matcher": "Write|Edit",
       "hooks": [{"type": "command", "command": "if [[ \\"$CLAUDE_TOOL_ARG_file_path\\" == *\\"components/\\"* ]]; then .claude/scripts/auto-contribute.sh \\"$CLAUDE_TOOL_ARG_file_path\\"; fi"}]
     }]
   }
