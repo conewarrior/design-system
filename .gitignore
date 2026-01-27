@@ -4,9 +4,6 @@ node_modules/
 # Build output
 dist/
 
-# Lock files (npm publish 시 자동 생성되므로 제외)
-package-lock.json
-
 # Next.js build cache
 docs/.next/
 docs/out/
