@@ -92,23 +92,47 @@ components/ 폴더에 새 컴포넌트 생성 시 자동으로 design-system 저
 - `UserPromptSubmit`: UI 관련 키워드 입력 시 **node_modules에서** design-rules.md 로딩 (npm 업데이트 시 자동 반영)
 - `PostToolUse`: components/ 변경 시 자동 기여
 
-### Step 5: GitHub 토큰 확인
+### Step 5: GitHub 토큰 확인 (자동 기여 기능)
 GITHUB_TOKEN 환경변수가 설정되어 있는지 확인합니다.
-없으면 설정 방법을 안내합니다:
 
+**토큰이 있으면:**
 ```
-⚠️ GITHUB_TOKEN이 설정되지 않았습니다.
-
-자동 기여 기능을 사용하려면 GitHub Personal Access Token을 설정하세요:
-
-1. https://github.com/settings/tokens 에서 토큰 생성
-2. 권한: repo (전체)
-3. 환경변수 설정:
-   export GITHUB_TOKEN="your_token_here"
-
-   또는 ~/.zshrc에 추가:
-   echo 'export GITHUB_TOKEN="your_token_here"' >> ~/.zshrc
+✅ GITHUB_TOKEN 감지됨 - 자동 기여 기능 활성화
 ```
+
+**토큰이 없으면 AskUserQuestion으로 물어봅니다:**
+
+질문: "자동 기여 기능을 설정하시겠습니까?"
+- **지금 설정** (권장): 토큰 생성 가이드를 따라 바로 설정
+- **나중에 설정**: 설정 스킵, 나중에 수동으로 설정 가능
+- **사용 안 함**: auto-contribute Hook 제거
+
+**"지금 설정" 선택 시:**
+```
+🔧 GitHub Token 설정 가이드
+
+1. 토큰 생성 페이지 열기:
+   https://github.com/settings/tokens/new
+
+2. 설정값:
+   - Note: design-system-auto-contribute
+   - Expiration: No expiration (또는 원하는 기간)
+   - ✅ repo (전체 체크)
+
+3. "Generate token" 클릭 후 토큰 복사
+
+4. 터미널에서 실행:
+   echo 'export GITHUB_TOKEN="복사한_토큰"' >> ~/.zshrc
+   source ~/.zshrc
+
+5. 설정 확인:
+   echo $GITHUB_TOKEN
+
+완료 후 /setup-design 다시 실행하면 자동 기여가 활성화됩니다.
+```
+
+**"사용 안 함" 선택 시:**
+PostToolUse Hook에서 auto-contribute 부분을 제거합니다.
 
 ### Step 6: 자동 업데이트 설정 (Dependabot)
 `.github/` 폴더에 자동 업데이트 설정 파일들을 생성합니다.
