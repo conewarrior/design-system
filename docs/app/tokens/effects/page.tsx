@@ -59,9 +59,17 @@ export default function EffectsPage() {
     { name: '--opacity-0', value: '0', usage: '완전 투명' },
     { name: '--opacity-5', value: '0.05', usage: '매우 옅음' },
     { name: '--opacity-10', value: '0.1', usage: '옅음' },
+    { name: '--opacity-20', value: '0.2', usage: '20%' },
     { name: '--opacity-25', value: '0.25', usage: '25%' },
+    { name: '--opacity-30', value: '0.3', usage: '30%' },
+    { name: '--opacity-40', value: '0.4', usage: '40%' },
     { name: '--opacity-50', value: '0.5', usage: '반투명' },
+    { name: '--opacity-60', value: '0.6', usage: '60%' },
+    { name: '--opacity-70', value: '0.7', usage: '70%' },
     { name: '--opacity-75', value: '0.75', usage: '75%' },
+    { name: '--opacity-80', value: '0.8', usage: '80%' },
+    { name: '--opacity-90', value: '0.9', usage: '90%' },
+    { name: '--opacity-95', value: '0.95', usage: '거의 불투명' },
     { name: '--opacity-100', value: '1', usage: '완전 불투명' },
   ];
 

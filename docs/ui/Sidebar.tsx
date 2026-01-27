@@ -51,6 +51,7 @@ const docsNavigation: NavGroup[] = [
       { href: '/components/button/', label: 'Button' },
       { href: '/components/input/', label: 'Input' },
       { href: '/components/badge/', label: 'Badge' },
+      { href: '/components/blockquote/', label: 'Blockquote' },
       { href: '/components/card/', label: 'Card' },
       { href: '/components/checkbox/', label: 'Checkbox' },
       { href: '/components/radio/', label: 'Radio' },
