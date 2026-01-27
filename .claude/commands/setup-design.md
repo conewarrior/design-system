@@ -176,16 +176,17 @@ mkdir -p .claude/scripts
 ```bash
 #!/bin/bash
 # auto-contribute.sh
-# 컴포넌트 파일을 design-system 저장소에 자동 커밋
+# 컴포넌트 파일을 design-system 저장소에 PR로 기여
 #
 # 사용법: auto-contribute.sh <file_path>
 # 예시: auto-contribute.sh components/Card/index.tsx
+#
+# 요구사항: gh CLI 설치 및 인증 (gh auth login)
 
 set -e
 
 FILE_PATH="$1"
 REPO="conewarrior/design-system"
-BRANCH="main"
 
 # 색상 정의
 RED='\033[0;31m'
@@ -195,20 +196,23 @@ NC='\033[0m' # No Color
 
 # 파일 경로 검증
 if [[ -z "$FILE_PATH" ]]; then
-    echo -e "${RED}❌ 파일 경로가 필요합니다${NC}"
-    exit 1
+    exit 0  # Hook에서 호출 시 인자 없으면 조용히 종료
 fi
 
 # components/ 폴더인지 확인
 if [[ "$FILE_PATH" != *"components/"* ]]; then
-    # components 폴더가 아니면 조용히 종료
+    exit 0  # components 폴더가 아니면 조용히 종료
+fi
+
+# gh CLI 확인
+if ! command -v gh &> /dev/null; then
+    echo -e "${YELLOW}⚠️ gh CLI가 설치되어 있지 않아 자동 기여를 건너뜁니다${NC}"
     exit 0
 fi
 
-# GITHUB_TOKEN 확인
-if [[ -z "$GITHUB_TOKEN" ]]; then
-    echo -e "${YELLOW}⚠️  GITHUB_TOKEN이 설정되지 않아 자동 기여를 건너뜁니다${NC}"
-    echo "설정 방법: export GITHUB_TOKEN=\"your_token\""
+# gh 인증 확인
+if ! gh auth status &> /dev/null; then
+    echo -e "${YELLOW}⚠️ gh 인증이 필요합니다. 'gh auth login' 실행 후 다시 시도하세요${NC}"
     exit 0
 fi
 
@@ -219,87 +223,55 @@ else
     ABS_FILE_PATH="$(pwd)/$FILE_PATH"
 fi
 
-# 파일 존재 확인 (절대 경로로)
+# 파일 존재 확인
 if [[ ! -f "$ABS_FILE_PATH" ]]; then
     echo -e "${RED}❌ 파일을 찾을 수 없습니다: $ABS_FILE_PATH${NC}"
     exit 1
 fi
 
-# components/ 이후 경로 추출 (디렉토리 구조 유지)
-# 예: src/components/Blockquote/index.tsx → components/Blockquote/index.tsx
+# components/ 이후 경로 추출
 RELATIVE_PATH=$(echo "$FILE_PATH" | sed 's|.*\(components/.*\)|\1|')
-
-# 컴포넌트 디렉토리 이름 추출 (로깅용)
-# 예: components/Blockquote/index.tsx → Blockquote
 COMPONENT_DIR=$(echo "$RELATIVE_PATH" | cut -d'/' -f2)
-
-# API URL 설정 (상대 경로 사용)
-API_URL="https://api.github.com/repos/$REPO/contents/$RELATIVE_PATH"
-
-# 파일 내용을 base64로 인코딩 (절대 경로 사용)
-CONTENT=$(base64 < "$ABS_FILE_PATH")
 
 echo -e "🚀 Auto-contributing: ${COMPONENT_DIR}"
 
-# 기존 파일의 SHA 확인 (업데이트 시 필요)
-EXISTING=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$API_URL" 2>/dev/null)
-SHA=$(echo "$EXISTING" | grep -o '"sha": "[^"]*"' | head -1 | cut -d'"' -f4)
+# 임시 디렉토리에서 작업
+TEMP_DIR=$(mktemp -d)
+trap "rm -rf $TEMP_DIR" EXIT
 
-# 커밋 메시지 생성
-HOSTNAME=$(hostname)
-TIMESTAMP=$(date +"%Y-%m-%d %H:%M")
-COMMIT_MSG="feat(components): add ${COMPONENT_DIR}
+# design-system 클론
+cd "$TEMP_DIR"
+gh repo clone "$REPO" design-system -- --depth 1 -q 2>/dev/null
+cd design-system
 
-- File: $RELATIVE_PATH
-- From: $HOSTNAME
-- Time: $TIMESTAMP
-- Auto-contributed via design-system hook"
+# contrib 브랜치 생성 (타임스탬프로 유니크하게)
+BRANCH_NAME="contrib/${COMPONENT_DIR}-$(date +%Y%m%d%H%M%S)"
+git checkout -b "$BRANCH_NAME" -q
 
-# JSON 페이로드 생성
-if [[ -n "$SHA" ]]; then
-    # 파일 업데이트 (SHA 필요)
-    PAYLOAD=$(cat <<EOF
-{
-    "message": "$COMMIT_MSG",
-    "content": "$CONTENT",
-    "branch": "$BRANCH",
-    "sha": "$SHA"
-}
-EOF
-)
-else
-    # 새 파일 생성
-    PAYLOAD=$(cat <<EOF
-{
-    "message": "$COMMIT_MSG",
-    "content": "$CONTENT",
-    "branch": "$BRANCH"
-}
-EOF
-)
-fi
+# 컴포넌트 디렉토리 생성 및 파일 복사
+mkdir -p "$(dirname "$RELATIVE_PATH")"
+cp "$ABS_FILE_PATH" "$RELATIVE_PATH"
 
-# GitHub API로 커밋
-RESPONSE=$(curl -s -X PUT \
-    -H "Authorization: token $GITHUB_TOKEN" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/vnd.github.v3+json" \
-    "$API_URL" \
-    -d "$PAYLOAD" 2>/dev/null)
+# 커밋
+git add "$RELATIVE_PATH"
+git commit -m "feat(components): add ${COMPONENT_DIR}" -q
 
-# 결과 확인
-if echo "$RESPONSE" | grep -q '"commit"'; then
-    COMMIT_URL=$(echo "$RESPONSE" | grep -o '"html_url": "[^"]*"' | head -1 | cut -d'"' -f4)
-    echo -e "${GREEN}✅ design-system에 기여됨: ${COMPONENT_DIR}${NC}"
-    echo -e "   파일: $RELATIVE_PATH"
-    if [[ -n "$COMMIT_URL" ]]; then
-        echo -e "   커밋: $COMMIT_URL"
-    fi
-else
-    ERROR_MSG=$(echo "$RESPONSE" | grep -o '"message": "[^"]*"' | head -1 | cut -d'"' -f4)
-    echo -e "${RED}❌ 기여 실패 (${COMPONENT_DIR}): ${ERROR_MSG:-알 수 없는 오류}${NC}"
-    exit 1
-fi
+# 푸시
+git push -u origin "$BRANCH_NAME" -q 2>/dev/null
+
+# PR 생성
+PR_URL=$(gh pr create \
+    --repo "$REPO" \
+    --title "feat(components): add ${COMPONENT_DIR}" \
+    --body "Auto-contributed component from project.
+
+- Component: \`${COMPONENT_DIR}\`
+- File: \`${RELATIVE_PATH}\`
+- From: $(hostname)" \
+    --base main \
+    --head "$BRANCH_NAME" 2>/dev/null)
+
+echo -e "${GREEN}✅ PR 생성됨: ${PR_URL}${NC}"
 ```
 
 **스크립트 생성 후 실행 권한 부여:**
