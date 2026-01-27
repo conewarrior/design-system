@@ -109,6 +109,17 @@ function getChangesBetweenTags(componentName, prevTag, currentTag) {
 function main() {
   console.log('컴포넌트 버전 데이터 추출 중...');
 
+  // CI 환경에서 이미 데이터가 있으면 건너뛰기 (Vercel은 shallow clone으로 태그가 없음)
+  if (process.env.CI || process.env.VERCEL) {
+    if (fs.existsSync(CONFIG.outputPath)) {
+      const existing = JSON.parse(fs.readFileSync(CONFIG.outputPath, 'utf-8'));
+      if (existing.data && Object.keys(existing.data).length > 0) {
+        console.log('✅ CI 환경 - 기존 데이터 사용 (태그 접근 불가)');
+        return;
+      }
+    }
+  }
+
   // Git 루트로 이동
   const gitRoot = execSync('git rev-parse --show-toplevel', { encoding: 'utf-8' }).trim();
   process.chdir(gitRoot);
