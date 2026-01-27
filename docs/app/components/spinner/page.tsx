@@ -1,4 +1,5 @@
 import { Spinner } from '../../../../components/Spinner';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function SpinnerPage() {
   return (
@@ -66,6 +67,8 @@ export default function SpinnerPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Spinner" />
     </div>
   );
 }

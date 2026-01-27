@@ -1,4 +1,5 @@
 import { Switch } from '../../../../components/Switch';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function SwitchPage() {
   return (
@@ -69,6 +70,8 @@ export default function SwitchPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Switch" />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { Textarea } from '../../../../components/Textarea';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function TextareaPage() {
   return (
@@ -73,6 +74,8 @@ export default function TextareaPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Textarea" />
     </div>
   );
 }

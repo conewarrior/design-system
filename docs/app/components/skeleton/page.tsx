@@ -1,4 +1,5 @@
 import { Skeleton } from '../../../../components/Skeleton';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function SkeletonPage() {
   return (
@@ -78,6 +79,8 @@ export default function SkeletonPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Skeleton" />
     </div>
   );
 }

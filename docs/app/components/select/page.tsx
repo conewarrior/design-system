@@ -1,4 +1,5 @@
 import { Select } from '../../../../components/Select';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function SelectPage() {
   return (
@@ -92,6 +93,8 @@ export default function SelectPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Select" />
     </div>
   );
 }

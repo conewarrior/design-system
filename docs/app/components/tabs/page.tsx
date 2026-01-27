@@ -1,6 +1,7 @@
 'use client';
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../../../components/Tabs';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function TabsPage() {
   return (
@@ -109,6 +110,8 @@ export default function TabsPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Tabs" />
     </div>
   );
 }

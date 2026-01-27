@@ -1,0 +1,894 @@
+{
+  "generatedAt": "2026-01-27T03:22:27.458Z",
+  "totalComponents": 20,
+  "totalVersions": 5,
+  "tags": [
+    "v0.0.2",
+    "v0.0.3",
+    "v0.0.4",
+    "v0.0.5",
+    "v0.0.6"
+  ],
+  "data": {
+    "Accordion": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Alert": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Avatar": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Badge": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Button": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Card": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Checkbox": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Dropdown": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Input": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Modal": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Progress": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Radio": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Select": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Skeleton": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Spinner": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Switch": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Tabs": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Textarea": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Toast": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    },
+    "Tooltip": {
+      "versions": [
+        {
+          "version": "0.0.2",
+          "tag": "v0.0.2",
+          "date": "2026-01-27",
+          "changes": [
+            "Initial version"
+          ]
+        },
+        {
+          "version": "0.0.3",
+          "tag": "v0.0.3",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.4",
+          "tag": "v0.0.4",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.5",
+          "tag": "v0.0.5",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        },
+        {
+          "version": "0.0.6",
+          "tag": "v0.0.6",
+          "date": "2026-01-27",
+          "changes": [
+            "No changes recorded"
+          ]
+        }
+      ]
+    }
+  }
+}

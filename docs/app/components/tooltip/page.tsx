@@ -1,5 +1,6 @@
 import { Tooltip } from '../../../../components/Tooltip';
 import { Button } from '../../../../components/Button';
+import { ComponentVersionHistory } from '../../../ui/ComponentVersionHistory';
 
 export default function TooltipPage() {
   return (
@@ -72,6 +73,8 @@ export default function TooltipPage() {
           </tbody>
         </table>
       </section>
+
+      <ComponentVersionHistory componentName="Tooltip" />
     </div>
   );
 }
