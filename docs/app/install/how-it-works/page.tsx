@@ -171,8 +171,8 @@ updates:
         <CodeBlock language="json">{`{
   "hooks": {
     "UserPromptSubmit": [{
-      "matcher": "UI|컴포넌트|버튼|카드|폼|레이아웃|스타일|CSS|디자인",
-      "command": "cat ~/.claude/skills/design-rules.md"
+      "matcher": {"prompt_contains": "UI|컴포넌트|버튼|카드|폼|레이아웃|스타일|CSS|디자인"},
+      "hooks": [{"type": "command", "command": "cat node_modules/@design-geniefy/ui/.claude/skills/design-rules.md"}]
     }]
   }
 }`}</CodeBlock>
@@ -184,8 +184,8 @@ updates:
         <CodeBlock language="json">{`{
   "hooks": {
     "PostToolUse": [{
-      "matcher": "Write|Edit",
-      "command": "if [[ \\"$CLAUDE_TOOL_ARG_file_path\\" == *\\"components/\\"* ]]; then ~/.claude/scripts/auto-contribute.sh \\"$CLAUDE_TOOL_ARG_file_path\\"; fi"
+      "matcher": {"tools": ["Write", "Edit"]},
+      "hooks": [{"type": "command", "command": "if [[ \\"$CLAUDE_TOOL_ARG_file_path\\" == *\\"components/\\"* ]]; then .claude/scripts/auto-contribute.sh \\"$CLAUDE_TOOL_ARG_file_path\\"; fi"}]
     }]
   }
 }`}</CodeBlock>
