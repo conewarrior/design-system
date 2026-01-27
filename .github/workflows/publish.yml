@@ -2,36 +2,19 @@ name: Publish to npm
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'components/**'
-      - 'index.ts'
-      - '.claude/skills/design-rules.md'
-      - 'tokens.css'
+    tags:
+      - 'v*'  # v0.0.1, v1.0.0 등 태그 푸시 시 실행
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-
-      # 자동 버전 업 (patch: 0.0.1 → 0.0.2)
-      - name: Bump version
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          npm version patch --no-git-tag-version
-          git add package.json
-          git commit -m "chore: bump version [skip ci]"
-          git push
 
       - run: npm ci
 
