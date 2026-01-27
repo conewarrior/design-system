@@ -1,7 +1,7 @@
 # docs-site-overhaul Plan
 
 - **작성일**: 2026-01-27
-- **상태**: 📋 Planning
+- **상태**: ✅ Completed
 - **작성자**: hskim
 
 ---
@@ -156,12 +156,12 @@
 
 ## 5. 성공 기준
 
-- [ ] design-rules.md 3개 버전 동일
-- [ ] 토큰 문서 페이지가 tokens.css 실제 토큰만 표시
-- [ ] globals.css에 하드코딩 색상 0개
-- [ ] globals.css에 하드코딩 간격 0개 (레이아웃 토큰 제외)
-- [ ] 빌드 성공
-- [ ] 다크모드 정상 작동
+- [x] design-rules.md 3개 버전 동일 ✅
+- [x] 토큰 문서 페이지가 tokens.css 실제 토큰만 표시 ✅
+- [x] globals.css에 하드코딩 색상 0개 ✅
+- [x] globals.css에 하드코딩 간격 0개 (레이아웃 토큰 제외) ✅
+- [x] 빌드 성공 ✅
+- [ ] 다크모드 정상 작동 (수동 확인 필요)
 
 ---
 

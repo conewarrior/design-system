@@ -1,10 +1,40 @@
 {
-  "generatedAt": "2026-01-27T03:31:35.963Z",
-  "totalChanges": 11,
+  "generatedAt": "2026-01-27T03:48:58.119Z",
+  "totalChanges": 12,
   "data": [
     {
       "date": "2026-01-27",
       "items": [
+        {
+          "id": "68689e9",
+          "type": "docs",
+          "title": "fix: 변경 없는 19개 컴포넌트에서 ComponentVersionHistory 제거",
+          "author": "김한솔",
+          "date": "2026-01-27",
+          "time": "12:44",
+          "files": [
+            "docs/app/components/accordion/page.tsx",
+            "docs/app/components/alert/page.tsx",
+            "docs/app/components/avatar/page.tsx",
+            "docs/app/components/badge/page.tsx",
+            "docs/app/components/card/page.tsx",
+            "docs/app/components/checkbox/page.tsx",
+            "docs/app/components/dropdown/page.tsx",
+            "docs/app/components/input/page.tsx",
+            "docs/app/components/modal/page.tsx",
+            "docs/app/components/progress/page.tsx",
+            "docs/app/components/radio/page.tsx",
+            "docs/app/components/select/page.tsx",
+            "docs/app/components/skeleton/page.tsx",
+            "docs/app/components/spinner/page.tsx",
+            "docs/app/components/switch/page.tsx",
+            "docs/app/components/tabs/page.tsx",
+            "docs/app/components/textarea/page.tsx",
+            "docs/app/components/toast/page.tsx",
+            "docs/app/components/tooltip/page.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/68689e90e51c7a830f288e7871ecefdf43a7dbe7"
+        },
         {
           "id": "884f2c6",
           "type": "token",

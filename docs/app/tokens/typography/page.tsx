@@ -1,69 +1,67 @@
 export default function TypographyPage() {
-  // 디자인 시스템별 Typography 네이밍 비교
-  const dsComparison = [
-    { system: 'IBM Carbon', tokens: 'heading-01~07, body-short-01, body-long-01, label-01, caption-01, helper-text-01' },
-    { system: 'Material Design', tokens: 'display-large/medium/small, headline-large/medium/small, body-large/medium/small, label-large/medium/small' },
-    { system: 'Shopify Polaris', tokens: 'heading3xl~headingXs, bodyLg~bodyXs' },
-    { system: 'Atlassian', tokens: 'font.heading.xxlarge~xsmall, font.body.large~small' },
-    { system: 'GitHub Primer', tokens: 'text-title-size-large~small, text-body-size-large~small' },
-    { system: 'Microsoft Fluent', tokens: 'fontSizeHero900~100, fontSizeBase500~100' },
+  // tokens.css 실제 Font Family 토큰
+  const fontFamilyTokens = [
+    {
+      name: '--font-family-sans',
+      value: "'Pretendard Variable', Pretendard, -apple-system, ...",
+      usage: '기본 UI 텍스트',
+    },
+    {
+      name: '--font-family-mono',
+      value: "'Fira Code', 'JetBrains Mono', Consolas, ...",
+      usage: '코드, 터미널',
+    },
   ];
 
-  // 시맨틱 Typography 토큰 (용도 기반)
-  const semanticTokens = [
-    {
-      category: 'Display',
-      description: '히어로 섹션, 랜딩 페이지의 대형 타이틀',
-      tokens: [
-        { name: '--text-display-lg', size: '48px (3rem)', weight: '700', lineHeight: '1.1', usage: '메인 히어로 타이틀' },
-        { name: '--text-display-md', size: '36px (2.25rem)', weight: '700', lineHeight: '1.2', usage: '서브 히어로, 대형 섹션 타이틀' },
-        { name: '--text-display-sm', size: '30px (1.875rem)', weight: '600', lineHeight: '1.25', usage: '중형 섹션 타이틀' },
-      ]
-    },
-    {
-      category: 'Heading',
-      description: '페이지, 카드, 모달의 제목',
-      tokens: [
-        { name: '--text-heading-lg', size: '24px (1.5rem)', weight: '600', lineHeight: '1.3', usage: '페이지 제목, 모달 헤더' },
-        { name: '--text-heading-md', size: '20px (1.25rem)', weight: '600', lineHeight: '1.4', usage: '카드 제목, 섹션 헤더' },
-        { name: '--text-heading-sm', size: '16px (1rem)', weight: '600', lineHeight: '1.5', usage: '서브섹션 제목, 리스트 그룹 헤더' },
-      ]
-    },
-    {
-      category: 'Body',
-      description: '본문 텍스트, 설명, 문단',
-      tokens: [
-        { name: '--text-body-lg', size: '18px (1.125rem)', weight: '400', lineHeight: '1.6', usage: '강조 본문, 인트로 텍스트' },
-        { name: '--text-body-md', size: '16px (1rem)', weight: '400', lineHeight: '1.6', usage: '기본 본문, 문단 텍스트' },
-        { name: '--text-body-sm', size: '14px (0.875rem)', weight: '400', lineHeight: '1.5', usage: '보조 본문, 긴 설명 텍스트' },
-      ]
-    },
-    {
-      category: 'Label',
-      description: '폼 라벨, 버튼 텍스트, 네비게이션',
-      tokens: [
-        { name: '--text-label-lg', size: '16px (1rem)', weight: '500', lineHeight: '1.4', usage: '대형 버튼, 주요 네비게이션' },
-        { name: '--text-label-md', size: '14px (0.875rem)', weight: '500', lineHeight: '1.4', usage: '기본 버튼, 폼 라벨, 탭' },
-        { name: '--text-label-sm', size: '12px (0.75rem)', weight: '500', lineHeight: '1.4', usage: '소형 버튼, 태그, 뱃지' },
-      ]
-    },
-    {
-      category: 'Caption',
-      description: '보조 정보, 타임스탬프, 메타데이터',
-      tokens: [
-        { name: '--text-caption-md', size: '12px (0.75rem)', weight: '400', lineHeight: '1.4', usage: '이미지 캡션, 테이블 푸터' },
-        { name: '--text-caption-sm', size: '11px (0.6875rem)', weight: '400', lineHeight: '1.4', usage: '타임스탬프, 메타 정보' },
-      ]
-    },
-    {
-      category: 'Code',
-      description: '코드 블록, 인라인 코드',
-      tokens: [
-        { name: '--text-code-lg', size: '16px (1rem)', weight: '400', lineHeight: '1.6', usage: '코드 블록' },
-        { name: '--text-code-md', size: '14px (0.875rem)', weight: '400', lineHeight: '1.5', usage: '인라인 코드, 터미널' },
-        { name: '--text-code-sm', size: '12px (0.75rem)', weight: '400', lineHeight: '1.4', usage: '작은 코드 스니펫' },
-      ]
-    },
+  // tokens.css 실제 Font Size 토큰
+  const fontSizeTokens = [
+    { name: '--font-size-xs', value: '0.75rem', px: '12px', usage: '캡션, 메타데이터' },
+    { name: '--font-size-2xs', value: '0.8125rem', px: '13px', usage: '버튼 sm 등 컴팩트 UI' },
+    { name: '--font-size-sm', value: '0.875rem', px: '14px', usage: '보조 본문' },
+    { name: '--font-size-base', value: '1rem', px: '16px', usage: '기본 본문' },
+    { name: '--font-size-lg', value: '1.125rem', px: '18px', usage: '강조 본문' },
+    { name: '--font-size-xl', value: '1.25rem', px: '20px', usage: '서브헤딩' },
+    { name: '--font-size-2xl', value: '1.5rem', px: '24px', usage: '페이지 제목' },
+    { name: '--font-size-3xl', value: '1.875rem', px: '30px', usage: '대형 제목' },
+    { name: '--font-size-4xl', value: '2.25rem', px: '36px', usage: '히어로 제목' },
+    { name: '--font-size-5xl', value: '3rem', px: '48px', usage: '디스플레이' },
+    { name: '--font-size-6xl', value: '3.75rem', px: '60px', usage: '대형 디스플레이' },
+    { name: '--font-size-7xl', value: '4.5rem', px: '72px', usage: '초대형' },
+    { name: '--font-size-8xl', value: '6rem', px: '96px', usage: '배너' },
+    { name: '--font-size-9xl', value: '8rem', px: '128px', usage: '히어로 배너' },
+  ];
+
+  // tokens.css 실제 Line Height 토큰
+  const lineHeightTokens = [
+    { name: '--line-height-none', value: '1', usage: '한 줄 텍스트, 버튼' },
+    { name: '--line-height-tight', value: '1.25', usage: '제목, 헤딩' },
+    { name: '--line-height-snug', value: '1.375', usage: '짧은 문단' },
+    { name: '--line-height-normal', value: '1.5', usage: '기본 본문' },
+    { name: '--line-height-relaxed', value: '1.625', usage: '긴 문단' },
+    { name: '--line-height-loose', value: '2', usage: '넉넉한 줄간격' },
+  ];
+
+  // tokens.css 실제 Font Weight 토큰
+  const fontWeightTokens = [
+    { name: '--font-weight-thin', value: '100', usage: '매우 얇음' },
+    { name: '--font-weight-extralight', value: '200', usage: '얇음' },
+    { name: '--font-weight-light', value: '300', usage: '가벼움' },
+    { name: '--font-weight-normal', value: '400', usage: '기본' },
+    { name: '--font-weight-medium', value: '500', usage: '중간' },
+    { name: '--font-weight-semibold', value: '600', usage: '세미볼드' },
+    { name: '--font-weight-bold', value: '700', usage: '볼드' },
+    { name: '--font-weight-extrabold', value: '800', usage: '매우 굵음' },
+    { name: '--font-weight-black', value: '900', usage: '가장 굵음' },
+  ];
+
+  // tokens.css 실제 Letter Spacing 토큰
+  const letterSpacingTokens = [
+    { name: '--letter-spacing-tighter', value: '-0.05em', usage: '대형 제목' },
+    { name: '--letter-spacing-tight', value: '-0.025em', usage: '제목' },
+    { name: '--letter-spacing-normal', value: '0em', usage: '기본' },
+    { name: '--letter-spacing-wide', value: '0.025em', usage: '소형 대문자' },
+    { name: '--letter-spacing-wider', value: '0.05em', usage: '대문자' },
+    { name: '--letter-spacing-widest', value: '0.1em', usage: '넓은 간격' },
   ];
 
   return (
@@ -71,105 +69,11 @@ export default function TypographyPage() {
       <h1 className="page-title">Typography</h1>
 
       <section className="naming-intro">
-        <h2 className="section-title">네이밍 철학</h2>
+        <h2 className="section-title">개요</h2>
         <p className="section-desc">
-          Typography 토큰은 <strong>크기가 아닌 역할</strong>로 명명합니다.
-          <code>--font-size-sm</code>(14px)이 어디에 쓰이는지는 알 수 없지만,
-          <code>--text-body-sm</code>은 "보조 본문에 사용하는 작은 텍스트"임을 명확히 알 수 있습니다.
+          Typography 토큰은 폰트 패밀리, 크기, 두께, 줄간격, 자간을 정의합니다.
+          임의의 값 대신 토큰을 사용하면 일관된 타이포그래피 시스템을 유지할 수 있습니다.
         </p>
-
-        <div className="naming-rationale">
-          <h3>왜 이런 분류를 사용하는가?</h3>
-          <ul>
-            <li>
-              <strong>Display</strong>: 시선을 사로잡는 대형 타이틀. IBM Carbon의 <code>display-01~04</code>,
-              Material의 <code>display-large/medium/small</code>에서 채택한 개념.
-            </li>
-            <li>
-              <strong>Heading</strong>: 콘텐츠 계층을 나타내는 제목. 모든 주요 디자인 시스템이
-              heading 카테고리를 사용합니다.
-            </li>
-            <li>
-              <strong>Body</strong>: 읽기 위한 텍스트. IBM Carbon은 <code>body-short</code>(짧은 문장)과
-              <code>body-long</code>(긴 문단)을 구분하지만, 우리는 크기로 단순화했습니다.
-            </li>
-            <li>
-              <strong>Label</strong>: 액션과 연결된 텍스트. 버튼, 폼, 네비게이션 등
-              사용자 인터랙션과 관련된 요소에 사용합니다.
-            </li>
-            <li>
-              <strong>Caption</strong>: 보조 정보. Atlassian, Carbon 모두 caption 카테고리를
-              메타데이터, 타임스탬프, 보조 설명에 사용합니다.
-            </li>
-            <li>
-              <strong>Code</strong>: 기술 콘텐츠. 모노스페이스 폰트를 사용하며,
-              개발자 도구나 문서에서 자주 필요합니다.
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h2 className="section-title">디자인 시스템 비교</h2>
-        <p className="section-desc">
-          주요 디자인 시스템들의 Typography 토큰 네이밍을 비교했습니다.
-        </p>
-        <div className="ds-comparison-table">
-          <table>
-            <thead>
-              <tr>
-                <th>디자인 시스템</th>
-                <th>Typography 토큰 네이밍</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dsComparison.map((ds) => (
-                <tr key={ds.system}>
-                  <td><strong>{ds.system}</strong></td>
-                  <td><code>{ds.tokens}</code></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section>
-        <h2 className="section-title">Semantic Typography Tokens</h2>
-        <p className="section-desc">
-          각 토큰은 용도를 이름에 담고 있어, 어디에 사용해야 하는지 명확합니다.
-        </p>
-
-        {semanticTokens.map((category) => (
-          <div key={category.category} className="token-category-section">
-            <h3 className="subsection-title">{category.category}</h3>
-            <p className="category-desc">{category.description}</p>
-            <div className="semantic-token-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>토큰</th>
-                    <th>크기</th>
-                    <th>두께</th>
-                    <th>줄높이</th>
-                    <th>용도</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {category.tokens.map((token) => (
-                    <tr key={token.name}>
-                      <td><code>{token.name}</code></td>
-                      <td>{token.size}</td>
-                      <td>{token.weight}</td>
-                      <td>{token.lineHeight}</td>
-                      <td>{token.usage}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        ))}
       </section>
 
       <section>
@@ -194,23 +98,176 @@ export default function TypographyPage() {
       </section>
 
       <section>
-        <h2 className="section-title">Primitive → Semantic 매핑</h2>
+        <h2 className="section-title">Font Size</h2>
         <p className="section-desc">
-          기존 Primitive 토큰(<code>--font-size-*</code>)과 새로운 Semantic 토큰의 관계입니다.
+          rem 기반의 폰트 크기 스케일입니다. 1rem = 16px 기준.
         </p>
-        <pre className="code-block"><code>{`/* Primitive (크기만) */
---font-size-xs: 0.75rem;   /* 12px */
---font-size-sm: 0.875rem;  /* 14px */
---font-size-base: 1rem;    /* 16px */
---font-size-lg: 1.125rem;  /* 18px */
+        <div className="semantic-token-table">
+          <table>
+            <thead>
+              <tr>
+                <th>토큰</th>
+                <th>값</th>
+                <th>px</th>
+                <th>용도</th>
+                <th>미리보기</th>
+              </tr>
+            </thead>
+            <tbody>
+              {fontSizeTokens.map((token) => (
+                <tr key={token.name}>
+                  <td><code>{token.name}</code></td>
+                  <td>{token.value}</td>
+                  <td>{token.px}</td>
+                  <td>{token.usage}</td>
+                  <td style={{ fontSize: token.value }}>Aa</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-/* Semantic (역할 포함) */
---text-caption-md: var(--font-size-xs);   /* 12px - 메타데이터 */
---text-body-sm: var(--font-size-sm);      /* 14px - 보조 본문 */
---text-body-md: var(--font-size-base);    /* 16px - 기본 본문 */
---text-body-lg: var(--font-size-lg);      /* 18px - 강조 본문 */
---text-label-md: var(--font-size-sm);     /* 14px - 버튼, 라벨 */
---text-heading-sm: var(--font-size-base); /* 16px - 서브섹션 제목 */`}</code></pre>
+      <section>
+        <h2 className="section-title">Line Height</h2>
+        <p className="section-desc">
+          줄간격 토큰입니다. 단위 없는 배수 값으로 정의됩니다.
+        </p>
+        <div className="semantic-token-table">
+          <table>
+            <thead>
+              <tr>
+                <th>토큰</th>
+                <th>값</th>
+                <th>용도</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lineHeightTokens.map((token) => (
+                <tr key={token.name}>
+                  <td><code>{token.name}</code></td>
+                  <td>{token.value}</td>
+                  <td>{token.usage}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="section-title">Font Weight</h2>
+        <p className="section-desc">
+          폰트 두께 토큰입니다.
+        </p>
+        <div className="semantic-token-table">
+          <table>
+            <thead>
+              <tr>
+                <th>토큰</th>
+                <th>값</th>
+                <th>미리보기</th>
+              </tr>
+            </thead>
+            <tbody>
+              {fontWeightTokens.map((token) => (
+                <tr key={token.name}>
+                  <td><code>{token.name}</code></td>
+                  <td>{token.value}</td>
+                  <td style={{ fontWeight: parseInt(token.value) }}>가나다 ABC</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="section-title">Letter Spacing</h2>
+        <p className="section-desc">
+          자간(글자 간격) 토큰입니다.
+        </p>
+        <div className="semantic-token-table">
+          <table>
+            <thead>
+              <tr>
+                <th>토큰</th>
+                <th>값</th>
+                <th>용도</th>
+                <th>미리보기</th>
+              </tr>
+            </thead>
+            <tbody>
+              {letterSpacingTokens.map((token) => (
+                <tr key={token.name}>
+                  <td><code>{token.name}</code></td>
+                  <td>{token.value}</td>
+                  <td>{token.usage}</td>
+                  <td style={{ letterSpacing: token.value }}>TYPOGRAPHY</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="section-title">사용 가이드</h2>
+        <div className="usage-guidelines">
+          <div className="guideline-item">
+            <h3>제목 스타일</h3>
+            <pre className="code-block"><code>{`h1 {
+  font-size: var(--font-size-3xl);      /* 30px */
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+h2 {
+  font-size: var(--font-size-2xl);      /* 24px */
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}`}</code></pre>
+          </div>
+          <div className="guideline-item">
+            <h3>본문 스타일</h3>
+            <pre className="code-block"><code>{`body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);     /* 16px */
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+.small-text {
+  font-size: var(--font-size-sm);       /* 14px */
+}`}</code></pre>
+          </div>
+          <div className="guideline-item">
+            <h3>코드 스타일</h3>
+            <pre className="code-block"><code>{`code, pre {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);       /* 14px */
+}`}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="section-title">CSS 사용 예시</h2>
+        <pre className="code-block"><code>{`/* tokens.css에서 import */
+@import '@design-geniefy/ui/tokens.css';
+
+/* 또는 CDN */
+@import url('https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css');
+
+/* 사용 */
+.heading {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}
+.body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}`}</code></pre>
       </section>
     </div>
   );

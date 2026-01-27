@@ -103,7 +103,7 @@ a {
 
 .top-nav-link.active {
   color: var(--color-primary);
-  background: rgba(234, 88, 12, 0.1);
+  background: var(--color-primary-bg);
 }
 
 .top-nav-mobile-btn {
@@ -159,7 +159,8 @@ a {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--neutral-900);
+  opacity: var(--opacity-50);
   z-index: var(--z-index-dropdown);
 }
 
@@ -1478,10 +1479,10 @@ pre code {
 
 .updates-error {
   padding: var(--spacing-3);
-  background: #fef2f2;
-  border: 1px solid #fecaca;
+  background: var(--color-error-bg);
+  border: 1px solid var(--error-200);
   border-radius: var(--radius-md);
-  color: #dc2626;
+  color: var(--color-error-text);
   margin-bottom: var(--spacing-4);
 }
 
@@ -1720,7 +1721,7 @@ pre code {
 
 .status-card:hover {
   border-color: var(--color-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
@@ -2149,13 +2150,13 @@ pre code {
 }
 
 .migration-before code {
-  background: #fef2f2;
-  color: #dc2626;
+  background: var(--color-error-bg);
+  color: var(--color-error-text);
 }
 
 .migration-after code {
-  background: #f0fdf4;
-  color: #16a34a;
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
 }
 
 .migration-feature-list {
@@ -3876,13 +3877,13 @@ pre code {
 }
 
 .code-diff-label--old {
-  background: #fef2f2;
-  color: #dc2626;
+  background: var(--color-error-bg);
+  color: var(--color-error-text);
 }
 
 .code-diff-label--new {
-  background: #f0fdf4;
-  color: #16a34a;
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
 }
 
 .code-diff-content {
@@ -3901,11 +3902,11 @@ pre code {
 }
 
 .code-diff-line--added {
-  background: #dcfce7;
+  background: var(--success-100);
 }
 
 .code-diff-line--removed {
-  background: #fee2e2;
+  background: var(--error-100);
 }
 
 .code-diff-line--unchanged {
@@ -3920,11 +3921,11 @@ pre code {
 }
 
 .code-diff-line--added .code-diff-prefix {
-  color: #16a34a;
+  color: var(--color-success-text);
 }
 
 .code-diff-line--removed .code-diff-prefix {
-  color: #dc2626;
+  color: var(--color-error-text);
 }
 
 .code-diff-line code {
