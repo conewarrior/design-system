@@ -1,5 +1,5 @@
 /* ============================================================================
-   Design System Tokens v0.2.0
+   Design System Tokens v0.2.1
    ============================================================================
    단일 소스 역할: 디자인 토큰(색상, 간격, 라디우스 등)의 유일한 정의 파일.
    모든 프로젝트는 이 파일을 CDN으로 import하여 동일한 토큰 값을 사용한다.
@@ -11,9 +11,12 @@
    - 값 변경: 전체 프로젝트에 즉시 반영됨을 인지하고 변경
    - 삭제 금지: 기존 토큰은 삭제하지 않고 deprecated 주석 처리
 
+   v0.2.1 변경사항:
+   - Primary 복원: Fluent Blue → Geniefy Orange (#f97316)
+   - Geniefy 브랜드 아이덴티티 유지
+
    v0.2.0 변경사항 (Fluent 2 기반 색상 개선):
    - Neutral 스케일 확장: 11단계 → 14단계 (0, 150, 1000 추가)
-   - Primary 변경: Orange → Fluent 2 Brand Blue (#0078D4)
    - 확장 팔레트 추가: Blue, Teal, Cyan, Purple, Magenta, Orange
    - Semantic Status 색상 Fluent 2 기준으로 조정
    - 모든 확장 팔레트에 대한 Semantic Aliases 추가
@@ -190,22 +193,22 @@
   --neutral-1000: #000000;
 
   /* ==========================================================================
-     Colors - Brand/Primary (Fluent 2 Brand Blue)
+     Colors - Brand/Primary (Geniefy Orange)
      ==========================================================================
      용도: 브랜드 아이덴티티, 주요 액션 버튼
-     참고: Fluent 2의 Brand Blue 기반 (#0078D4)
+     참고: Geniefy 브랜드 컬러 (Orange)
      ========================================================================== */
-  --primary-50: #e6f2ff;
-  --primary-100: #cce4ff;
-  --primary-200: #99c9ff;
-  --primary-300: #66aeff;
-  --primary-400: #3393ff;
-  --primary-500: #0078d4;  /* Fluent 2 Brand Blue */
-  --primary-600: #006cbe;
-  --primary-700: #005a9e;
-  --primary-800: #004578;
-  --primary-900: #003052;
-  --primary-950: #001b2e;
+  --primary-50: #fff7ed;
+  --primary-100: #ffedd5;
+  --primary-200: #fed7aa;
+  --primary-300: #fdba74;
+  --primary-400: #fb923c;
+  --primary-500: #f97316;  /* Geniefy Brand Orange */
+  --primary-600: #ea580c;
+  --primary-700: #c2410c;
+  --primary-800: #9a3412;
+  --primary-900: #7c2d12;
+  --primary-950: #431407;
 
   /* ==========================================================================
      Colors - Extended Palette (Fluent 2 기반)
