@@ -170,6 +170,9 @@ components/ 폴더에 새 컴포넌트 생성 시 자동으로 design-system 저
 ### Step 4: Hook 설정
 `.claude/settings.local.json` 파일을 생성/수정하여 다음 hook을 등록합니다:
 
+> ⚠️ **중요**: PostToolUse hook은 환경변수가 아닌 **stdin으로 JSON**을 받습니다.
+> `jq`를 사용하여 `tool_input.file_path`를 파싱해야 합니다.
+
 ```json
 {
   "hooks": {
@@ -182,8 +185,8 @@ components/ 폴더에 새 컴포넌트 생성 시 자동으로 design-system 저
       {
         "matcher": "Write|Edit",
         "hooks": [
-          {"type": "command", "command": "if [[ \"$CLAUDE_TOOL_ARG_file_path\" == *\"components/\"* ]]; then .claude/scripts/auto-contribute.sh \"$CLAUDE_TOOL_ARG_file_path\"; fi"},
-          {"type": "command", "command": "if [[ \"$CLAUDE_TOOL_ARG_file_path\" == *\"components/\"* ]]; then .claude/scripts/lint-design-rules.sh \"$CLAUDE_TOOL_ARG_file_path\"; fi", "statusMessage": "Design Rules 검증 중..."}
+          {"type": "command", "command": "file_path=$(jq -r '.tool_input.file_path // empty') && if [[ \"$file_path\" == *\"components/\"* ]]; then \"$CLAUDE_PROJECT_DIR\"/.claude/scripts/auto-contribute.sh \"$file_path\"; fi"},
+          {"type": "command", "command": "file_path=$(jq -r '.tool_input.file_path // empty') && if [[ \"$file_path\" == *\"components/\"* ]]; then \"$CLAUDE_PROJECT_DIR\"/.claude/scripts/lint-design-rules.sh \"$file_path\"; fi", "statusMessage": "Design Rules 검증 중..."}
         ]
       }
     ]
@@ -194,8 +197,12 @@ components/ 폴더에 새 컴포넌트 생성 시 자동으로 design-system 저
 **Hook 설명:**
 - `UserPromptSubmit`: 모든 프롬프트 제출 시 **node_modules에서** design-rules.md 로딩 (npm 업데이트 시 자동 반영)
 - `PostToolUse`: Write|Edit 도구 사용 시:
+  - **stdin에서 JSON 파싱**: `jq -r '.tool_input.file_path'`로 파일 경로 추출
   - components/ 변경 감지하여 자동 기여
   - **design-rules 위반 자동 검증** (lint-design-rules.sh)
+
+**필수 의존성:**
+- `jq`: JSON 파싱 도구 (macOS: `brew install jq`, Ubuntu: `apt install jq`)
 
 ### Step 4.5: 자동 기여 스크립트 생성
 `.claude/scripts/auto-contribute.sh` 파일을 생성합니다:
