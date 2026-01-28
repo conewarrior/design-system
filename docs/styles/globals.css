@@ -2762,6 +2762,15 @@ pre code {
   padding: 0;
   font-size: var(--font-size-sm);
   line-height: 1.6;
+  color: var(--neutral-900);
+}
+
+.dark .code-comparison pre {
+  background: var(--neutral-800);
+}
+
+.dark .code-comparison code {
+  color: var(--neutral-100);
 }
 
 /* Protocol Steps */
@@ -2843,6 +2852,15 @@ pre code {
   padding: 0;
   font-size: var(--font-size-sm);
   line-height: 1.6;
+  color: var(--neutral-900);
+}
+
+.dark .essay-section .code-block pre {
+  background: var(--neutral-800);
+}
+
+.dark .essay-section .code-block code {
+  color: var(--neutral-100);
 }
 
 /* Benefit List */
