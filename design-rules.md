@@ -802,6 +802,45 @@ const StatCard = ({ label, value }) => (
 );
 ```
 
+### 6.3 중복 컴포넌트 재사용 (DRY)
+
+**전역으로 설정되거나 프로젝트 내에서 중복되는 컴포넌트는 반드시 재사용한다.**
+
+```tsx
+// ❌ 금지: 동일한 컴포넌트를 페이지마다 중복 생성
+// app/page1.tsx
+const PageHeader = ({ title }) => <h1 className="text-4xl font-bold">{title}</h1>;
+
+// app/page2.tsx
+const PageHeader = ({ title }) => <h1 className="text-4xl font-bold">{title}</h1>;
+
+// ✅ 올바른 사용: 공통 컴포넌트로 추출
+// components/page-header.tsx
+export const PageHeader = ({ title }) => (
+  <h1 className="text-4xl font-bold tracking-tight">{title}</h1>
+);
+
+// app/page1.tsx, app/page2.tsx
+import { PageHeader } from '@/components/page-header';
+```
+
+**재사용 대상:**
+| 대상 | 위치 | 예시 |
+|------|------|------|
+| 레이아웃 컴포넌트 | `components/layout/` | Header, Sidebar, Footer |
+| UI 공통 컴포넌트 | `components/ui/` | PageHeader, SectionTitle, EmptyState |
+| 반복되는 카드/아이템 | `components/` | UserCard, ProjectCard, StatCard |
+
+**재사용 판단 기준:**
+1. **2회 이상 사용**: 동일한 구조가 2개 이상 페이지/컴포넌트에서 반복되면 즉시 추출
+2. **스타일 동일**: className, style 속성이 완전히 같으면 컴포넌트로 분리
+3. **전역 레이아웃**: Header, Sidebar 등 모든 페이지에서 사용되는 요소
+
+**원칙:**
+- 중복 코드는 유지보수 비용을 증가시킴
+- 공통 컴포넌트 수정 시 모든 사용처에 일관되게 반영됨
+- Don't Repeat Yourself (DRY) 원칙 준수
+
 ---
 
 ## 변경 이력
