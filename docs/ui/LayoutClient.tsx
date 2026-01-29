@@ -25,11 +25,6 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Portfolio 페이지는 전용 레이아웃 사용 (사이드바/네비게이션 없음)
-  if (pathname.startsWith('/portfolio')) {
-    return <>{children}</>;
-  }
-
   return (
     <div className="layout">
       <TopNav
