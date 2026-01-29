@@ -12,9 +12,8 @@ docs/out/
 .pdca-status.json
 .DS_Store
 
-# Portfolio planning documents (internal only, should not be updated)
-**/portfolio_plan.*
-**/portfolio-make-guide.md
+# Planning documents (internal only)
+planning/
 
 # BKit memory files
 **/.bkit-memory.json

@@ -1,10 +1,88 @@
 {
-  "generatedAt": "2026-01-27T08:49:31.376Z",
-  "totalChanges": 16,
+  "generatedAt": "2026-01-29T06:51:39.034Z",
+  "totalChanges": 22,
   "data": [
+    {
+      "date": "2026-01-28",
+      "items": [
+        {
+          "id": "9c79d61",
+          "type": "token",
+          "title": "fix(tokens): restore Geniefy brand orange as primary color",
+          "author": "김한솔",
+          "date": "2026-01-28",
+          "time": "11:41",
+          "files": [
+            "tokens.css"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/9c79d61dfc1d722213a51a296facb4561bc5d271"
+        },
+        {
+          "id": "79d271f",
+          "type": "add",
+          "title": "feat(components): add InfoTable (#6)",
+          "author": "conewarrior",
+          "date": "2026-01-28",
+          "time": "11:12",
+          "files": [
+            "components/InfoTable/index.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/79d271fb1a2ed85b3e721218567b61eb8b617090"
+        }
+      ]
+    },
     {
       "date": "2026-01-27",
       "items": [
+        {
+          "id": "3196b49",
+          "type": "docs",
+          "title": "fix: Dropdown align type error (end -> right)",
+          "author": "김한솔",
+          "date": "2026-01-27",
+          "time": "18:26",
+          "files": [
+            "docs/app/components/dropdown/page.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/3196b49066a1d117b20cd936ab2c78f6042b3956"
+        },
+        {
+          "id": "a228d96",
+          "type": "docs",
+          "title": "refactor: 컴포넌트 UI 개선 및 사이드바 정렬 (선택적 적용)",
+          "author": "김한솔",
+          "date": "2026-01-27",
+          "time": "18:19",
+          "files": [
+            "components/Accordion/index.tsx",
+            "components/Alert/index.tsx",
+            "components/Badge/index.tsx",
+            "components/Checkbox/index.tsx",
+            "components/Dropdown/index.tsx",
+            "components/Input/index.tsx",
+            "components/Modal/index.tsx",
+            "components/Select/index.tsx",
+            "components/Tabs/index.tsx",
+            "components/Toast/index.tsx",
+            "docs/app/components/alert/page.tsx",
+            "docs/app/components/card/page.tsx",
+            "docs/app/components/select/page.tsx",
+            "docs/components/Button/index.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/a228d96ef2bcb0bfc45b6a0b84178c028cfd61fb"
+        },
+        {
+          "id": "b0d51da",
+          "type": "token",
+          "title": "chore: update tokens.css to v0.2.0 and sync data files",
+          "author": "김한솔",
+          "date": "2026-01-27",
+          "time": "17:53",
+          "files": [
+            "tokens.css"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/b0d51da9d850c4a3e0d4f84b1af41ce42a677791"
+        },
         {
           "id": "943765c",
           "type": "token",
@@ -52,6 +130,19 @@
             "components/Blockquote/index.tsx"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/4f18f020e69d698e1ba7c70a95ce31fbdcf0d77c"
+        },
+        {
+          "id": "fb854d2",
+          "type": "docs",
+          "title": "feat: Accordion 컴포넌트 사이즈 옵션 추가 (sm/lg)",
+          "author": "lily",
+          "date": "2026-01-27",
+          "time": "13:11",
+          "files": [
+            "components/Accordion/index.tsx",
+            "docs/app/components/accordion/page.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/fb854d200d9fbd87f28a01e9942df84b53c11c14"
         },
         {
           "id": "68689e9",

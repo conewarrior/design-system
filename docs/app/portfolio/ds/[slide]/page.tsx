@@ -9,8 +9,9 @@ import { Slide6Components } from './slides/Slide6Components';
 import { Slide7Quality } from './slides/Slide7Quality';
 import { Slide8Automation } from './slides/Slide8Automation';
 import { Slide9Docs } from './slides/Slide9Docs';
+import { Slide10Future } from './slides/Slide10Future';
 
-const TOTAL_SLIDES = 9;
+const TOTAL_SLIDES = 10;
 
 const slides: Record<number, React.ComponentType> = {
   1: Slide1Cover,
@@ -22,6 +23,7 @@ const slides: Record<number, React.ComponentType> = {
   7: Slide7Quality,
   8: Slide8Automation,
   9: Slide9Docs,
+  10: Slide10Future,
 };
 
 interface PageProps {

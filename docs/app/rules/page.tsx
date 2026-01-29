@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 
 export default function RulesPage() {
-  // 빌드 시점에 파일 읽기
-  const filePath = path.join(process.cwd(), 'content/design-rules.md');
+  // 빌드 시점에 파일 읽기 (루트의 .claude/skills에서 직접 참조)
+  const filePath = path.join(process.cwd(), '../.claude/skills/design-rules.md');
   let content = '';
 
   try {

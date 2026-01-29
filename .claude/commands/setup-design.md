@@ -98,6 +98,77 @@ import '@design-geniefy/ui/tokens.css';
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css">
 ```
 
+### Step 2.6: Tailwind v4 설치 (shadcn/ui 사용 시)
+
+> shadcn/ui 컴포넌트를 사용하려면 Tailwind CSS v4가 필요합니다.
+> tokens.css의 값을 @theme으로 매핑하여 shadcn 컴포넌트가 디자인 토큰을 사용하도록 합니다.
+
+**AskUserQuestion으로 확인:**
+```
+질문: "Tailwind CSS v4를 설치하시겠습니까?"
+- **설치** (권장): shadcn/ui 컴포넌트 사용 가능
+- **건너뛰기**: 기존 CSS 방식 유지
+```
+
+**"설치" 선택 시:**
+
+1. **패키지 설치:**
+```bash
+npm install tailwindcss@latest @tailwindcss/postcss@latest
+```
+
+2. **postcss.config.mjs 생성:**
+```javascript
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+```
+
+3. **globals.css (또는 메인 CSS 파일)에 Tailwind 추가:**
+
+tokens.css import 다음에 추가:
+```css
+/* Tailwind CSS v4 */
+@import "tailwindcss";
+
+/* Tailwind Theme - tokens.css 변수를 Tailwind 테마에 매핑 */
+@theme {
+  /* Colors - shadcn compatible */
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-destructive: var(--color-destructive);
+  --color-destructive-foreground: var(--color-destructive-foreground);
+  --color-border: var(--color-border);
+  --color-input: var(--color-input);
+  --color-ring: var(--color-ring);
+
+  /* Radius */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-full: var(--radius-full);
+
+  /* Font Family */
+  --font-sans: var(--font-family-sans);
+  --font-mono: var(--font-family-mono);
+}
+```
+
+> 💡 **참고**: Tailwind v4는 CSS-first 설정 방식을 사용합니다.
+> `tailwind.config.js` 대신 `@theme` 블록에서 테마를 정의합니다.
+
 ### Step 3: CLAUDE.md 설정
 기존 CLAUDE.md를 읽고, 없으면 새로 생성합니다.
 다음 내용을 CLAUDE.md에 추가합니다:

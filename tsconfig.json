@@ -18,6 +18,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": ["index.ts", "components/**/*.ts", "components/**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["index.ts", "components/**/*.ts", "components/**/*.tsx", "lib/**/*.ts", "hooks/**/*.ts"],
+  "exclude": ["node_modules", "dist", "docs", "components/_excluded", "components_backup", "components_pages_backup", "components_pages_backup_all"]
 }

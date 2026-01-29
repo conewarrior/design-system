@@ -4,14 +4,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 프로젝트 개요
 
-팀 공용 디자인 시스템 저장소. 디자인 토큰(CSS 변수)과 React 컴포넌트를 중앙에서 관리하고 배포한다.
+팀 공용 디자인 시스템 저장소. shadcn/ui 기반 React 컴포넌트를 중앙에서 관리하고 npm 패키지로 배포한다.
+
+## 기술 스택
+
+- **컴포넌트**: shadcn/ui + Radix UI primitives
+- **스타일링**: Tailwind CSS v4 (필수)
+- **유틸리티**: class-variance-authority (cva), tailwind-merge, clsx
+- **빌드**: TypeScript, npm workspaces
 
 ## 배포 구조
 
 | 파일 | 배포 방식 | 업데이트 반영 |
 |------|-----------|---------------|
-| `tokens.css` | jsDelivr CDN | 즉시 반영 |
 | `components/` | npm 패키지 (@design-geniefy/ui) | 버전 업데이트 후 설치 |
+| `tokens.css` | jsDelivr CDN (레거시) | 즉시 반영 |
 | `docs/` | 문서 사이트 (Next.js) | 개발용 |
 
 ## 명령어
@@ -30,15 +37,21 @@ npm run build        # 프로덕션 빌드
 
 ```
 design-system/
-├── tokens.css              # 디자인 토큰 (CDN 배포)
 ├── index.ts                # 컴포넌트 export 진입점
-├── components/             # React 컴포넌트 (npm 배포)
-│   ├── Button/
-│   └── Input/
+├── components/             # shadcn/ui 기반 컴포넌트 (52개)
+│   ├── button.tsx
+│   ├── input.tsx
+│   ├── dialog.tsx
+│   ├── ...
+│   └── _excluded/          # 빌드 제외 컴포넌트
+├── lib/
+│   └── utils.ts            # cn() 유틸리티 (tailwind-merge + clsx)
+├── hooks/
+│   └── use-mobile.tsx      # 모바일 감지 훅
 ├── docs/                   # Next.js 14 App Router 문서 사이트
 │   ├── app/                # 페이지 라우트
-│   ├── ui/                 # 문서 전용 UI 컴포넌트
-│   └── styles/globals.css  # 문서 사이트 스타일
+│   └── styles/globals.css  # Tailwind v4 @theme 토큰
+├── tokens.css              # 레거시 디자인 토큰 (CDN)
 ├── .claude/
 │   ├── commands/           # Claude Code 커맨드
 │   ├── skills/             # Claude Code 스킬
@@ -46,44 +59,59 @@ design-system/
 └── .github/workflows/      # npm 자동 배포
 ```
 
+## Import 경로 규칙
+
+```typescript
+// 컴포넌트 내부 (components/*.tsx)
+import { cn } from "../lib/utils"
+import { useIsMobile } from "../hooks/use-mobile"
+
+// docs에서 컴포넌트 참조
+import { Button } from "@components/button"
+
+// npm 패키지 사용자
+import { Button, Input, cn } from "@design-geniefy/ui"
+```
+
 ## Claude Code 커맨드/스킬
 
-- `/setup-design`: 프로젝트에 디자인 시스템 자동 설정 (토큰 CDN, 패키지 설치, 규칙 복사)
+- `/setup-design`: 프로젝트에 디자인 시스템 자동 설정 (Tailwind 설치, 패키지 설치, 규칙 복사)
 - `design-rules` 스킬: UI 생성 시 토큰 사용 강제, Generation Protocol 적용
-
-## 토큰 규칙
-
-- CSS 변수는 `:root`에 정의
-- 다크모드는 `.dark` 클래스로 오버라이드
-- 네이밍: `--{category}-{name}` (예: `--color-primary`, `--spacing-md`)
-- 컴포넌트에서 하드코딩 px 값 금지, 토큰 변수만 사용
 
 ## 컴포넌트 생성 규칙 (필수)
 
 **⚠️ 기존 컴포넌트 코드를 참고하지 마라. 기존 코드가 틀렸을 수 있다.**
 
-컴포넌트 생성 시 반드시 다음 순서를 따른다:
+### shadcn/ui 패턴 준수
 
-1. **design-rules.md를 유일한 소스로 사용**
-   - `.claude/skills/design-rules.md` 규칙 먼저 확인
-   - 기존 컴포넌트 패턴 복사 금지
+1. **파일 구조**: `components/{component-name}.tsx` (단일 파일)
+2. **스타일링**: Tailwind CSS 클래스 + `cn()` 유틸리티
+3. **Variants**: `class-variance-authority (cva)` 사용
+4. **Primitives**: Radix UI 기반 컴포넌트는 Radix 사용
 
-2. **생성 전 체크리스트**
-   - [ ] 토큰만 사용 (하드코딩 색상/간격 금지)
-   - [ ] SVG 아이콘만 사용 (이모지/텍스트 문자 금지)
-   - [ ] Shadow 사용 금지 (Modal/Dropdown/Toast 제외)
-   - [ ] 적절한 radius 토큰 사용
+### 생성 전 체크리스트
 
-3. **생성 후 자가 검증**
-   - 작성한 코드가 design-rules 위반하는지 점검
-   - 위반 발견 시 즉시 수정
+- [ ] Tailwind 클래스만 사용 (하드코딩 색상/간격 금지)
+- [ ] SVG 아이콘만 사용 (이모지/텍스트 문자 금지)
+- [ ] Shadow 사용 금지 (Modal/Dropdown/Toast 제외)
+- [ ] `data-slot` 속성으로 컴포넌트 부분 식별
 
-4. **기존 컴포넌트 위반 발견 시**
-   - 별도로 사용자에게 보고
-   - 새 컴포넌트는 규칙대로 작성
+### 생성 후 자가 검증
+
+- 작성한 코드가 design-rules 위반하는지 점검
+- 위반 발견 시 즉시 수정
 
 ## 컴포넌트 추가
 
-1. `components/{ComponentName}/index.tsx` 생성
+1. `components/{component-name}.tsx` 생성 (shadcn 패턴)
 2. `index.ts`에서 export 추가
-3. main 브랜치 push → GitHub Actions가 npm 자동 배포
+3. `npm run build`로 빌드 확인
+4. main 브랜치 push → GitHub Actions가 npm 자동 배포
+
+## 현재 컴포넌트 목록 (52개)
+
+accordion, alert, alert-dialog, aspect-ratio, avatar, badge, breadcrumb, button, button-group, calendar, card, carousel, chart, checkbox, collapsible, command, context-menu, dialog, drawer, dropdown-menu, empty, field, form, hover-card, input, input-group, input-otp, item, kbd, label, menubar, navigation-menu, pagination, popover, progress, radio-group, scroll-area, select, separator, sheet, sidebar, skeleton, slider, sonner, spinner, switch, table, tabs, textarea, toggle, toggle-group, tooltip
+
+## 제외된 컴포넌트
+
+- `resizable`: 타입 에러로 인해 `_excluded/`로 이동
