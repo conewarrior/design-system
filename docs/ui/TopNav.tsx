@@ -18,33 +18,42 @@ const sections = [
 
 export function TopNav({ currentSection, onMobileMenuToggle, isMobileMenuOpen }: TopNavProps) {
   return (
-    <header className="top-nav">
-      <div className="top-nav-left">
-        <Link href="/" className="top-nav-logo">
-          <div className="top-nav-logo-icon" />
-          <span>@design-geniefy/ui</span>
-        </Link>
-      </div>
-
-      <nav className="top-nav-menu">
-        {sections.map((section) => (
-          <Link
-            key={section.id}
-            href={section.href}
-            className={`top-nav-link ${currentSection === section.id ? 'active' : ''}`}
-          >
-            {section.label}
+    <header 
+      data-slot="header"
+      className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+    >
+      <div className="container flex h-14 max-w-screen-2xl items-center px-4">
+        <div className="mr-4 flex">
+          <Link href="/" className="mr-6 flex items-center space-x-2">
+            <div className="h-6 w-6 rounded-md bg-primary" />
+            <span className="font-bold">@design-geniefy/ui</span>
           </Link>
-        ))}
-      </nav>
+        </div>
 
-      <button
-        className="top-nav-mobile-btn"
-        onClick={onMobileMenuToggle}
-        aria-label="메뉴 열기"
-      >
-        {isMobileMenuOpen ? '✕' : '☰'}
-      </button>
+        <nav className="hidden md:flex md:flex-1 md:items-center md:gap-6 md:text-sm">
+          {sections.map((section) => (
+            <Link
+              key={section.id}
+              href={section.href}
+              className={`transition-colors hover:text-foreground/80 ${
+                currentSection === section.id 
+                  ? 'text-foreground font-medium' 
+                  : 'text-foreground/60'
+              }`}
+            >
+              {section.label}
+            </Link>
+          ))}
+        </nav>
+
+        <button
+          className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground h-9 w-9 md:hidden"
+          onClick={onMobileMenuToggle}
+          aria-label="메뉴 열기"
+        >
+          <span className="text-lg">{isMobileMenuOpen ? '✕' : '☰'}</span>
+        </button>
+      </div>
     </header>
   );
 }

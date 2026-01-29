@@ -161,17 +161,27 @@ export function Sidebar({ section, isMobileOpen, onMobileClose }: SidebarProps) 
     <>
       {/* Mobile Nav Overlay */}
       {isMobileOpen && (
-        <div className="mobile-nav-overlay" onClick={onMobileClose}>
-          <nav className="mobile-nav" onClick={(e) => e.stopPropagation()}>
+        <div 
+          className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm md:hidden"
+          onClick={onMobileClose}
+        >
+          <nav 
+            className="fixed left-0 top-14 bottom-0 w-full max-w-xs bg-background p-6 shadow-lg overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             {navigation.map((group) => (
-              <div key={group.title} className="sidebar-section">
-                <div className="sidebar-section-title">{group.title}</div>
-                <div className="sidebar-nav">
+              <div key={group.title} className="mb-6">
+                <div className="mb-2 px-2 text-sm font-semibold text-foreground">{group.title}</div>
+                <div className="space-y-1">
                   {group.links.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`sidebar-link ${isActive(link.href) ? 'active' : ''}`}
+                      className={`block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground ${
+                        isActive(link.href) 
+                          ? 'bg-accent text-accent-foreground font-medium' 
+                          : 'text-foreground/60'
+                      }`}
                       onClick={onMobileClose}
                     >
                       {link.label}
@@ -185,23 +195,32 @@ export function Sidebar({ section, isMobileOpen, onMobileClose }: SidebarProps) 
       )}
 
       {/* Desktop Sidebar */}
-      <aside className="sidebar">
-        {navigation.map((group) => (
-          <div key={group.title} className="sidebar-section">
-            <div className="sidebar-section-title">{group.title}</div>
-            <nav className="sidebar-nav">
-              {group.links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`sidebar-link ${isActive(link.href) ? 'active' : ''}`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        ))}
+      <aside 
+        data-slot="sidebar"
+        className="hidden md:block w-[220px] shrink-0 bg-background"
+      >
+        <div className="sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto py-6 pr-6 pl-8">
+          {navigation.map((group) => (
+            <div key={group.title} className="mb-6">
+              <div className="mb-2 px-2 text-sm font-semibold text-foreground">{group.title}</div>
+              <nav className="space-y-1">
+                {group.links.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`block rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground ${
+                      isActive(link.href) 
+                        ? 'bg-accent text-accent-foreground font-medium' 
+                        : 'text-foreground/60'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          ))}
+        </div>
       </aside>
     </>
   );

@@ -26,19 +26,26 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
   }, [pathname]);
 
   return (
-    <div className="layout">
+    <div className="relative flex min-h-screen flex-col bg-background">
       <TopNav
         currentSection={section}
         onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         isMobileMenuOpen={isMobileMenuOpen}
       />
-      <div className="layout-body">
+      <div className="flex-1 md:flex">
         <Sidebar
           section={section}
           isMobileOpen={isMobileMenuOpen}
           onMobileClose={() => setIsMobileMenuOpen(false)}
         />
-        <main className="main">{children}</main>
+        <main 
+          data-slot="main"
+          className="flex-1 px-6 py-8 md:px-8 lg:px-12"
+        >
+          <div className="mx-auto max-w-[40rem]">
+            {children}
+          </div>
+        </main>
       </div>
     </div>
   );
