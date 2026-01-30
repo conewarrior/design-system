@@ -32,6 +32,15 @@ const docsNavigation: NavGroup[] = [
       { href: '/rules/changelog/', label: 'Changelog' },
     ],
   },
+  {
+    title: 'Tokens',
+    links: [
+      { href: '/tokens/', label: 'Overview' },
+      { href: '/tokens/colors/', label: 'Colors' },
+      { href: '/tokens/radius/', label: 'Radius' },
+      { href: '/tokens/typography/', label: 'Typography' },
+    ],
+  },
 ];
 
 // Status 네비게이션
