@@ -1,86 +1,87 @@
-import { Card, CardContent } from '@components/card';
+import { PageHeader } from '../../../ui/PageHeader';
+import { PageNav } from '../../../ui/PageNav';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/table';
 
 const radiusTokens = [
-  {
-    name: 'Base',
-    cssVar: '--radius',
-    tailwind: 'rounded',
-    value: '0.25rem',
-    description: 'shadcn 컴포넌트 기본 radius',
-    isBase: true,
-  },
-  {
-    name: 'Small',
-    cssVar: '--radius-sm',
-    tailwind: 'rounded-sm',
-    value: '0.125rem',
-  },
-  {
-    name: 'Medium',
-    cssVar: '--radius-md',
-    tailwind: 'rounded-md',
-    value: '0.25rem',
-  },
-  {
-    name: 'Large',
-    cssVar: '--radius-lg',
-    tailwind: 'rounded-lg',
-    value: '0.375rem',
-  },
-  {
-    name: 'Extra Large',
-    cssVar: '--radius-xl',
-    tailwind: 'rounded-xl',
-    value: '0.5rem',
-  },
-  {
-    name: '2X Large',
-    cssVar: '--radius-2xl',
-    tailwind: 'rounded-2xl',
-    value: '0.75rem',
-  },
-  {
-    name: '3X Large',
-    cssVar: '--radius-3xl',
-    tailwind: 'rounded-3xl',
-    value: '1rem',
-  },
-  {
-    name: 'Full',
-    cssVar: '--radius-full',
-    tailwind: 'rounded-full',
-    value: '9999px',
-  },
+  { name: 'sm', cssVar: '--radius-sm', tailwind: 'rounded-sm', value: '2px', usage: '태그, 뱃지' },
+  { name: 'md', cssVar: '--radius-md', tailwind: 'rounded-md', value: '4px', usage: '버튼, 인풋 (기본값)' },
+  { name: 'lg', cssVar: '--radius-lg', tailwind: 'rounded-lg', value: '6px', usage: '카드, 모달' },
+  { name: 'xl', cssVar: '--radius-xl', tailwind: 'rounded-xl', value: '8px', usage: '큰 카드' },
+  { name: '2xl', cssVar: '--radius-2xl', tailwind: 'rounded-2xl', value: '12px', usage: '대형 컨테이너' },
+  { name: '3xl', cssVar: '--radius-3xl', tailwind: 'rounded-3xl', value: '16px', usage: '특수 용도' },
+  { name: 'full', cssVar: '--radius-full', tailwind: 'rounded-full', value: '9999px', usage: '아바타, 토글' },
 ];
 
 export default function RadiusPage() {
   return (
-    <div>
-      <h1 className="text-page-title mb-2">Radius</h1>
-      <p className="text-page-description mb-8">
-        8개 border-radius 토큰
-      </p>
+    <div className="space-y-8">
+      <PageHeader
+        title="Radius"
+        description="7개 border-radius 토큰"
+      />
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {radiusTokens.map((token) => (
-          <Card key={token.cssVar} className="py-3">
-            <CardContent>
+      <section className="space-y-4">
+        <p className="text-muted-foreground leading-relaxed">
+          일관된 모서리 둥글기를 위한 토큰입니다. 컴포넌트 용도에 맞는 적절한 radius를 선택하세요.
+          기본값은 <code className="text-sm bg-muted px-1 py-0.5 rounded">rounded-md</code> (4px)입니다.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-subsection-title">미리보기</h2>
+        <div className="flex flex-wrap gap-4">
+          {radiusTokens.map((token) => (
+            <div key={token.name} className="flex flex-col items-center gap-2">
               <div
-                className="w-12 h-12 bg-primary mb-4"
+                className="h-16 w-16 border-2 border-primary bg-primary/10"
                 style={{ borderRadius: token.value }}
               />
-              <code className="text-code">{token.cssVar}</code>
-              <p className="text-body-sm mt-2">{token.tailwind}</p>
-              <p className="text-sm font-mono text-foreground mt-1">{token.value}</p>
-              {token.isBase && (
-                <p className="text-caption mt-2">
-                  {token.description}
-                </p>
-              )}
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+              <div className="text-label">{token.name}</div>
+              <div className="text-[10px] text-muted-foreground">{token.value}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-subsection-title">토큰 목록</h2>
+        <div className="rounded-md border">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[80px]">Token</TableHead>
+                <TableHead className="w-[140px]">CSS Variable</TableHead>
+                <TableHead className="w-[120px]">Tailwind</TableHead>
+                <TableHead className="w-[80px]">Value</TableHead>
+                <TableHead>Usage</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {radiusTokens.map((token) => (
+                <TableRow key={token.name}>
+                  <TableCell className="font-medium">{token.name}</TableCell>
+                  <TableCell className="text-code">{token.cssVar}</TableCell>
+                  <TableCell className="text-code text-muted-foreground">{token.tailwind}</TableCell>
+                  <TableCell className="text-code">{token.value}</TableCell>
+                  <TableCell className="text-muted-foreground">{token.usage}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </section>
+
+      <PageNav
+        prev={{ href: '/tokens/colors/', title: 'Colors' }}
+        next={{ href: '/tokens/typography/', title: 'Typography' }}
+      />
     </div>
   );
 }

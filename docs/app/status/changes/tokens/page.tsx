@@ -1,10 +1,10 @@
-// Tokens Changes
-// 토큰 관련 변경만 필터링
-
 import { promises as fs } from 'fs';
 import path from 'path';
-import { Card, CardContent } from '@components/card';
+import Link from 'next/link';
+import { PageHeader } from '../../../../ui/PageHeader';
+import { PageNav } from '../../../../ui/PageNav';
 import { Badge } from '@components/badge';
+import { ExternalLink } from 'lucide-react';
 
 export const revalidate = 600;
 
@@ -32,12 +32,12 @@ interface ChangelogData {
   data: DateGroup[];
 }
 
-const typeConfig: Record<ChangeType, { icon: string; label: string }> = {
-  add: { icon: '🆕', label: '추가' },
-  modify: { icon: '✏️', label: '수정' },
-  delete: { icon: '🗑️', label: '삭제' },
-  token: { icon: '🎨', label: '토큰' },
-  docs: { icon: '📝', label: '문서' },
+const typeConfig: Record<ChangeType, { label: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' }> = {
+  add: { label: '추가', variant: 'default' },
+  modify: { label: '수정', variant: 'secondary' },
+  delete: { label: '삭제', variant: 'destructive' },
+  token: { label: '토큰', variant: 'outline' },
+  docs: { label: '문서', variant: 'outline' },
 };
 
 async function getChangelogData(): Promise<ChangelogData> {
@@ -54,7 +54,6 @@ async function getChangelogData(): Promise<ChangelogData> {
   }
 }
 
-// 토큰 관련 변경만 필터링
 function filterTokenChanges(data: DateGroup[]): DateGroup[] {
   return data
     .map((group) => ({
@@ -68,71 +67,20 @@ function filterTokenChanges(data: DateGroup[]): DateGroup[] {
     .filter((group) => group.items.length > 0);
 }
 
-function ChangeItemCard({ item }: { item: ChangeItem }) {
-  const config = typeConfig[item.type];
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(yesterday.getDate() - 1);
 
-  return (
-    <Card className="py-3">
-      <CardContent className="space-y-2">
-        <div className="text-2xl">{config.icon}</div>
-        <div className="flex-1">
-          <div className="font-semibold">{item.title}</div>
-          <div className="text-sm text-muted-foreground flex gap-2">
-            <span className="changelog-author">@{item.author}</span>
-            <span className="changelog-time">{item.time}</span>
-          </div>
-          <div className="changelog-files flex flex-wrap gap-1 mt-2">
-            {item.files.map((file) => (
-              <Badge key={file} variant="secondary" className="font-mono text-xs">
-                {file}
-              </Badge>
-            ))}
-          </div>
-          <a
-            href={item.commitUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="changelog-link"
-          >
-            커밋 보기 →
-          </a>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
+  if (dateStr === today.toISOString().split('T')[0]) return '오늘';
+  if (dateStr === yesterday.toISOString().split('T')[0]) return '어제';
 
-function DateGroupSection({ group }: { group: DateGroup }) {
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
-
-    if (dateStr === today.toISOString().split('T')[0]) {
-      return '오늘';
-    }
-    if (dateStr === yesterday.toISOString().split('T')[0]) {
-      return '어제';
-    }
-
-    return date.toLocaleDateString('ko-KR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
-
-  return (
-    <div className="space-y-4">
-      <div className="text-lg font-semibold text-muted-foreground">{formatDate(group.date)}</div>
-      <div className="space-y-3">
-        {group.items.map((item) => (
-          <ChangeItemCard key={item.id} item={item} />
-        ))}
-      </div>
-    </div>
-  );
+  return date.toLocaleDateString('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 }
 
 export default async function TokensChangesPage() {
@@ -141,37 +89,75 @@ export default async function TokensChangesPage() {
   const totalFiltered = filteredData.reduce((acc, g) => acc + g.items.length, 0);
 
   return (
-    <div className="space-y-12">
-      <h1 className="text-page-title mb-2">Tokens Changes</h1>
-      <p className="text-page-description">
-        디자인 토큰 변경 이력 ({totalFiltered}개)
-      </p>
-
-      <div className="changelog-legend">
-        <span className="legend-item">
-          {typeConfig.token.icon} {typeConfig.token.label}
-        </span>
-      </div>
+    <div className="space-y-8">
+      <PageHeader
+        title="Tokens Changes"
+        description={`디자인 토큰 변경 이력 (${totalFiltered}개)`}
+      >
+        <Badge variant="outline">토큰</Badge>
+      </PageHeader>
 
       {filteredData.length > 0 ? (
-        <div className="changelog-list">
+        <div className="space-y-8">
           {filteredData.map((group) => (
-            <DateGroupSection key={group.date} group={group} />
+            <section key={group.date} className="space-y-4">
+              <h2 className="text-card-title text-muted-foreground sticky top-14 bg-background py-2 -mx-2 px-2">
+                {formatDate(group.date)}
+              </h2>
+              <div className="space-y-3">
+                {group.items.map((item) => {
+                  const config = typeConfig[item.type];
+                  return (
+                    <div
+                      key={item.id}
+                      className="flex items-start gap-4 rounded-md border p-4"
+                    >
+                      <Badge variant={config.variant} className="shrink-0">
+                        {config.label}
+                      </Badge>
+                      <div className="flex-1 min-w-0 space-y-2">
+                        <div className="font-medium">{item.title}</div>
+                        <div className="text-body-sm flex flex-wrap gap-x-3 gap-y-1">
+                          <span>@{item.author}</span>
+                          <span>{item.time}</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1">
+                          {item.files.map((file) => (
+                            <Badge key={file} variant="secondary" className="text-code">
+                              {file}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <Link
+                        href={item.commitUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
           ))}
         </div>
       ) : (
-        <div className="changelog-empty">
-          <p>토큰 변경 이력이 없습니다.</p>
+        <div className="rounded-md border border-dashed p-8 text-center text-muted-foreground">
+          토큰 변경 이력이 없습니다.
         </div>
       )}
 
-      <div className="changelog-note">
-        <p>
-          <span className="changelog-generated">
-            마지막 업데이트: {new Date(changelog.generatedAt).toLocaleString('ko-KR')}
-          </span>
-        </p>
+      <div className="rounded-md bg-muted/50 p-4 text-body-sm">
+        마지막 업데이트: {new Date(changelog.generatedAt).toLocaleString('ko-KR')}
       </div>
+
+      <PageNav
+        prev={{ href: '/status/changes/components/', title: 'Components' }}
+        next={{ href: '/status/adoption/', title: 'Adoption' }}
+      />
     </div>
   );
 }

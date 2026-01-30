@@ -200,9 +200,9 @@ a {
   line-height: var(--leading-tight);
 }
 
-/* Card Title - 카드/블록 제목 */
+/* Card Title - 카드/블록 제목, 단계 제목 */
 .text-card-title {
-  font-size: var(--text-card-title);
+  font-size: var(--text-body);  /* 16px - 통합 */
   font-weight: var(--font-semibold);
 }
 
@@ -224,8 +224,21 @@ a {
   color: hsl(var(--muted-foreground));
 }
 
-/* Code - 인라인 코드 */
+/* Code - 인라인 코드, 토큰 값 */
 .text-code {
   font-family: var(--font-mono);
+  font-size: var(--text-caption);  /* 12px - 통합 */
+}
+
+/* Subsection Title - 섹션 내 소제목 (h2 in section) */
+.text-subsection-title {
+  font-size: 1.25rem; /* 20px - text-xl */
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+}
+
+/* Label - 라벨, 폼 필드명 */
+.text-label {
   font-size: var(--text-body-sm);
+  font-weight: var(--font-medium);
 }

@@ -1,62 +1,54 @@
 'use client';
 
-import { useState } from 'react';
 import { CodeBlock } from '../../../ui/CodeBlock';
-
-interface AccordionProps {
-  title: string;
-  children: React.ReactNode;
-  defaultOpen?: boolean;
-}
-
-function Accordion({ title, children, defaultOpen = false }: AccordionProps) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-
-  return (
-    <div className="hw-accordion">
-      <button
-        className={`hw-accordion-header ${isOpen ? 'open' : ''}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <span>{title}</span>
-        <span className="hw-accordion-icon">{isOpen ? '−' : '+'}</span>
-      </button>
-      {isOpen && <div className="hw-accordion-content">{children}</div>}
-    </div>
-  );
-}
+import { PageHeader } from '../../../ui/PageHeader';
+import { PageNav } from '../../../ui/PageNav';
+import { ChevronDown, ChevronRight } from 'lucide-react';
+import { Separator } from '@components/separator';
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from '@components/collapsible';
 
 export default function HowItWorksPage() {
   return (
-    <div className="how-it-works">
-      <h1 className="text-page-title mb-2">How it Works</h1>
-      <p className="text-page-description">
-        디자인 시스템의 양방향 동기화 구조
-      </p>
+    <div className="space-y-8">
+      <PageHeader
+        title="How it Works"
+        description="디자인 시스템의 양방향 동기화 구조"
+      />
 
-      {/* Section 1: Overview */}
-      <section className="hw-section">
-        <h2>Overview</h2>
-        <p>
-          이 디자인 시스템은 <strong>중앙 저장소</strong>와 <strong>사용자 프로젝트</strong> 간에
-          양방향으로 동기화됩니다.
+      <section className="space-y-4">
+        <h2 className="text-subsection-title">Overview</h2>
+        <p className="text-muted-foreground leading-relaxed">
+          이 디자인 시스템은 <strong className="text-foreground">중앙 저장소</strong>와{' '}
+          <strong className="text-foreground">사용자 프로젝트</strong> 간에 양방향으로 동기화됩니다.
         </p>
-        <ul>
-          <li><strong>일관성</strong> — 모든 프로젝트가 동일한 디자인 토큰과 컴포넌트를 사용</li>
-          <li><strong>자동 동기화</strong> — 수동 업데이트 없이 항상 최신 버전 유지</li>
-          <li><strong>협업</strong> — 어느 프로젝트에서든 컴포넌트를 만들면 전체에 공유</li>
+        <ul className="space-y-2 text-sm">
+          <li className="flex gap-2">
+            <span className="text-primary font-semibold">일관성</span>
+            <span className="text-muted-foreground">— 모든 프로젝트가 동일한 디자인 토큰과 컴포넌트를 사용</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-primary font-semibold">자동 동기화</span>
+            <span className="text-muted-foreground">— 수동 업데이트 없이 항상 최신 버전 유지</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-primary font-semibold">협업</span>
+            <span className="text-muted-foreground">— 어느 프로젝트에서든 컴포넌트를 만들면 전체에 공유</span>
+          </li>
         </ul>
 
-        <div className="hw-diagram">
-          <pre>{`
-┌─────────────────────────────────────────────────────────────┐
-│                 conewarrior/design-system (중앙)                 │
+        <div className="rounded-md border bg-muted/50 p-4 overflow-x-auto">
+          <pre className="text-xs font-mono">{`┌─────────────────────────────────────────────────────────────┐
+│              conewarrior/design-system (중앙)               │
 │                                                             │
 │   components/    tokens.css    docs/                        │
 │       │              │                                      │
 │       ▼              ▼                                      │
 │   npm publish    CDN (jsDelivr)                             │
-│   @design-geniefy/ui    즉시 반영                                   │
+│   @design-geniefy/ui    즉시 반영                           │
 └───────────────────────┬─────────────────────────────────────┘
                         │
           ┌─────────────┴─────────────┐
@@ -65,59 +57,77 @@ export default function HowItWorksPage() {
    (자동 업데이트)               (자동 기여)
           │                           │
 ┌─────────┴───────────────────────────┴───────────────────────┐
-│                      사용자 프로젝트                          │
+│                      사용자 프로젝트                        │
 │                                                             │
 │  Dependabot → PR → Auto-merge        Write → Hook → GitHub  │
-│  (새 버전 감지)                       (components/ 생성 시)   │
-└─────────────────────────────────────────────────────────────┘
-`}</pre>
+│  (새 버전 감지)                       (components/ 생성 시) │
+└─────────────────────────────────────────────────────────────┘`}</pre>
         </div>
       </section>
 
-      <hr className="hw-divider" />
+      <Separator />
 
-      {/* Section 2: Distribution */}
-      <section className="hw-section">
-        <h2>배포 채널</h2>
+      <section className="space-y-4">
+        <h2 className="text-subsection-title">배포 채널</h2>
 
-        <h3>npm 패키지 (@design-geniefy/ui)</h3>
-        <p>Node.js 프로젝트 (Next.js, React, Vue 등)에서 사용합니다.</p>
-        <ul>
-          <li>React 컴포넌트 (Button, Input 등)</li>
-          <li>tokens.css (CSS 변수)</li>
-          <li>TypeScript 타입 정의</li>
-        </ul>
-        <CodeBlock language="bash">npm install @design-geniefy/ui</CodeBlock>
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <h3 className="font-medium">npm 패키지 (@design-geniefy/ui)</h3>
+            <p className="text-body-sm">Node.js 프로젝트 (Next.js, React, Vue 등)에서 사용합니다.</p>
+            <ul className="text-body-sm space-y-1 list-disc list-inside">
+              <li>React 컴포넌트 (Button, Input 등)</li>
+              <li>tokens.css (CSS 변수)</li>
+              <li>TypeScript 타입 정의</li>
+            </ul>
+            <CodeBlock language="bash">npm install @design-geniefy/ui</CodeBlock>
+          </div>
 
-        <h3>CDN (jsDelivr)</h3>
-        <p>HTML/CSS 프로젝트, 빠른 프로토타이핑에서 사용합니다. tokens.css만 제공됩니다.</p>
-        <CodeBlock language="html">{`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css">`}</CodeBlock>
+          <div className="space-y-2">
+            <h3 className="font-medium">CDN (jsDelivr)</h3>
+            <p className="text-body-sm">HTML/CSS 프로젝트, 빠른 프로토타이핑에서 사용합니다. tokens.css만 제공됩니다.</p>
+            <CodeBlock language="html">{`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/conewarrior/design-system/tokens.css">`}</CodeBlock>
+          </div>
+        </div>
       </section>
 
-      <hr className="hw-divider" />
+      <Separator />
 
-      {/* Section 3: Downstream */}
-      <section className="hw-section">
-        <h2>Downstream: 중앙 → 프로젝트</h2>
-        <p>새 버전이 배포되면 자동으로 사용자 프로젝트에 반영됩니다.</p>
+      <section className="space-y-4">
+        <h2 className="text-subsection-title">Downstream: 중앙 → 프로젝트</h2>
+        <p className="text-body-sm">새 버전이 배포되면 자동으로 사용자 프로젝트에 반영됩니다.</p>
 
-        <ol>
-          <li>
-            <strong>npm publish</strong><br />
-            버전 태그(v*)를 push하면 GitHub Actions가 자동으로 npm에 배포
+        <ol className="space-y-3 text-sm">
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">1</span>
+            <div>
+              <div className="font-medium">npm publish</div>
+              <div className="text-muted-foreground">버전 태그(v*)를 push하면 GitHub Actions가 자동으로 npm에 배포</div>
+            </div>
           </li>
-          <li>
-            <strong>Dependabot 감지</strong><br />
-            매일 09:00 (KST)에 새 버전을 체크하고 PR 생성
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">2</span>
+            <div>
+              <div className="font-medium">Dependabot 감지</div>
+              <div className="text-muted-foreground">매일 09:00 (KST)에 새 버전을 체크하고 PR 생성</div>
+            </div>
           </li>
-          <li>
-            <strong>Auto-merge</strong><br />
-            CI 통과 시 minor/patch는 자동 머지, major는 수동 리뷰
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">3</span>
+            <div>
+              <div className="font-medium">Auto-merge</div>
+              <div className="text-muted-foreground">CI 통과 시 minor/patch는 자동 머지, major는 수동 리뷰</div>
+            </div>
           </li>
         </ol>
 
-        <Accordion title="dependabot.yml 보기">
-          <CodeBlock language="yaml">{`version: 2
+        <Collapsible className="rounded-md border">
+          <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left text-label hover:bg-accent transition-colors [&[data-state=open]>svg:first-child]:hidden [&[data-state=closed]>svg:last-child]:hidden">
+            <span>dependabot.yml 보기</span>
+            <ChevronRight className="h-4 w-4 text-muted-foreground" />
+            <ChevronDown className="h-4 w-4 text-muted-foreground" />
+          </CollapsibleTrigger>
+          <CollapsibleContent className="border-t p-4">
+            <CodeBlock language="yaml">{`version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
@@ -127,158 +137,118 @@ updates:
       timezone: "Asia/Seoul"
     allow:
       - dependency-name: "@design-geniefy/ui"`}</CodeBlock>
-        </Accordion>
+          </CollapsibleContent>
+        </Collapsible>
       </section>
 
-      <hr className="hw-divider" />
+      <Separator />
 
-      {/* Section 4: Upstream */}
-      <section className="hw-section">
-        <h2>Upstream: 프로젝트 → 중앙</h2>
-        <p>프로젝트에서 컴포넌트를 만들면 자동으로 중앙 저장소에 기여됩니다.</p>
+      <section className="space-y-4">
+        <h2 className="text-subsection-title">Upstream: 프로젝트 → 중앙</h2>
+        <p className="text-body-sm">프로젝트에서 컴포넌트를 만들면 자동으로 중앙 저장소에 기여됩니다.</p>
 
-        <ol>
-          <li>
-            <strong>Write/Edit 감지</strong><br />
-            Claude Code가 components/ 폴더에 파일을 생성하면 Hook 트리거
+        <ol className="space-y-3 text-sm">
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">1</span>
+            <div>
+              <div className="font-medium">Write/Edit 감지</div>
+              <div className="text-muted-foreground">Claude Code가 components/ 폴더에 파일을 생성하면 Hook 트리거</div>
+            </div>
           </li>
-          <li>
-            <strong>auto-contribute.sh</strong><br />
-            gh CLI 또는 GitHub API를 사용하여 design-system 저장소에 직접 커밋
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">2</span>
+            <div>
+              <div className="font-medium">auto-contribute.sh</div>
+              <div className="text-muted-foreground">gh CLI 또는 GitHub API를 사용하여 design-system 저장소에 직접 커밋</div>
+            </div>
           </li>
-          <li>
-            <strong>npm 배포</strong><br />
-            커밋이 main에 반영되면 자동으로 새 버전 배포
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">3</span>
+            <div>
+              <div className="font-medium">npm 배포</div>
+              <div className="text-muted-foreground">커밋이 main에 반영되면 자동으로 새 버전 배포</div>
+            </div>
           </li>
         </ol>
 
-        <p className="hw-note">
+        <div className="rounded-md border border-primary/20 bg-primary/5 p-4 text-sm">
           <strong>gh CLI</strong> (권장) 또는 <strong>GITHUB_TOKEN</strong> 환경변수가 설정되어 있어야 합니다.
-        </p>
+        </div>
       </section>
 
-      <hr className="hw-divider" />
+      <Separator />
 
-      {/* Section 5: Hook System */}
-      <section className="hw-section">
-        <h2>Hook 시스템</h2>
+      <section className="space-y-4">
+        <h2 className="text-subsection-title">트러블슈팅</h2>
 
-        <h3>UserPromptSubmit</h3>
-        <p>
-          모든 프롬프트 제출 시
-          자동으로 design-rules가 로딩되어 토큰 사용을 강제합니다.
-        </p>
-        <CodeBlock language="json">{`{
-  "hooks": {
-    "UserPromptSubmit": [{
-      "hooks": [{"type": "command", "command": "cat node_modules/@design-geniefy/ui/.claude/skills/design-rules.md"}]
-    }]
-  }
-}`}</CodeBlock>
+        <div className="space-y-3">
+          <Collapsible className="rounded-md border">
+            <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left text-label hover:bg-accent transition-colors [&[data-state=open]>svg:first-child]:hidden [&[data-state=closed]>svg:last-child]:hidden">
+              <span>자동 업데이트가 안 될 때</span>
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="border-t p-4">
+              <ol className="space-y-2 text-sm">
+                <li>
+                  <strong>Dependabot 설정 확인</strong>
+                  <p className="text-muted-foreground"><code className="text-xs bg-muted px-1 py-0.5 rounded">.github/dependabot.yml</code> 파일이 있는지 확인</p>
+                </li>
+                <li>
+                  <strong>GitHub Actions 권한 확인</strong>
+                  <p className="text-muted-foreground">Settings → Actions → General → Workflow permissions에서 "Read and write permissions" 활성화</p>
+                </li>
+              </ol>
+            </CollapsibleContent>
+          </Collapsible>
 
-        <h3>PostToolUse</h3>
-        <p>
-          components/ 폴더에 파일을 생성/수정하면 자동으로 design-system 저장소에 커밋됩니다.
-        </p>
-        <CodeBlock language="json">{`{
-  "hooks": {
-    "PostToolUse": [{
-      "matcher": "Write|Edit",
-      "hooks": [{"type": "command", "command": "if [[ \\"$CLAUDE_TOOL_ARG_file_path\\" == *\\"components/\\"* ]]; then .claude/scripts/auto-contribute.sh \\"$CLAUDE_TOOL_ARG_file_path\\"; fi"}]
-    }]
-  }
-}`}</CodeBlock>
-      </section>
-
-      <hr className="hw-divider" />
-
-      {/* Section 6: npm Pipeline */}
-      <section className="hw-section">
-        <h2>npm 배포 파이프라인</h2>
-        <p>GitHub Actions를 통해 자동으로 npm에 배포됩니다.</p>
-
-        <p className="hw-flow">
-          코드 변경 → npm version patch → git push --tags → GitHub Actions → npm publish
-        </p>
-
-        <Accordion title="publish.yml 보기">
-          <CodeBlock language="yaml">{`name: Publish to npm
-
-on:
-  push:
-    tags:
-      - 'v*'  # v0.0.1, v1.0.0 등 태그 푸시 시 실행
-
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm run build
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: \${{ secrets.NPM_TOKEN }}`}</CodeBlock>
-        </Accordion>
-      </section>
-
-      <hr className="hw-divider" />
-
-      {/* Section 7: Troubleshooting */}
-      <section className="hw-section">
-        <h2>트러블슈팅</h2>
-
-        <Accordion title="자동 업데이트가 안 될 때">
-          <ol>
-            <li>
-              <strong>Dependabot 설정 확인</strong>
-              <p><code>.github/dependabot.yml</code> 파일이 있는지 확인</p>
-            </li>
-            <li>
-              <strong>GitHub Actions 권한 확인</strong>
-              <p>Settings → Actions → General → Workflow permissions에서 "Read and write permissions" 활성화</p>
-            </li>
-          </ol>
-        </Accordion>
-
-        <Accordion title="자동 기여가 안 될 때">
-          <ol>
-            <li>
-              <strong>gh CLI 확인 (권장)</strong>
-              <CodeBlock language="bash">gh auth status</CodeBlock>
-              <p>인증되지 않았다면:</p>
-              <CodeBlock language="bash">{`# 설치
+          <Collapsible className="rounded-md border">
+            <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left text-label hover:bg-accent transition-colors [&[data-state=open]>svg:first-child]:hidden [&[data-state=closed]>svg:last-child]:hidden">
+              <span>자동 기여가 안 될 때</span>
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="border-t p-4">
+              <ol className="space-y-3 text-sm">
+                <li>
+                  <strong>gh CLI 확인 (권장)</strong>
+                  <CodeBlock language="bash">gh auth status</CodeBlock>
+                  <p className="text-muted-foreground mt-2">인증되지 않았다면:</p>
+                  <CodeBlock language="bash">{`# 설치
 brew install gh
 
 # 인증 (브라우저 로그인)
 gh auth login`}</CodeBlock>
-            </li>
-            <li>
-              <strong>또는 GITHUB_TOKEN 확인 (CI/CD용)</strong>
-              <CodeBlock language="bash">echo $GITHUB_TOKEN</CodeBlock>
-              <p>값이 출력되지 않으면 토큰 설정 필요:</p>
-              <p>1. <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener noreferrer">GitHub 토큰 생성</a> (repo 권한)</p>
-              <CodeBlock language="bash">{`echo 'export GITHUB_TOKEN="복사한_토큰"' >> ~/.zshrc && source ~/.zshrc`}</CodeBlock>
-            </li>
-            <li>
-              <strong>왜 gh CLI를 권장하나요?</strong>
-              <p>Hook은 별도 subprocess에서 실행되어 터미널의 환경변수를 상속받지 못합니다. gh CLI는 keychain/config 파일에 인증 정보를 저장하므로 어떤 프로세스에서든 작동합니다.</p>
-            </li>
-          </ol>
-        </Accordion>
+                </li>
+                <li>
+                  <strong>또는 GITHUB_TOKEN 확인 (CI/CD용)</strong>
+                  <CodeBlock language="bash">echo $GITHUB_TOKEN</CodeBlock>
+                </li>
+              </ol>
+            </CollapsibleContent>
+          </Collapsible>
 
-        <Accordion title="Hook이 작동하지 않을 때">
-          <ol>
-            <li><code>.claude/settings.local.json</code> 파일 확인</li>
-            <li><code>~/.claude/skills/design-rules.md</code> 파일 존재 확인</li>
-            <li>Claude Code 재시작</li>
-          </ol>
-        </Accordion>
+          <Collapsible className="rounded-md border">
+            <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left text-label hover:bg-accent transition-colors [&[data-state=open]>svg:first-child]:hidden [&[data-state=closed]>svg:last-child]:hidden">
+              <span>Hook이 작동하지 않을 때</span>
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="border-t p-4">
+              <ol className="space-y-1 text-sm list-decimal list-inside">
+                <li><code className="text-xs bg-muted px-1 py-0.5 rounded">.claude/settings.local.json</code> 파일 확인</li>
+                <li><code className="text-xs bg-muted px-1 py-0.5 rounded">~/.claude/skills/design-rules.md</code> 파일 존재 확인</li>
+                <li>Claude Code 재시작</li>
+              </ol>
+            </CollapsibleContent>
+          </Collapsible>
+        </div>
       </section>
+
+      <PageNav
+        prev={{ href: '/install/', title: 'Install' }}
+        next={{ href: '/tokens/', title: 'Tokens' }}
+      />
     </div>
   );
 }

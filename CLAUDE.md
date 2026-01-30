@@ -31,6 +31,8 @@ npm run build        # TypeScript 컴파일 (dist/ 생성)
 cd docs
 npm run dev          # 개발 서버 (localhost:3000)
 npm run build        # 프로덕션 빌드
+npm run lint         # ESLint 검사 (page.tsx 파일만)
+npm run lint:fix     # ESLint 자동 수정
 ```
 
 ## 프로젝트 구조
@@ -39,18 +41,15 @@ npm run build        # 프로덕션 빌드
 design-system/
 ├── index.ts                # 컴포넌트 export 진입점
 ├── components/             # shadcn/ui 기반 컴포넌트 (52개)
-│   ├── button.tsx
-│   ├── input.tsx
-│   ├── dialog.tsx
-│   ├── ...
 │   └── _excluded/          # 빌드 제외 컴포넌트
-├── lib/
-│   └── utils.ts            # cn() 유틸리티 (tailwind-merge + clsx)
-├── hooks/
-│   └── use-mobile.tsx      # 모바일 감지 훅
+├── lib/utils.ts            # cn() 유틸리티 (tailwind-merge + clsx)
+├── hooks/use-mobile.tsx    # 모바일 감지 훅
 ├── docs/                   # Next.js 14 App Router 문서 사이트
 │   ├── app/                # 페이지 라우트
-│   └── styles/globals.css  # Tailwind v4 @theme 토큰
+│   ├── ui/                 # 문서 전용 컴포넌트 (PageHeader, CodeBlock 등)
+│   ├── styles/globals.css  # Tailwind v4 @theme 토큰 + 유틸리티 클래스
+│   ├── data/               # 자동 생성 JSON (changelog, updates 등)
+│   └── scripts/            # prebuild 스크립트 (changelog, version 추출)
 ├── tokens.css              # 레거시 디자인 토큰 (CDN)
 ├── .claude/
 │   ├── commands/           # Claude Code 커맨드
@@ -66,12 +65,38 @@ design-system/
 import { cn } from "../lib/utils"
 import { useIsMobile } from "../hooks/use-mobile"
 
-// docs에서 컴포넌트 참조
+// docs에서 컴포넌트 참조 (tsconfig paths)
 import { Button } from "@components/button"
+
+// docs에서 문서 전용 컴포넌트
+import { PageHeader } from '../../ui/PageHeader'
+import { CodeBlock } from '../../ui/CodeBlock'
 
 // npm 패키지 사용자
 import { Button, Input, cn } from "@design-geniefy/ui"
 ```
+
+## docs 텍스트 스타일링
+
+`docs/styles/globals.css`에 정의된 유틸리티 클래스만 사용한다 (10개):
+
+| 클래스 | 용도 |
+|--------|------|
+| `text-page-title` | 페이지 메인 제목 (36px, bold) |
+| `text-page-description` | 페이지 설명 (18px, muted) |
+| `text-section-title` | 섹션 제목 (24px, semibold) |
+| `text-subsection-title` | 소제목 (20px, semibold) |
+| `text-card-title` | 카드/단계 제목 (16px, semibold) |
+| `text-body` | 본문 (16px) |
+| `text-body-sm` | 작은 본문 (14px, muted) |
+| `text-caption` | 캡션 (12px, muted) |
+| `text-code` | 코드/토큰 값 (12px, mono) |
+| `text-label` | 라벨 (14px, medium) |
+
+**조합 예시**:
+- 그룹 헤더: `text-card-title text-muted-foreground`
+- 숫자 인디케이터: `text-caption font-medium`
+- 강조 텍스트: `font-medium` 또는 `font-semibold`
 
 ## Claude Code 커맨드/스킬
 
