@@ -106,8 +106,8 @@ export default async function ProjectsPage() {
 
   return (
     <div className="projects-page">
-      <h1 className="page-title">By Project</h1>
-      <p className="page-description">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">By Project</h1>
+      <p className="text-lg text-muted-foreground">
         프로젝트별 @design-geniefy/ui 버전 상세 현황
       </p>
 

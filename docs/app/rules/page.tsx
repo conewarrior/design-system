@@ -160,7 +160,7 @@ function RenderSection({ section }: { section: Section }) {
       if (!section.rows || section.rows.length === 0) return null;
       const [header, ...body] = section.rows;
       return (
-        <table>
+        <table className="w-full border-collapse">
           <thead>
             <tr>
               {header.map((cell, i) => (

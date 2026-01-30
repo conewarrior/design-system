@@ -23,39 +23,39 @@ export default function BorderPage() {
   ];
 
   return (
-    <div>
-      <h1 className="page-title">Border</h1>
+    <div className="space-y-12">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Border</h1>
 
-      <section className="naming-intro">
-        <h2 className="section-title">개요</h2>
-        <p className="section-desc">
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">개요</h2>
+        <p className="text-muted-foreground">
           Border 토큰은 <strong>두께(width)</strong>와 <strong>색상(color)</strong>으로 구성됩니다.
           두께는 <code>--border-width-*</code>, 색상은 <code>--color-border-*</code> 토큰을 사용합니다.
         </p>
       </section>
 
-      <section>
-        <h2 className="section-title">Border Width</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Border Width</h2>
+        <p className="text-muted-foreground">
           테두리 두께 토큰입니다. 0, 1, 2, 4, 8px의 5단계 스케일을 제공합니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
                 <th style={{ width: '80px' }}>시각화</th>
               </tr>
             </thead>
             <tbody>
               {borderWidthTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.usage}</td>
-                  <td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
+                  <td className="p-2 border-b text-sm">
                     {token.value !== '0' && (
                       <div
                         style={{
@@ -76,28 +76,28 @@ export default function BorderPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Border Color</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Border Color</h2>
+        <p className="text-muted-foreground">
           테두리 색상 토큰입니다. 상태별로 적절한 색상을 사용합니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
                 <th style={{ width: '80px' }}>시각화</th>
               </tr>
             </thead>
             <tbody>
               {borderColorTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td><code>{token.value}</code></td>
-                  <td>{token.usage}</td>
-                  <td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
+                  <td className="p-2 border-b text-sm">
                     <div
                       style={{
                         width: '60px',
@@ -115,9 +115,9 @@ export default function BorderPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">컴포넌트별 Border 패턴</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">컴포넌트별 Border 패턴</h2>
+        <p className="text-muted-foreground">
           실제 컴포넌트에서 Border 토큰이 어떻게 사용되는지 보여줍니다.
         </p>
         <div className="border-patterns">
@@ -146,7 +146,7 @@ export default function BorderPage() {
                 Error
               </div>
             </div>
-            <pre className="code-block"><code>{`.input {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.input {
   border: var(--border-width-1) solid var(--color-border-default);
   border-radius: var(--radius-md);
 }
@@ -167,7 +167,7 @@ export default function BorderPage() {
             }}>
               카드 콘텐츠
             </div>
-            <pre className="code-block"><code>{`.card {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.card {
   border: var(--border-width-1) solid var(--color-border-default);
   border-radius: var(--radius-lg);
 }`}</code></pre>
@@ -183,33 +183,33 @@ export default function BorderPage() {
               }} />
               <div style={{ padding: 'var(--spacing-2)' }}>항목 2</div>
             </div>
-            <pre className="code-block"><code>{`.divider {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.divider {
   border-bottom: var(--border-width-1) solid var(--color-border-secondary);
 }`}</code></pre>
           </div>
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Legacy Aliases (하위 호환)</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Legacy Aliases (하위 호환)</h2>
+        <p className="text-muted-foreground">
           기존 프로젝트 호환을 위해 유지되는 토큰. <strong>새 코드에서는 사용하지 마세요.</strong>
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>Legacy 토큰</th>
-                <th>실제 매핑</th>
-                <th>상태</th>
+                <th className="text-left p-2 border-b font-medium text-sm">Legacy 토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">실제 매핑</th>
+                <th className="text-left p-2 border-b font-medium text-sm">상태</th>
               </tr>
             </thead>
             <tbody>
               {legacyTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code style={{ textDecoration: 'line-through' }}>{token.name}</code></td>
-                  <td><code>{token.value}</code></td>
-                  <td><span className="tag warning">{token.note}</span></td>
+                  <td className="p-2 border-b text-sm"><code style={{ textDecoration: 'line-through' }}>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
+                  <td className="p-2 border-b text-sm"><span className="inline-block px-2 py-1 rounded-full bg-warning/10 text-warning text-xs font-medium">{token.note}</span></td>
                 </tr>
               ))}
             </tbody>
@@ -217,12 +217,12 @@ export default function BorderPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">사용 가이드</h2>
-        <div className="usage-guidelines">
-          <div className="guideline-item">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">사용 가이드</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-2">
             <h3>기본 사용</h3>
-            <pre className="code-block"><code>{`/* tokens.css에서 import */
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`/* tokens.css에서 import */
 @import '@design-geniefy/ui/tokens.css';
 
 /* 또는 CDN */
@@ -243,12 +243,12 @@ export default function BorderPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Dark Mode</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Dark Mode</h2>
+        <p className="text-muted-foreground">
           <code>.dark</code> 클래스가 적용되면 border 색상이 자동으로 다크모드용으로 전환됩니다.
         </p>
-        <pre className="code-block"><code>{`/* 다크모드에서 자동 전환 */
+        <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`/* 다크모드에서 자동 전환 */
 --color-border-default: var(--neutral-200) → var(--neutral-700)
 --color-border-secondary: var(--neutral-300) → var(--neutral-600)
 --color-border-hover: var(--neutral-400) → var(--neutral-500)

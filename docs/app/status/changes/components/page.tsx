@@ -72,17 +72,17 @@ function ChangeItemCard({ item }: { item: ChangeItem }) {
   const config = typeConfig[item.type];
 
   return (
-    <div className="changelog-item">
-      <div className="changelog-icon">{config.icon}</div>
-      <div className="changelog-content">
-        <div className="changelog-title">{item.title}</div>
-        <div className="changelog-meta">
+    <div className="rounded-lg border bg-card p-4 space-y-2">
+      <div className="text-2xl">{config.icon}</div>
+      <div className="flex-1">
+        <div className="font-semibold">{item.title}</div>
+        <div className="text-sm text-muted-foreground flex gap-2">
           <span className="changelog-author">@{item.author}</span>
           <span className="changelog-time">{item.time}</span>
         </div>
         <div className="changelog-files">
           {item.files.map((file) => (
-            <code key={file} className="changelog-file">
+            <code key={file} className="bg-muted px-2 py-1 rounded text-xs font-mono">
               {file}
             </code>
           ))}
@@ -122,9 +122,9 @@ function DateGroupSection({ group }: { group: DateGroup }) {
   };
 
   return (
-    <div className="changelog-group">
-      <div className="changelog-date">{formatDate(group.date)}</div>
-      <div className="changelog-items">
+    <div className="space-y-4">
+      <div className="text-lg font-semibold text-muted-foreground">{formatDate(group.date)}</div>
+      <div className="space-y-3">
         {group.items.map((item) => (
           <ChangeItemCard key={item.id} item={item} />
         ))}
@@ -139,9 +139,9 @@ export default async function ComponentsChangesPage() {
   const totalFiltered = filteredData.reduce((acc, g) => acc + g.items.length, 0);
 
   return (
-    <div className="changelog-page">
-      <h1 className="page-title">Components Changes</h1>
-      <p className="page-description">
+    <div className="space-y-12">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Components Changes</h1>
+      <p className="text-lg text-muted-foreground">
         컴포넌트 변경 이력만 표시 ({totalFiltered}개)
       </p>
 

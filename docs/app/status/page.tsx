@@ -60,8 +60,8 @@ export default async function StatusPage() {
 
   return (
     <div className="status-page">
-      <h1 className="page-title">Status Dashboard</h1>
-      <p className="page-description">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Status Dashboard</h1>
+      <p className="text-lg text-muted-foreground">
         디자인 시스템 변경 이력 및 채택 현황 요약
       </p>
 

@@ -14,7 +14,7 @@ const tabs = [
 
 function NpmGuide() {
   return (
-    <div className="guide">
+    <div className="space-y-8">
       <Step number={1} title="패키지 설치">
         <CodeBlock language="bash">npm install @design-geniefy/ui</CodeBlock>
       </Step>
@@ -48,7 +48,7 @@ export default function RootLayout({
 
 export default function Page() {
   return (
-    <div>
+    <div className="space-y-12">
       <Input placeholder="이메일을 입력하세요" />
       <Button variant="primary">구독하기</Button>
     </div>
@@ -61,7 +61,7 @@ export default function Page() {
 
 function CdnGuide() {
   return (
-    <div className="guide">
+    <div className="space-y-8">
       <Step
         number={1}
         title="tokens.css 추가"
@@ -97,7 +97,7 @@ function CdnGuide() {
 
 function ClaudeGuide() {
   return (
-    <div className="guide">
+    <div className="space-y-8">
       <Step
         number={1}
         title="GitHub 인증 설정 (선택)"
@@ -169,7 +169,7 @@ gh auth status`}</CodeBlock>
 function AutoUpdateSection() {
   return (
     <section className="auto-update-section">
-      <h2 className="section-title">자동 업데이트</h2>
+      <h2 className="text-2xl font-semibold">자동 업데이트</h2>
       <p className="section-description">
         Dependabot이 설정되면 @design-geniefy/ui의 새 버전이 출시될 때 자동으로 PR이 생성되고,
         CI 테스트 통과 시 자동으로 머지됩니다.
@@ -199,8 +199,8 @@ export default function InstallPage() {
 
   return (
     <div>
-      <h1 className="page-title">설치 가이드</h1>
-      <p className="page-description">3가지 방법으로 시작하세요</p>
+      <h1 className="text-4xl font-bold tracking-tight mb-2">설치 가이드</h1>
+      <p className="text-lg text-muted-foreground">3가지 방법으로 시작하세요</p>
 
       <Tabs tabs={tabs} activeTab={activeTab} onChange={setActiveTab}>
         <TabPanel id="npm">

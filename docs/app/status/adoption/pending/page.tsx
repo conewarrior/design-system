@@ -43,8 +43,8 @@ export default async function PendingPRsPage() {
 
   return (
     <div className="pending-page">
-      <h1 className="page-title">Pending PRs</h1>
-      <p className="page-description">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Pending PRs</h1>
+      <p className="text-lg text-muted-foreground">
         버전 업데이트 PR이 대기 중인 프로젝트 ({pendingProjects.length}개)
       </p>
 

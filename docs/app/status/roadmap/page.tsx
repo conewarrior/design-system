@@ -49,8 +49,8 @@ export default function RoadmapPage() {
 
   return (
     <div className="roadmap-page">
-      <h1 className="page-title">Roadmap</h1>
-      <p className="page-description">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Roadmap</h1>
+      <p className="text-lg text-muted-foreground">
         디자인 시스템 개발 로드맵
       </p>
 

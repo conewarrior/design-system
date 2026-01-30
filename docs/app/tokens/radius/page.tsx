@@ -11,12 +11,12 @@ export default function RadiusPage() {
   ];
 
   return (
-    <div>
-      <h1 className="page-title">Border Radius</h1>
+    <div className="space-y-12">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Border Radius</h1>
 
-      <section className="naming-intro">
-        <h2 className="section-title">개요</h2>
-        <p className="section-desc">
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">개요</h2>
+        <p className="text-muted-foreground">
           Border Radius 토큰은 모서리 둥글기를 정의합니다.
           임의의 px 값 대신 토큰을 사용하면 UI 전체에서 일관된 모서리 스타일을 유지할 수 있습니다.
         </p>
@@ -32,28 +32,28 @@ export default function RadiusPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Radius 토큰</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Radius 토큰</h2>
+        <p className="text-muted-foreground">
           tokens.css에 정의된 모든 radius 토큰입니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
                 <th style={{ width: '60px' }}>시각화</th>
               </tr>
             </thead>
             <tbody>
               {radiusTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.usage}</td>
-                  <td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
+                  <td className="p-2 border-b text-sm">
                     <div
                       className="radius-visual"
                       style={{
@@ -71,67 +71,67 @@ export default function RadiusPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">컴포넌트 크기와 Radius 관계</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">컴포넌트 크기와 Radius 관계</h2>
+        <p className="text-muted-foreground">
           컴포넌트 크기에 따라 적절한 radius를 선택합니다.
         </p>
         <div className="size-radius-mapping">
-          <table>
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>컴포넌트</th>
-                <th>크기</th>
-                <th>권장 토큰</th>
-                <th>시각화</th>
+                <th className="text-left p-2 border-b font-medium text-sm">컴포넌트</th>
+                <th className="text-left p-2 border-b font-medium text-sm">크기</th>
+                <th className="text-left p-2 border-b font-medium text-sm">권장 토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">시각화</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>소형 버튼</td>
-                <td>32px</td>
-                <td><code>--radius-sm</code></td>
-                <td>
+                <td className="p-2 border-b text-sm">소형 버튼</td>
+                <td className="p-2 border-b text-sm">32px</td>
+                <td className="p-2 border-b text-sm"><code>--radius-sm</code></td>
+                <td className="p-2 border-b text-sm">
                   <div style={{ width: '60px', height: '32px', background: 'var(--color-primary)', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '12px' }}>Button</div>
                 </td>
               </tr>
               <tr>
-                <td>기본 버튼</td>
-                <td>40px</td>
-                <td><code>--radius-md</code></td>
-                <td>
+                <td className="p-2 border-b text-sm">기본 버튼</td>
+                <td className="p-2 border-b text-sm">40px</td>
+                <td className="p-2 border-b text-sm"><code>--radius-md</code></td>
+                <td className="p-2 border-b text-sm">
                   <div style={{ width: '70px', height: '40px', background: 'var(--color-primary)', borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px' }}>Button</div>
                 </td>
               </tr>
               <tr>
-                <td>대형 버튼</td>
-                <td>48px</td>
-                <td><code>--radius-lg</code></td>
-                <td>
+                <td className="p-2 border-b text-sm">대형 버튼</td>
+                <td className="p-2 border-b text-sm">48px</td>
+                <td className="p-2 border-b text-sm"><code>--radius-lg</code></td>
+                <td className="p-2 border-b text-sm">
                   <div style={{ width: '80px', height: '48px', background: 'var(--color-primary)', borderRadius: 'var(--radius-lg)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '16px' }}>Button</div>
                 </td>
               </tr>
               <tr>
-                <td>카드</td>
-                <td>-</td>
-                <td><code>--radius-lg</code></td>
-                <td>
+                <td className="p-2 border-b text-sm">카드</td>
+                <td className="p-2 border-b text-sm">-</td>
+                <td className="p-2 border-b text-sm"><code>--radius-lg</code></td>
+                <td className="p-2 border-b text-sm">
                   <div style={{ width: '80px', height: '50px', background: 'var(--color-bg-surface)', border: '1px solid var(--color-border-default)', borderRadius: 'var(--radius-lg)' }} />
                 </td>
               </tr>
               <tr>
-                <td>모달</td>
-                <td>-</td>
-                <td><code>--radius-xl</code></td>
-                <td>
+                <td className="p-2 border-b text-sm">모달</td>
+                <td className="p-2 border-b text-sm">-</td>
+                <td className="p-2 border-b text-sm"><code>--radius-xl</code></td>
+                <td className="p-2 border-b text-sm">
                   <div style={{ width: '80px', height: '50px', background: 'var(--color-bg-surface)', border: '1px solid var(--color-border-default)', borderRadius: 'var(--radius-xl)', boxShadow: 'var(--shadow-lg)' }} />
                 </td>
               </tr>
               <tr>
-                <td>아바타</td>
-                <td>-</td>
-                <td><code>--radius-full</code></td>
-                <td>
+                <td className="p-2 border-b text-sm">아바타</td>
+                <td className="p-2 border-b text-sm">-</td>
+                <td className="p-2 border-b text-sm"><code>--radius-full</code></td>
+                <td className="p-2 border-b text-sm">
                   <div style={{ width: '40px', height: '40px', background: 'var(--color-primary)', borderRadius: 'var(--radius-full)' }} />
                 </td>
               </tr>
@@ -140,12 +140,12 @@ export default function RadiusPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">사용 가이드</h2>
-        <div className="usage-guidelines">
-          <div className="guideline-item">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">사용 가이드</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-2">
             <h3>버튼</h3>
-            <pre className="code-block"><code>{`.button {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.button {
   border-radius: var(--radius-md); /* 4px - 기본 */
 }
 .button-sm {
@@ -158,9 +158,9 @@ export default function RadiusPage() {
   border-radius: var(--radius-full); /* pill 형태 */
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>카드 & 컨테이너</h3>
-            <pre className="code-block"><code>{`.card {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.card {
   border-radius: var(--radius-lg); /* 6px */
 }
 .modal {
@@ -170,9 +170,9 @@ export default function RadiusPage() {
   border-radius: var(--radius-md); /* 4px */
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>인풋 & 셀렉트</h3>
-            <pre className="code-block"><code>{`.input {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.input {
   border-radius: var(--radius-md); /* 4px */
 }
 .select-dropdown {
@@ -182,9 +182,9 @@ export default function RadiusPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">CSS 사용 예시</h2>
-        <pre className="code-block"><code>{`/* tokens.css에서 import */
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">CSS 사용 예시</h2>
+        <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`/* tokens.css에서 import */
 @import '@design-geniefy/ui/tokens.css';
 
 /* 또는 CDN */

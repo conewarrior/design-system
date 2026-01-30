@@ -29,8 +29,8 @@ function Accordion({ title, children, defaultOpen = false }: AccordionProps) {
 export default function HowItWorksPage() {
   return (
     <div className="how-it-works">
-      <h1 className="page-title">How it Works</h1>
-      <p className="page-description">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">How it Works</h1>
+      <p className="text-lg text-muted-foreground">
         디자인 시스템의 양방향 동기화 구조
       </p>
 

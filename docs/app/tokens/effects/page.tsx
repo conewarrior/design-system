@@ -74,20 +74,20 @@ export default function EffectsPage() {
   ];
 
   return (
-    <div>
-      <h1 className="page-title">Effects</h1>
+    <div className="space-y-12">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Effects</h1>
 
-      <section className="naming-intro">
-        <h2 className="section-title">개요</h2>
-        <p className="section-desc">
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">개요</h2>
+        <p className="text-muted-foreground">
           Effects 토큰은 그림자(shadow), 레이어(z-index), 모션(duration, easing),
           보더 두께, 투명도를 정의합니다. 이 토큰들로 UI의 깊이감과 상호작용을 표현합니다.
         </p>
       </section>
 
-      <section>
-        <h2 className="section-title">Shadow</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Shadow</h2>
+        <p className="text-muted-foreground">
           엘리베이션(높이)에 따른 그림자입니다. 높이가 높을수록 그림자가 커집니다.
         </p>
         <div className="shadow-token-grid">
@@ -112,26 +112,26 @@ export default function EffectsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Z-Index</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Z-Index</h2>
+        <p className="text-muted-foreground">
           UI 레이어 스택 순서입니다. 숫자가 클수록 위에 표시됩니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
               </tr>
             </thead>
             <tbody>
               {zIndexTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                 </tr>
               ))}
             </tbody>
@@ -139,26 +139,26 @@ export default function EffectsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Duration</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Duration</h2>
+        <p className="text-muted-foreground">
           애니메이션 지속 시간입니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
               </tr>
             </thead>
             <tbody>
               {durationTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                 </tr>
               ))}
             </tbody>
@@ -166,26 +166,26 @@ export default function EffectsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Easing</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Easing</h2>
+        <p className="text-muted-foreground">
           애니메이션 가속/감속 곡선입니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
               </tr>
             </thead>
             <tbody>
               {easingTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
                   <td style={{ fontSize: 'var(--font-size-xs)' }}>{token.value}</td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                 </tr>
               ))}
             </tbody>
@@ -193,28 +193,28 @@ export default function EffectsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Border Width</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Border Width</h2>
+        <p className="text-muted-foreground">
           테두리 두께 토큰입니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
-                <th>시각화</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">시각화</th>
               </tr>
             </thead>
             <tbody>
               {borderWidthTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.usage}</td>
-                  <td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
+                  <td className="p-2 border-b text-sm">
                     {token.value !== '0' && (
                       <div
                         style={{
@@ -233,28 +233,28 @@ export default function EffectsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Opacity</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Opacity</h2>
+        <p className="text-muted-foreground">
           투명도 토큰입니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
-                <th>시각화</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">시각화</th>
               </tr>
             </thead>
             <tbody>
               {opacityTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.usage}</td>
-                  <td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
+                  <td className="p-2 border-b text-sm">
                     <div
                       style={{
                         width: '40px',
@@ -272,12 +272,12 @@ export default function EffectsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">사용 가이드</h2>
-        <div className="usage-guidelines">
-          <div className="guideline-item">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">사용 가이드</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-2">
             <h3>카드 호버</h3>
-            <pre className="code-block"><code>{`.card {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.card {
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--duration-faster) var(--easing-out);
 }
@@ -285,9 +285,9 @@ export default function EffectsPage() {
   box-shadow: var(--shadow-md);
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>모달</h3>
-            <pre className="code-block"><code>{`.modal-backdrop {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.modal-backdrop {
   z-index: var(--z-index-modal-backdrop);
   opacity: var(--opacity-50);
 }
@@ -296,9 +296,9 @@ export default function EffectsPage() {
   box-shadow: var(--shadow-xl);
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>버튼 피드백</h3>
-            <pre className="code-block"><code>{`.button {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.button {
   transition: all var(--duration-fastest) var(--easing-in-out);
 }
 .button:hover {
@@ -311,9 +311,9 @@ export default function EffectsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">CSS 사용 예시</h2>
-        <pre className="code-block"><code>{`/* tokens.css에서 import */
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">CSS 사용 예시</h2>
+        <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`/* tokens.css에서 import */
 @import '@design-geniefy/ui/tokens.css';
 
 /* 또는 CDN */

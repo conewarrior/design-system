@@ -65,20 +65,20 @@ export default function TypographyPage() {
   ];
 
   return (
-    <div>
-      <h1 className="page-title">Typography</h1>
+    <div className="space-y-12">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Typography</h1>
 
-      <section className="naming-intro">
-        <h2 className="section-title">개요</h2>
-        <p className="section-desc">
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">개요</h2>
+        <p className="text-muted-foreground">
           Typography 토큰은 폰트 패밀리, 크기, 두께, 줄간격, 자간을 정의합니다.
           임의의 값 대신 토큰을 사용하면 일관된 타이포그래피 시스템을 유지할 수 있습니다.
         </p>
       </section>
 
-      <section>
-        <h2 className="section-title">Font Family</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Font Family</h2>
+        <p className="text-muted-foreground">
           기본 폰트는 Pretendard, 코드용 폰트는 시스템 모노스페이스를 사용합니다.
         </p>
         <div className="token-table">
@@ -97,29 +97,29 @@ export default function TypographyPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Font Size</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Font Size</h2>
+        <p className="text-muted-foreground">
           rem 기반의 폰트 크기 스케일입니다. 1rem = 16px 기준.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>px</th>
-                <th>용도</th>
-                <th>미리보기</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">px</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">미리보기</th>
               </tr>
             </thead>
             <tbody>
               {fontSizeTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.px}</td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.px}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                   <td style={{ fontSize: token.value }}>Aa</td>
                 </tr>
               ))}
@@ -128,26 +128,26 @@ export default function TypographyPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Line Height</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Line Height</h2>
+        <p className="text-muted-foreground">
           줄간격 토큰입니다. 단위 없는 배수 값으로 정의됩니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
               </tr>
             </thead>
             <tbody>
               {lineHeightTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                 </tr>
               ))}
             </tbody>
@@ -155,25 +155,25 @@ export default function TypographyPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Font Weight</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Font Weight</h2>
+        <p className="text-muted-foreground">
           폰트 두께 토큰입니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>미리보기</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">미리보기</th>
               </tr>
             </thead>
             <tbody>
               {fontWeightTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
                   <td style={{ fontWeight: parseInt(token.value) }}>가나다 ABC</td>
                 </tr>
               ))}
@@ -182,27 +182,27 @@ export default function TypographyPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Letter Spacing</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Letter Spacing</h2>
+        <p className="text-muted-foreground">
           자간(글자 간격) 토큰입니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
-                <th>미리보기</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">미리보기</th>
               </tr>
             </thead>
             <tbody>
               {letterSpacingTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                   <td style={{ letterSpacing: token.value }}>TYPOGRAPHY</td>
                 </tr>
               ))}
@@ -211,12 +211,12 @@ export default function TypographyPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">사용 가이드</h2>
-        <div className="usage-guidelines">
-          <div className="guideline-item">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">사용 가이드</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-2">
             <h3>제목 스타일</h3>
-            <pre className="code-block"><code>{`h1 {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`h1 {
   font-size: var(--font-size-3xl);      /* 30px */
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
@@ -228,9 +228,9 @@ h2 {
   line-height: var(--line-height-tight);
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>본문 스타일</h3>
-            <pre className="code-block"><code>{`body {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`body {
   font-family: var(--font-family-sans);
   font-size: var(--font-size-base);     /* 16px */
   font-weight: var(--font-weight-normal);
@@ -240,9 +240,9 @@ h2 {
   font-size: var(--font-size-sm);       /* 14px */
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>코드 스타일</h3>
-            <pre className="code-block"><code>{`code, pre {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`code, pre {
   font-family: var(--font-family-mono);
   font-size: var(--font-size-sm);       /* 14px */
 }`}</code></pre>
@@ -250,9 +250,9 @@ h2 {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">CSS 사용 예시</h2>
-        <pre className="code-block"><code>{`/* tokens.css에서 import */
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">CSS 사용 예시</h2>
+        <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`/* tokens.css에서 import */
 @import '@design-geniefy/ui/tokens.css';
 
 /* 또는 CDN */

@@ -107,12 +107,12 @@ export default function ColorsPage() {
   ];
 
   return (
-    <div>
-      <h1 className="page-title">Colors</h1>
+    <div className="space-y-12">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Colors</h1>
 
-      <section className="naming-intro">
-        <h2 className="section-title">토큰 구조</h2>
-        <p className="section-desc">
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">토큰 구조</h2>
+        <p className="text-muted-foreground">
           Color 토큰은 <strong>3계층 구조</strong>로 구성됩니다:
         </p>
         <ul style={{ marginTop: 'var(--spacing-3)', marginLeft: 'var(--spacing-4)' }}>
@@ -125,21 +125,21 @@ export default function ColorsPage() {
         </p>
       </section>
 
-      <section>
-        <h2 className="section-title">Primitive Colors</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Primitive Colors</h2>
+        <p className="text-muted-foreground">
           원시 색상 팔레트. 50(밝음) → 950(어두움). <strong>직접 사용하지 않고</strong> Semantic 토큰을 통해 참조합니다.
         </p>
 
-        <h3 className="subsection-title">Neutral</h3>
-        <div className="color-section">
-          <div className="color-row">
-            <span className="color-label">neutral</span>
-            <div className="color-swatches">
+        <h3 className="text-lg font-medium">Neutral</h3>
+        <div className="space-y-8">
+          <div className="flex items-center gap-4">
+            <span className="text-sm font-medium w-20 text-muted-foreground">neutral</span>
+            <div className="flex gap-1 flex-1">
               {neutralShades.map((shade) => (
                 <div
                   key={shade}
-                  className={`color-swatch ${parseInt(shade) >= 500 ? 'light-text' : 'dark-text'}`}
+                  className={`w-12 h-12 rounded flex items-center justify-center text-xs font-medium ${parseInt(shade) >= 500 ? 'text-white' : 'text-gray-900'}`}
                   style={{ background: `var(--neutral-${shade})` }}
                   title={`--neutral-${shade}`}
                 >
@@ -150,15 +150,15 @@ export default function ColorsPage() {
           </div>
         </div>
 
-        <h3 className="subsection-title">Primary (Orange)</h3>
-        <div className="color-section">
-          <div className="color-row">
-            <span className="color-label">primary</span>
-            <div className="color-swatches">
+        <h3 className="text-lg font-medium">Primary (Orange)</h3>
+        <div className="space-y-8">
+          <div className="flex items-center gap-4">
+            <span className="text-sm font-medium w-20 text-muted-foreground">primary</span>
+            <div className="flex gap-1 flex-1">
               {neutralShades.map((shade) => (
                 <div
                   key={shade}
-                  className={`color-swatch ${parseInt(shade) >= 500 ? 'light-text' : 'dark-text'}`}
+                  className={`w-12 h-12 rounded flex items-center justify-center text-xs font-medium ${parseInt(shade) >= 500 ? 'text-white' : 'text-gray-900'}`}
                   style={{ background: `var(--primary-${shade})` }}
                   title={`--primary-${shade}`}
                 >
@@ -169,16 +169,16 @@ export default function ColorsPage() {
           </div>
         </div>
 
-        <h3 className="subsection-title">Status Colors</h3>
-        <div className="color-section">
+        <h3 className="text-lg font-medium">Status Colors</h3>
+        <div className="space-y-8">
           {['success', 'warning', 'error', 'info'].map((color) => (
-            <div key={color} className="color-row">
-              <span className="color-label">{color}</span>
-              <div className="color-swatches">
+            <div key={color} className="flex items-center gap-4">
+              <span className="text-sm font-medium w-20 text-muted-foreground">{color}</span>
+              <div className="flex gap-1 flex-1">
                 {neutralShades.map((shade) => (
                   <div
                     key={shade}
-                    className={`color-swatch ${parseInt(shade) >= 500 ? 'light-text' : 'dark-text'}`}
+                    className={`w-12 h-12 rounded flex items-center justify-center text-xs font-medium ${parseInt(shade) >= 500 ? 'text-white' : 'text-gray-900'}`}
                     style={{ background: `var(--${color}-${shade})` }}
                     title={`--${color}-${shade}`}
                   >
@@ -191,24 +191,24 @@ export default function ColorsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Semantic Background</h2>
-        <p className="section-desc">배경 용도의 토큰. 컴포넌트에서 직접 사용합니다.</p>
-        <div className="semantic-token-table">
-          <table>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Semantic Background</h2>
+        <p className="text-muted-foreground">배경 용도의 토큰. 컴포넌트에서 직접 사용합니다.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
               </tr>
             </thead>
             <tbody>
               {semanticBgTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td><code>{token.value}</code></td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                 </tr>
               ))}
             </tbody>
@@ -216,24 +216,24 @@ export default function ColorsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Semantic Text</h2>
-        <p className="section-desc">텍스트 용도의 토큰. 가독성과 계층을 보장합니다.</p>
-        <div className="semantic-token-table">
-          <table>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Semantic Text</h2>
+        <p className="text-muted-foreground">텍스트 용도의 토큰. 가독성과 계층을 보장합니다.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
               </tr>
             </thead>
             <tbody>
               {semanticTextTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td><code>{token.value}</code></td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                 </tr>
               ))}
             </tbody>
@@ -241,24 +241,24 @@ export default function ColorsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Semantic Border</h2>
-        <p className="section-desc">테두리 용도의 토큰.</p>
-        <div className="semantic-token-table">
-          <table>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Semantic Border</h2>
+        <p className="text-muted-foreground">테두리 용도의 토큰.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
               </tr>
             </thead>
             <tbody>
               {semanticBorderTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td><code>{token.value}</code></td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                 </tr>
               ))}
             </tbody>
@@ -266,24 +266,24 @@ export default function ColorsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Primary</h2>
-        <p className="section-desc">브랜드/주요 액션 색상 토큰.</p>
-        <div className="semantic-token-table">
-          <table>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Primary</h2>
+        <p className="text-muted-foreground">브랜드/주요 액션 색상 토큰.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
               </tr>
             </thead>
             <tbody>
               {primaryTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td><code>{token.value}</code></td>
-                  <td>{token.usage}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
                 </tr>
               ))}
             </tbody>
@@ -291,23 +291,23 @@ export default function ColorsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Status Colors</h2>
-        <p className="section-desc">상태를 전달하는 색상 세트 (Success, Warning, Error, Info).</p>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Status Colors</h2>
+        <p className="text-muted-foreground">상태를 전달하는 색상 세트 (Success, Warning, Error, Info).</p>
 
-        <div className="status-color-grid">
+        <div className="grid gap-6 sm:grid-cols-2">
           {statusTokenGroups.map((group) => (
-            <div key={group.name} className="status-color-card">
+            <div key={group.name} className="rounded-lg border overflow-hidden">
               <div
-                className="status-color-header"
+                className="p-4 text-white font-semibold"
                 style={{ background: `var(--${group.color}-500)` }}
               >
                 <span className="status-name">{group.name}</span>
               </div>
-              <div className="status-color-body">
-                <div className="status-tokens">
+              <div className="p-4 space-y-2">
+                <div className="space-y-1">
                   {group.tokens.map((token) => (
-                    <div key={token.name} className="status-token-row">
+                    <div key={token.name} className="flex justify-between text-sm">
                       <code>{token.name}</code>
                       <span>{token.usage}</span>
                     </div>
@@ -319,26 +319,26 @@ export default function ColorsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Legacy Aliases (하위 호환)</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Legacy Aliases (하위 호환)</h2>
+        <p className="text-muted-foreground">
           기존 프로젝트 호환을 위해 유지되는 토큰. <strong>새 코드에서는 사용하지 마세요.</strong>
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>Legacy 토큰</th>
-                <th>실제 매핑</th>
-                <th>상태</th>
+                <th className="text-left p-2 border-b font-medium text-sm">Legacy 토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">실제 매핑</th>
+                <th className="text-left p-2 border-b font-medium text-sm">상태</th>
               </tr>
             </thead>
             <tbody>
               {legacyAliases.map((token) => (
                 <tr key={token.name}>
-                  <td><code style={{ textDecoration: 'line-through' }}>{token.name}</code></td>
-                  <td><code>{token.maps}</code></td>
-                  <td><span className="tag warning">{token.note}</span></td>
+                  <td className="p-2 border-b text-sm"><code style={{ textDecoration: 'line-through' }}>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm"><code>{token.maps}</code></td>
+                  <td className="p-2 border-b text-sm"><span className="inline-block px-2 py-1 rounded-full bg-warning/10 text-warning text-xs font-medium">{token.note}</span></td>
                 </tr>
               ))}
             </tbody>
@@ -346,13 +346,13 @@ export default function ColorsPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">Dark Mode</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Dark Mode</h2>
+        <p className="text-muted-foreground">
           <code>.dark</code> 클래스를 html 또는 부모 요소에 추가하면 다크모드가 적용됩니다.
           Semantic 토큰의 값이 자동으로 다크모드용으로 전환됩니다.
         </p>
-        <pre className="code-block"><code>{`/* 다크모드 적용 */
+        <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`/* 다크모드 적용 */
 <html class="dark">
 
 /* 다크모드에서 자동 전환되는 예시 */
@@ -361,12 +361,12 @@ export default function ColorsPage() {
 --color-border-default: var(--neutral-200) → var(--neutral-700)`}</code></pre>
       </section>
 
-      <section>
-        <h2 className="section-title">사용 예시</h2>
-        <div className="usage-guidelines">
-          <div className="guideline-item">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">사용 예시</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-2">
             <h3>카드</h3>
-            <pre className="code-block"><code>{`.card {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.card {
   background: var(--color-bg-surface);
   color: var(--color-text-default);
   border: 1px solid var(--color-border-default);
@@ -375,9 +375,9 @@ export default function ColorsPage() {
   background: var(--color-bg-surface-hover);
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>버튼</h3>
-            <pre className="code-block"><code>{`.button-primary {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.button-primary {
   background: var(--color-primary);
   color: var(--color-on-primary);
 }
@@ -385,9 +385,9 @@ export default function ColorsPage() {
   background: var(--color-primary-hover);
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>알림</h3>
-            <pre className="code-block"><code>{`.alert-error {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.alert-error {
   background: var(--color-error-bg);
   color: var(--color-error-text);
   border: 1px solid var(--color-error);

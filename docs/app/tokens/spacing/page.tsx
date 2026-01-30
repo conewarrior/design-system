@@ -44,12 +44,12 @@ export default function SpacingPage() {
   );
 
   return (
-    <div>
-      <h1 className="page-title">Spacing</h1>
+    <div className="space-y-12">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Spacing</h1>
 
-      <section className="naming-intro">
-        <h2 className="section-title">개요</h2>
-        <p className="section-desc">
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">개요</h2>
+        <p className="text-muted-foreground">
           Spacing 토큰은 <strong>4px 기준 단위</strong>로 정의됩니다.
           숫자는 4px의 배수를 나타냅니다: <code>--spacing-4</code> = 4 × 4px = 16px.
           임의의 px 값 대신 토큰을 사용하면 일관된 간격 시스템을 유지할 수 있습니다.
@@ -64,28 +64,28 @@ export default function SpacingPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">자주 사용하는 토큰</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">자주 사용하는 토큰</h2>
+        <p className="text-muted-foreground">
           대부분의 UI에서 사용하는 핵심 간격 토큰입니다.
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>용도 예시</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">용도 예시</th>
                 <th style={{ width: '200px' }}>시각화</th>
               </tr>
             </thead>
             <tbody>
               {commonTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
-                  <td>{token.usage}</td>
-                  <td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
+                  <td className="p-2 border-b text-sm">{token.usage}</td>
+                  <td className="p-2 border-b text-sm">
                     <div
                       className="spacing-visual"
                       style={{
@@ -103,25 +103,25 @@ export default function SpacingPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">전체 Spacing 토큰</h2>
-        <p className="section-desc">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">전체 Spacing 토큰</h2>
+        <p className="text-muted-foreground">
           tokens.css에 정의된 모든 spacing 토큰입니다. 스케일: 4px × n
         </p>
-        <div className="semantic-token-table">
-          <table>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th>토큰</th>
-                <th>값</th>
-                <th>계산</th>
+                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
+                <th className="text-left p-2 border-b font-medium text-sm">값</th>
+                <th className="text-left p-2 border-b font-medium text-sm">계산</th>
               </tr>
             </thead>
             <tbody>
               {spacingTokens.map((token) => (
                 <tr key={token.name}>
-                  <td><code>{token.name}</code></td>
-                  <td>{token.value}</td>
+                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
+                  <td className="p-2 border-b text-sm">{token.value}</td>
                   <td style={{ color: 'var(--color-text-secondary)' }}>
                     {token.px > 0 && token.name !== '--spacing-px' ? `${token.px / 4} × 4px` : '-'}
                   </td>
@@ -132,30 +132,30 @@ export default function SpacingPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">사용 가이드</h2>
-        <div className="usage-guidelines">
-          <div className="guideline-item">
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">사용 가이드</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-2">
             <h3>컴포넌트 내부 패딩</h3>
-            <pre className="code-block"><code>{`.button {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.button {
   padding: var(--spacing-2) var(--spacing-4); /* 8px 16px */
 }
 .card {
   padding: var(--spacing-6); /* 24px */
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>요소 간 간격</h3>
-            <pre className="code-block"><code>{`.stack > * + * {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.stack > * + * {
   margin-top: var(--spacing-4); /* 16px */
 }
 .button-group {
   gap: var(--spacing-2); /* 8px */
 }`}</code></pre>
           </div>
-          <div className="guideline-item">
+          <div className="space-y-2">
             <h3>섹션 간격</h3>
-            <pre className="code-block"><code>{`.section {
+            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.section {
   padding: var(--spacing-16) 0; /* 64px */
 }
 .section + .section {
@@ -165,9 +165,9 @@ export default function SpacingPage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="section-title">CSS 사용 예시</h2>
-        <pre className="code-block"><code>{`/* tokens.css에서 import */
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">CSS 사용 예시</h2>
+        <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`/* tokens.css에서 import */
 @import '@design-geniefy/ui/tokens.css';
 
 /* 또는 CDN */

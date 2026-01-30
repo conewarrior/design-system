@@ -77,8 +77,8 @@ export default function PhilosophyPage() {
           </p>
           <div className="protocol-steps">
             <div className="protocol-step">
-              <div className="step-number">1</div>
-              <div className="step-content">
+              <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-semibold">1</div>
+              <div className="space-y-2">
                 <h4>토큰 검사</h4>
                 <p>
                   생성할 코드의 모든 색상, 간격, 폰트, 반경 값이 tokens.css에 정의되어 있는지 확인한다.
@@ -87,8 +87,8 @@ export default function PhilosophyPage() {
               </div>
             </div>
             <div className="protocol-step">
-              <div className="step-number">2</div>
-              <div className="step-content">
+              <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-semibold">2</div>
+              <div className="space-y-2">
                 <h4>컴포넌트 확인</h4>
                 <p>
                   요청된 UI가 기존 컴포넌트로 구현 가능한지 확인한다.
@@ -97,8 +97,8 @@ export default function PhilosophyPage() {
               </div>
             </div>
             <div className="protocol-step">
-              <div className="step-number">3</div>
-              <div className="step-content">
+              <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-semibold">3</div>
+              <div className="space-y-2">
                 <h4>표현 검증</h4>
                 <p>
                   "적당히", "예쁘게", "모던하게" 같은 모호한 지시가 있으면
@@ -107,8 +107,8 @@ export default function PhilosophyPage() {
               </div>
             </div>
             <div className="protocol-step">
-              <div className="step-number">4</div>
-              <div className="step-content">
+              <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-semibold">4</div>
+              <div className="space-y-2">
                 <h4>생성 또는 거부</h4>
                 <p>
                   모든 검증을 통과하면 코드를 생성한다.
@@ -153,7 +153,7 @@ export default function PhilosophyPage() {
           <p>
             <code>.claude/skills/design-rules.md</code> 파일은 다음과 같은 메타데이터로 시작한다:
           </p>
-          <div className="code-block">
+          <div className="bg-muted rounded-md p-4 overflow-x-auto">
             <pre><code>{`---
 description: UI/컴포넌트 생성 시 자동 적용되는 디자인 규칙
 triggers:
@@ -177,7 +177,7 @@ triggers:
             Skill이 "사전 주입"이라면, Hook은 "사후 검증"이다.
             <code>PostToolUse</code> Hook은 에이전트가 파일을 생성한 직후 실행된다.
           </p>
-          <div className="code-block">
+          <div className="bg-muted rounded-md p-4 overflow-x-auto">
             <pre><code>{`// .claude/settings.json
 {
   "hooks": {

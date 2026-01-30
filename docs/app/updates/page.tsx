@@ -153,8 +153,8 @@ export default async function UpdatesPage() {
 
   return (
     <div className="updates-page">
-      <h1 className="page-title">버전 채택 현황</h1>
-      <p className="page-description">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">버전 채택 현황</h1>
+      <p className="text-lg text-muted-foreground">
         조직 내 프로젝트들의 @design-geniefy/ui 버전 현황
       </p>
 
