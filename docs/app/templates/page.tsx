@@ -59,16 +59,8 @@ const templates = [
 
 function TemplateThumbnail({ id }: { id: string }) {
   return (
-    <div
-      style={{
-        height: '160px',
-        borderRadius: 'var(--radius-md)',
-        marginBottom: 'var(--spacing-12)',
-        overflow: 'hidden',
-        position: 'relative',
-        background: '#F4F4F5',
-      }}
-    >
+    <div className="h-40 rounded-md mb-12 overflow-hidden relative bg-zinc-100">
+
       <img
         src={`/thumbnails/${id}.png`}
         alt={`${id} template preview`}

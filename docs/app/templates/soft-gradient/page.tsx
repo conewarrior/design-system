@@ -145,7 +145,7 @@ export default function SoftGradientPage() {
       </p>
 
       {/* 다운로드 버튼 */}
-      <div style={{ display: 'flex', gap: '12px', marginBottom: 'var(--spacing-6)' }}>
+      <div style={{ display: 'flex', gap: '12px', marginBottom: '24px' }}>
         <button
           onClick={() => handleDownload('md')}
           style={{
@@ -527,8 +527,8 @@ export default function SoftGradientPage() {
           {combinationSets.map((set) => (
             <div key={set.name}>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ fontWeight: 600, fontSize: '14px', color: 'var(--content-primary)' }}>{set.name}</span>
-                <span style={{ marginLeft: '8px', fontSize: '13px', color: 'var(--content-subtle)' }}>{set.description}</span>
+                <span style={{ fontWeight: 600, fontSize: '14px', color: '#18181B' }}>{set.name}</span>
+                <span style={{ marginLeft: '8px', fontSize: '13px', color: '#71717A' }}>{set.description}</span>
               </div>
               <div style={{ display: 'flex', height: '64px', borderRadius: '12px', overflow: 'hidden', border: '1px solid #E5E7EB' }}>
                 {set.colors.map((color, idx) => (
@@ -569,8 +569,8 @@ export default function SoftGradientPage() {
             onClick={() => copyToClipboard(prompt)}
             style={{
               position: 'absolute',
-              top: 'var(--spacing-2)',
-              right: 'var(--spacing-2)',
+              top: '8px',
+              right: '8px',
             }}
             className={`gds-button gds-button--sm ${copiedPrompt ? 'gds-button--primary' : 'gds-button--secondary'}`}
           >
@@ -584,7 +584,7 @@ export default function SoftGradientPage() {
         <h2 className="section-title">Design Tokens</h2>
 
         <h3 className="subsection-title">Brand</h3>
-        <div style={{ display: 'flex', gap: '12px', marginBottom: 'var(--spacing-6)' }}>
+        <div style={{ display: 'flex', gap: '12px', marginBottom: '24px' }}>
           {brandColors.map((color) => (
             <button
               key={color.token}
@@ -613,7 +613,7 @@ export default function SoftGradientPage() {
         </div>
 
         <h3 className="subsection-title">Content (Text)</h3>
-        <div style={{ display: 'flex', gap: '12px', marginBottom: 'var(--spacing-6)' }}>
+        <div style={{ display: 'flex', gap: '12px', marginBottom: '24px' }}>
           {contentColors.map((color) => (
             <button
               key={color.token}
@@ -642,7 +642,7 @@ export default function SoftGradientPage() {
         </div>
 
         <h3 className="subsection-title">Border</h3>
-        <div style={{ display: 'flex', gap: '12px', marginBottom: 'var(--spacing-6)' }}>
+        <div style={{ display: 'flex', gap: '12px', marginBottom: '24px' }}>
           {borderColors.map((color) => (
             <button
               key={color.token}
@@ -671,10 +671,10 @@ export default function SoftGradientPage() {
         </div>
 
         <h3 className="subsection-title">Status</h3>
-        <div style={{ display: 'flex', gap: '24px', marginBottom: 'var(--spacing-6)' }}>
+        <div style={{ display: 'flex', gap: '24px', marginBottom: '24px' }}>
           {statusColors.map((color) => (
             <div key={color.token}>
-              <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: 500, color: 'var(--content-primary)' }}>{color.name}</div>
+              <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: 500, color: '#18181B' }}>{color.name}</div>
               <div style={{ display: 'flex', gap: '8px' }}>
                 <button
                   onClick={() => copyToClipboard(color.value, color.token)}
@@ -762,7 +762,7 @@ export default function SoftGradientPage() {
         <p className="section-desc">Soft Gradient 스타일이 적용된 컴포넌트 예시</p>
 
         <h3 className="subsection-title">Button</h3>
-        <div className="card" style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className="card" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
           <button style={{
             height: '44px',
             padding: '10px 20px',
@@ -799,7 +799,7 @@ export default function SoftGradientPage() {
         </div>
 
         <h3 className="subsection-title">Input</h3>
-        <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', maxWidth: '320px' }}>
+        <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '320px' }}>
           <input
             type="text"
             placeholder="Default input"
@@ -843,7 +843,7 @@ export default function SoftGradientPage() {
         </div>
 
         <h3 className="subsection-title">Card</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--spacing-3)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
           <div style={{
             padding: '24px',
             background: 'linear-gradient(135deg, #FFFFFF 0%, #FDF2F8 100%)',
@@ -867,7 +867,7 @@ export default function SoftGradientPage() {
         </div>
 
         <h3 className="subsection-title">Badge</h3>
-        <div className="card" style={{ display: 'flex', gap: 'var(--spacing-2)', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className="card" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
           <span style={{
             height: '26px',
             padding: '0 12px',
