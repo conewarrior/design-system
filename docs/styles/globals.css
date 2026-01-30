@@ -56,7 +56,9 @@
 }
 
 @theme {
-  /* Colors - shadcn compatible (hsl format) */
+  /* ==========================================================================
+     Colors - shadcn compatible (hsl format)
+     ========================================================================== */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -77,18 +79,81 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  /* Radius - Tailwind defaults */
-  --radius-sm: 0.125rem;
-  --radius-md: 0.25rem;
-  --radius-lg: 0.375rem;
-  --radius-xl: 0.5rem;
-  --radius-2xl: 0.75rem;
-  --radius-3xl: 1rem;
-  --radius-full: 9999px;
+  /* ==========================================================================
+     Radius
+     ========================================================================== */
+  --radius-sm: 0.125rem;   /* 2px  - 태그, 뱃지 */
+  --radius-md: 0.25rem;    /* 4px  - 버튼, 인풋 (기본값) */
+  --radius-lg: 0.375rem;   /* 6px  - 카드, 모달 */
+  --radius-xl: 0.5rem;     /* 8px  - 큰 카드 */
+  --radius-2xl: 0.75rem;   /* 12px - 대형 컨테이너 */
+  --radius-3xl: 1rem;      /* 16px */
+  --radius-full: 9999px;   /* 원형 - 아바타, 토글 */
 
-  /* Font Family */
+  /* ==========================================================================
+     Typography - Font Family
+     ========================================================================== */
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", sans-serif;
   --font-mono: "Fira Code", "JetBrains Mono", Consolas, monospace;
+
+  /* ==========================================================================
+     Typography - Font Size Scale
+     용도별 시맨틱 폰트 사이즈 (Tailwind text-* 클래스와 매핑)
+     ========================================================================== */
+
+  /* Display - 히어로, 랜딩 페이지 */
+  --text-display: 3.75rem;       /* 60px - text-6xl */
+
+  /* Page Title - 페이지 제목 (h1) */
+  --text-page-title: 2.25rem;    /* 36px - text-4xl */
+
+  /* Section Title - 섹션 제목 (h2) */
+  --text-section-title: 1.5rem;  /* 24px - text-2xl */
+
+  /* Card Title - 카드/블록 제목 (h3) */
+  --text-card-title: 1.125rem;   /* 18px - text-lg */
+
+  /* Body - 본문 기본 */
+  --text-body: 1rem;             /* 16px - text-base */
+
+  /* Body Small - 본문 작은 크기 */
+  --text-body-sm: 0.875rem;      /* 14px - text-sm */
+
+  /* Caption - 캡션, 레이블 */
+  --text-caption: 0.75rem;       /* 12px - text-xs */
+
+  /* ==========================================================================
+     Typography - Font Weight
+     ========================================================================== */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* ==========================================================================
+     Typography - Line Height
+     ========================================================================== */
+  --leading-tight: 1.25;    /* 제목용 */
+  --leading-normal: 1.5;    /* 본문용 */
+  --leading-relaxed: 1.625; /* 긴 문단용 */
+
+  /* ==========================================================================
+     Typography - Letter Spacing
+     ========================================================================== */
+  --tracking-tight: -0.025em;  /* 큰 제목용 */
+  --tracking-normal: 0;        /* 기본 */
+  --tracking-wide: 0.025em;    /* 캡션용 */
+
+  /* ==========================================================================
+     Spacing - 섹션 및 컴포넌트 간격
+     (Tailwind 기본 space-* 와 동일, 시맨틱 이름 추가)
+     ========================================================================== */
+  --space-section: 3rem;      /* 48px - space-y-12, 큰 섹션 간격 */
+  --space-block: 2rem;        /* 32px - space-y-8, 블록 간격 */
+  --space-group: 1.5rem;      /* 24px - space-y-6, 그룹 간격 */
+  --space-element: 1rem;      /* 16px - space-y-4, 요소 간격 */
+  --space-item: 0.5rem;       /* 8px  - space-y-2, 아이템 간격 */
+  --space-inline: 0.25rem;    /* 4px  - gap-1, 인라인 간격 */
 }
 
 /* Base styles */
@@ -107,4 +172,60 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* ==========================================================================
+   Typography Utility Classes
+   시맨틱 텍스트 스타일 (Tailwind 클래스 조합을 단일 클래스로)
+   ========================================================================== */
+
+/* Page Title - 페이지 메인 제목 */
+.text-page-title {
+  font-size: var(--text-page-title);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+/* Page Description - 페이지 제목 아래 설명 */
+.text-page-description {
+  font-size: var(--text-card-title);
+  color: hsl(var(--muted-foreground));
+}
+
+/* Section Title - 섹션 제목 */
+.text-section-title {
+  font-size: var(--text-section-title);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+}
+
+/* Card Title - 카드/블록 제목 */
+.text-card-title {
+  font-size: var(--text-card-title);
+  font-weight: var(--font-semibold);
+}
+
+/* Body - 일반 본문 */
+.text-body {
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+}
+
+/* Body Small - 작은 본문, 설명 텍스트 */
+.text-body-sm {
+  font-size: var(--text-body-sm);
+  color: hsl(var(--muted-foreground));
+}
+
+/* Caption - 캡션, 메타 정보 */
+.text-caption {
+  font-size: var(--text-caption);
+  color: hsl(var(--muted-foreground));
+}
+
+/* Code - 인라인 코드 */
+.text-code {
+  font-family: var(--font-mono);
+  font-size: var(--text-body-sm);
 }

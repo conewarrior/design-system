@@ -132,8 +132,8 @@ gh auth status`}</CodeBlock>
 export default function InstallPage() {
   return (
     <div>
-      <h1 className="text-4xl font-bold tracking-tight mb-2">설치 가이드</h1>
-      <p className="text-lg text-muted-foreground mb-8">3가지 방법으로 시작하세요</p>
+      <h1 className="text-page-title mb-2">설치 가이드</h1>
+      <p className="text-page-description mb-8">3가지 방법으로 시작하세요</p>
 
       <Tabs defaultValue="npm" className="w-full">
         <TabsList>

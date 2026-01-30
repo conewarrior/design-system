@@ -1,3 +1,5 @@
+import { Card, CardContent } from '@components/card';
+
 const radiusTokens = [
   {
     name: 'Base',
@@ -54,27 +56,29 @@ const radiusTokens = [
 export default function RadiusPage() {
   return (
     <div>
-      <h1 className="text-4xl font-bold tracking-tight mb-2">Radius</h1>
-      <p className="text-lg text-muted-foreground mb-8">
+      <h1 className="text-page-title mb-2">Radius</h1>
+      <p className="text-page-description mb-8">
         8개 border-radius 토큰
       </p>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {radiusTokens.map((token) => (
-          <div key={token.cssVar} className="p-4 border rounded-lg">
-            <div
-              className="w-12 h-12 bg-primary mb-4"
-              style={{ borderRadius: token.value }}
-            />
-            <code className="text-sm font-mono">{token.cssVar}</code>
-            <p className="text-sm text-muted-foreground mt-2">{token.tailwind}</p>
-            <p className="text-sm font-mono text-foreground mt-1">{token.value}</p>
-            {token.isBase && (
-              <p className="text-xs text-muted-foreground mt-2">
-                {token.description}
-              </p>
-            )}
-          </div>
+          <Card key={token.cssVar} className="py-3">
+            <CardContent>
+              <div
+                className="w-12 h-12 bg-primary mb-4"
+                style={{ borderRadius: token.value }}
+              />
+              <code className="text-code">{token.cssVar}</code>
+              <p className="text-body-sm mt-2">{token.tailwind}</p>
+              <p className="text-sm font-mono text-foreground mt-1">{token.value}</p>
+              {token.isBase && (
+                <p className="text-caption mt-2">
+                  {token.description}
+                </p>
+              )}
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>

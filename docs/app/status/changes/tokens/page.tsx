@@ -3,6 +3,8 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
+import { Card, CardContent } from '@components/card';
+import { Badge } from '@components/badge';
 
 export const revalidate = 600;
 
@@ -70,31 +72,33 @@ function ChangeItemCard({ item }: { item: ChangeItem }) {
   const config = typeConfig[item.type];
 
   return (
-    <div className="rounded-lg border bg-card p-4 space-y-2">
-      <div className="text-2xl">{config.icon}</div>
-      <div className="flex-1">
-        <div className="font-semibold">{item.title}</div>
-        <div className="text-sm text-muted-foreground flex gap-2">
-          <span className="changelog-author">@{item.author}</span>
-          <span className="changelog-time">{item.time}</span>
+    <Card className="py-3">
+      <CardContent className="space-y-2">
+        <div className="text-2xl">{config.icon}</div>
+        <div className="flex-1">
+          <div className="font-semibold">{item.title}</div>
+          <div className="text-sm text-muted-foreground flex gap-2">
+            <span className="changelog-author">@{item.author}</span>
+            <span className="changelog-time">{item.time}</span>
+          </div>
+          <div className="changelog-files flex flex-wrap gap-1 mt-2">
+            {item.files.map((file) => (
+              <Badge key={file} variant="secondary" className="font-mono text-xs">
+                {file}
+              </Badge>
+            ))}
+          </div>
+          <a
+            href={item.commitUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="changelog-link"
+          >
+            커밋 보기 →
+          </a>
         </div>
-        <div className="changelog-files">
-          {item.files.map((file) => (
-            <code key={file} className="bg-muted px-2 py-1 rounded text-xs font-mono">
-              {file}
-            </code>
-          ))}
-        </div>
-        <a
-          href={item.commitUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="changelog-link"
-        >
-          커밋 보기 →
-        </a>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -138,8 +142,8 @@ export default async function TokensChangesPage() {
 
   return (
     <div className="space-y-12">
-      <h1 className="text-4xl font-bold tracking-tight mb-2">Tokens Changes</h1>
-      <p className="text-lg text-muted-foreground">
+      <h1 className="text-page-title mb-2">Tokens Changes</h1>
+      <p className="text-page-description">
         디자인 토큰 변경 이력 ({totalFiltered}개)
       </p>
 

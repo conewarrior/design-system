@@ -1,3 +1,5 @@
+import { Card, CardContent, CardTitle } from '@components/card';
+
 const fontTokens = [
   {
     name: 'Sans Serif',
@@ -18,30 +20,32 @@ const fontTokens = [
 export default function TypographyPage() {
   return (
     <div>
-      <h1>Typography</h1>
-      <p>2개 폰트 토큰</p>
-      
+      <h1 className="text-page-title mb-2">Typography</h1>
+      <p className="text-page-description mb-8">2개 폰트 토큰</p>
+
       <div className="space-y-8">
         {fontTokens.map((token) => (
-          <div key={token.cssVar} className="p-6 border rounded-lg">
-            <h2 className="font-semibold mb-4">{token.name}</h2>
-            
-            {/* Font sample */}
-            <div 
-              className="text-2xl mb-4 p-4 bg-muted rounded"
-              style={{ fontFamily: token.fontFamily }}
-            >
-              {token.sample}
-            </div>
-            
-            {/* Token info */}
-            <div className="space-y-2 text-sm">
-              <p><span className="text-muted-foreground">CSS Variable:</span> <code>{token.cssVar}</code></p>
-              <p><span className="text-muted-foreground">Tailwind:</span> <code>{token.tailwind}</code></p>
-              <p><span className="text-muted-foreground">Font Stack:</span></p>
-              <code className="block text-xs bg-muted p-2 rounded overflow-x-auto">{token.fontFamily}</code>
-            </div>
-          </div>
+          <Card key={token.cssVar}>
+            <CardContent className="pt-6">
+              <CardTitle className="mb-4">{token.name}</CardTitle>
+
+              {/* Font sample */}
+              <div
+                className="text-2xl mb-4 p-4 bg-muted rounded"
+                style={{ fontFamily: token.fontFamily }}
+              >
+                {token.sample}
+              </div>
+
+              {/* Token info */}
+              <div className="space-y-2 text-body-sm">
+                <p><span className="text-muted-foreground">CSS Variable:</span> <code className="text-code">{token.cssVar}</code></p>
+                <p><span className="text-muted-foreground">Tailwind:</span> <code className="text-code">{token.tailwind}</code></p>
+                <p><span className="text-muted-foreground">Font Stack:</span></p>
+                <code className="block text-xs bg-muted p-2 rounded overflow-x-auto">{token.fontFamily}</code>
+              </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>

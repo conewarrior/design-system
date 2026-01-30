@@ -1,3 +1,5 @@
+import { Card, CardContent } from '@components/card';
+
 const colorTokens = [
   {
     name: 'background',
@@ -138,37 +140,36 @@ export default function ColorsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-4xl font-bold tracking-tight mb-2">Colors</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="text-page-title mb-2">Colors</h1>
+        <p className="text-page-description">
           19개 시맨틱 색상 토큰
         </p>
       </div>
 
       <div className="space-y-4">
         {colorTokens.map((token) => (
-          <div
-            key={token.name}
-            className="flex items-center gap-4 p-4 border rounded-lg bg-card"
-          >
-            <div
-              className="w-8 h-8 rounded border border-border flex-shrink-0"
-              style={{ backgroundColor: `hsl(var(${token.cssVar}))` }}
-            />
-            <div className="flex-1 min-w-0">
-              <div className="font-mono text-sm font-semibold">{token.cssVar}</div>
-              <div className="text-xs text-muted-foreground">{token.tailwind}</div>
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-xs">
-                <span className="text-muted-foreground">Light: </span>
-                <span className="font-mono">{token.lightValue}</span>
+          <Card key={token.name} className="py-3">
+            <CardContent className="flex items-center gap-4">
+              <div
+                className="w-8 h-8 rounded border border-border flex-shrink-0"
+                style={{ backgroundColor: `hsl(var(${token.cssVar}))` }}
+              />
+              <div className="flex-1 min-w-0">
+                <div className="font-mono text-sm font-semibold">{token.cssVar}</div>
+                <div className="text-caption">{token.tailwind}</div>
               </div>
-              <div className="text-xs">
-                <span className="text-muted-foreground">Dark: </span>
-                <span className="font-mono">{token.darkValue}</span>
+              <div className="flex-1 min-w-0">
+                <div className="text-caption">
+                  <span className="text-muted-foreground">Light: </span>
+                  <span className="font-mono">{token.lightValue}</span>
+                </div>
+                <div className="text-caption">
+                  <span className="text-muted-foreground">Dark: </span>
+                  <span className="font-mono">{token.darkValue}</span>
+                </div>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>

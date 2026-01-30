@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Card, CardContent, CardTitle, CardDescription } from '@components/card';
 
 const tokenCategories = [
   {
@@ -21,8 +22,8 @@ const tokenCategories = [
 export default function TokensPage() {
   return (
     <div>
-      <h1 className="text-4xl font-bold tracking-tight mb-2">Design Tokens</h1>
-      <p className="text-lg text-muted-foreground mb-8">
+      <h1 className="text-page-title mb-2">Design Tokens</h1>
+      <p className="text-page-description mb-8">
         shadcn/ui 디자인 토큰 레퍼런스
       </p>
 
@@ -36,13 +37,13 @@ export default function TokensPage() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {tokenCategories.map((category) => (
-            <Link
-              key={category.href}
-              href={category.href}
-              className="block p-6 rounded-lg border bg-card hover:bg-accent transition-colors"
-            >
-              <h2 className="font-semibold mb-2">{category.title}</h2>
-              <p className="text-sm text-muted-foreground">{category.description}</p>
+            <Link key={category.href} href={category.href}>
+              <Card className="py-4 h-full transition-colors hover:bg-accent">
+                <CardContent>
+                  <CardTitle className="mb-2">{category.title}</CardTitle>
+                  <CardDescription>{category.description}</CardDescription>
+                </CardContent>
+              </Card>
             </Link>
           ))}
         </div>

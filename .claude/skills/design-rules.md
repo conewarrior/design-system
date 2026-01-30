@@ -657,7 +657,48 @@ td.date, td.number, td.id, td.status {
 - 중첩된 컨테이너에 배경색
 - "그냥 있으면 좋을 것 같아서" 추가한 배경
 
-### 2.14 컴포넌트 최소 DOM (Minimal DOM Structure)
+### 2.14 유틸리티 클래스 vs 컴포넌트 구분 (Utility vs Component)
+
+**globals.css에는 텍스트 유틸리티만 정의. 구조적 요소는 React 컴포넌트로.**
+
+```tsx
+// ✅ globals.css에 정의 가능: 텍스트 스타일 조합
+.text-page-title {
+  font-size: var(--text-page-title);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+// ❌ globals.css에 정의 금지: 구조적 요소 (border, bg, padding, radius)
+.card-base {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+}
+```
+
+**구분 기준:**
+
+| 유형 | 정의 가능 속성 | 위치 |
+|------|---------------|------|
+| **유틸리티 클래스** | font-size, font-weight, letter-spacing, line-height, color | globals.css |
+| **컴포넌트** | border, background, padding, border-radius, shadow | React 컴포넌트 (shadcn) |
+
+**판단 기준:**
+- "박스"를 만드는가? → **컴포넌트** (shadcn Card, Badge 등 사용)
+- 텍스트 스타일만 조합하는가? → **유틸리티 클래스** (globals.css에 정의 가능)
+
+**예시:**
+
+| 요소 | 판정 | 사용 방법 |
+|------|------|-----------|
+| 페이지 제목 스타일 | 유틸리티 | `.text-page-title` 또는 Tailwind 클래스 조합 |
+| 카드 컨테이너 | 컴포넌트 | `<Card>` from shadcn |
+| 인라인 태그/뱃지 | 컴포넌트 | `<Badge>` from shadcn |
+| 섹션 제목 스타일 | 유틸리티 | `.text-section-title` 또는 Tailwind 클래스 조합 |
+
+### 2.15 컴포넌트 최소 DOM (Minimal DOM Structure)
 
 **컴포넌트는 최소한의 DOM 요소로 구성한다.**
 
