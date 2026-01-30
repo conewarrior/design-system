@@ -3,18 +3,37 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
+import Link from 'next/link';
 import { PageHeader } from '../../../ui/PageHeader';
-import { PageNav } from '../../../ui/PageNav';
-import { VersionChart } from '../../../ui/VersionChart';
-import { ProjectList, type Project } from '../../../ui/ProjectList';
 import { Badge } from '@components/badge';
+import { Progress } from '@components/progress';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/table';
 
 export const revalidate = 600;
+
+type ProjectStatus = 'latest' | 'pending' | 'outdated' | 'failed' | 'not-installed';
 
 interface VersionData {
   version: string;
   count: number;
   percentage: number;
+}
+
+interface Project {
+  name: string;
+  repo: string;
+  description: string;
+  version: string | null;
+  status: ProjectStatus;
+  prNumber?: number;
+  prUrl?: string;
 }
 
 interface UpdatesData {
@@ -26,6 +45,14 @@ interface UpdatesData {
   projects: Project[];
   error?: string;
 }
+
+const statusConfig: Record<ProjectStatus, { label: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' }> = {
+  latest: { label: '최신', variant: 'default' },
+  pending: { label: 'PR 대기', variant: 'secondary' },
+  outdated: { label: '업데이트 필요', variant: 'destructive' },
+  failed: { label: 'CI 실패', variant: 'destructive' },
+  'not-installed': { label: '미설치', variant: 'outline' },
+};
 
 async function getUpdatesData(): Promise<UpdatesData> {
   try {
@@ -87,8 +114,73 @@ export default async function AdoptionPage() {
         </div>
       </div>
 
-      <VersionChart data={versionData} />
-      <ProjectList projects={projects} />
+      {/* Version Chart */}
+      <div className="space-y-3">
+        <h3 className="text-label-base">버전 분포</h3>
+        {versionData.length > 0 ? (
+          <div className="space-y-2">
+            {versionData.map((item) => (
+              <div key={item.version} className="flex items-center gap-3 text-sm">
+                <span className="w-16 font-mono text-muted-foreground">{item.version}</span>
+                <Progress value={item.percentage} className="flex-1 h-2" />
+                <span className="w-12 text-right text-muted-foreground">{item.percentage}%</span>
+                <span className="w-12 text-right text-muted-foreground">({item.count})</span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-muted-foreground text-sm">버전 데이터가 없습니다.</p>
+        )}
+      </div>
+
+      {/* Project List */}
+      <div className="space-y-3">
+        <h3 className="text-label-base">프로젝트 현황</h3>
+        <div className="rounded-md border">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>프로젝트</TableHead>
+                <TableHead className="w-20">버전</TableHead>
+                <TableHead className="w-28">상태</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {projects.map((project) => {
+                const config = statusConfig[project.status];
+                return (
+                  <TableRow key={project.name}>
+                    <TableCell>
+                      <div className="text-sm font-medium">{project.name}</div>
+                      <div className="text-xs text-muted-foreground">{project.description}</div>
+                    </TableCell>
+                    <TableCell className="font-mono text-muted-foreground">
+                      {project.version || '-'}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-2">
+                        <Badge variant={config.variant} className="text-xs">
+                          {config.label}
+                        </Badge>
+                        {project.status === 'pending' && project.prNumber && (
+                          <Link
+                            href={project.prUrl || '#'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-primary hover:underline"
+                          >
+                            #{project.prNumber}
+                          </Link>
+                        )}
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
 
       {/* Metadata */}
       <div className="rounded-md bg-muted/50 p-4 text-body-sm">
@@ -126,10 +218,6 @@ export default async function AdoptionPage() {
         </p>
       </section>
 
-      <PageNav
-        prev={{ href: '/status/changes/tokens/', title: 'Token Changes' }}
-        next={{ href: '/status/adoption/projects/', title: 'By Project' }}
-      />
     </div>
   );
 }

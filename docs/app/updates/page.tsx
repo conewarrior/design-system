@@ -3,6 +3,18 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
+import Link from 'next/link';
+import { PageHeader } from '../../ui/PageHeader';
+import { Badge } from '@components/badge';
+import { Progress } from '@components/progress';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@components/table';
 
 // ISR: 10분마다 재생성
 export const revalidate = 600;
@@ -35,22 +47,20 @@ interface UpdatesData {
   error?: string;
 }
 
-const statusConfig: Record<ProjectStatus, { icon: string; label: string; color: string }> = {
-  latest: { icon: '✅', label: '최신', color: 'var(--color-foreground)' },
-  pending: { icon: '⏳', label: 'PR 대기', color: '#f59e0b' },
-  outdated: { icon: '⚠️', label: '업데이트 필요', color: '#ef4444' },
-  failed: { icon: '🔴', label: 'CI 실패', color: '#ef4444' },
-  'not-installed': { icon: '➖', label: '미설치', color: 'var(--color-muted)' },
+const statusConfig: Record<ProjectStatus, { label: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' }> = {
+  latest: { label: '최신', variant: 'default' },
+  pending: { label: 'PR 대기', variant: 'secondary' },
+  outdated: { label: '업데이트 필요', variant: 'destructive' },
+  failed: { label: 'CI 실패', variant: 'destructive' },
+  'not-installed': { label: '미설치', variant: 'outline' },
 };
 
-// 데이터 로드 함수
 async function getUpdatesData(): Promise<UpdatesData> {
   try {
     const filePath = path.join(process.cwd(), 'data', 'updates.json');
     const fileContent = await fs.readFile(filePath, 'utf-8');
     return JSON.parse(fileContent);
-  } catch (error) {
-    console.error('Updates 데이터 로드 실패:', error);
+  } catch {
     return {
       generatedAt: new Date().toISOString(),
       latestVersion: '0.0.1',
@@ -60,80 +70,6 @@ async function getUpdatesData(): Promise<UpdatesData> {
       projects: [],
     };
   }
-}
-
-function VersionChart({ data }: { data: VersionData[] }) {
-  if (data.length === 0) {
-    return (
-      <div className="version-chart">
-        <h3 className="chart-title">버전 분포</h3>
-        <p className="chart-empty">버전 데이터가 없습니다.</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="version-chart">
-      <h3 className="chart-title">버전 분포</h3>
-      <div className="chart-bars">
-        {data.map((item) => (
-          <div key={item.version} className="chart-row">
-            <span className="chart-version">{item.version}</span>
-            <div className="chart-bar-container">
-              <div
-                className="chart-bar"
-                style={{ width: `${item.percentage}%` }}
-              />
-            </div>
-            <span className="chart-percentage">{item.percentage}%</span>
-            <span className="chart-count">({item.count}개)</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function ProjectList({ projects }: { projects: Project[] }) {
-  return (
-    <div className="project-list">
-      <h3 className="list-title">프로젝트 현황</h3>
-      <div className="list-header">
-        <span>프로젝트</span>
-        <span>버전</span>
-        <span>상태</span>
-      </div>
-      <div className="list-items">
-        {projects.map((project) => {
-          const config = statusConfig[project.status];
-          return (
-            <div key={project.name} className="list-item">
-              <div className="project-info">
-                <span className="project-name">{project.name}</span>
-                <span className="project-description">{project.description}</span>
-              </div>
-              <span className="project-version">
-                {project.version || '-'}
-              </span>
-              <span className="project-status" style={{ color: config.color }}>
-                {config.icon} {config.label}
-                {project.status === 'pending' && project.prNumber && (
-                  <a
-                    href={project.prUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="pr-link"
-                  >
-                    {' '}(#{project.prNumber})
-                  </a>
-                )}
-              </span>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
 }
 
 export default async function UpdatesPage() {
@@ -152,42 +88,104 @@ export default async function UpdatesPage() {
   const totalCount = projects.length;
 
   return (
-    <div className="updates-page">
-      <h1 className="text-page-title mb-2">버전 채택 현황</h1>
-      <p className="text-page-description">
-        조직 내 프로젝트들의 @design-geniefy/ui 버전 현황
-      </p>
+    <div className="space-y-8">
+      <PageHeader
+        title="버전 채택 현황"
+        description="조직 내 프로젝트들의 @design-geniefy/ui 버전 현황"
+      />
 
       {error && (
-        <div className="updates-error">
-          <p>⚠️ 데이터 로드 중 오류 발생: {error}</p>
+        <div className="rounded-md border border-destructive/50 bg-destructive/10 p-4 text-sm">
+          데이터 로드 중 오류 발생: {error}
         </div>
       )}
 
-      <div className="latest-version-card">
-        <div className="latest-info">
-          <span className="latest-label">최신 버전</span>
-          <span className="latest-value">v{latestVersion}</span>
+      {/* Summary Card */}
+      <div className="rounded-md border p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="text-sm text-muted-foreground">최신 버전</div>
+            <div className="text-2xl font-bold">v{latestVersion}</div>
+          </div>
+          <Badge variant="default">{adoptionRate}% 채택</Badge>
         </div>
-        <div className="latest-meta">
+        <div className="flex gap-6 text-sm text-muted-foreground">
           <span>배포일: {publishedAt}</span>
-          <span className="adoption-rate">
-            채택률: {adoptionRate}% ({installedCount}/{totalCount} 프로젝트)
-          </span>
+          <span>{installedCount}/{totalCount} 프로젝트</span>
         </div>
       </div>
 
-      <VersionChart data={versionData} />
-      <ProjectList projects={projects} />
+      {/* Version Chart */}
+      <div className="space-y-3">
+        <h3 className="text-label-base">버전 분포</h3>
+        {versionData.length > 0 ? (
+          <div className="space-y-2">
+            {versionData.map((item) => (
+              <div key={item.version} className="flex items-center gap-3 text-sm">
+                <span className="w-16 font-mono text-muted-foreground">{item.version}</span>
+                <Progress value={item.percentage} className="flex-1 h-2" />
+                <span className="w-12 text-right text-muted-foreground">{item.percentage}%</span>
+                <span className="w-12 text-right text-muted-foreground">({item.count})</span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-muted-foreground text-sm">버전 데이터가 없습니다.</p>
+        )}
+      </div>
 
-      <div className="updates-note">
-        <p>
-          <strong>자동 생성:</strong> GitHub API에서 조회된 데이터입니다.
-          <br />
-          <span className="updates-generated">
-            마지막 업데이트: {new Date(generatedAt).toLocaleString('ko-KR')}
-          </span>
-        </p>
+      {/* Project List */}
+      <div className="space-y-3">
+        <h3 className="text-label-base">프로젝트 현황</h3>
+        <div className="rounded-md border">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>프로젝트</TableHead>
+                <TableHead className="w-20">버전</TableHead>
+                <TableHead className="w-28">상태</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {projects.map((project) => {
+                const config = statusConfig[project.status];
+                return (
+                  <TableRow key={project.name}>
+                    <TableCell>
+                      <div className="text-sm font-medium">{project.name}</div>
+                      <div className="text-xs text-muted-foreground">{project.description}</div>
+                    </TableCell>
+                    <TableCell className="font-mono text-muted-foreground">
+                      {project.version || '-'}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-2">
+                        <Badge variant={config.variant} className="text-xs">
+                          {config.label}
+                        </Badge>
+                        {project.status === 'pending' && project.prNumber && (
+                          <Link
+                            href={project.prUrl || '#'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-primary hover:underline"
+                          >
+                            #{project.prNumber}
+                          </Link>
+                        )}
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+
+      {/* Metadata */}
+      <div className="rounded-md bg-muted/50 p-4 text-body-sm">
+        마지막 업데이트: {new Date(generatedAt).toLocaleString('ko-KR')}
       </div>
     </div>
   );

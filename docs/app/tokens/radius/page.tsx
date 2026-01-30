@@ -1,5 +1,4 @@
 import { PageHeader } from '../../../ui/PageHeader';
-import { PageNav } from '../../../ui/PageNav';
 import {
   Table,
   TableBody,
@@ -78,10 +77,6 @@ export default function RadiusPage() {
         </div>
       </section>
 
-      <PageNav
-        prev={{ href: '/tokens/colors/', title: 'Colors' }}
-        next={{ href: '/tokens/typography/', title: 'Typography' }}
-      />
     </div>
   );
 }

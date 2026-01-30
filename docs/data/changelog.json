@@ -1,10 +1,34 @@
 {
-  "generatedAt": "2026-01-30T08:04:24.786Z",
-  "totalChanges": 29,
+  "generatedAt": "2026-01-30T09:14:46.532Z",
+  "totalChanges": 31,
   "data": [
     {
       "date": "2026-01-30",
       "items": [
+        {
+          "id": "7056ddb",
+          "type": "docs",
+          "title": "refactor(docs): consolidate text utility classes (18 → 10)",
+          "author": "김한솔",
+          "date": "2026-01-30",
+          "time": "17:54",
+          "files": [
+            "docs/app/status/changes/components/page.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/7056ddb7a817944990a6d284118a863a23d7b47f"
+        },
+        {
+          "id": "a792edc",
+          "type": "docs",
+          "title": "refactor(docs): migrate to shadcn components and utility classes",
+          "author": "김한솔",
+          "date": "2026-01-30",
+          "time": "17:06",
+          "files": [
+            "docs/app/status/changes/components/page.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/a792edc08cb26b7bdc2607adc8bbc6c3045068d2"
+        },
         {
           "id": "0177858",
           "type": "token",

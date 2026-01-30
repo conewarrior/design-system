@@ -4,6 +4,7 @@
 import Link from 'next/link';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { FileText, BarChart3, Map, BookOpen } from 'lucide-react';
 
 // ISR: 10분마다 재생성
 export const revalidate = 600;
@@ -69,7 +70,7 @@ export default async function StatusPage() {
         {/* Changes Summary */}
         <Link href="/status/changes/" className="status-card">
           <div className="status-card-header">
-            <span className="status-card-icon">📋</span>
+            <FileText className="status-card-icon h-5 w-5" />
             <h2 className="status-card-title">Changes</h2>
           </div>
           <div className="status-card-value">{changelog.totalChanges}</div>
@@ -83,7 +84,7 @@ export default async function StatusPage() {
         {/* Adoption Summary */}
         <Link href="/status/adoption/" className="status-card">
           <div className="status-card-header">
-            <span className="status-card-icon">📊</span>
+            <BarChart3 className="status-card-icon h-5 w-5" />
             <h2 className="status-card-title">Adoption</h2>
           </div>
           <div className="status-card-value">{updates.adoptionRate}%</div>
@@ -97,7 +98,7 @@ export default async function StatusPage() {
         {/* Roadmap */}
         <Link href="/status/roadmap/" className="status-card">
           <div className="status-card-header">
-            <span className="status-card-icon">🗺️</span>
+            <Map className="status-card-icon h-5 w-5" />
             <h2 className="status-card-title">Roadmap</h2>
           </div>
           <div className="status-card-value">Q1 2025</div>
@@ -110,7 +111,7 @@ export default async function StatusPage() {
         {/* Migration */}
         <Link href="/status/migration/" className="status-card">
           <div className="status-card-header">
-            <span className="status-card-icon">📖</span>
+            <BookOpen className="status-card-icon h-5 w-5" />
             <h2 className="status-card-title">Migration</h2>
           </div>
           <div className="status-card-value">Guide</div>

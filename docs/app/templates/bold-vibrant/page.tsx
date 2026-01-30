@@ -404,9 +404,9 @@ export default function BoldVibrantPage() {
               gap: '20px',
             }}>
               {[
-                { icon: '🔥', title: 'High Impact', desc: 'Designs that convert' },
-                { icon: '⚡', title: 'Lightning Fast', desc: 'Optimized performance' },
-                { icon: '🎯', title: 'Results Driven', desc: 'Data-backed decisions' },
+                { icon: 'HI', title: 'High Impact', desc: 'Designs that convert' },
+                { icon: 'LF', title: 'Lightning Fast', desc: 'Optimized performance' },
+                { icon: 'RD', title: 'Results Driven', desc: 'Data-backed decisions' },
               ].map((feature, idx) => (
                 <div key={idx} style={{
                   padding: '28px',
@@ -415,7 +415,19 @@ export default function BoldVibrantPage() {
                   borderRadius: '16px',
                   textAlign: 'center',
                 }}>
-                  <div style={{ fontSize: '36px', marginBottom: '12px' }}>{feature.icon}</div>
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    margin: '0 auto 12px',
+                    background: '#EF4444',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    color: '#FFFFFF',
+                  }}>{feature.icon}</div>
                   <div style={{ fontSize: '18px', fontWeight: 700, color: '#18181B', marginBottom: '4px' }}>{feature.title}</div>
                   <div style={{ fontSize: '14px', color: '#52525B', fontWeight: 500 }}>{feature.desc}</div>
                 </div>

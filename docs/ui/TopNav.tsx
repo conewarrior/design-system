@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
 
 export type Section = 'docs' | 'status' | 'templates';
 
@@ -51,7 +52,7 @@ export function TopNav({ currentSection, onMobileMenuToggle, isMobileMenuOpen }:
           onClick={onMobileMenuToggle}
           aria-label="메뉴 열기"
         >
-          <span className="text-lg">{isMobileMenuOpen ? '✕' : '☰'}</span>
+{isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
     </header>

@@ -2,12 +2,33 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
+import Link from 'next/link';
 import { PageHeader } from '../../../../ui/PageHeader';
-import { PageNav } from '../../../../ui/PageNav';
-import { ProjectCard, type Project, type ProjectStatus } from '../../../../ui/ProjectCard';
 import { Badge } from '@components/badge';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  CardAction,
+} from '@components/card';
+import { ExternalLink } from 'lucide-react';
 
 export const revalidate = 600;
+
+type ProjectStatus = 'latest' | 'pending' | 'outdated' | 'failed' | 'not-installed';
+
+interface Project {
+  name: string;
+  repo: string;
+  description: string;
+  version: string | null;
+  status: ProjectStatus;
+  prNumber?: number;
+  prUrl?: string;
+}
 
 interface UpdatesData {
   generatedAt: string;
@@ -21,6 +42,14 @@ const statusLabels: Record<ProjectStatus, string> = {
   outdated: '업데이트 필요',
   failed: 'CI 실패',
   'not-installed': '미설치',
+};
+
+const statusConfig: Record<ProjectStatus, { label: string; variant: 'default' | 'secondary' | 'destructive' | 'outline' }> = {
+  latest: { label: '최신', variant: 'default' },
+  pending: { label: 'PR 대기', variant: 'secondary' },
+  outdated: { label: '업데이트 필요', variant: 'destructive' },
+  failed: { label: 'CI 실패', variant: 'destructive' },
+  'not-installed': { label: '미설치', variant: 'outline' },
 };
 
 async function getUpdatesData(): Promise<UpdatesData> {
@@ -67,13 +96,58 @@ export default async function ProjectsPage() {
               <Badge variant="secondary">{statusProjects.length}</Badge>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              {statusProjects.map((project) => (
-                <ProjectCard
-                  key={project.name}
-                  project={project}
-                  latestVersion={latestVersion}
-                />
-              ))}
+              {statusProjects.map((project) => {
+                const config = statusConfig[project.status];
+                return (
+                  <Card key={project.name} className="py-4">
+                    <CardHeader className="pb-0">
+                      <CardTitle className="text-base">{project.name}</CardTitle>
+                      <CardAction>
+                        <Badge variant={config.variant}>{config.label}</Badge>
+                      </CardAction>
+                      <CardDescription>{project.description}</CardDescription>
+                    </CardHeader>
+
+                    <CardContent className="text-sm">
+                      <div className="flex gap-6">
+                        <div>
+                          <span className="text-muted-foreground">현재: </span>
+                          <span className="font-mono">{project.version || '미설치'}</span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">최신: </span>
+                          <span className="font-mono">v{latestVersion}</span>
+                        </div>
+                      </div>
+                    </CardContent>
+
+                    <CardFooter className="gap-3 pt-0">
+                      {project.status === 'pending' && project.prUrl && (
+                        <Link
+                          href={project.prUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+                        >
+                          PR #{project.prNumber}
+                          <ExternalLink className="h-3 w-3" />
+                        </Link>
+                      )}
+                      {project.repo && (
+                        <Link
+                          href={`https://github.com/${project.repo}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
+                        >
+                          GitHub
+                          <ExternalLink className="h-3 w-3" />
+                        </Link>
+                      )}
+                    </CardFooter>
+                  </Card>
+                );
+              })}
             </div>
           </section>
         );
@@ -89,10 +163,6 @@ export default async function ProjectsPage() {
         마지막 업데이트: {new Date(generatedAt).toLocaleString('ko-KR')}
       </div>
 
-      <PageNav
-        prev={{ href: '/status/adoption/', title: 'Adoption Dashboard' }}
-        next={{ href: '/status/adoption/pending/', title: 'Pending PRs' }}
-      />
     </div>
   );
 }

@@ -50,7 +50,7 @@ export default function MigrationPage() {
             {migration.breaking.length > 0 && (
               <div className="migration-breaking">
                 <h3 className="migration-section-title">
-                  ⚠️ Breaking Changes
+Breaking Changes
                 </h3>
                 {migration.breaking.map((item, idx) => (
                   <div key={idx} className="migration-item">
@@ -76,7 +76,7 @@ export default function MigrationPage() {
             {migration.features.length > 0 && (
               <div className="migration-features">
                 <h3 className="migration-section-title">
-                  ✨ New Features
+New Features
                 </h3>
                 <ul className="migration-feature-list">
                   {migration.features.map((feature, idx) => (

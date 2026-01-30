@@ -1,5 +1,4 @@
 import { PageHeader } from '../../../ui/PageHeader';
-import { PageNav } from '../../../ui/PageNav';
 import {
   Table,
   TableBody,
@@ -134,9 +133,6 @@ export default function TypographyPage() {
         </div>
       </section>
 
-      <PageNav
-        prev={{ href: '/tokens/radius/', title: 'Radius' }}
-      />
     </div>
   );
 }

@@ -72,7 +72,7 @@ export default async function PendingPRsPage() {
                   rel="noopener noreferrer"
                   className="pending-link"
                 >
-                  ⏳ PR #{project.prNumber} 리뷰하기 →
+PR #{project.prNumber} 리뷰하기
                 </a>
               )}
             </div>
@@ -80,7 +80,7 @@ export default async function PendingPRsPage() {
         </div>
       ) : (
         <div className="pending-empty">
-          <p>🎉 대기 중인 PR이 없습니다!</p>
+<p>대기 중인 PR이 없습니다.</p>
           <p className="pending-empty-sub">모든 프로젝트가 최신 버전이거나 업데이트가 필요합니다.</p>
         </div>
       )}

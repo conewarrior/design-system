@@ -532,19 +532,19 @@ export default function FuturisticTemplatePage() {
             >
               {[
                 {
-                  icon: '⚡',
+                  icon: 'LF',
                   title: 'Lightning Fast',
                   desc: 'Sub-millisecond execution with parallel processing',
                   color: '#00F5FF',
                 },
                 {
-                  icon: '🔐',
+                  icon: 'QS',
                   title: 'Quantum Secure',
                   desc: 'Post-quantum cryptography for future-proof security',
                   color: '#FF00FF',
                 },
                 {
-                  icon: '🌐',
+                  icon: 'GN',
                   title: 'Global Network',
                   desc: 'Distributed nodes across 50+ regions worldwide',
                   color: '#00FF88',
@@ -562,9 +562,18 @@ export default function FuturisticTemplatePage() {
                 >
                   <div
                     style={{
-                      fontSize: '40px',
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '8px',
+                      background: feature.color,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '16px',
+                      fontWeight: '700',
+                      color: '#0A0A0F',
                       marginBottom: '16px',
-                      filter: `drop-shadow(0 0 10px ${feature.color})`,
+                      boxShadow: `0 0 20px ${feature.color}`,
                     }}
                   >
                     {feature.icon}

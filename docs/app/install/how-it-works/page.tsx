@@ -1,15 +1,12 @@
-'use client';
-
 import { CodeBlock } from '../../../ui/CodeBlock';
 import { PageHeader } from '../../../ui/PageHeader';
-import { PageNav } from '../../../ui/PageNav';
-import { ChevronDown, ChevronRight } from 'lucide-react';
 import { Separator } from '@components/separator';
 import {
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
-} from '@components/collapsible';
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@components/accordion';
 
 export default function HowItWorksPage() {
   return (
@@ -120,14 +117,13 @@ export default function HowItWorksPage() {
           </li>
         </ol>
 
-        <Collapsible className="rounded-md border">
-          <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left text-label hover:bg-accent transition-colors [&[data-state=open]>svg:first-child]:hidden [&[data-state=closed]>svg:last-child]:hidden">
-            <span>dependabot.yml 보기</span>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            <ChevronDown className="h-4 w-4 text-muted-foreground" />
-          </CollapsibleTrigger>
-          <CollapsibleContent className="border-t p-4">
-            <CodeBlock language="yaml">{`version: 2
+        <Accordion type="single" collapsible className="rounded-md border">
+          <AccordionItem value="dependabot" className="border-b-0">
+            <AccordionTrigger className="px-4 text-label hover:bg-accent hover:no-underline">
+              dependabot.yml 보기
+            </AccordionTrigger>
+            <AccordionContent className="border-t px-4 pb-4">
+              <CodeBlock language="yaml">{`version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
@@ -137,8 +133,9 @@ updates:
       timezone: "Asia/Seoul"
     allow:
       - dependency-name: "@design-geniefy/ui"`}</CodeBlock>
-          </CollapsibleContent>
-        </Collapsible>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </section>
 
       <Separator />
@@ -181,14 +178,12 @@ updates:
       <section className="space-y-4">
         <h2 className="text-subsection-title">트러블슈팅</h2>
 
-        <div className="space-y-3">
-          <Collapsible className="rounded-md border">
-            <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left text-label hover:bg-accent transition-colors [&[data-state=open]>svg:first-child]:hidden [&[data-state=closed]>svg:last-child]:hidden">
-              <span>자동 업데이트가 안 될 때</span>
-              <ChevronRight className="h-4 w-4 text-muted-foreground" />
-              <ChevronDown className="h-4 w-4 text-muted-foreground" />
-            </CollapsibleTrigger>
-            <CollapsibleContent className="border-t p-4">
+        <Accordion type="single" collapsible className="rounded-md border">
+          <AccordionItem value="auto-update">
+            <AccordionTrigger className="px-4 text-label hover:bg-accent hover:no-underline">
+              자동 업데이트가 안 될 때
+            </AccordionTrigger>
+            <AccordionContent className="px-4 pb-4">
               <ol className="space-y-2 text-sm">
                 <li>
                   <strong>Dependabot 설정 확인</strong>
@@ -199,16 +194,14 @@ updates:
                   <p className="text-muted-foreground">Settings → Actions → General → Workflow permissions에서 "Read and write permissions" 활성화</p>
                 </li>
               </ol>
-            </CollapsibleContent>
-          </Collapsible>
+            </AccordionContent>
+          </AccordionItem>
 
-          <Collapsible className="rounded-md border">
-            <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left text-label hover:bg-accent transition-colors [&[data-state=open]>svg:first-child]:hidden [&[data-state=closed]>svg:last-child]:hidden">
-              <span>자동 기여가 안 될 때</span>
-              <ChevronRight className="h-4 w-4 text-muted-foreground" />
-              <ChevronDown className="h-4 w-4 text-muted-foreground" />
-            </CollapsibleTrigger>
-            <CollapsibleContent className="border-t p-4">
+          <AccordionItem value="auto-contribute">
+            <AccordionTrigger className="px-4 text-label hover:bg-accent hover:no-underline">
+              자동 기여가 안 될 때
+            </AccordionTrigger>
+            <AccordionContent className="px-4 pb-4">
               <ol className="space-y-3 text-sm">
                 <li>
                   <strong>gh CLI 확인 (권장)</strong>
@@ -225,30 +218,24 @@ gh auth login`}</CodeBlock>
                   <CodeBlock language="bash">echo $GITHUB_TOKEN</CodeBlock>
                 </li>
               </ol>
-            </CollapsibleContent>
-          </Collapsible>
+            </AccordionContent>
+          </AccordionItem>
 
-          <Collapsible className="rounded-md border">
-            <CollapsibleTrigger className="flex w-full items-center justify-between p-4 text-left text-label hover:bg-accent transition-colors [&[data-state=open]>svg:first-child]:hidden [&[data-state=closed]>svg:last-child]:hidden">
-              <span>Hook이 작동하지 않을 때</span>
-              <ChevronRight className="h-4 w-4 text-muted-foreground" />
-              <ChevronDown className="h-4 w-4 text-muted-foreground" />
-            </CollapsibleTrigger>
-            <CollapsibleContent className="border-t p-4">
+          <AccordionItem value="hook" className="border-b-0">
+            <AccordionTrigger className="px-4 text-label hover:bg-accent hover:no-underline">
+              Hook이 작동하지 않을 때
+            </AccordionTrigger>
+            <AccordionContent className="px-4 pb-4">
               <ol className="space-y-1 text-sm list-decimal list-inside">
                 <li><code className="text-xs bg-muted px-1 py-0.5 rounded">.claude/settings.local.json</code> 파일 확인</li>
                 <li><code className="text-xs bg-muted px-1 py-0.5 rounded">~/.claude/skills/design-rules.md</code> 파일 존재 확인</li>
                 <li>Claude Code 재시작</li>
               </ol>
-            </CollapsibleContent>
-          </Collapsible>
-        </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </section>
 
-      <PageNav
-        prev={{ href: '/install/', title: 'Install' }}
-        next={{ href: '/tokens/', title: 'Tokens' }}
-      />
     </div>
   );
 }

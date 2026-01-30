@@ -2,7 +2,6 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import { PageHeader } from '../../../ui/PageHeader';
-import { PageNav } from '../../../ui/PageNav';
 import { Badge } from '@components/badge';
 import { ExternalLink } from 'lucide-react';
 
@@ -146,10 +145,6 @@ export default async function ChangesPage() {
         마지막 업데이트: {new Date(generatedAt).toLocaleString('ko-KR')}
       </div>
 
-      <PageNav
-        prev={{ href: '/status/', title: 'Dashboard' }}
-        next={{ href: '/status/changes/components/', title: 'Components' }}
-      />
     </div>
   );
 }

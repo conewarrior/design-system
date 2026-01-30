@@ -1,5 +1,8 @@
 // Roadmap - 디자인 시스템 로드맵
 
+import { Check, RefreshCw, ClipboardList } from 'lucide-react';
+import { ReactNode } from 'react';
+
 export default function RoadmapPage() {
   const roadmapData = [
     {
@@ -35,10 +38,10 @@ export default function RoadmapPage() {
     },
   ];
 
-  const statusIcons: Record<string, string> = {
-    done: '✅',
-    'in-progress': '🔄',
-    planned: '📋',
+  const statusIcons: Record<string, ReactNode> = {
+    done: <Check className="h-4 w-4 text-green-600" />,
+    'in-progress': <RefreshCw className="h-4 w-4 text-primary" />,
+    planned: <ClipboardList className="h-4 w-4 text-muted-foreground" />,
   };
 
   const quarterStatus: Record<string, { label: string; color: string }> = {

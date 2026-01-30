@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { PageHeader } from '../../ui/PageHeader';
-import { PageNav } from '../../ui/PageNav';
 import { Card, CardContent, CardTitle, CardDescription } from '@components/card';
 
 const tokenCategories = [
@@ -60,10 +59,6 @@ export default function TokensPage() {
         </div>
       </section>
 
-      <PageNav
-        prev={{ href: '/install/how-it-works/', title: 'How it Works' }}
-        next={{ href: '/tokens/colors/', title: 'Colors' }}
-      />
     </div>
   );
 }

@@ -333,7 +333,7 @@ export default function GlassmorphismPage() {
                 marginBottom: '16px',
                 border: '1px solid rgba(168, 85, 247, 0.5)',
                 boxShadow: '0 0 15px rgba(168, 85, 247, 0.3)',
-              }}>✨ New Release</span>
+              }}>New Release</span>
               <div style={{
                 fontSize: '38px',
                 fontWeight: 700,
@@ -482,9 +482,9 @@ export default function GlassmorphismPage() {
               gap: '16px',
             }}>
               {[
-                { icon: '✨', title: 'Glass Effects', desc: 'Frosted glass with blur', color: '#A855F7' },
-                { icon: '🎨', title: 'Gradients', desc: 'Beautiful color flows', color: '#3B82F6' },
-                { icon: '💎', title: 'Transparency', desc: 'Layered depth', color: '#EC4899' },
+                { icon: 'GE', title: 'Glass Effects', desc: 'Frosted glass with blur', color: '#A855F7' },
+                { icon: 'GR', title: 'Gradients', desc: 'Beautiful color flows', color: '#3B82F6' },
+                { icon: 'TR', title: 'Transparency', desc: 'Layered depth', color: '#EC4899' },
               ].map((feature, idx) => (
                 <div key={idx} style={{
                   padding: '28px',
@@ -505,7 +505,9 @@ export default function GlassmorphismPage() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '24px',
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: feature.color,
                     border: `1px solid ${feature.color}40`,
                     boxShadow: `0 0 20px ${feature.color}30`,
                   }}>{feature.icon}</div>

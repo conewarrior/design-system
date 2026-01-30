@@ -3,7 +3,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@components/tabs';
 import { CodeBlock } from '../../ui/CodeBlock';
 import { PageHeader } from '../../ui/PageHeader';
-import { PageNav } from '../../ui/PageNav';
 import { Badge } from '@components/badge';
 import { Check } from 'lucide-react';
 
@@ -158,10 +157,6 @@ gh auth status`}</CodeBlock>
         </TabsContent>
       </Tabs>
 
-      <PageNav
-        prev={{ href: '/', title: 'Introduction' }}
-        next={{ href: '/install/how-it-works/', title: 'How it Works' }}
-      />
     </div>
   );
 }
