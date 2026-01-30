@@ -1,400 +1,176 @@
+const colorTokens = [
+  {
+    name: 'background',
+    cssVar: '--background',
+    tailwind: 'bg-background',
+    lightValue: '0 0% 100%',
+    darkValue: '240 10% 3.9%',
+  },
+  {
+    name: 'foreground',
+    cssVar: '--foreground',
+    tailwind: 'text-foreground',
+    lightValue: '240 10% 3.9%',
+    darkValue: '0 0% 98%',
+  },
+  {
+    name: 'card',
+    cssVar: '--card',
+    tailwind: 'bg-card',
+    lightValue: '0 0% 100%',
+    darkValue: '240 10% 3.9%',
+  },
+  {
+    name: 'card-foreground',
+    cssVar: '--card-foreground',
+    tailwind: 'text-card-foreground',
+    lightValue: '240 10% 3.9%',
+    darkValue: '0 0% 98%',
+  },
+  {
+    name: 'popover',
+    cssVar: '--popover',
+    tailwind: 'bg-popover',
+    lightValue: '0 0% 100%',
+    darkValue: '240 10% 3.9%',
+  },
+  {
+    name: 'popover-foreground',
+    cssVar: '--popover-foreground',
+    tailwind: 'text-popover-foreground',
+    lightValue: '240 10% 3.9%',
+    darkValue: '0 0% 98%',
+  },
+  {
+    name: 'primary',
+    cssVar: '--primary',
+    tailwind: 'bg-primary',
+    lightValue: '24 95% 53%',
+    darkValue: '24 95% 53%',
+  },
+  {
+    name: 'primary-foreground',
+    cssVar: '--primary-foreground',
+    tailwind: 'text-primary-foreground',
+    lightValue: '0 0% 100%',
+    darkValue: '240 10% 3.9%',
+  },
+  {
+    name: 'secondary',
+    cssVar: '--secondary',
+    tailwind: 'bg-secondary',
+    lightValue: '240 4.8% 95.9%',
+    darkValue: '240 3.7% 15.9%',
+  },
+  {
+    name: 'secondary-foreground',
+    cssVar: '--secondary-foreground',
+    tailwind: 'text-secondary-foreground',
+    lightValue: '240 5.9% 10%',
+    darkValue: '0 0% 98%',
+  },
+  {
+    name: 'muted',
+    cssVar: '--muted',
+    tailwind: 'bg-muted',
+    lightValue: '240 4.8% 95.9%',
+    darkValue: '240 3.7% 15.9%',
+  },
+  {
+    name: 'muted-foreground',
+    cssVar: '--muted-foreground',
+    tailwind: 'text-muted-foreground',
+    lightValue: '240 3.8% 46.1%',
+    darkValue: '240 5% 64.9%',
+  },
+  {
+    name: 'accent',
+    cssVar: '--accent',
+    tailwind: 'bg-accent',
+    lightValue: '240 4.8% 95.9%',
+    darkValue: '240 3.7% 15.9%',
+  },
+  {
+    name: 'accent-foreground',
+    cssVar: '--accent-foreground',
+    tailwind: 'text-accent-foreground',
+    lightValue: '240 5.9% 10%',
+    darkValue: '0 0% 98%',
+  },
+  {
+    name: 'destructive',
+    cssVar: '--destructive',
+    tailwind: 'bg-destructive',
+    lightValue: '0 84.2% 60.2%',
+    darkValue: '0 62.8% 30.6%',
+  },
+  {
+    name: 'destructive-foreground',
+    cssVar: '--destructive-foreground',
+    tailwind: 'text-destructive-foreground',
+    lightValue: '0 0% 100%',
+    darkValue: '0 0% 98%',
+  },
+  {
+    name: 'border',
+    cssVar: '--border',
+    tailwind: 'border-border',
+    lightValue: '240 5.9% 90%',
+    darkValue: '240 3.7% 15.9%',
+  },
+  {
+    name: 'input',
+    cssVar: '--input',
+    tailwind: 'border-input',
+    lightValue: '240 5.9% 90%',
+    darkValue: '240 3.7% 15.9%',
+  },
+  {
+    name: 'ring',
+    cssVar: '--ring',
+    tailwind: 'ring-ring',
+    lightValue: '24 95% 53%',
+    darkValue: '24 95% 53%',
+  },
+];
+
 export default function ColorsPage() {
-  const neutralShades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'];
-
-  // 실제 tokens.css의 Semantic Background 토큰
-  const semanticBgTokens = [
-    { name: '--color-bg-default', value: 'var(--neutral-50)', usage: '페이지 배경' },
-    { name: '--color-bg-surface', value: '#ffffff', usage: '카드, 모달 배경' },
-    { name: '--color-bg-surface-secondary', value: 'var(--neutral-100)', usage: '중첩 컨테이너' },
-    { name: '--color-bg-surface-tertiary', value: 'var(--neutral-200)', usage: '3차 배경' },
-    { name: '--color-bg-surface-hover', value: 'var(--neutral-100)', usage: '호버 상태' },
-    { name: '--color-bg-surface-active', value: 'var(--neutral-200)', usage: '활성 상태' },
-    { name: '--color-bg-inverse', value: 'var(--neutral-900)', usage: '다크 영역' },
-    { name: '--color-bg-disabled', value: 'var(--neutral-100)', usage: '비활성 배경' },
-  ];
-
-  // 실제 tokens.css의 Semantic Text 토큰
-  const semanticTextTokens = [
-    { name: '--color-text-default', value: 'var(--neutral-900)', usage: '기본 텍스트' },
-    { name: '--color-text-secondary', value: 'var(--neutral-600)', usage: '보조 텍스트' },
-    { name: '--color-text-tertiary', value: 'var(--neutral-500)', usage: '힌트, 캡션' },
-    { name: '--color-text-placeholder', value: 'var(--neutral-400)', usage: '플레이스홀더' },
-    { name: '--color-text-inverse', value: '#ffffff', usage: '다크 배경 텍스트' },
-    { name: '--color-text-disabled', value: 'var(--neutral-400)', usage: '비활성 텍스트' },
-  ];
-
-  // 실제 tokens.css의 Semantic Border 토큰
-  const semanticBorderTokens = [
-    { name: '--color-border-default', value: 'var(--neutral-200)', usage: '기본 테두리' },
-    { name: '--color-border-secondary', value: 'var(--neutral-300)', usage: '강조 테두리' },
-    { name: '--color-border-hover', value: 'var(--neutral-400)', usage: '호버 테두리' },
-    { name: '--color-border-focus', value: 'var(--primary-500)', usage: '포커스 링' },
-    { name: '--color-border-disabled', value: 'var(--neutral-200)', usage: '비활성 테두리' },
-  ];
-
-  // 실제 tokens.css의 Primary 토큰
-  const primaryTokens = [
-    { name: '--color-primary', value: 'var(--primary-500)', usage: '기본 primary' },
-    { name: '--color-primary-hover', value: 'var(--primary-600)', usage: '호버' },
-    { name: '--color-primary-active', value: 'var(--primary-700)', usage: '활성' },
-    { name: '--color-primary-disabled', value: 'var(--primary-300)', usage: '비활성' },
-    { name: '--color-primary-bg', value: 'var(--primary-50)', usage: 'primary 배경' },
-    { name: '--color-primary-bg-hover', value: 'var(--primary-100)', usage: 'primary 배경 호버' },
-    { name: '--color-primary-text', value: 'var(--primary-600)', usage: 'primary 텍스트' },
-    { name: '--color-on-primary', value: '#ffffff', usage: 'primary 위 텍스트' },
-  ];
-
-  // Status 토큰 (success, warning, error, info)
-  const statusTokenGroups = [
-    {
-      name: 'Success',
-      color: 'success',
-      tokens: [
-        { name: '--color-success', usage: '기본' },
-        { name: '--color-success-hover', usage: '호버' },
-        { name: '--color-success-active', usage: '활성' },
-        { name: '--color-success-bg', usage: '배경' },
-        { name: '--color-success-text', usage: '텍스트' },
-        { name: '--color-on-success', usage: 'success 위 텍스트' },
-      ]
-    },
-    {
-      name: 'Warning',
-      color: 'warning',
-      tokens: [
-        { name: '--color-warning', usage: '기본' },
-        { name: '--color-warning-hover', usage: '호버' },
-        { name: '--color-warning-active', usage: '활성' },
-        { name: '--color-warning-bg', usage: '배경' },
-        { name: '--color-warning-text', usage: '텍스트' },
-        { name: '--color-on-warning', usage: 'warning 위 텍스트' },
-      ]
-    },
-    {
-      name: 'Error',
-      color: 'error',
-      tokens: [
-        { name: '--color-error', usage: '기본' },
-        { name: '--color-error-hover', usage: '호버' },
-        { name: '--color-error-active', usage: '활성' },
-        { name: '--color-error-bg', usage: '배경' },
-        { name: '--color-error-text', usage: '텍스트' },
-        { name: '--color-on-error', usage: 'error 위 텍스트' },
-      ]
-    },
-    {
-      name: 'Info',
-      color: 'info',
-      tokens: [
-        { name: '--color-info', usage: '기본' },
-        { name: '--color-info-hover', usage: '호버' },
-        { name: '--color-info-active', usage: '활성' },
-        { name: '--color-info-bg', usage: '배경' },
-        { name: '--color-info-text', usage: '텍스트' },
-        { name: '--color-on-info', usage: 'info 위 텍스트' },
-      ]
-    },
-  ];
-
-  // Legacy aliases (하위 호환)
-  const legacyAliases = [
-    { name: '--color-background', maps: '--color-bg-default', note: 'deprecated' },
-    { name: '--color-foreground', maps: '--color-text-default', note: 'deprecated' },
-    { name: '--color-muted', maps: '--neutral-500', note: 'deprecated' },
-    { name: '--color-border', maps: '--color-border-default', note: 'deprecated' },
-    { name: '--color-secondary', maps: '--neutral-100', note: 'deprecated' },
-    { name: '--color-destructive', maps: '--error-500', note: 'deprecated' },
-  ];
-
   return (
-    <div className="space-y-12">
-      <h1 className="text-4xl font-bold tracking-tight mb-2">Colors</h1>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">토큰 구조</h2>
-        <p className="text-muted-foreground">
-          Color 토큰은 <strong>3계층 구조</strong>로 구성됩니다:
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-4xl font-bold tracking-tight mb-2">Colors</h1>
+        <p className="text-lg text-muted-foreground">
+          19개 시맨틱 색상 토큰
         </p>
-        <ul style={{ marginTop: 'var(--spacing-3)', marginLeft: 'var(--spacing-4)' }}>
-          <li><strong>Primitive</strong>: 실제 색상값 (<code>--neutral-600</code>, <code>--primary-500</code>)</li>
-          <li><strong>Semantic</strong>: 용도 기반 (<code>--color-text-default</code>, <code>--color-bg-surface</code>)</li>
-          <li><strong>Component</strong>: 컴포넌트 전용 (필요시 정의)</li>
-        </ul>
-        <p style={{ marginTop: 'var(--spacing-3)' }}>
-          컴포넌트에서는 <strong>Semantic 토큰</strong>을 우선 사용합니다. Primitive 토큰은 직접 사용하지 않습니다.
-        </p>
-      </section>
+      </div>
 
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Primitive Colors</h2>
-        <p className="text-muted-foreground">
-          원시 색상 팔레트. 50(밝음) → 950(어두움). <strong>직접 사용하지 않고</strong> Semantic 토큰을 통해 참조합니다.
-        </p>
-
-        <h3 className="text-lg font-medium">Neutral</h3>
-        <div className="space-y-8">
-          <div className="flex items-center gap-4">
-            <span className="text-sm font-medium w-20 text-muted-foreground">neutral</span>
-            <div className="flex gap-1 flex-1">
-              {neutralShades.map((shade) => (
-                <div
-                  key={shade}
-                  className={`w-12 h-12 rounded flex items-center justify-center text-xs font-medium ${parseInt(shade) >= 500 ? 'text-white' : 'text-gray-900'}`}
-                  style={{ background: `var(--neutral-${shade})` }}
-                  title={`--neutral-${shade}`}
-                >
-                  {shade}
-                </div>
-              ))}
+      <div className="space-y-4">
+        {colorTokens.map((token) => (
+          <div
+            key={token.name}
+            className="flex items-center gap-4 p-4 border rounded-lg bg-card"
+          >
+            <div
+              className="w-8 h-8 rounded border border-border flex-shrink-0"
+              style={{ backgroundColor: `hsl(var(${token.cssVar}))` }}
+            />
+            <div className="flex-1 min-w-0">
+              <div className="font-mono text-sm font-semibold">{token.cssVar}</div>
+              <div className="text-xs text-muted-foreground">{token.tailwind}</div>
             </div>
-          </div>
-        </div>
-
-        <h3 className="text-lg font-medium">Primary (Orange)</h3>
-        <div className="space-y-8">
-          <div className="flex items-center gap-4">
-            <span className="text-sm font-medium w-20 text-muted-foreground">primary</span>
-            <div className="flex gap-1 flex-1">
-              {neutralShades.map((shade) => (
-                <div
-                  key={shade}
-                  className={`w-12 h-12 rounded flex items-center justify-center text-xs font-medium ${parseInt(shade) >= 500 ? 'text-white' : 'text-gray-900'}`}
-                  style={{ background: `var(--primary-${shade})` }}
-                  title={`--primary-${shade}`}
-                >
-                  {shade}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <h3 className="text-lg font-medium">Status Colors</h3>
-        <div className="space-y-8">
-          {['success', 'warning', 'error', 'info'].map((color) => (
-            <div key={color} className="flex items-center gap-4">
-              <span className="text-sm font-medium w-20 text-muted-foreground">{color}</span>
-              <div className="flex gap-1 flex-1">
-                {neutralShades.map((shade) => (
-                  <div
-                    key={shade}
-                    className={`w-12 h-12 rounded flex items-center justify-center text-xs font-medium ${parseInt(shade) >= 500 ? 'text-white' : 'text-gray-900'}`}
-                    style={{ background: `var(--${color}-${shade})` }}
-                    title={`--${color}-${shade}`}
-                  >
-                    {shade}
-                  </div>
-                ))}
+            <div className="flex-1 min-w-0">
+              <div className="text-xs">
+                <span className="text-muted-foreground">Light: </span>
+                <span className="font-mono">{token.lightValue}</span>
+              </div>
+              <div className="text-xs">
+                <span className="text-muted-foreground">Dark: </span>
+                <span className="font-mono">{token.darkValue}</span>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Semantic Background</h2>
-        <p className="text-muted-foreground">배경 용도의 토큰. 컴포넌트에서 직접 사용합니다.</p>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr>
-                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
-                <th className="text-left p-2 border-b font-medium text-sm">값</th>
-                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
-              </tr>
-            </thead>
-            <tbody>
-              {semanticBgTokens.map((token) => (
-                <tr key={token.name}>
-                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
-                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
-                  <td className="p-2 border-b text-sm">{token.usage}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Semantic Text</h2>
-        <p className="text-muted-foreground">텍스트 용도의 토큰. 가독성과 계층을 보장합니다.</p>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr>
-                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
-                <th className="text-left p-2 border-b font-medium text-sm">값</th>
-                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
-              </tr>
-            </thead>
-            <tbody>
-              {semanticTextTokens.map((token) => (
-                <tr key={token.name}>
-                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
-                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
-                  <td className="p-2 border-b text-sm">{token.usage}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Semantic Border</h2>
-        <p className="text-muted-foreground">테두리 용도의 토큰.</p>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr>
-                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
-                <th className="text-left p-2 border-b font-medium text-sm">값</th>
-                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
-              </tr>
-            </thead>
-            <tbody>
-              {semanticBorderTokens.map((token) => (
-                <tr key={token.name}>
-                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
-                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
-                  <td className="p-2 border-b text-sm">{token.usage}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Primary</h2>
-        <p className="text-muted-foreground">브랜드/주요 액션 색상 토큰.</p>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr>
-                <th className="text-left p-2 border-b font-medium text-sm">토큰</th>
-                <th className="text-left p-2 border-b font-medium text-sm">값</th>
-                <th className="text-left p-2 border-b font-medium text-sm">용도</th>
-              </tr>
-            </thead>
-            <tbody>
-              {primaryTokens.map((token) => (
-                <tr key={token.name}>
-                  <td className="p-2 border-b text-sm"><code>{token.name}</code></td>
-                  <td className="p-2 border-b text-sm"><code>{token.value}</code></td>
-                  <td className="p-2 border-b text-sm">{token.usage}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Status Colors</h2>
-        <p className="text-muted-foreground">상태를 전달하는 색상 세트 (Success, Warning, Error, Info).</p>
-
-        <div className="grid gap-6 sm:grid-cols-2">
-          {statusTokenGroups.map((group) => (
-            <div key={group.name} className="rounded-lg border overflow-hidden">
-              <div
-                className="p-4 text-white font-semibold"
-                style={{ background: `var(--${group.color}-500)` }}
-              >
-                <span className="status-name">{group.name}</span>
-              </div>
-              <div className="p-4 space-y-2">
-                <div className="space-y-1">
-                  {group.tokens.map((token) => (
-                    <div key={token.name} className="flex justify-between text-sm">
-                      <code>{token.name}</code>
-                      <span>{token.usage}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Legacy Aliases (하위 호환)</h2>
-        <p className="text-muted-foreground">
-          기존 프로젝트 호환을 위해 유지되는 토큰. <strong>새 코드에서는 사용하지 마세요.</strong>
-        </p>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr>
-                <th className="text-left p-2 border-b font-medium text-sm">Legacy 토큰</th>
-                <th className="text-left p-2 border-b font-medium text-sm">실제 매핑</th>
-                <th className="text-left p-2 border-b font-medium text-sm">상태</th>
-              </tr>
-            </thead>
-            <tbody>
-              {legacyAliases.map((token) => (
-                <tr key={token.name}>
-                  <td className="p-2 border-b text-sm"><code style={{ textDecoration: 'line-through' }}>{token.name}</code></td>
-                  <td className="p-2 border-b text-sm"><code>{token.maps}</code></td>
-                  <td className="p-2 border-b text-sm"><span className="inline-block px-2 py-1 rounded-full bg-warning/10 text-warning text-xs font-medium">{token.note}</span></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">Dark Mode</h2>
-        <p className="text-muted-foreground">
-          <code>.dark</code> 클래스를 html 또는 부모 요소에 추가하면 다크모드가 적용됩니다.
-          Semantic 토큰의 값이 자동으로 다크모드용으로 전환됩니다.
-        </p>
-        <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`/* 다크모드 적용 */
-<html class="dark">
-
-/* 다크모드에서 자동 전환되는 예시 */
---color-bg-default: var(--neutral-50)  → var(--neutral-900)
---color-text-default: var(--neutral-900) → var(--neutral-50)
---color-border-default: var(--neutral-200) → var(--neutral-700)`}</code></pre>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">사용 예시</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="space-y-2">
-            <h3>카드</h3>
-            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.card {
-  background: var(--color-bg-surface);
-  color: var(--color-text-default);
-  border: 1px solid var(--color-border-default);
-}
-.card:hover {
-  background: var(--color-bg-surface-hover);
-}`}</code></pre>
           </div>
-          <div className="space-y-2">
-            <h3>버튼</h3>
-            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.button-primary {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-}
-.button-primary:hover {
-  background: var(--color-primary-hover);
-}`}</code></pre>
-          </div>
-          <div className="space-y-2">
-            <h3>알림</h3>
-            <pre className="bg-muted rounded-md p-4 overflow-x-auto"><code>{`.alert-error {
-  background: var(--color-error-bg);
-  color: var(--color-error-text);
-  border: 1px solid var(--color-error);
-}`}</code></pre>
-          </div>
-        </div>
-      </section>
+        ))}
+      </div>
     </div>
   );
 }
