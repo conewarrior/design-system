@@ -59,12 +59,12 @@ docs 사이트의 모든 UI를 shadcn/ui 문서 스타일로 변경하여 미니
 - `docs/package.json` workspace 연동 설정
 
 ### Definition of Done
-- [ ] `npm run dev` 정상 실행
-- [ ] `npm run build` 성공 (exit code 0)
-- [ ] 모든 페이지 라우트 접근 가능
-- [ ] 사이드바와 메인 영역 사이 border 없음
-- [ ] 배경색 통일 (사이드바 = 메인)
-- [ ] Tailwind utilities만 사용 (커스텀 CSS 클래스 최소화)
+- [x] `npm run dev` 정상 실행
+- [x] `npm run build` 성공 (exit code 0)
+- [x] 모든 페이지 라우트 접근 가능
+- [x] 사이드바와 메인 영역 사이 border 없음
+- [x] 배경색 통일 (사이드바 = 메인)
+- [x] Tailwind utilities만 사용 (커스텀 CSS 클래스 최소화)
 
 ### Must Have
 - shadcn 스타일 레이아웃 (배경 통일, 라인 제거)
@@ -683,10 +683,10 @@ ls -la docs/node_modules/@design-geniefy/ui | grep -q "->"
 ```
 
 ### Final Checklist
-- [ ] All "Must Have" present
-- [ ] All "Must NOT Have" absent
-- [ ] All 22 core pages accessible
-- [ ] 52 component docs generated
-- [ ] Build succeeds
-- [ ] No border between sidebar and main
-- [ ] Unified background color
+- [x] All "Must Have" present
+- [x] All "Must NOT Have" absent
+- [x] All 22 core pages accessible
+- [x] 52 component docs generated
+- [x] Build succeeds
+- [x] No border between sidebar and main
+- [x] Unified background color
