@@ -1,9 +1,15 @@
 {
-  "generatedAt": "2026-01-30T00:51:16.064Z",
+  "generatedAt": "2026-01-30T04:55:29.321Z",
   "latestVersion": "0.0.12",
   "publishedAt": "2026-01-30",
   "adoptionRate": 0,
-  "versionData": [],
+  "versionData": [
+    {
+      "version": "file:..",
+      "count": 1,
+      "percentage": 100
+    }
+  ],
   "projects": [
     {
       "name": "edu-platform",
@@ -37,8 +43,8 @@
       "name": "docs-site",
       "repo": "conewarrior/design-system",
       "description": "디자인 시스템 문서 사이트",
-      "version": null,
-      "status": "not-installed"
+      "version": "file:..",
+      "status": "outdated"
     },
     {
       "name": "internal-tools",

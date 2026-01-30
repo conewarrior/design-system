@@ -2,8 +2,50 @@
 
 > **단일 소스 역할**: LLM이 UI를 생성할 때 반드시 준수해야 하는 제약 규칙과 Generation Protocol을 정의한다.
 
-이 문서는 Claude Code가 `src/components/` 내에서 UI를 생성할 때 참조하는 제약 규칙이다.
+이 문서는 Claude Code가 `components/` 내에서 UI를 생성할 때 참조하는 제약 규칙이다.
 **규칙 위반 시 생성을 거부하고 수정을 요청해야 한다.**
+
+## 스타일링 원칙: Tailwind First
+
+> **⚠️ 이 원칙은 모든 스타일링 지침보다 우선한다.**
+
+**Tailwind CSS 유틸리티 클래스를 CSS 변수보다 우선 사용한다.**
+
+```tsx
+// ❌ 금지: CSS 변수 직접 사용 (style 속성)
+<div style={{ padding: 'var(--spacing-4)', color: 'var(--color-foreground)' }}>
+
+// ❌ 금지: 하드코딩 값
+<div style={{ padding: '16px', color: '#333' }}>
+
+// ✅ 올바른 사용: Tailwind 유틸리티 클래스
+<div className="p-4 text-foreground">
+```
+
+### 토큰 접근 방법
+
+| 용도 | Tailwind 클래스 (권장) | CSS 변수 (필요시) |
+|------|------------------------|-------------------|
+| 배경색 | `bg-background`, `bg-muted`, `bg-primary` | `hsl(var(--background))` |
+| 텍스트 | `text-foreground`, `text-muted-foreground` | `hsl(var(--foreground))` |
+| 테두리 | `border-border`, `border-input` | `hsl(var(--border))` |
+| 간격 | `p-4`, `m-2`, `gap-6`, `space-y-4` | Tailwind 기본 spacing |
+| 둥글기 | `rounded-sm`, `rounded-md`, `rounded-lg` | `var(--radius-*)` |
+
+### 스타일 파일 구조
+
+```
+docs/styles/globals.css
+├── @import "tailwindcss"     # Tailwind v4 기본
+├── :root { ... }              # shadcn CSS 변수 (Light mode)
+├── .dark { ... }              # shadcn CSS 변수 (Dark mode)
+└── @theme { ... }             # Tailwind 테마 확장 (--color-*, --radius-*)
+```
+
+**CSS 변수가 필요한 경우:**
+- 동적 스타일 계산이 필요할 때
+- Tailwind 클래스로 표현 불가능한 복잡한 값
+- 외부 라이브러리와의 호환성
 
 ---
 
@@ -74,7 +116,7 @@
    - "일반적인 스타일로 만들겠습니다" 금지
 
 3. [필수] 토큰 매핑
-   - 사용자 요구사항을 tokens.css 변수로 변환
+   - 사용자 요구사항을 Tailwind 클래스로 변환
    - 매핑 불가능한 값은 사용자에게 대안 제시
 
 4. [필수] Anti-pattern 체크
@@ -111,13 +153,13 @@
 | ❌ 금지 표현 | ✅ 대체 표현 |
 |-------------|-------------|
 | "예쁘게" | 구체적인 토큰 조합 명시 |
-| "모던하게" | `--radius-md`, `--spacing-4` 등 토큰 사용 |
+| "모던하게" | `rounded-md`, `p-4` 등 Tailwind 클래스 사용 |
 | "깔끔하게" | 여백과 정렬 토큰 명시 |
 | "적당히" | 정확한 토큰 값 사용 |
 | "보기 좋게" | 구체적인 레이아웃 규칙 적용 |
 | "자연스럽게" | 명시적인 트랜지션/애니메이션 값 |
 
-**원칙**: 모든 시각적 속성은 `tokens.css`의 변수로 표현 가능해야 한다.
+**원칙**: 모든 시각적 속성은 Tailwind 클래스 또는 `globals.css`의 테마 변수로 표현 가능해야 한다.
 
 ---
 
@@ -125,19 +167,22 @@
 
 ### 2.1 Border Radius
 
-```css
-/* 기본값: --radius-md (4px) */
+```tsx
+// ✅ Tailwind 클래스 사용 (권장)
+<div className="rounded-md">  {/* 4px */}
+
+// CSS 변수 사용 (필요시)
 border-radius: var(--radius-md);
 ```
 
-| 용도 | 토큰 | 값 |
-|------|------|-----|
-| 미세 라운드 (태그, 뱃지) | `--radius-sm` | 2px |
-| **기본값** (버튼, 인풋) | `--radius-md` | 4px |
-| 카드, 모달 | `--radius-lg` | 6px |
-| 큰 카드, 다이얼로그 | `--radius-xl` | 8px |
-| 대형 컨테이너 | `--radius-2xl` | 12px |
-| 원형 (아바타, 토글) | `--radius-full` | 9999px |
+| 용도 | Tailwind 클래스 | CSS 변수 | 값 |
+|------|-----------------|----------|-----|
+| 미세 라운드 (태그, 뱃지) | `rounded-sm` | `--radius-sm` | 2px |
+| **기본값** (버튼, 인풋) | `rounded-md` | `--radius-md` | 4px |
+| 카드, 모달 | `rounded-lg` | `--radius-lg` | 6px |
+| 큰 카드, 다이얼로그 | `rounded-xl` | `--radius-xl` | 8px |
+| 대형 컨테이너 | `rounded-2xl` | `--radius-2xl` | 12px |
+| 원형 (아바타, 토글) | `rounded-full` | `--radius-full` | 9999px |
 
 **디자인 근거:**
 - 6px 이하의 subtle radius가 더 세련되고 professional한 인상
@@ -149,48 +194,65 @@ border-radius: var(--radius-md);
 
 ### 2.2 간격 (Spacing)
 
-모든 간격은 8px 단위 토큰만 사용한다.
+모든 간격은 Tailwind의 4px 기반 스케일을 사용한다.
 
-```css
-/* ✅ 올바른 사용 */
-padding: var(--spacing-4);      /* 32px */
-margin: var(--spacing-2);       /* 16px */
-gap: var(--spacing-3);          /* 24px */
+```tsx
+// ✅ 올바른 사용: Tailwind 클래스
+<div className="p-4">      {/* 16px */}
+<div className="m-2">      {/* 8px */}
+<div className="gap-6">    {/* 24px */}
+<div className="space-y-4"> {/* 자식 요소 간격 16px */}
 
-/* ❌ 금지 */
-padding: 30px;                  /* 임의의 값 */
-margin: 1.5rem;                 /* rem 단위 */
-gap: 10px;                      /* 8px 단위 아님 */
+// ❌ 금지
+<div style={{ padding: '30px' }}>     {/* 임의의 값 */}
+<div style={{ margin: '1.5rem' }}>    {/* rem 직접 사용 */}
+<div style={{ gap: '10px' }}>         {/* 4px 단위 아님 */}
 ```
 
-**토큰 예시**:
-- `--spacing-1`: 8px (인라인 요소 간격)
-- `--spacing-2`: 16px (컴포넌트 내부 패딩)
-- `--spacing-3`: 24px (카드 패딩)
-- `--spacing-4`: 32px (섹션 간격)
+**Tailwind 간격 스케일**:
+| 클래스 | 값 | 용도 |
+|--------|-----|------|
+| `p-1`, `m-1`, `gap-1` | 4px | 미세 간격 |
+| `p-2`, `m-2`, `gap-2` | 8px | 인라인 요소 간격 |
+| `p-4`, `m-4`, `gap-4` | 16px | 컴포넌트 내부 패딩 |
+| `p-6`, `m-6`, `gap-6` | 24px | 카드 패딩 |
+| `p-8`, `m-8`, `gap-8` | 32px | 섹션 간격 |
+| `p-12`, `m-12`, `gap-12` | 48px | 대형 섹션 간격 |
 
 ### 2.3 색상 (Colors)
 
-`tokens.css` 외부의 색상 도입 금지.
+`globals.css` 외부의 색상 도입 금지.
 
-```css
-/* ✅ 올바른 사용 */
-color: var(--color-foreground);
-background: var(--color-background);
-border-color: var(--color-border);
+```tsx
+// ✅ 올바른 사용: Tailwind 클래스 (권장)
+<p className="text-foreground">기본 텍스트</p>
+<p className="text-muted-foreground">보조 텍스트</p>
+<div className="bg-background">기본 배경</div>
+<div className="bg-primary text-primary-foreground">주요 액션</div>
+<div className="border-border">테두리</div>
 
-/* ❌ 금지 */
-color: #333;                    /* 하드코딩 */
-background: rgb(255, 255, 255); /* rgb 직접 사용 */
-border-color: gray;             /* 키워드 사용 */
+// CSS 변수 사용 (필요시)
+color: hsl(var(--foreground));
+background: hsl(var(--background));
+border-color: hsl(var(--border));
+
+// ❌ 금지
+<div style={{ color: '#333' }}>          {/* 하드코딩 */}
+<div style={{ background: 'white' }}>    {/* 키워드 */}
+<div className="bg-[#f5f5f5]">           {/* arbitrary value */}
 ```
 
-**의미 기반 토큰 우선 사용**:
-- `--color-foreground`: 기본 텍스트
-- `--color-muted`: 보조 텍스트
-- `--color-background`: 기본 배경
-- `--color-primary`: 주요 액션
-- `--color-destructive`: 위험/삭제 액션
+**의미 기반 색상 클래스**:
+| Tailwind 클래스 | 용도 |
+|-----------------|------|
+| `text-foreground` | 기본 텍스트 |
+| `text-muted-foreground` | 보조 텍스트 |
+| `bg-background` | 기본 배경 |
+| `bg-muted` | 보조 배경 |
+| `bg-primary`, `text-primary-foreground` | 주요 액션 |
+| `bg-destructive`, `text-destructive-foreground` | 위험/삭제 액션 |
+| `border-border` | 기본 테두리 |
+| `border-input` | 입력 필드 테두리 |
 
 ### 2.4 화면당 컴포넌트 수
 
@@ -671,27 +733,27 @@ UI 생성 시 반드시 다음 4단계를 순서대로 수행한다.
 - 기존 컴포넌트로 해결 가능한가?
 ```
 
-### Step 2: 토큰/컴포넌트 선택 (Selection)
+### Step 2: Tailwind/컴포넌트 선택 (Selection)
 
-tokens.css와 @design-geniefy/ui에서 사용할 요소를 선택한다.
+Tailwind 클래스와 @design-geniefy/ui에서 사용할 요소를 선택한다.
 
 ```
 체크리스트:
-- [ ] 사용할 색상 토큰 목록 (최대 3개)
-- [ ] 사용할 간격 토큰 목록
-- [ ] 사용할 radius 토큰
+- [ ] 사용할 색상 클래스 목록 (최대 3개)
+- [ ] 사용할 간격 클래스 목록
+- [ ] 사용할 radius 클래스
 - [ ] @design-geniefy/ui 컴포넌트 중 재사용 가능한 것
 ```
 
-**토큰 선택 예시**:
-```css
+**Tailwind 클래스 선택 예시**:
+```tsx
 /* 카드 컴포넌트 */
---color-background      /* 배경 */
---color-foreground      /* 제목 텍스트 */
---color-muted           /* 설명 텍스트 */
---spacing-4             /* 내부 패딩 (16px) */
---spacing-2             /* 요소 간 간격 (8px) */
---radius-lg             /* 모서리 (6px) */
+bg-background        /* 배경 */
+text-foreground      /* 제목 텍스트 */
+text-muted-foreground /* 설명 텍스트 */
+p-4                  /* 내부 패딩 (16px) */
+space-y-2            /* 요소 간 간격 (8px) */
+rounded-lg           /* 모서리 (6px) */
 ```
 
 ### Step 3: 검증 (Validation)
@@ -700,9 +762,10 @@ tokens.css와 @design-geniefy/ui에서 사용할 요소를 선택한다.
 
 ```
 검증 체크리스트:
-- [ ] 하드코딩된 색상 없음 (#fff, rgb 등)
-- [ ] 하드코딩된 간격 없음 (px, rem 직접 사용)
-- [ ] radius는 토큰 사용
+- [ ] Tailwind 클래스 사용 (style 속성 최소화)
+- [ ] 하드코딩된 색상 없음 (#fff, rgb, bg-[#xxx] 등)
+- [ ] 하드코딩된 간격 없음 (px, rem, p-[20px] 등)
+- [ ] radius는 Tailwind 클래스 (rounded-*) 사용
 - [ ] 컴포넌트 수 ≤ 7
 - [ ] 배경/강조 색상 수 ≤ 3
 - [ ] 모호한 주석 없음 ("예쁘게" 등)
@@ -710,7 +773,7 @@ tokens.css와 @design-geniefy/ui에서 사용할 요소를 선택한다.
 - [ ] 인터랙션 효과 중첩 없음 (배경색 변경만 사용)
 - [ ] 이모지/텍스트 아이콘 없음 (SVG만 사용)
 - [ ] shadow 없음 (dropdown/modal/toast 제외)
-- [ ] Button/Tag/Menu 등 nowrap 적용됨
+- [ ] Button/Tag/Menu 등 whitespace-nowrap 적용됨
 - [ ] 레이아웃: Header가 Sidebar 위에 있음
 - [ ] 반응형: 고정 width 없음 (아이콘/아바타/사이드바 제외)
 - [ ] 배경색: html/body에서 단일 지정 (레이어 중첩 없음)
@@ -735,121 +798,85 @@ tokens.css와 @design-geniefy/ui에서 사용할 요소를 선택한다.
 
 ---
 
-## 4. 토큰 참조 예시
+## 4. Tailwind 사용 예시
 
 ### 예시 1: 기본 버튼
 
-```css
-.button {
-  /* 간격 */
-  padding: var(--spacing-1-5) var(--spacing-3);  /* 6px 12px */
+```tsx
+// ✅ Tailwind 클래스 사용 (권장)
+<button className="px-3 py-1.5 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90">
+  버튼
+</button>
 
-  /* 색상 */
-  background: var(--color-primary);
-  color: var(--color-primary-foreground);
-
-  /* 형태 */
-  border-radius: var(--radius-md);  /* 4px */
-
-  /* 타이포그래피 */
-  font-size: var(--font-size-sm);   /* 14px */
-  font-weight: var(--font-weight-medium);
-}
-
-.button:hover {
-  background: var(--primary-600);  /* 한 단계 어두운 톤 */
-}
+// shadcn Button 컴포넌트 사용 시
+import { Button } from '@design-geniefy/ui';
+<Button variant="default">버튼</Button>
 ```
 
 ### 예시 2: 카드 컴포넌트
 
-```css
-.card {
-  /* 간격 */
-  padding: var(--spacing-3);        /* 12px */
+```tsx
+// ✅ Tailwind 클래스 사용 (권장)
+<article className="p-6 bg-background border border-border rounded-lg">
+  <h3 className="text-foreground text-lg font-semibold mb-2">제목</h3>
+  <p className="text-muted-foreground text-sm">설명 텍스트</p>
+</article>
 
-  /* 색상 */
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-
-  /* 형태 */
-  border-radius: var(--radius-lg);  /* 6px */
-}
-
-.card-title {
-  color: var(--color-foreground);
-  font-size: var(--font-size-lg);   /* 18px */
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--spacing-1);  /* 8px */
-}
-
-.card-description {
-  color: var(--color-muted);
-  font-size: var(--font-size-sm);   /* 14px */
-}
+// shadcn Card 컴포넌트 사용 시
+import { Card, CardHeader, CardTitle, CardDescription } from '@design-geniefy/ui';
+<Card>
+  <CardHeader>
+    <CardTitle>제목</CardTitle>
+    <CardDescription>설명 텍스트</CardDescription>
+  </CardHeader>
+</Card>
 ```
 
 ### 예시 3: 입력 필드
 
-```css
-.input {
-  /* 간격 */
-  padding: var(--spacing-1-5) var(--spacing-2);  /* 6px 8px */
+```tsx
+// ✅ Tailwind 클래스 사용 (권장)
+<input
+  className="px-2 py-1.5 bg-background text-foreground border border-input rounded-md text-base placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+  placeholder="입력하세요"
+/>
 
-  /* 색상 */
-  background: var(--color-background);
-  color: var(--color-foreground);
-  border: 1px solid var(--color-input);
-
-  /* 형태 */
-  border-radius: var(--radius-md);  /* 4px */
-
-  /* 타이포그래피 */
-  font-size: var(--font-size-base); /* 16px */
-}
-
-.input:focus {
-  border-color: var(--color-ring);
-  outline: 2px solid var(--color-ring);
-  outline-offset: 2px;
-}
-
-.input::placeholder {
-  color: var(--color-muted);
-}
+// shadcn Input 컴포넌트 사용 시
+import { Input } from '@design-geniefy/ui';
+<Input placeholder="입력하세요" />
 ```
 
 ---
 
-## 5. 토큰 보호 규칙 (Token Safety)
+## 5. 테마 보호 규칙 (Theme Safety)
 
-CDN으로 즉시 반영되는 tokens.css의 Breaking Change를 방지하기 위한 규칙.
+`globals.css`의 테마 변수 Breaking Change를 방지하기 위한 규칙.
 
-### 5.1 토큰 삭제 금지
+### 5.1 테마 변수 삭제 금지
 
-**기존 토큰명을 삭제하거나 변경하면 Breaking Change 발생**
+**기존 CSS 변수명을 삭제하거나 변경하면 Breaking Change 발생**
 
 ```css
-/* ❌ 금지: 기존 토큰 삭제 */
-/* --color-primary 삭제 시 모든 프로젝트 스타일 깨짐 */
+/* ❌ 금지: 기존 변수 삭제 */
+/* --primary 삭제 시 모든 프로젝트 스타일 깨짐 */
 
-/* ❌ 금지: 기존 토큰명 변경 */
-/* --color-primary → --color-brand 변경 불가 */
+/* ❌ 금지: 기존 변수명 변경 */
+/* --primary → --brand 변경 불가 */
 
-/* ✅ 허용: 새 토큰 추가 */
---color-brand: #327039;  /* 새 토큰 추가는 안전 */
+/* ✅ 허용: 새 변수 추가 */
+--brand: 140 50% 40%;  /* 새 변수 추가는 안전 */
 
-/* ✅ 허용: 기존 토큰 값 변경 */
---color-primary: #327039;  /* 값 변경은 의도적 디자인 변경 */
+/* ✅ 허용: 기존 변수 값 변경 */
+--primary: 140 50% 40%;  /* 값 변경은 의도적 디자인 변경 */
 ```
 
-### 5.2 토큰 변경 시 검증 체크리스트
+### 5.2 테마 변경 시 검증 체크리스트
 
 ```
-토큰 변경 전 확인:
-- [ ] 삭제하려는 토큰을 사용 중인 프로젝트가 없는가?
-- [ ] 토큰명 변경 시 모든 프로젝트에서 동시 업데이트 가능한가?
-- [ ] 대체 토큰이 있다면 마이그레이션 가이드를 작성했는가?
+테마 변경 전 확인:
+- [ ] 삭제하려는 변수를 사용 중인 프로젝트가 없는가?
+- [ ] 변수명 변경 시 모든 프로젝트에서 동시 업데이트 가능한가?
+- [ ] 대체 변수가 있다면 마이그레이션 가이드를 작성했는가?
 - [ ] CODEOWNERS 리뷰를 받았는가?
 ```
 
@@ -857,9 +884,9 @@ CDN으로 즉시 반영되는 tokens.css의 Breaking Change를 방지하기 위�
 
 | 보호 장치 | 파일 | 역할 |
 |----------|------|------|
-| CODEOWNERS | `.github/CODEOWNERS` | tokens.css 변경 시 관리자 리뷰 필수 |
-| CI Check | `.github/workflows/token-change-check.yml` | PR에서 토큰 삭제 감지 및 경고 |
-| Generation Protocol | Step 3 검증 | 토큰 미사용 코드 생성 차단 |
+| CODEOWNERS | `.github/CODEOWNERS` | globals.css 변경 시 관리자 리뷰 필수 |
+| CI Check | `.github/workflows/theme-change-check.yml` | PR에서 테마 변수 삭제 감지 및 경고 |
+| Generation Protocol | Step 3 검증 | 테마 미사용 코드 생성 차단 |
 
 ---
 
@@ -909,3 +936,4 @@ const StatCard = ({ label, value }) => (
 | 2026-01-19 | v1.0 | 모호 표현 금지, 필수 제약 5가지, Generation Protocol 4단계, 토큰 예시 추가 |
 | 2026-01-22 | v1.1 | Token Safety 섹션 추가 (CODEOWNERS, CI Check, 토큰 보호 규칙) |
 | 2026-01-27 | v1.2 | radius 축소, 컨테이너 중첩 금지, 인터랙션 효과 금지, 이모지/텍스트 아이콘 금지, shadow 제한, nowrap 필수, Header>Sidebar 위계, 반응형 필수, 배경 단일 레이어, 최소 DOM 구조 |
+| 2026-01-30 | v1.3 | **Tailwind First 원칙 추가**: tokens.css → globals.css + Tailwind v4 @theme 구조로 전환. CSS 변수 대신 Tailwind 유틸리티 클래스 우선 사용. 모든 예시 코드 Tailwind 클래스로 업데이트. 경로 수정 (src/components/ → components/) |
