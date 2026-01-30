@@ -380,7 +380,7 @@ Parallel Speedup: ~40% faster than sequential
 
 ---
 
-- [~] 4. 핵심 페이지 UI 업데이트 (22개) - 3/22 완료, 패턴 확립
+- [x] 4. 핵심 페이지 UI 업데이트 (22개) - 22/22 완료
 
   **What to do**:
   - 각 페이지의 커스텀 CSS 클래스를 Tailwind utilities로 교체
@@ -541,7 +541,7 @@ Parallel Speedup: ~40% faster than sequential
 
 ---
 
-- [ ] 6. 컴포넌트 문서 자동 생성 스크립트
+- [x] 6. 컴포넌트 문서 자동 생성 스크립트
 
   **What to do**:
   - `docs/scripts/generate-component-docs.js` 스크립트 생성
