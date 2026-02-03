@@ -1,10 +1,22 @@
 {
-  "generatedAt": "2026-01-30T09:14:46.532Z",
-  "totalChanges": 31,
+  "generatedAt": "2026-01-30T09:27:25.636Z",
+  "totalChanges": 32,
   "data": [
     {
       "date": "2026-01-30",
       "items": [
+        {
+          "id": "529f3af",
+          "type": "docs",
+          "title": "refactor(docs): replace emoji with lucide-react icons and consolidate components",
+          "author": "김한솔",
+          "date": "2026-01-30",
+          "time": "18:18",
+          "files": [
+            "docs/app/status/changes/components/page.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/529f3afd9ccbb06c37294ff8bdf4a7e63a58e2e5"
+        },
         {
           "id": "7056ddb",
           "type": "docs",

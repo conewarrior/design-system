@@ -30,10 +30,18 @@ npm run build        # TypeScript 컴파일 (dist/ 생성)
 # docs/ (문서 사이트)
 cd docs
 npm run dev          # 개발 서버 (localhost:3000)
-npm run build        # 프로덕션 빌드
+npm run build        # 프로덕션 빌드 (prebuild 스크립트 자동 실행)
 npm run lint         # ESLint 검사 (page.tsx 파일만)
 npm run lint:fix     # ESLint 자동 수정
 ```
+
+### prebuild 스크립트 (npm run build 시 자동 실행)
+
+| 스크립트 | 생성 파일 | 역할 |
+|----------|-----------|------|
+| `generate-changelog.js` | `data/changelog.json` | git 커밋에서 변경 이력 추출 |
+| `generate-updates.js` | `data/updates.json` | npm 버전/프로젝트 채택 현황 |
+| `extract-versions.js` | `data/component-versions.json`, `data/version-codes.json` | 버전별 컴포넌트 코드 |
 
 ## 프로젝트 구조
 
@@ -46,7 +54,13 @@ design-system/
 ├── hooks/use-mobile.tsx    # 모바일 감지 훅
 ├── docs/                   # Next.js 14 App Router 문서 사이트
 │   ├── app/                # 페이지 라우트
-│   ├── ui/                 # 문서 전용 컴포넌트 (PageHeader, CodeBlock 등)
+│   ├── ui/                 # 문서 전용 레이아웃 컴포넌트 (6개)
+│   │   ├── PageHeader.tsx      # 페이지 제목 + 설명 + Separator
+│   │   ├── CodeBlock.tsx       # 코드 블록 + 복사 버튼
+│   │   ├── MarkdownRenderer.tsx # 마크다운 파싱 (design-rules.md용)
+│   │   ├── Sidebar.tsx         # 사이드바 네비게이션
+│   │   ├── TopNav.tsx          # 상단 네비게이션
+│   │   └── LayoutClient.tsx    # 레이아웃 클라이언트
 │   ├── styles/globals.css  # Tailwind v4 @theme 토큰 + 유틸리티 클래스
 │   ├── data/               # 자동 생성 JSON (changelog, updates 등)
 │   └── scripts/            # prebuild 스크립트 (changelog, version 추출)
@@ -68,9 +82,10 @@ import { useIsMobile } from "../hooks/use-mobile"
 // docs에서 컴포넌트 참조 (tsconfig paths)
 import { Button } from "@components/button"
 
-// docs에서 문서 전용 컴포넌트
+// docs에서 문서 전용 레이아웃 컴포넌트
 import { PageHeader } from '../../ui/PageHeader'
 import { CodeBlock } from '../../ui/CodeBlock'
+import { Sidebar } from '../../ui/Sidebar'
 
 // npm 패키지 사용자
 import { Button, Input, cn } from "@design-geniefy/ui"
@@ -97,6 +112,22 @@ import { Button, Input, cn } from "@design-geniefy/ui"
 - 그룹 헤더: `text-card-title text-muted-foreground`
 - 숫자 인디케이터: `text-caption font-medium`
 - 강조 텍스트: `font-medium` 또는 `font-semibold`
+
+## ESLint 규칙 (docs)
+
+페이지 파일(`app/**/page.tsx`)에서 **로컬 컴포넌트 정의 금지**:
+
+```tsx
+// ❌ 금지: page.tsx 내에서 컴포넌트 정의
+function MyCard() { ... }
+const MyButton = () => { ... }
+
+// ✅ 올바른 사용: import
+import { Card } from '@components/card'
+import { PageHeader } from '../../ui/PageHeader'
+```
+
+Page 컴포넌트(`export default function XxxPage`)는 예외.
 
 ## Claude Code 커맨드/스킬
 
