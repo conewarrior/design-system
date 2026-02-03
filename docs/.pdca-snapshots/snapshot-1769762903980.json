@@ -1,0 +1,437 @@
+{
+  "timestamp": "2026-01-30T08:48:23.980Z",
+  "reason": "compaction",
+  "status": {
+    "version": "1.0.0",
+    "last_updated": "2026-01-20T00:00:00.000Z",
+    "project_level": "dynamic",
+    "features": {
+      "docs-site": {
+        "name": "Design System 문서 사이트",
+        "status": "plan",
+        "plan": "design-workflow/docs-site-plan.md",
+        "design": null,
+        "created": "2026-01-20"
+      },
+      "design-system": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-27T09:18:30.972Z",
+          "lastUpdated": "2026-01-29T06:53:18.298Z"
+        }
+      },
+      "ui": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-27T09:18:53.327Z",
+          "lastUpdated": "2026-01-29T08:08:36.841Z"
+        }
+      },
+      "dropdown": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-27T09:25:56.330Z",
+          "lastUpdated": "2026-01-27T09:25:56.330Z"
+        }
+      },
+      "portfolio": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:22:13.067Z",
+          "lastUpdated": "2026-01-28T04:23:01.609Z"
+        }
+      },
+      "ds": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:23:09.873Z",
+          "lastUpdated": "2026-01-28T04:23:09.873Z"
+        }
+      },
+      "[slide]": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:23:19.939Z",
+          "lastUpdated": "2026-01-28T07:03:54.298Z"
+        }
+      },
+      "slides": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:24:11.867Z",
+          "lastUpdated": "2026-01-28T07:03:46.182Z"
+        }
+      },
+      "cro": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:26:02.509Z",
+          "lastUpdated": "2026-01-28T04:26:02.509Z"
+        }
+      },
+      "tokens-to-tailwind": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-29T02:11:50.400Z",
+          "lastUpdated": "2026-01-29T02:11:50.400Z"
+        }
+      },
+      "docs": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-29T02:14:09.038Z",
+          "lastUpdated": "2026-01-29T08:15:12.982Z"
+        }
+      },
+      "data": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-29T07:24:18.642Z",
+          "lastUpdated": "2026-01-29T07:29:14.587Z"
+        }
+      },
+      "[slug]": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-29T07:27:59.305Z",
+          "lastUpdated": "2026-01-29T07:28:30.680Z"
+        }
+      }
+    },
+    "quick_changes": [],
+    "statistics": {
+      "total_features": 1,
+      "completed": 0,
+      "in_progress": 1,
+      "quick_changes_count": 0
+    },
+    "activeFeatures": [
+      "design-system",
+      "ui",
+      "dropdown",
+      "portfolio",
+      "ds",
+      "[slide]",
+      "slides",
+      "cro",
+      "tokens-to-tailwind",
+      "docs",
+      "data",
+      "[slug]"
+    ],
+    "pipeline": {
+      "currentPhase": 1,
+      "level": "Dynamic",
+      "phaseHistory": []
+    },
+    "session": {
+      "startedAt": "2026-01-27T09:18:30.972Z",
+      "onboardingCompleted": false,
+      "lastActivity": "2026-01-29T08:18:09.739Z"
+    },
+    "history": [
+      {
+        "timestamp": "2026-01-27T09:18:30.972Z",
+        "feature": "design-system",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-27T09:18:53.327Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-27T09:25:56.330Z",
+        "feature": "dropdown",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:21:57.503Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:22:13.067Z",
+        "feature": "portfolio",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:23:01.609Z",
+        "feature": "portfolio",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:23:09.873Z",
+        "feature": "ds",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:23:19.939Z",
+        "feature": "[slide]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:24:11.867Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:24:11.945Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:24:12.017Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:01.430Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:01.504Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:01.580Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:47.601Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:47.674Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:47.753Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:02.509Z",
+        "feature": "cro",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:02.592Z",
+        "feature": "[slide]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:50.621Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:50.707Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:50.783Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:28:12.185Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:28:12.268Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:28:12.346Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:28:12.425Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T07:03:46.182Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T07:03:54.298Z",
+        "feature": "[slide]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T02:11:50.400Z",
+        "feature": "tokens-to-tailwind",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T02:14:09.038Z",
+        "feature": "docs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T06:53:18.298Z",
+        "feature": "design-system",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:21:46.309Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:24:18.642Z",
+        "feature": "data",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:25:00.223Z",
+        "feature": "docs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:27:59.305Z",
+        "feature": "[slug]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:28:30.680Z",
+        "feature": "[slug]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:28:51.098Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:29:14.587Z",
+        "feature": "data",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T08:08:36.841Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T08:15:12.982Z",
+        "feature": "docs",
+        "phase": "do",
+        "action": "updated"
+      }
+    ],
+    "primaryFeature": "docs",
+    "lastUpdated": "2026-01-29T08:18:09.739Z"
+  }
+}
