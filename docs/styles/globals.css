@@ -4,6 +4,11 @@
 
 @config "../tailwind.config.ts";
 
+/* Explicit source paths for reliable class detection */
+@source "../app/**/*.{ts,tsx}";
+@source "../ui/**/*.{ts,tsx}";
+@source "../../components/**/*.{ts,tsx}";
+
 @custom-variant dark (&:is(.dark *));
 
 /* ==========================================================================
