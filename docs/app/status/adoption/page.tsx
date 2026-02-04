@@ -5,7 +5,9 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import { PageHeader } from '../../../ui/PageHeader';
+import { Callout } from '../../../ui/Callout';
 import { Badge } from '@components/badge';
+import { Kbd } from '@components/kbd';
 import { Progress } from '@components/progress';
 import {
   Table,
@@ -94,13 +96,13 @@ export default async function AdoptionPage() {
       />
 
       {error && (
-        <div className="rounded-md border border-destructive/50 bg-destructive/10 p-4 text-sm">
+        <Callout variant="destructive">
           데이터 로드 중 오류 발생: {error}
-        </div>
+        </Callout>
       )}
 
       {/* Summary Card */}
-      <div className="rounded-md border p-6 space-y-4">
+      <div className="rounded-lg border p-6 space-y-4">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-sm text-muted-foreground">최신 버전</div>
@@ -183,9 +185,9 @@ export default async function AdoptionPage() {
       </div>
 
       {/* Metadata */}
-      <div className="rounded-md bg-muted/50 p-4 text-body-sm">
+      <Callout>
         마지막 업데이트: {new Date(generatedAt).toLocaleString('ko-KR')}
-      </div>
+      </Callout>
 
       {/* Opt-in Section */}
       <section className="space-y-4">
@@ -196,21 +198,21 @@ export default async function AdoptionPage() {
         <div className="grid gap-3 sm:grid-cols-3">
           <div className="rounded-md border p-3 space-y-1">
             <div className="text-sm font-medium">환경변수</div>
-            <code className="text-xs bg-muted px-1 py-0.5 rounded block">
+            <Kbd className="block w-full">
               DESIGN_SYSTEM_REPORT=true
-            </code>
+            </Kbd>
           </div>
           <div className="rounded-md border p-3 space-y-1">
             <div className="text-sm font-medium">.designrc</div>
-            <code className="text-xs bg-muted px-1 py-0.5 rounded block">
+            <Kbd className="block w-full">
               {`{ "report": true }`}
-            </code>
+            </Kbd>
           </div>
           <div className="rounded-md border p-3 space-y-1">
             <div className="text-sm font-medium">package.json</div>
-            <code className="text-xs bg-muted px-1 py-0.5 rounded block">
+            <Kbd className="block w-full">
               {`"designSystem": { "report": true }`}
-            </code>
+            </Kbd>
           </div>
         </div>
         <p className="text-xs text-muted-foreground">

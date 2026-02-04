@@ -1,4 +1,5 @@
 import { PageHeader } from '../../../ui/PageHeader';
+import { Kbd } from '@components/kbd';
 import {
   Table,
   TableBody,
@@ -51,12 +52,12 @@ export default function TypographyPage() {
           <div className="rounded-md border p-4 space-y-2">
             <div className="text-label">Sans (기본)</div>
             <div className="font-sans text-2xl">Pretendard Variable</div>
-            <code className="text-xs text-muted-foreground">--font-sans</code>
+            <Kbd className="text-muted-foreground">--font-sans</Kbd>
           </div>
           <div className="rounded-md border p-4 space-y-2">
             <div className="text-label">Mono (코드)</div>
             <div className="font-mono text-2xl">Fira Code</div>
-            <code className="text-xs text-muted-foreground">--font-mono</code>
+            <Kbd className="text-muted-foreground">--font-mono</Kbd>
           </div>
         </div>
       </section>

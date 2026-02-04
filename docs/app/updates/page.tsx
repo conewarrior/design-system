@@ -5,6 +5,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import { PageHeader } from '../../ui/PageHeader';
+import { Callout } from '../../ui/Callout';
 import { Badge } from '@components/badge';
 import { Progress } from '@components/progress';
 import {
@@ -95,13 +96,13 @@ export default async function UpdatesPage() {
       />
 
       {error && (
-        <div className="rounded-md border border-destructive/50 bg-destructive/10 p-4 text-sm">
+        <Callout variant="destructive">
           데이터 로드 중 오류 발생: {error}
-        </div>
+        </Callout>
       )}
 
       {/* Summary Card */}
-      <div className="rounded-md border p-6 space-y-4">
+      <div className="rounded-lg border p-6 space-y-4">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-sm text-muted-foreground">최신 버전</div>
@@ -184,9 +185,9 @@ export default async function UpdatesPage() {
       </div>
 
       {/* Metadata */}
-      <div className="rounded-md bg-muted/50 p-4 text-body-sm">
+      <Callout>
         마지막 업데이트: {new Date(generatedAt).toLocaleString('ko-KR')}
-      </div>
+      </Callout>
     </div>
   );
 }

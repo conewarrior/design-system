@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import { PageHeader } from '../../../../ui/PageHeader';
+import { Callout } from '../../../../ui/Callout';
 import { Badge } from '@components/badge';
 import { ExternalLink } from 'lucide-react';
 
@@ -160,9 +161,9 @@ export default async function ComponentsChangesPage() {
         </div>
       )}
 
-      <div className="rounded-md bg-muted/50 p-4 text-body-sm">
+      <Callout>
         마지막 업데이트: {new Date(changelog.generatedAt).toLocaleString('ko-KR')}
-      </div>
+      </Callout>
 
     </div>
   );

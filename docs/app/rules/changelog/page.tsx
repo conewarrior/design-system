@@ -1,3 +1,7 @@
+import { PageHeader } from '../../../ui/PageHeader';
+import { Badge } from '@components/badge';
+import { Separator } from '@components/separator';
+
 export default function RulesChangelogPage() {
   const versions = [
     {
@@ -20,24 +24,32 @@ export default function RulesChangelogPage() {
   ];
 
   return (
-    <div className="rules-changelog-page">
-      <header className="page-header">
-        <h1>Design Rules Changelog</h1>
-        <p>design-rules.md의 버전별 변경 이력입니다.</p>
-      </header>
+    <div className="space-y-8">
+      <PageHeader
+        title="Design Rules Changelog"
+        description="design-rules.md의 버전별 변경 이력입니다."
+      />
 
-      <div className="changelog-timeline">
-        {versions.map((version) => (
-          <article key={version.version} className="changelog-version">
-            <div className="version-header">
-              <span className="version-badge">{version.version}</span>
-              <time className="version-date">{version.date}</time>
+      <div className="space-y-6">
+        {versions.map((version, index) => (
+          <article key={version.version}>
+            <div className="flex items-center gap-3 mb-3">
+              <Badge variant="secondary" className="font-mono">
+                {version.version}
+              </Badge>
+              <time className="text-sm text-muted-foreground">
+                {version.date}
+              </time>
             </div>
-            <ul className="version-changes">
+            <ul className="space-y-2 pl-4">
               {version.changes.map((change, i) => (
-                <li key={i}>{change}</li>
+                <li key={i} className="text-sm text-muted-foreground flex gap-2">
+                  <span className="text-primary">•</span>
+                  <span>{change}</span>
+                </li>
               ))}
             </ul>
+            {index < versions.length - 1 && <Separator className="mt-6" />}
           </article>
         ))}
       </div>

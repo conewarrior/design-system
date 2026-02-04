@@ -1,4 +1,5 @@
 import { PageHeader } from '../../../ui/PageHeader';
+import { Kbd } from '@components/kbd';
 import {
   Table,
   TableBody,
@@ -29,7 +30,7 @@ export default function RadiusPage() {
       <section className="space-y-4">
         <p className="text-muted-foreground leading-relaxed">
           일관된 모서리 둥글기를 위한 토큰입니다. 컴포넌트 용도에 맞는 적절한 radius를 선택하세요.
-          기본값은 <code className="text-sm bg-muted px-1 py-0.5 rounded">rounded-md</code> (4px)입니다.
+          기본값은 <Kbd>rounded-md</Kbd> (4px)입니다.
         </p>
       </section>
 

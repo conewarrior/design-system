@@ -1,6 +1,10 @@
 import { CodeBlock } from '../../../ui/CodeBlock';
 import { PageHeader } from '../../../ui/PageHeader';
+import { ContentBox } from '../../../ui/ContentBox';
+import { Callout } from '../../../ui/Callout';
 import { Separator } from '@components/separator';
+import { Badge } from '@components/badge';
+import { Kbd } from '@components/kbd';
 import {
   Accordion,
   AccordionContent,
@@ -37,8 +41,7 @@ export default function HowItWorksPage() {
           </li>
         </ul>
 
-        <div className="rounded-md border bg-muted/50 p-4 overflow-x-auto">
-          <pre className="text-xs font-mono">{`┌─────────────────────────────────────────────────────────────┐
+        <ContentBox>{`┌─────────────────────────────────────────────────────────────┐
 │              conewarrior/design-system (중앙)               │
 │                                                             │
 │   components/    tokens.css    docs/                        │
@@ -58,8 +61,7 @@ export default function HowItWorksPage() {
 │                                                             │
 │  Dependabot → PR → Auto-merge        Write → Hook → GitHub  │
 │  (새 버전 감지)                       (components/ 생성 시) │
-└─────────────────────────────────────────────────────────────┘`}</pre>
-        </div>
+└─────────────────────────────────────────────────────────────┘`}</ContentBox>
       </section>
 
       <Separator />
@@ -95,21 +97,21 @@ export default function HowItWorksPage() {
 
         <ol className="space-y-3 text-sm">
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">1</span>
+            <Badge variant="secondary" className="shrink-0">1</Badge>
             <div>
               <div className="font-medium">npm publish</div>
               <div className="text-muted-foreground">버전 태그(v*)를 push하면 GitHub Actions가 자동으로 npm에 배포</div>
             </div>
           </li>
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">2</span>
+            <Badge variant="secondary" className="shrink-0">2</Badge>
             <div>
               <div className="font-medium">Dependabot 감지</div>
               <div className="text-muted-foreground">매일 09:00 (KST)에 새 버전을 체크하고 PR 생성</div>
             </div>
           </li>
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">3</span>
+            <Badge variant="secondary" className="shrink-0">3</Badge>
             <div>
               <div className="font-medium">Auto-merge</div>
               <div className="text-muted-foreground">CI 통과 시 minor/patch는 자동 머지, major는 수동 리뷰</div>
@@ -146,21 +148,21 @@ updates:
 
         <ol className="space-y-3 text-sm">
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">1</span>
+            <Badge variant="secondary" className="shrink-0">1</Badge>
             <div>
               <div className="font-medium">Write/Edit 감지</div>
               <div className="text-muted-foreground">Claude Code가 components/ 폴더에 파일을 생성하면 Hook 트리거</div>
             </div>
           </li>
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">2</span>
+            <Badge variant="secondary" className="shrink-0">2</Badge>
             <div>
               <div className="font-medium">auto-contribute.sh</div>
               <div className="text-muted-foreground">gh CLI 또는 GitHub API를 사용하여 design-system 저장소에 직접 커밋</div>
             </div>
           </li>
           <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-caption font-medium">3</span>
+            <Badge variant="secondary" className="shrink-0">3</Badge>
             <div>
               <div className="font-medium">npm 배포</div>
               <div className="text-muted-foreground">커밋이 main에 반영되면 자동으로 새 버전 배포</div>
@@ -168,9 +170,9 @@ updates:
           </li>
         </ol>
 
-        <div className="rounded-md border border-primary/20 bg-primary/5 p-4 text-sm">
+        <Callout variant="info">
           <strong>gh CLI</strong> (권장) 또는 <strong>GITHUB_TOKEN</strong> 환경변수가 설정되어 있어야 합니다.
-        </div>
+        </Callout>
       </section>
 
       <Separator />
@@ -187,7 +189,7 @@ updates:
               <ol className="space-y-2 text-sm">
                 <li>
                   <strong>Dependabot 설정 확인</strong>
-                  <p className="text-muted-foreground"><code className="text-xs bg-muted px-1 py-0.5 rounded">.github/dependabot.yml</code> 파일이 있는지 확인</p>
+                  <p className="text-muted-foreground"><Kbd>.github/dependabot.yml</Kbd> 파일이 있는지 확인</p>
                 </li>
                 <li>
                   <strong>GitHub Actions 권한 확인</strong>
@@ -227,8 +229,8 @@ gh auth login`}</CodeBlock>
             </AccordionTrigger>
             <AccordionContent className="px-4 pb-4">
               <ol className="space-y-1 text-sm list-decimal list-inside">
-                <li><code className="text-xs bg-muted px-1 py-0.5 rounded">.claude/settings.local.json</code> 파일 확인</li>
-                <li><code className="text-xs bg-muted px-1 py-0.5 rounded">~/.claude/skills/design-rules.md</code> 파일 존재 확인</li>
+                <li><Kbd>.claude/settings.local.json</Kbd> 파일 확인</li>
+                <li><Kbd>~/.claude/skills/design-rules.md</Kbd> 파일 존재 확인</li>
                 <li>Claude Code 재시작</li>
               </ol>
             </AccordionContent>

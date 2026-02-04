@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import { PageHeader } from '../../ui/PageHeader';
+import { Callout } from '../../ui/Callout';
 import { Badge } from '@components/badge';
 import { ExternalLink } from 'lucide-react';
 
@@ -141,11 +142,11 @@ export default async function ChangelogPage() {
         </div>
       )}
 
-      <div className="rounded-md bg-muted/50 p-4 text-body-sm">
+      <Callout>
         <strong>자동 생성:</strong> Git 커밋 로그에서 추출된 데이터입니다.
         <br />
         마지막 업데이트: {new Date(generatedAt).toLocaleString('ko-KR')}
-      </div>
+      </Callout>
 
     </div>
   );

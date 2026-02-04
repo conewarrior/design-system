@@ -3,7 +3,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@components/tabs';
 import { CodeBlock } from '../../ui/CodeBlock';
 import { PageHeader } from '../../ui/PageHeader';
-import { Badge } from '@components/badge';
 import { Check } from 'lucide-react';
 
 export default function InstallPage() {
@@ -12,13 +11,7 @@ export default function InstallPage() {
       <PageHeader
         title="설치 가이드"
         description="3가지 방법으로 시작하세요"
-      >
-        <div className="flex gap-2">
-          <Badge variant="secondary">npm</Badge>
-          <Badge variant="secondary">CDN</Badge>
-          <Badge variant="secondary">Claude Code</Badge>
-        </div>
-      </PageHeader>
+      />
 
       <Tabs defaultValue="npm" className="w-full">
         <TabsList>

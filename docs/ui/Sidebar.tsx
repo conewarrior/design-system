@@ -141,7 +141,7 @@ export function Sidebar({ section, isMobileOpen, onMobileClose }: SidebarProps) 
           >
             {navigation.map((group) => (
               <div key={group.title} className="mb-6">
-                <div className="mb-2 px-2 text-sm font-semibold text-foreground">{group.title}</div>
+                <div className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{group.title}</div>
                 <div className="space-y-1">
                   {group.links.map((link) => (
                     <Link
@@ -172,7 +172,7 @@ export function Sidebar({ section, isMobileOpen, onMobileClose }: SidebarProps) 
         <div className="sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto py-6 pr-6 pl-8">
           {navigation.map((group) => (
             <div key={group.title} className="mb-6">
-              <div className="mb-2 px-2 text-sm font-semibold text-foreground">{group.title}</div>
+              <div className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{group.title}</div>
               <nav className="space-y-1">
                 {group.links.map((link) => (
                   <Link

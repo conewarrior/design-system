@@ -25,9 +25,8 @@ export function TopNav({ currentSection, onMobileMenuToggle, isMobileMenuOpen }:
     >
       <div className="container flex h-14 max-w-screen-2xl items-center px-4">
         <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <div className="h-6 w-6 rounded-md bg-primary" />
-            <span className="font-bold">@design-geniefy/ui</span>
+          <Link href="/" className="mr-6 flex items-center">
+            <span className="font-extrabold">@design-geniefy/ui</span>
           </Link>
         </div>
 
