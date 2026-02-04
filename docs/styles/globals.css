@@ -5,59 +5,426 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ==========================================================================
-   shadcn/ui Theme Variables
-   Tailwind v4 @theme + CSS variables for shadcn compatibility
+   Adobe Spectrum Inspired Color Palette
+   Based on Spectrum Design System principles
+   https://spectrum.adobe.com/page/color-palette/
    ========================================================================== */
 
 :root {
-  /* shadcn color tokens - Light mode */
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 24 95% 53%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 24 95% 53%;
+  /* ==========================================================================
+     Spectrum Gray Scale (Light Theme)
+     Neutral colors for backgrounds, borders, and text
+     ========================================================================== */
+  --spectrum-gray-50: 0 0% 100%;           /* #FFFFFF */
+  --spectrum-gray-75: 0 0% 98%;            /* #FAFAFA */
+  --spectrum-gray-100: 0 0% 96%;           /* #F5F5F5 */
+  --spectrum-gray-200: 0 0% 92%;           /* #EAEAEA */
+  --spectrum-gray-300: 0 0% 88%;           /* #E1E1E1 */
+  --spectrum-gray-400: 0 0% 79%;           /* #CACACA */
+  --spectrum-gray-500: 0 0% 70%;           /* #B3B3B3 */
+  --spectrum-gray-600: 0 0% 56%;           /* #8E8E8E */
+  --spectrum-gray-700: 0 0% 43%;           /* #6E6E6E */
+  --spectrum-gray-800: 0 0% 29%;           /* #4B4B4B */
+  --spectrum-gray-900: 0 0% 17%;           /* #2C2C2C */
+
+  /* ==========================================================================
+     Spectrum Blue (Primary/Accent)
+     Interactive elements, links, focus states
+     ========================================================================== */
+  --spectrum-blue-100: 205 100% 95%;       /* #E5F4FF */
+  --spectrum-blue-200: 205 100% 88%;       /* #C2E3FF */
+  --spectrum-blue-300: 205 100% 78%;       /* #9DD4FF */
+  --spectrum-blue-400: 210 95% 58%;        /* #378EF0 */
+  --spectrum-blue-500: 212 92% 54%;        /* #2680EB */
+  --spectrum-blue-600: 214 90% 49%;        /* #1473E6 */
+  --spectrum-blue-700: 216 88% 43%;        /* #0D66D0 */
+  --spectrum-blue-800: 218 86% 39%;        /* #095ABA */
+  --spectrum-blue-900: 220 84% 33%;        /* #0A4FA3 */
+
+  /* ==========================================================================
+     Spectrum Red (Error/Destructive)
+     Error states, destructive actions, alerts
+     ========================================================================== */
+  --spectrum-red-100: 0 100% 95%;          /* #FFE5E5 */
+  --spectrum-red-200: 0 100% 88%;          /* #FFC2C2 */
+  --spectrum-red-300: 0 95% 78%;           /* #FF9D9D */
+  --spectrum-red-400: 0 90% 65%;           /* #F76D6D */
+  --spectrum-red-500: 0 85% 58%;           /* #EB4B4B */
+  --spectrum-red-600: 0 80% 50%;           /* #E32C2C */
+  --spectrum-red-700: 0 85% 42%;           /* #C91A1A */
+  --spectrum-red-800: 0 90% 35%;           /* #AB0F0F */
+  --spectrum-red-900: 0 95% 28%;           /* #8C0707 */
+
+  /* ==========================================================================
+     Spectrum Orange (Warning)
+     Warning states, caution indicators
+     ========================================================================== */
+  --spectrum-orange-100: 30 100% 95%;      /* #FFF3E5 */
+  --spectrum-orange-200: 30 100% 88%;      /* #FFE2C2 */
+  --spectrum-orange-300: 30 100% 78%;      /* #FFCD9D */
+  --spectrum-orange-400: 28 95% 60%;       /* #F59E42 */
+  --spectrum-orange-500: 26 92% 54%;       /* #EB8521 */
+  --spectrum-orange-600: 24 90% 48%;       /* #E76E0C */
+  --spectrum-orange-700: 22 88% 42%;       /* #CA5C06 */
+  --spectrum-orange-800: 20 86% 36%;       /* #AB4D03 */
+  --spectrum-orange-900: 18 84% 30%;       /* #8C3F00 */
+
+  /* ==========================================================================
+     Spectrum Green (Success)
+     Success states, positive feedback
+     ========================================================================== */
+  --spectrum-green-100: 145 100% 95%;      /* #E5FFF1 */
+  --spectrum-green-200: 145 90% 88%;       /* #C2F5D9 */
+  --spectrum-green-300: 145 80% 75%;       /* #90E8B8 */
+  --spectrum-green-400: 150 70% 50%;       /* #33B87A */
+  --spectrum-green-500: 152 72% 42%;       /* #2D9D68 */
+  --spectrum-green-600: 154 75% 36%;       /* #268E5C */
+  --spectrum-green-700: 156 78% 30%;       /* #1A7A4A */
+  --spectrum-green-800: 158 80% 25%;       /* #0D6639 */
+  --spectrum-green-900: 160 82% 20%;       /* #065228 */
+
+  /* ==========================================================================
+     Spectrum Yellow (Notice/Caution)
+     Notice states, informational highlights
+     ========================================================================== */
+  --spectrum-yellow-100: 48 100% 95%;      /* #FFFDE5 */
+  --spectrum-yellow-200: 48 100% 85%;      /* #FFF6B8 */
+  --spectrum-yellow-300: 48 100% 72%;      /* #FFEB7A */
+  --spectrum-yellow-400: 45 95% 58%;       /* #F5D033 */
+  --spectrum-yellow-500: 43 92% 50%;       /* #E6B800 */
+  --spectrum-yellow-600: 41 90% 45%;       /* #D9A200 */
+  --spectrum-yellow-700: 39 88% 40%;       /* #C28E00 */
+  --spectrum-yellow-800: 37 86% 35%;       /* #AB7A00 */
+  --spectrum-yellow-900: 35 84% 28%;       /* #8C6100 */
+
+  /* ==========================================================================
+     Spectrum Cyan (Information)
+     Info states, neutral highlights
+     ========================================================================== */
+  --spectrum-cyan-100: 190 100% 95%;       /* #E5FAFF */
+  --spectrum-cyan-200: 190 100% 88%;       /* #C2F0FF */
+  --spectrum-cyan-300: 190 95% 78%;        /* #9DE5FF */
+  --spectrum-cyan-400: 188 90% 50%;        /* #0DBFDA */
+  --spectrum-cyan-500: 186 88% 44%;        /* #0EADC7 */
+  --spectrum-cyan-600: 184 86% 38%;        /* #0D9AB3 */
+  --spectrum-cyan-700: 182 84% 32%;        /* #0B879E */
+  --spectrum-cyan-800: 180 82% 28%;        /* #0A7488 */
+  --spectrum-cyan-900: 178 80% 22%;        /* #086270 */
+
+  /* ==========================================================================
+     Spectrum Purple (Accent/Visited)
+     Secondary accent, visited links
+     ========================================================================== */
+  --spectrum-purple-100: 270 100% 95%;     /* #F5E5FF */
+  --spectrum-purple-200: 270 100% 88%;     /* #E8C2FF */
+  --spectrum-purple-300: 270 90% 78%;      /* #D59DFF */
+  --spectrum-purple-400: 268 80% 60%;      /* #9D5BD9 */
+  --spectrum-purple-500: 266 75% 52%;      /* #8B44C7 */
+  --spectrum-purple-600: 264 78% 45%;      /* #7733B8 */
+  --spectrum-purple-700: 262 80% 38%;      /* #6324A3 */
+  --spectrum-purple-800: 260 82% 32%;      /* #51198C */
+  --spectrum-purple-900: 258 84% 26%;      /* #420F75 */
+
+  /* ==========================================================================
+     shadcn/ui Semantic Tokens (Light Mode)
+     Map Spectrum colors to shadcn semantic tokens
+     ========================================================================== */
+  --background: var(--spectrum-gray-50);
+  --foreground: var(--spectrum-gray-900);
+  --card: var(--spectrum-gray-50);
+  --card-foreground: var(--spectrum-gray-900);
+  --popover: var(--spectrum-gray-50);
+  --popover-foreground: var(--spectrum-gray-900);
+  --primary: var(--spectrum-blue-600);
+  --primary-foreground: var(--spectrum-gray-50);
+  --secondary: var(--spectrum-gray-100);
+  --secondary-foreground: var(--spectrum-gray-900);
+  --muted: var(--spectrum-gray-100);
+  --muted-foreground: var(--spectrum-gray-600);
+  --accent: var(--spectrum-gray-100);
+  --accent-foreground: var(--spectrum-gray-900);
+  --destructive: var(--spectrum-red-600);
+  --destructive-foreground: var(--spectrum-gray-50);
+  --border: var(--spectrum-gray-200);
+  --input: var(--spectrum-gray-200);
+  --ring: var(--spectrum-blue-500);
+
+  /* Additional semantic tokens */
+  --success: var(--spectrum-green-600);
+  --success-foreground: var(--spectrum-gray-50);
+  --warning: var(--spectrum-orange-500);
+  --warning-foreground: var(--spectrum-gray-900);
+  --info: var(--spectrum-cyan-600);
+  --info-foreground: var(--spectrum-gray-50);
+
   --radius: 0.25rem;
+
+  --sidebar: hsl(0 0% 98%);
+
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+
+  --sidebar-primary: hsl(240 5.9% 10%);
+
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+
+  --sidebar-border: hsl(220 13% 91%);
+
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
 .dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 24 95% 53%;
-  --primary-foreground: 240 10% 3.9%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 24 95% 53%;
+  /* ==========================================================================
+     Spectrum Gray Scale (Dark Theme)
+     Optimized for dark backgrounds - NOT simple inversion
+     Based on Spectrum's dark theme principles
+     ========================================================================== */
+  --spectrum-gray-50: 0 0% 7%;             /* #121212 - Darkest background */
+  --spectrum-gray-75: 0 0% 10%;            /* #1A1A1A - Elevated surface */
+  --spectrum-gray-100: 0 0% 13%;           /* #212121 - Card background */
+  --spectrum-gray-200: 0 0% 17%;           /* #2B2B2B - Subtle borders */
+  --spectrum-gray-300: 0 0% 23%;           /* #3B3B3B - Borders */
+  --spectrum-gray-400: 0 0% 35%;           /* #595959 - Disabled text */
+  --spectrum-gray-500: 0 0% 50%;           /* #808080 - Placeholder */
+  --spectrum-gray-600: 0 0% 65%;           /* #A6A6A6 - Secondary text */
+  --spectrum-gray-700: 0 0% 77%;           /* #C4C4C4 - Body text */
+  --spectrum-gray-800: 0 0% 88%;           /* #E0E0E0 - Primary text */
+  --spectrum-gray-900: 0 0% 96%;           /* #F5F5F5 - Headings */
+
+  /* ==========================================================================
+     Spectrum Blue (Dark Theme)
+     Increased brightness for dark background visibility
+     ========================================================================== */
+  --spectrum-blue-100: 210 100% 15%;       /* Dark blue tint */
+  --spectrum-blue-200: 210 95% 22%;
+  --spectrum-blue-300: 210 90% 32%;
+  --spectrum-blue-400: 210 88% 48%;        /* #2196F3 - More vibrant */
+  --spectrum-blue-500: 210 90% 56%;        /* #42A5F5 - Primary action */
+  --spectrum-blue-600: 210 92% 64%;        /* #64B5F6 */
+  --spectrum-blue-700: 210 94% 72%;
+  --spectrum-blue-800: 210 96% 80%;
+  --spectrum-blue-900: 210 100% 88%;
+
+  /* ==========================================================================
+     Spectrum Red (Dark Theme)
+     Adjusted for dark mode visibility
+     ========================================================================== */
+  --spectrum-red-100: 0 80% 15%;
+  --spectrum-red-200: 0 75% 22%;
+  --spectrum-red-300: 0 70% 32%;
+  --spectrum-red-400: 0 75% 50%;           /* #E53935 */
+  --spectrum-red-500: 0 80% 58%;           /* #EF5350 - Error state */
+  --spectrum-red-600: 0 85% 66%;
+  --spectrum-red-700: 0 88% 74%;
+  --spectrum-red-800: 0 90% 82%;
+  --spectrum-red-900: 0 95% 90%;
+
+  /* ==========================================================================
+     Spectrum Orange (Dark Theme)
+     ========================================================================== */
+  --spectrum-orange-100: 25 80% 15%;
+  --spectrum-orange-200: 25 75% 22%;
+  --spectrum-orange-300: 25 70% 32%;
+  --spectrum-orange-400: 25 85% 52%;       /* #FF9800 */
+  --spectrum-orange-500: 28 90% 58%;       /* #FFA726 - Warning */
+  --spectrum-orange-600: 30 92% 66%;
+  --spectrum-orange-700: 32 94% 74%;
+  --spectrum-orange-800: 34 96% 82%;
+  --spectrum-orange-900: 36 100% 90%;
+
+  /* ==========================================================================
+     Spectrum Green (Dark Theme)
+     ========================================================================== */
+  --spectrum-green-100: 150 70% 12%;
+  --spectrum-green-200: 150 65% 18%;
+  --spectrum-green-300: 150 60% 28%;
+  --spectrum-green-400: 150 65% 42%;       /* #4CAF50 */
+  --spectrum-green-500: 150 70% 50%;       /* #66BB6A - Success */
+  --spectrum-green-600: 150 75% 58%;
+  --spectrum-green-700: 150 80% 68%;
+  --spectrum-green-800: 150 85% 78%;
+  --spectrum-green-900: 150 90% 88%;
+
+  /* ==========================================================================
+     Spectrum Yellow (Dark Theme)
+     ========================================================================== */
+  --spectrum-yellow-100: 45 80% 12%;
+  --spectrum-yellow-200: 45 75% 18%;
+  --spectrum-yellow-300: 45 70% 28%;
+  --spectrum-yellow-400: 45 90% 48%;       /* #FFCA28 */
+  --spectrum-yellow-500: 45 95% 55%;       /* #FFD54F - Notice */
+  --spectrum-yellow-600: 45 100% 62%;
+  --spectrum-yellow-700: 45 100% 72%;
+  --spectrum-yellow-800: 45 100% 82%;
+  --spectrum-yellow-900: 45 100% 90%;
+
+  /* ==========================================================================
+     Spectrum Cyan (Dark Theme)
+     ========================================================================== */
+  --spectrum-cyan-100: 185 70% 12%;
+  --spectrum-cyan-200: 185 65% 18%;
+  --spectrum-cyan-300: 185 60% 28%;
+  --spectrum-cyan-400: 185 75% 45%;        /* #00BCD4 */
+  --spectrum-cyan-500: 185 80% 52%;        /* #26C6DA - Info */
+  --spectrum-cyan-600: 185 85% 60%;
+  --spectrum-cyan-700: 185 88% 70%;
+  --spectrum-cyan-800: 185 92% 80%;
+  --spectrum-cyan-900: 185 95% 88%;
+
+  /* ==========================================================================
+     Spectrum Purple (Dark Theme)
+     ========================================================================== */
+  --spectrum-purple-100: 265 70% 15%;
+  --spectrum-purple-200: 265 65% 22%;
+  --spectrum-purple-300: 265 60% 32%;
+  --spectrum-purple-400: 265 70% 55%;      /* #9C27B0 */
+  --spectrum-purple-500: 265 75% 62%;      /* #AB47BC - Accent */
+  --spectrum-purple-600: 265 80% 70%;
+  --spectrum-purple-700: 265 85% 78%;
+  --spectrum-purple-800: 265 90% 85%;
+  --spectrum-purple-900: 265 95% 92%;
+
+  /* ==========================================================================
+     shadcn Semantic Tokens (Dark Mode)
+     ========================================================================== */
+  --background: var(--spectrum-gray-50);
+  --foreground: var(--spectrum-gray-800);
+  --card: var(--spectrum-gray-100);
+  --card-foreground: var(--spectrum-gray-800);
+  --popover: var(--spectrum-gray-100);
+  --popover-foreground: var(--spectrum-gray-800);
+  --primary: var(--spectrum-blue-500);
+  --primary-foreground: var(--spectrum-gray-50);
+  --secondary: var(--spectrum-gray-200);
+  --secondary-foreground: var(--spectrum-gray-800);
+  --muted: var(--spectrum-gray-200);
+  --muted-foreground: var(--spectrum-gray-600);
+  --accent: var(--spectrum-gray-200);
+  --accent-foreground: var(--spectrum-gray-800);
+  --destructive: var(--spectrum-red-500);
+  --destructive-foreground: var(--spectrum-gray-900);
+  --border: var(--spectrum-gray-300);
+  --input: var(--spectrum-gray-300);
+  --ring: var(--spectrum-blue-500);
+
+  /* Additional semantic tokens - Dark mode optimized */
+  --success: var(--spectrum-green-500);
+  --success-foreground: var(--spectrum-gray-50);
+  --warning: var(--spectrum-orange-500);
+  --warning-foreground: var(--spectrum-gray-50);
+  --info: var(--spectrum-cyan-500);
+  --info-foreground: var(--spectrum-gray-50);
+  --sidebar: hsl(240 5.9% 10%);
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
 @theme {
   /* ==========================================================================
-     Colors - shadcn compatible (hsl format)
+     Spectrum Color Palette - Tailwind Utilities
+     Usage: bg-gray-100, text-blue-600, border-red-400, etc.
+     ========================================================================== */
+
+  /* Gray Scale */
+  --color-gray-50: hsl(var(--spectrum-gray-50));
+  --color-gray-75: hsl(var(--spectrum-gray-75));
+  --color-gray-100: hsl(var(--spectrum-gray-100));
+  --color-gray-200: hsl(var(--spectrum-gray-200));
+  --color-gray-300: hsl(var(--spectrum-gray-300));
+  --color-gray-400: hsl(var(--spectrum-gray-400));
+  --color-gray-500: hsl(var(--spectrum-gray-500));
+  --color-gray-600: hsl(var(--spectrum-gray-600));
+  --color-gray-700: hsl(var(--spectrum-gray-700));
+  --color-gray-800: hsl(var(--spectrum-gray-800));
+  --color-gray-900: hsl(var(--spectrum-gray-900));
+
+  /* Blue Scale */
+  --color-blue-100: hsl(var(--spectrum-blue-100));
+  --color-blue-200: hsl(var(--spectrum-blue-200));
+  --color-blue-300: hsl(var(--spectrum-blue-300));
+  --color-blue-400: hsl(var(--spectrum-blue-400));
+  --color-blue-500: hsl(var(--spectrum-blue-500));
+  --color-blue-600: hsl(var(--spectrum-blue-600));
+  --color-blue-700: hsl(var(--spectrum-blue-700));
+  --color-blue-800: hsl(var(--spectrum-blue-800));
+  --color-blue-900: hsl(var(--spectrum-blue-900));
+
+  /* Red Scale */
+  --color-red-100: hsl(var(--spectrum-red-100));
+  --color-red-200: hsl(var(--spectrum-red-200));
+  --color-red-300: hsl(var(--spectrum-red-300));
+  --color-red-400: hsl(var(--spectrum-red-400));
+  --color-red-500: hsl(var(--spectrum-red-500));
+  --color-red-600: hsl(var(--spectrum-red-600));
+  --color-red-700: hsl(var(--spectrum-red-700));
+  --color-red-800: hsl(var(--spectrum-red-800));
+  --color-red-900: hsl(var(--spectrum-red-900));
+
+  /* Orange Scale */
+  --color-orange-100: hsl(var(--spectrum-orange-100));
+  --color-orange-200: hsl(var(--spectrum-orange-200));
+  --color-orange-300: hsl(var(--spectrum-orange-300));
+  --color-orange-400: hsl(var(--spectrum-orange-400));
+  --color-orange-500: hsl(var(--spectrum-orange-500));
+  --color-orange-600: hsl(var(--spectrum-orange-600));
+  --color-orange-700: hsl(var(--spectrum-orange-700));
+  --color-orange-800: hsl(var(--spectrum-orange-800));
+  --color-orange-900: hsl(var(--spectrum-orange-900));
+
+  /* Green Scale */
+  --color-green-100: hsl(var(--spectrum-green-100));
+  --color-green-200: hsl(var(--spectrum-green-200));
+  --color-green-300: hsl(var(--spectrum-green-300));
+  --color-green-400: hsl(var(--spectrum-green-400));
+  --color-green-500: hsl(var(--spectrum-green-500));
+  --color-green-600: hsl(var(--spectrum-green-600));
+  --color-green-700: hsl(var(--spectrum-green-700));
+  --color-green-800: hsl(var(--spectrum-green-800));
+  --color-green-900: hsl(var(--spectrum-green-900));
+
+  /* Yellow Scale */
+  --color-yellow-100: hsl(var(--spectrum-yellow-100));
+  --color-yellow-200: hsl(var(--spectrum-yellow-200));
+  --color-yellow-300: hsl(var(--spectrum-yellow-300));
+  --color-yellow-400: hsl(var(--spectrum-yellow-400));
+  --color-yellow-500: hsl(var(--spectrum-yellow-500));
+  --color-yellow-600: hsl(var(--spectrum-yellow-600));
+  --color-yellow-700: hsl(var(--spectrum-yellow-700));
+  --color-yellow-800: hsl(var(--spectrum-yellow-800));
+  --color-yellow-900: hsl(var(--spectrum-yellow-900));
+
+  /* Cyan Scale */
+  --color-cyan-100: hsl(var(--spectrum-cyan-100));
+  --color-cyan-200: hsl(var(--spectrum-cyan-200));
+  --color-cyan-300: hsl(var(--spectrum-cyan-300));
+  --color-cyan-400: hsl(var(--spectrum-cyan-400));
+  --color-cyan-500: hsl(var(--spectrum-cyan-500));
+  --color-cyan-600: hsl(var(--spectrum-cyan-600));
+  --color-cyan-700: hsl(var(--spectrum-cyan-700));
+  --color-cyan-800: hsl(var(--spectrum-cyan-800));
+  --color-cyan-900: hsl(var(--spectrum-cyan-900));
+
+  /* Purple Scale */
+  --color-purple-100: hsl(var(--spectrum-purple-100));
+  --color-purple-200: hsl(var(--spectrum-purple-200));
+  --color-purple-300: hsl(var(--spectrum-purple-300));
+  --color-purple-400: hsl(var(--spectrum-purple-400));
+  --color-purple-500: hsl(var(--spectrum-purple-500));
+  --color-purple-600: hsl(var(--spectrum-purple-600));
+  --color-purple-700: hsl(var(--spectrum-purple-700));
+  --color-purple-800: hsl(var(--spectrum-purple-800));
+  --color-purple-900: hsl(var(--spectrum-purple-900));
+
+  /* ==========================================================================
+     shadcn Semantic Colors (mapped from Spectrum)
      ========================================================================== */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -78,6 +445,14 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+
+  /* Additional Semantic Colors */
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-info: hsl(var(--info));
+  --color-info-foreground: hsl(var(--info-foreground));
 
   /* ==========================================================================
      Radius
@@ -241,4 +616,44 @@ a {
 .text-label {
   font-size: var(--text-body-sm);
   font-weight: var(--font-medium);
+}
+
+@theme inline {
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
