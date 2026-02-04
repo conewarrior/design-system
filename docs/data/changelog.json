@@ -1,7 +1,25 @@
 {
-  "generatedAt": "2026-02-04T03:09:44.398Z",
-  "totalChanges": 32,
+  "generatedAt": "2026-02-04T06:13:04.524Z",
+  "totalChanges": 28,
   "data": [
+    {
+      "date": "2026-02-04",
+      "items": [
+        {
+          "id": "d5fe7a8",
+          "type": "docs",
+          "title": "refactor(docs): update docs pages and add UI components",
+          "author": "김한솔",
+          "date": "2026-02-04",
+          "time": "12:13",
+          "files": [
+            "components/tabs.tsx",
+            "docs/app/status/changes/components/page.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/d5fe7a894aa9e35ce05fdbfc54f65a1c1f1729ef"
+        }
+      ]
+    },
     {
       "date": "2026-01-30",
       "items": [
@@ -662,86 +680,6 @@
             "tokens.css"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/ce2799b6b5c092252245401881832be812fdc08c"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-20",
-      "items": [
-        {
-          "id": "e0bef6e",
-          "type": "docs",
-          "title": "docs: Next.js 기반 문서 사이트 구현 및 프로젝트 구조 업데이트",
-          "author": "김한솔",
-          "date": "2026-01-20",
-          "time": "18:44",
-          "files": [
-            "docs/app/components/button/page.tsx",
-            "docs/app/components/input/page.tsx",
-            "docs/app/components/page.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/e0bef6eb54eb79a7822f0ff9463ee685988f091c"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-19",
-      "items": [
-        {
-          "id": "85ccf11",
-          "type": "modify",
-          "title": "feat: Button, Input 컴포넌트 v0 구현 (EDU-5232)",
-          "author": "김한솔",
-          "date": "2026-01-19",
-          "time": "17:46",
-          "files": [
-            "components/.gitkeep",
-            "components/Button/index.tsx",
-            "components/Input/index.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/85ccf113c51d33a0e97017db2a4c406f0a4358c3"
-        },
-        {
-          "id": "69f90a6",
-          "type": "token",
-          "title": "feat: tokens.css v0 정의 (EDU-5230)",
-          "author": "김한솔",
-          "date": "2026-01-19",
-          "time": "14:43",
-          "files": [
-            "tokens.css"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/69f90a6a2a88a589df0ac62390a083f4a1e7e6b0"
-        },
-        {
-          "id": "8d57e18",
-          "type": "token",
-          "title": "feat: design-system 저장소 구조 스캐폴딩 (EDU-5229)",
-          "author": "김한솔",
-          "date": "2026-01-19",
-          "time": "11:33",
-          "files": [
-            "tokens.css"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/8d57e186aefa3c0f528c74a5d63133d6c3c3c04c"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-15",
-      "items": [
-        {
-          "id": "56f26c8",
-          "type": "token",
-          "title": "chore: initial design-system structure",
-          "author": "김한솔",
-          "date": "2026-01-15",
-          "time": "12:15",
-          "files": [
-            "components/.gitkeep",
-            "tokens.css"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/56f26c8d0164c5698488b6ae658ed420e5e72f46"
         }
       ]
     }
