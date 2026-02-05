@@ -18,3 +18,5 @@ planning/
 # BKit memory files
 **/.bkit-memory.json
 
+docs/tsconfig.tsbuildinfo
+@/

@@ -1,0 +1,2948 @@
+{
+  "timestamp": "2026-02-04T07:33:42.787Z",
+  "reason": "compaction",
+  "status": {
+    "version": "1.0.0",
+    "last_updated": "2026-01-20T00:00:00.000Z",
+    "project_level": "dynamic",
+    "features": {
+      "docs-site": {
+        "name": "Design System 문서 사이트",
+        "status": "plan",
+        "plan": "design-workflow/docs-site-plan.md",
+        "design": null,
+        "created": "2026-01-20"
+      },
+      "design-system": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-27T09:18:30.972Z",
+          "lastUpdated": "2026-01-29T06:53:18.298Z"
+        }
+      },
+      "ui": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-27T09:18:53.327Z",
+          "lastUpdated": "2026-02-04T06:02:09.874Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/ui/CodeBlock.tsx"
+      },
+      "dropdown": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-27T09:25:56.330Z",
+          "lastUpdated": "2026-01-27T09:25:56.330Z"
+        }
+      },
+      "portfolio": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:22:13.067Z",
+          "lastUpdated": "2026-01-28T04:23:01.609Z"
+        }
+      },
+      "ds": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:23:09.873Z",
+          "lastUpdated": "2026-01-28T04:23:09.873Z"
+        }
+      },
+      "[slide]": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:23:19.939Z",
+          "lastUpdated": "2026-01-28T07:03:54.298Z"
+        }
+      },
+      "slides": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:24:11.867Z",
+          "lastUpdated": "2026-01-28T07:03:46.182Z"
+        }
+      },
+      "cro": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-28T04:26:02.509Z",
+          "lastUpdated": "2026-01-28T04:26:02.509Z"
+        }
+      },
+      "tokens-to-tailwind": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-29T02:11:50.400Z",
+          "lastUpdated": "2026-01-29T02:11:50.400Z"
+        }
+      },
+      "docs": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-29T02:14:09.038Z",
+          "lastUpdated": "2026-01-29T08:15:12.982Z"
+        }
+      },
+      "data": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-29T07:24:18.642Z",
+          "lastUpdated": "2026-01-29T07:29:14.587Z"
+        }
+      },
+      "[slug]": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-01-29T07:27:59.305Z",
+          "lastUpdated": "2026-01-29T07:28:30.680Z"
+        }
+      },
+      "button": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:07:59.342Z",
+          "lastUpdated": "2026-02-04T06:04:32.527Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/button/page.tsx"
+      },
+      "accordion": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:50:56.856Z",
+          "lastUpdated": "2026-02-04T06:03:02.342Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/accordion/page.tsx"
+      },
+      "navigation-menu": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:05.833Z",
+          "lastUpdated": "2026-02-04T06:03:47.905Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/navigation-menu/page.tsx"
+      },
+      "field": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:06.909Z",
+          "lastUpdated": "2026-02-04T06:03:37.660Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/field/page.tsx"
+      },
+      "carousel": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:06.955Z",
+          "lastUpdated": "2026-02-04T06:03:28.261Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/carousel/page.tsx"
+      },
+      "alert": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:07.374Z",
+          "lastUpdated": "2026-02-04T06:03:14.324Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/alert/page.tsx"
+      },
+      "skeleton": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:08.762Z",
+          "lastUpdated": "2026-02-04T06:03:15.133Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/skeleton/page.tsx"
+      },
+      "pagination": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:15.460Z",
+          "lastUpdated": "2026-02-04T06:03:51.797Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/pagination/page.tsx"
+      },
+      "slider": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:17.323Z",
+          "lastUpdated": "2026-02-04T06:03:22.092Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/slider/page.tsx"
+      },
+      "form": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:17.915Z",
+          "lastUpdated": "2026-02-04T06:03:43.740Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/form/page.tsx"
+      },
+      "alert-dialog": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:18.706Z",
+          "lastUpdated": "2026-02-04T06:03:22.345Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/alert-dialog/page.tsx"
+      },
+      "chart": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:25.329Z",
+          "lastUpdated": "2026-02-04T06:03:35.284Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/chart/page.tsx"
+      },
+      "popover": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:27.088Z",
+          "lastUpdated": "2026-02-04T06:03:54.594Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/popover/page.tsx"
+      },
+      "aspect-ratio": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:28.300Z",
+          "lastUpdated": "2026-02-04T06:03:33.019Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/aspect-ratio/page.tsx"
+      },
+      "hover-card": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:30.667Z",
+          "lastUpdated": "2026-02-04T06:03:54.703Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/hover-card/page.tsx"
+      },
+      "sonner": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:31.978Z",
+          "lastUpdated": "2026-02-04T06:03:34.203Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/sonner/page.tsx"
+      },
+      "progress": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:34.841Z",
+          "lastUpdated": "2026-02-04T06:03:56.450Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/progress/page.tsx"
+      },
+      "checkbox": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:39.376Z",
+          "lastUpdated": "2026-02-04T06:03:54.739Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/checkbox/page.tsx"
+      },
+      "spinner": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:41.245Z",
+          "lastUpdated": "2026-02-04T06:03:41.640Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/spinner/page.tsx"
+      },
+      "avatar": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:42.476Z",
+          "lastUpdated": "2026-02-04T06:03:51.330Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/avatar/page.tsx"
+      },
+      "input": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:42.671Z",
+          "lastUpdated": "2026-02-04T06:04:08.584Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/input/page.tsx"
+      },
+      "radio-group": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:44.428Z",
+          "lastUpdated": "2026-02-04T06:04:07.852Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/radio-group/page.tsx"
+      },
+      "badge": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:50.564Z",
+          "lastUpdated": "2026-02-04T06:04:00.205Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/badge/page.tsx"
+      },
+      "switch": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:50.717Z",
+          "lastUpdated": "2026-02-04T06:03:50.195Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/switch/page.tsx"
+      },
+      "scroll-area": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:54.752Z",
+          "lastUpdated": "2026-02-04T06:04:10.784Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/scroll-area/page.tsx"
+      },
+      "collapsible": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:51:58.244Z",
+          "lastUpdated": "2026-02-04T06:04:06.787Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/collapsible/page.tsx"
+      },
+      "input-group": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:00.738Z",
+          "lastUpdated": "2026-02-04T06:04:24.789Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/input-group/page.tsx"
+      },
+      "table": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:04.972Z",
+          "lastUpdated": "2026-02-04T06:04:02.339Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/table/page.tsx"
+      },
+      "breadcrumb": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:06.511Z",
+          "lastUpdated": "2026-02-04T06:04:18.454Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/breadcrumb/page.tsx"
+      },
+      "select": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:08.010Z",
+          "lastUpdated": "2026-02-04T06:04:14.978Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/select/page.tsx"
+      },
+      "command": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:13.477Z",
+          "lastUpdated": "2026-02-04T06:04:17.374Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/command/page.tsx"
+      },
+      "input-otp": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:15.178Z",
+          "lastUpdated": "2026-02-04T06:04:37.885Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/input-otp/page.tsx"
+      },
+      "separator": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:17.353Z",
+          "lastUpdated": "2026-02-04T06:04:17.852Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/separator/page.tsx"
+      },
+      "button-group": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:19.678Z",
+          "lastUpdated": "2026-02-04T06:04:46.507Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/button-group/page.tsx"
+      },
+      "tabs": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:21.058Z",
+          "lastUpdated": "2026-02-04T06:04:18.773Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/tabs/page.tsx"
+      },
+      "calendar": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:30.564Z",
+          "lastUpdated": "2026-02-04T06:04:55.743Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/calendar/page.tsx"
+      },
+      "textarea": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:31.982Z",
+          "lastUpdated": "2026-02-04T06:04:29.041Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/textarea/page.tsx"
+      },
+      "context-menu": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:33.556Z",
+          "lastUpdated": "2026-02-04T06:04:23.751Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/context-menu/page.tsx"
+      },
+      "item": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:33.647Z",
+          "lastUpdated": "2026-02-04T06:04:56.983Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/item/page.tsx"
+      },
+      "sheet": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:33.729Z",
+          "lastUpdated": "2026-02-04T06:04:20.489Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/sheet/page.tsx"
+      },
+      "toggle": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:43.710Z",
+          "lastUpdated": "2026-02-04T06:04:38.855Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/toggle/page.tsx"
+      },
+      "card": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:45.529Z",
+          "lastUpdated": "2026-02-04T06:03:20.339Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/card/page.tsx"
+      },
+      "kbd": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:46.381Z",
+          "lastUpdated": "2026-02-04T06:05:09.652Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/kbd/page.tsx"
+      },
+      "dialog": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:50.671Z",
+          "lastUpdated": "2026-02-04T06:04:30.149Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/dialog/page.tsx"
+      },
+      "sidebar": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:53.618Z",
+          "lastUpdated": "2026-02-04T06:03:09.651Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/sidebar/page.tsx"
+      },
+      "label": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:52:58.013Z",
+          "lastUpdated": "2026-02-04T06:05:20.969Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/label/page.tsx"
+      },
+      "toggle-group": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:53:02.100Z",
+          "lastUpdated": "2026-02-04T06:04:58.316Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/toggle-group/page.tsx"
+      },
+      "drawer": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:53:09.283Z",
+          "lastUpdated": "2026-02-04T06:04:47.526Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/drawer/page.tsx"
+      },
+      "menubar": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:53:17.762Z",
+          "lastUpdated": "2026-02-04T06:03:46.959Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/menubar/page.tsx"
+      },
+      "tooltip": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:53:18.725Z",
+          "lastUpdated": "2026-02-04T06:05:14.971Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/tooltip/page.tsx"
+      },
+      "dropdown-menu": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:53:34.763Z",
+          "lastUpdated": "2026-02-04T06:04:54.980Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/dropdown-menu/page.tsx"
+      },
+      "empty": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-02-04T05:53:51.134Z",
+          "lastUpdated": "2026-02-04T06:03:23.788Z"
+        },
+        "lastFile": "/Users/hskim/dev/design-system/docs/app/components/empty/page.tsx"
+      }
+    },
+    "quick_changes": [],
+    "statistics": {
+      "total_features": 1,
+      "completed": 0,
+      "in_progress": 1,
+      "quick_changes_count": 0
+    },
+    "activeFeatures": [
+      "design-system",
+      "ui",
+      "dropdown",
+      "portfolio",
+      "ds",
+      "[slide]",
+      "slides",
+      "cro",
+      "tokens-to-tailwind",
+      "docs",
+      "data",
+      "[slug]",
+      "button",
+      "accordion",
+      "navigation-menu",
+      "field",
+      "carousel",
+      "alert",
+      "skeleton",
+      "pagination",
+      "slider",
+      "form",
+      "alert-dialog",
+      "chart",
+      "popover",
+      "aspect-ratio",
+      "hover-card",
+      "sonner",
+      "progress",
+      "checkbox",
+      "spinner",
+      "avatar",
+      "input",
+      "radio-group",
+      "badge",
+      "switch",
+      "scroll-area",
+      "collapsible",
+      "input-group",
+      "table",
+      "breadcrumb",
+      "select",
+      "command",
+      "input-otp",
+      "separator",
+      "button-group",
+      "tabs",
+      "calendar",
+      "textarea",
+      "context-menu",
+      "item",
+      "sheet",
+      "toggle",
+      "card",
+      "kbd",
+      "dialog",
+      "sidebar",
+      "label",
+      "toggle-group",
+      "drawer",
+      "menubar",
+      "tooltip",
+      "dropdown-menu",
+      "empty"
+    ],
+    "pipeline": {
+      "currentPhase": 1,
+      "level": "Dynamic",
+      "phaseHistory": []
+    },
+    "session": {
+      "startedAt": "2026-01-27T09:18:30.972Z",
+      "onboardingCompleted": false,
+      "lastActivity": "2026-02-04T06:05:20.969Z"
+    },
+    "history": [
+      {
+        "timestamp": "2026-01-27T09:18:30.972Z",
+        "feature": "design-system",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-27T09:18:53.327Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-27T09:25:56.330Z",
+        "feature": "dropdown",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:21:57.503Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:22:13.067Z",
+        "feature": "portfolio",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:23:01.609Z",
+        "feature": "portfolio",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:23:09.873Z",
+        "feature": "ds",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:23:19.939Z",
+        "feature": "[slide]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:24:11.867Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:24:11.945Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:24:12.017Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:01.430Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:01.504Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:01.580Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:47.601Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:47.674Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:25:47.753Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:02.509Z",
+        "feature": "cro",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:02.592Z",
+        "feature": "[slide]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:50.621Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:50.707Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:26:50.783Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:28:12.185Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:28:12.268Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:28:12.346Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T04:28:12.425Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T07:03:46.182Z",
+        "feature": "slides",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-28T07:03:54.298Z",
+        "feature": "[slide]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T02:11:50.400Z",
+        "feature": "tokens-to-tailwind",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T02:14:09.038Z",
+        "feature": "docs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T06:53:18.298Z",
+        "feature": "design-system",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:21:46.309Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:24:18.642Z",
+        "feature": "data",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:25:00.223Z",
+        "feature": "docs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:27:59.305Z",
+        "feature": "[slug]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:28:30.680Z",
+        "feature": "[slug]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:28:51.098Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T07:29:14.587Z",
+        "feature": "data",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T08:08:36.841Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-01-29T08:15:12.982Z",
+        "feature": "docs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:07:59.342Z",
+        "feature": "button",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:08:05.451Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:09:14.716Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:09:20.070Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:09:24.521Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:50:10.326Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:50:56.856Z",
+        "feature": "accordion",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:05.833Z",
+        "feature": "navigation-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:06.909Z",
+        "feature": "field",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:06.955Z",
+        "feature": "carousel",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:07.374Z",
+        "feature": "alert",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:08.762Z",
+        "feature": "skeleton",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:15.460Z",
+        "feature": "pagination",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:17.323Z",
+        "feature": "slider",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:17.915Z",
+        "feature": "form",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:18.706Z",
+        "feature": "alert-dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:25.329Z",
+        "feature": "chart",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:27.088Z",
+        "feature": "popover",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:28.300Z",
+        "feature": "aspect-ratio",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:30.667Z",
+        "feature": "hover-card",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:31.978Z",
+        "feature": "sonner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:34.841Z",
+        "feature": "progress",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:39.376Z",
+        "feature": "checkbox",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:41.245Z",
+        "feature": "spinner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:42.476Z",
+        "feature": "avatar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:42.671Z",
+        "feature": "input",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:44.428Z",
+        "feature": "radio-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:50.564Z",
+        "feature": "badge",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:50.717Z",
+        "feature": "switch",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:54.752Z",
+        "feature": "scroll-area",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:51:58.244Z",
+        "feature": "collapsible",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:00.738Z",
+        "feature": "input-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:04.972Z",
+        "feature": "table",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:06.511Z",
+        "feature": "breadcrumb",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:08.010Z",
+        "feature": "select",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:13.477Z",
+        "feature": "command",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:15.178Z",
+        "feature": "input-otp",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:17.353Z",
+        "feature": "separator",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:19.678Z",
+        "feature": "button-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:21.058Z",
+        "feature": "tabs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:30.564Z",
+        "feature": "calendar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:31.982Z",
+        "feature": "textarea",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:33.556Z",
+        "feature": "context-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:33.647Z",
+        "feature": "item",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:33.729Z",
+        "feature": "sheet",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:43.710Z",
+        "feature": "toggle",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:45.529Z",
+        "feature": "card",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:46.381Z",
+        "feature": "kbd",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:50.671Z",
+        "feature": "dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:53.618Z",
+        "feature": "sidebar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:52:58.013Z",
+        "feature": "label",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:53:02.100Z",
+        "feature": "toggle-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:53:05.993Z",
+        "feature": "breadcrumb",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:53:09.283Z",
+        "feature": "drawer",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:53:09.433Z",
+        "feature": "breadcrumb",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:53:12.671Z",
+        "feature": "breadcrumb",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:53:17.762Z",
+        "feature": "menubar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:53:18.725Z",
+        "feature": "tooltip",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:53:34.763Z",
+        "feature": "dropdown-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:53:51.134Z",
+        "feature": "empty",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:56:29.804Z",
+        "feature": "calendar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T05:56:33.677Z",
+        "feature": "calendar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:05.652Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:09.874Z",
+        "feature": "ui",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:37.806Z",
+        "feature": "accordion",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:39.591Z",
+        "feature": "alert",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:42.015Z",
+        "feature": "alert-dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:43.088Z",
+        "feature": "card",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:43.321Z",
+        "feature": "aspect-ratio",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:44.991Z",
+        "feature": "carousel",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:45.108Z",
+        "feature": "avatar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:46.327Z",
+        "feature": "badge",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:47.434Z",
+        "feature": "empty",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:47.689Z",
+        "feature": "chart",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:48.665Z",
+        "feature": "breadcrumb",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:49.505Z",
+        "feature": "checkbox",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:49.879Z",
+        "feature": "field",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:50.448Z",
+        "feature": "button",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:51.488Z",
+        "feature": "menubar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:51.776Z",
+        "feature": "collapsible",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:52.216Z",
+        "feature": "form",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:52.797Z",
+        "feature": "button-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:53.357Z",
+        "feature": "navigation-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:54.574Z",
+        "feature": "calendar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:54.683Z",
+        "feature": "hover-card",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:54.993Z",
+        "feature": "command",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:55.261Z",
+        "feature": "pagination",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:56.187Z",
+        "feature": "input",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:56.630Z",
+        "feature": "sidebar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:57.331Z",
+        "feature": "popover",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:57.948Z",
+        "feature": "context-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:58.466Z",
+        "feature": "progress",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:58.694Z",
+        "feature": "accordion",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:59.120Z",
+        "feature": "input-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:02:59.999Z",
+        "feature": "radio-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:00.184Z",
+        "feature": "accordion",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:00.361Z",
+        "feature": "dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:00.928Z",
+        "feature": "input-otp",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:01.276Z",
+        "feature": "accordion",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:01.520Z",
+        "feature": "scroll-area",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:02.342Z",
+        "feature": "accordion",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:02.511Z",
+        "feature": "drawer",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:03.226Z",
+        "feature": "select",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:04.313Z",
+        "feature": "item",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:04.462Z",
+        "feature": "separator",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:05.805Z",
+        "feature": "alert",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:05.839Z",
+        "feature": "kbd",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:06.853Z",
+        "feature": "sheet",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:07.272Z",
+        "feature": "label",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:07.371Z",
+        "feature": "dropdown-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:09.651Z",
+        "feature": "sidebar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:10.839Z",
+        "feature": "skeleton",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:10.925Z",
+        "feature": "menubar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:11.946Z",
+        "feature": "navigation-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:11.996Z",
+        "feature": "card",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:12.018Z",
+        "feature": "alert",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:12.675Z",
+        "feature": "skeleton",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:12.949Z",
+        "feature": "pagination",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:13.113Z",
+        "feature": "alert",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:13.326Z",
+        "feature": "empty",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:13.876Z",
+        "feature": "popover",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:14.324Z",
+        "feature": "alert",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:14.842Z",
+        "feature": "radio-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:15.133Z",
+        "feature": "skeleton",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:15.785Z",
+        "feature": "scroll-area",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:16.373Z",
+        "feature": "slider",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:16.381Z",
+        "feature": "empty",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:16.720Z",
+        "feature": "sheet",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:17.900Z",
+        "feature": "slider",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:18.055Z",
+        "feature": "alert-dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:19.171Z",
+        "feature": "card",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:19.400Z",
+        "feature": "alert-dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:19.432Z",
+        "feature": "slider",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:19.713Z",
+        "feature": "empty",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:20.339Z",
+        "feature": "card",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:20.845Z",
+        "feature": "slider",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:20.898Z",
+        "feature": "progress",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:21.004Z",
+        "feature": "alert-dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:21.641Z",
+        "feature": "separator",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:22.092Z",
+        "feature": "slider",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:22.345Z",
+        "feature": "alert-dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:22.705Z",
+        "feature": "separator",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:23.788Z",
+        "feature": "empty",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:23.795Z",
+        "feature": "sonner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:24.072Z",
+        "feature": "carousel",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:27.278Z",
+        "feature": "sonner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:28.241Z",
+        "feature": "aspect-ratio",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:28.261Z",
+        "feature": "carousel",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:28.597Z",
+        "feature": "select",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:28.843Z",
+        "feature": "field",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:29.420Z",
+        "feature": "sonner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:30.589Z",
+        "feature": "aspect-ratio",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:31.621Z",
+        "feature": "field",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:31.677Z",
+        "feature": "sonner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:31.998Z",
+        "feature": "select",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:32.113Z",
+        "feature": "chart",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:33.019Z",
+        "feature": "aspect-ratio",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:34.183Z",
+        "feature": "field",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:34.203Z",
+        "feature": "sonner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:35.284Z",
+        "feature": "chart",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:35.480Z",
+        "feature": "spinner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:36.370Z",
+        "feature": "avatar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:36.517Z",
+        "feature": "spinner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:37.660Z",
+        "feature": "field",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:38.213Z",
+        "feature": "spinner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:38.670Z",
+        "feature": "checkbox",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:39.952Z",
+        "feature": "spinner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:41.640Z",
+        "feature": "spinner",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:43.078Z",
+        "feature": "switch",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:43.740Z",
+        "feature": "form",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:43.990Z",
+        "feature": "menubar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:44.159Z",
+        "feature": "switch",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:44.271Z",
+        "feature": "avatar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:45.062Z",
+        "feature": "checkbox",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:46.239Z",
+        "feature": "menubar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:46.319Z",
+        "feature": "avatar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:46.508Z",
+        "feature": "switch",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:46.959Z",
+        "feature": "menubar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:47.905Z",
+        "feature": "navigation-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:48.861Z",
+        "feature": "avatar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:48.863Z",
+        "feature": "checkbox",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:48.962Z",
+        "feature": "switch",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:50.081Z",
+        "feature": "pagination",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:50.195Z",
+        "feature": "switch",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:50.550Z",
+        "feature": "checkbox",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:51.330Z",
+        "feature": "avatar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:51.797Z",
+        "feature": "pagination",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:52.060Z",
+        "feature": "hover-card",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:52.273Z",
+        "feature": "table",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:53.238Z",
+        "feature": "popover",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:54.594Z",
+        "feature": "popover",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:54.703Z",
+        "feature": "hover-card",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:54.739Z",
+        "feature": "checkbox",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:55.482Z",
+        "feature": "progress",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:56.188Z",
+        "feature": "badge",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:56.450Z",
+        "feature": "progress",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:58.076Z",
+        "feature": "table",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:58.225Z",
+        "feature": "collapsible",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:58.367Z",
+        "feature": "badge",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:03:58.411Z",
+        "feature": "input",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:00.205Z",
+        "feature": "badge",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:02.339Z",
+        "feature": "table",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:03.551Z",
+        "feature": "breadcrumb",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:03.573Z",
+        "feature": "tabs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:03.628Z",
+        "feature": "input",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:05.276Z",
+        "feature": "collapsible",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:06.650Z",
+        "feature": "input",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:06.699Z",
+        "feature": "radio-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:06.787Z",
+        "feature": "collapsible",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:07.852Z",
+        "feature": "radio-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:08.283Z",
+        "feature": "tabs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:08.584Z",
+        "feature": "input",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:09.355Z",
+        "feature": "scroll-area",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:10.657Z",
+        "feature": "command",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:10.784Z",
+        "feature": "scroll-area",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:11.460Z",
+        "feature": "breadcrumb",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:12.286Z",
+        "feature": "select",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:12.485Z",
+        "feature": "input-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:13.707Z",
+        "feature": "select",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:14.978Z",
+        "feature": "select",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:15.160Z",
+        "feature": "breadcrumb",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:15.322Z",
+        "feature": "tabs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:15.864Z",
+        "feature": "input-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:16.305Z",
+        "feature": "separator",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:16.458Z",
+        "feature": "command",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:17.374Z",
+        "feature": "command",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:17.852Z",
+        "feature": "separator",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:18.454Z",
+        "feature": "breadcrumb",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:18.773Z",
+        "feature": "tabs",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:19.096Z",
+        "feature": "sheet",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:19.664Z",
+        "feature": "input-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:20.220Z",
+        "feature": "textarea",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:20.489Z",
+        "feature": "sheet",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:20.670Z",
+        "feature": "context-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:21.837Z",
+        "feature": "textarea",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:22.178Z",
+        "feature": "input-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:23.751Z",
+        "feature": "context-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:24.027Z",
+        "feature": "textarea",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:24.075Z",
+        "feature": "button",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:24.789Z",
+        "feature": "input-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:25.630Z",
+        "feature": "textarea",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:26.286Z",
+        "feature": "button",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:27.066Z",
+        "feature": "textarea",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:27.190Z",
+        "feature": "dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:27.840Z",
+        "feature": "button",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:29.041Z",
+        "feature": "textarea",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:29.559Z",
+        "feature": "input-otp",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:30.149Z",
+        "feature": "dialog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:30.472Z",
+        "feature": "toggle",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:30.865Z",
+        "feature": "button",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:32.013Z",
+        "feature": "toggle",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:32.527Z",
+        "feature": "button",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:32.573Z",
+        "feature": "input-otp",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:33.277Z",
+        "feature": "drawer",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:33.863Z",
+        "feature": "toggle",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:35.151Z",
+        "feature": "input-otp",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:36.143Z",
+        "feature": "toggle",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:36.732Z",
+        "feature": "button-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:37.640Z",
+        "feature": "toggle",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:37.885Z",
+        "feature": "input-otp",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:38.855Z",
+        "feature": "toggle",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:39.326Z",
+        "feature": "drawer",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:40.498Z",
+        "feature": "drawer",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:40.755Z",
+        "feature": "toggle-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:40.763Z",
+        "feature": "button-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:42.539Z",
+        "feature": "button-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:43.393Z",
+        "feature": "item",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:43.911Z",
+        "feature": "toggle-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:44.458Z",
+        "feature": "button-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:46.507Z",
+        "feature": "button-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:47.346Z",
+        "feature": "item",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:47.526Z",
+        "feature": "drawer",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:47.554Z",
+        "feature": "toggle-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:50.902Z",
+        "feature": "toggle-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:50.923Z",
+        "feature": "calendar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:51.533Z",
+        "feature": "dropdown-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:52.531Z",
+        "feature": "item",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:52.562Z",
+        "feature": "calendar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:54.140Z",
+        "feature": "calendar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:54.980Z",
+        "feature": "dropdown-menu",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:55.743Z",
+        "feature": "calendar",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:55.959Z",
+        "feature": "toggle-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:56.983Z",
+        "feature": "item",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:04:58.316Z",
+        "feature": "toggle-group",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:00.444Z",
+        "feature": "tooltip",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:01.033Z",
+        "feature": "kbd",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:02.745Z",
+        "feature": "tooltip",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:03.064Z",
+        "feature": "kbd",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:06.779Z",
+        "feature": "kbd",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:08.249Z",
+        "feature": "tooltip",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:09.652Z",
+        "feature": "kbd",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:11.408Z",
+        "feature": "tooltip",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:14.084Z",
+        "feature": "label",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:14.971Z",
+        "feature": "tooltip",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:15.793Z",
+        "feature": "label",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:18.242Z",
+        "feature": "label",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-02-04T06:05:20.969Z",
+        "feature": "label",
+        "phase": "do",
+        "action": "updated"
+      }
+    ],
+    "primaryFeature": "docs",
+    "lastUpdated": "2026-02-04T06:05:20.969Z"
+  }
+}
