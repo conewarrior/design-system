@@ -1,22 +1,141 @@
 {
-  "generatedAt": "2026-02-04T06:13:04.524Z",
-  "totalChanges": 28,
+  "generatedAt": "2026-02-12T08:51:57.142Z",
+  "totalChanges": 16,
   "data": [
+    {
+      "date": "2026-02-12",
+      "items": [
+        {
+          "id": "e4f0ed6",
+          "type": "modify",
+          "title": "chore: initial commit for npm package repo",
+          "author": "김한솔",
+          "date": "2026-02-12",
+          "time": "16:43",
+          "files": [
+            "components/_excluded/resizable.tsx",
+            "components/accordion.tsx",
+            "components/alert-dialog.tsx",
+            "components/alert.tsx",
+            "components/aspect-ratio.tsx",
+            "components/avatar.tsx",
+            "components/badge.tsx",
+            "components/breadcrumb.tsx",
+            "components/button-group.tsx",
+            "components/button.tsx",
+            "components/calendar.tsx",
+            "components/card.tsx",
+            "components/carousel.tsx",
+            "components/chart.tsx",
+            "components/checkbox.tsx",
+            "components/collapsible.tsx",
+            "components/command.tsx",
+            "components/context-menu.tsx",
+            "components/dialog.tsx",
+            "components/drawer.tsx",
+            "components/dropdown-menu.tsx",
+            "components/empty.tsx",
+            "components/field.tsx",
+            "components/form.tsx",
+            "components/hover-card.tsx",
+            "components/input-group.tsx",
+            "components/input-otp.tsx",
+            "components/input.tsx",
+            "components/item.tsx",
+            "components/kbd.tsx",
+            "components/label.tsx",
+            "components/menubar.tsx",
+            "components/navigation-menu.tsx",
+            "components/pagination.tsx",
+            "components/popover.tsx",
+            "components/progress.tsx",
+            "components/radio-group.tsx",
+            "components/scroll-area.tsx",
+            "components/select.tsx",
+            "components/separator.tsx",
+            "components/sheet.tsx",
+            "components/sidebar.tsx",
+            "components/skeleton.tsx",
+            "components/slider.tsx",
+            "components/sonner.tsx",
+            "components/spinner.tsx",
+            "components/switch.tsx",
+            "components/table.tsx",
+            "components/tabs.tsx",
+            "components/textarea.tsx",
+            "components/toggle-group.tsx",
+            "components/toggle.tsx",
+            "components/tooltip.tsx"
+          ],
+          "commitUrl": "https://github.com/conewarrior/design-system-ui/commit/e4f0ed6921f5f053000d73629f7ce9199caca96b"
+        }
+      ]
+    },
     {
       "date": "2026-02-04",
       "items": [
         {
-          "id": "d5fe7a8",
+          "id": "b2324fd",
           "type": "docs",
-          "title": "refactor(docs): update docs pages and add UI components",
+          "title": "refactor(docs): 컴포넌트 문서를 Container 컴포넌트로 리팩토링",
           "author": "김한솔",
           "date": "2026-02-04",
-          "time": "12:13",
+          "time": "15:17",
           "files": [
-            "components/tabs.tsx",
-            "docs/app/status/changes/components/page.tsx"
+            "docs/app/components/accordion/page.tsx",
+            "docs/app/components/alert-dialog/page.tsx",
+            "docs/app/components/alert/page.tsx",
+            "docs/app/components/aspect-ratio/page.tsx",
+            "docs/app/components/avatar/page.tsx",
+            "docs/app/components/badge/page.tsx",
+            "docs/app/components/breadcrumb/page.tsx",
+            "docs/app/components/button-group/page.tsx",
+            "docs/app/components/button/page.tsx",
+            "docs/app/components/calendar/page.tsx",
+            "docs/app/components/card/page.tsx",
+            "docs/app/components/carousel/page.tsx",
+            "docs/app/components/chart/page.tsx",
+            "docs/app/components/checkbox/page.tsx",
+            "docs/app/components/collapsible/page.tsx",
+            "docs/app/components/command/page.tsx",
+            "docs/app/components/context-menu/page.tsx",
+            "docs/app/components/dialog/page.tsx",
+            "docs/app/components/drawer/page.tsx",
+            "docs/app/components/dropdown-menu/page.tsx",
+            "docs/app/components/empty/page.tsx",
+            "docs/app/components/field/page.tsx",
+            "docs/app/components/form/page.tsx",
+            "docs/app/components/hover-card/page.tsx",
+            "docs/app/components/input-group/page.tsx",
+            "docs/app/components/input-otp/page.tsx",
+            "docs/app/components/input/page.tsx",
+            "docs/app/components/item/page.tsx",
+            "docs/app/components/kbd/page.tsx",
+            "docs/app/components/label/page.tsx",
+            "docs/app/components/menubar/page.tsx",
+            "docs/app/components/navigation-menu/page.tsx",
+            "docs/app/components/pagination/page.tsx",
+            "docs/app/components/popover/page.tsx",
+            "docs/app/components/progress/page.tsx",
+            "docs/app/components/radio-group/page.tsx",
+            "docs/app/components/scroll-area/page.tsx",
+            "docs/app/components/select/page.tsx",
+            "docs/app/components/separator/page.tsx",
+            "docs/app/components/sheet/page.tsx",
+            "docs/app/components/sidebar/page.tsx",
+            "docs/app/components/skeleton/page.tsx",
+            "docs/app/components/slider/page.tsx",
+            "docs/app/components/sonner/page.tsx",
+            "docs/app/components/spinner/page.tsx",
+            "docs/app/components/switch/page.tsx",
+            "docs/app/components/table/page.tsx",
+            "docs/app/components/tabs/page.tsx",
+            "docs/app/components/textarea/page.tsx",
+            "docs/app/components/toggle-group/page.tsx",
+            "docs/app/components/toggle/page.tsx",
+            "docs/app/components/tooltip/page.tsx"
           ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/d5fe7a894aa9e35ce05fdbfc54f65a1c1f1729ef"
+          "commitUrl": "https://github.com/conewarrior/design-system/commit/b2324fdd9ed0a11abbf5a77d35cc19617a8bbdbd"
         }
       ]
     },
@@ -24,44 +143,8 @@
       "date": "2026-01-30",
       "items": [
         {
-          "id": "529f3af",
-          "type": "docs",
-          "title": "refactor(docs): replace emoji with lucide-react icons and consolidate components",
-          "author": "김한솔",
-          "date": "2026-01-30",
-          "time": "18:18",
-          "files": [
-            "docs/app/status/changes/components/page.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/529f3afd9ccbb06c37294ff8bdf4a7e63a58e2e5"
-        },
-        {
-          "id": "7056ddb",
-          "type": "docs",
-          "title": "refactor(docs): consolidate text utility classes (18 → 10)",
-          "author": "김한솔",
-          "date": "2026-01-30",
-          "time": "17:54",
-          "files": [
-            "docs/app/status/changes/components/page.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/7056ddb7a817944990a6d284118a863a23d7b47f"
-        },
-        {
-          "id": "a792edc",
-          "type": "docs",
-          "title": "refactor(docs): migrate to shadcn components and utility classes",
-          "author": "김한솔",
-          "date": "2026-01-30",
-          "time": "17:06",
-          "files": [
-            "docs/app/status/changes/components/page.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/a792edc08cb26b7bdc2607adc8bbc6c3045068d2"
-        },
-        {
           "id": "0177858",
-          "type": "token",
+          "type": "docs",
           "title": "refactor(docs): remove legacy component pages and consolidate documentation",
           "author": "김한솔",
           "date": "2026-01-30",
@@ -119,11 +202,7 @@
             "docs/app/components/textarea/page.tsx",
             "docs/app/components/toggle-group/page.tsx",
             "docs/app/components/toggle/page.tsx",
-            "docs/app/components/tooltip/page.tsx",
-            "docs/components/Button/index.tsx",
-            "docs/components/Input/index.tsx",
-            "docs/styles/tokens.css",
-            "tokens.css"
+            "docs/app/components/tooltip/page.tsx"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/0177858287b2401a8d02b7d206eaff8791c1fda9"
         },
@@ -189,18 +268,6 @@
             "docs/app/components/tooltip/page.tsx"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/b6bc0825190d42880cf8abcf67fa46f43909dba3"
-        },
-        {
-          "id": "f5f1e06",
-          "type": "docs",
-          "title": "style(docs): migrate remaining 20 pages to Tailwind utilities",
-          "author": "김한솔",
-          "date": "2026-01-30",
-          "time": "09:49",
-          "files": [
-            "docs/app/status/changes/components/page.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/f5f1e06509e448a85a1c2b281fcb6c92f59faf35"
         }
       ]
     },
@@ -220,70 +287,6 @@
           "commitUrl": "https://github.com/conewarrior/design-system/commit/5ffc55c42c74c4f85a71ee3315be1a874b9c601c"
         },
         {
-          "id": "a291528",
-          "type": "add",
-          "title": "feat: add shadcn/ui components and fix missing slide",
-          "author": "김한솔",
-          "date": "2026-01-29",
-          "time": "16:14",
-          "files": [
-            "components/_excluded/resizable.tsx",
-            "components/accordion.tsx",
-            "components/alert-dialog.tsx",
-            "components/alert.tsx",
-            "components/aspect-ratio.tsx",
-            "components/avatar.tsx",
-            "components/badge.tsx",
-            "components/breadcrumb.tsx",
-            "components/button-group.tsx",
-            "components/button.tsx",
-            "components/calendar.tsx",
-            "components/card.tsx",
-            "components/carousel.tsx",
-            "components/chart.tsx",
-            "components/checkbox.tsx",
-            "components/collapsible.tsx",
-            "components/command.tsx",
-            "components/context-menu.tsx",
-            "components/dialog.tsx",
-            "components/drawer.tsx",
-            "components/dropdown-menu.tsx",
-            "components/empty.tsx",
-            "components/field.tsx",
-            "components/form.tsx",
-            "components/hover-card.tsx",
-            "components/input-group.tsx",
-            "components/input-otp.tsx",
-            "components/input.tsx",
-            "components/item.tsx",
-            "components/kbd.tsx",
-            "components/label.tsx",
-            "components/menubar.tsx",
-            "components/navigation-menu.tsx",
-            "components/pagination.tsx",
-            "components/popover.tsx",
-            "components/progress.tsx",
-            "components/radio-group.tsx",
-            "components/scroll-area.tsx",
-            "components/select.tsx",
-            "components/separator.tsx",
-            "components/sheet.tsx",
-            "components/sidebar.tsx",
-            "components/skeleton.tsx",
-            "components/slider.tsx",
-            "components/sonner.tsx",
-            "components/spinner.tsx",
-            "components/switch.tsx",
-            "components/table.tsx",
-            "components/tabs.tsx",
-            "components/textarea.tsx",
-            "components/toggle-group.tsx",
-            "components/toggle.tsx",
-            "components/tooltip.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/a291528199f8b84e195bcf9d8041f9d9d198367f"
-        },
-        {
           "id": "a189758",
           "type": "docs",
           "title": "chore: remove old component structure (pre-shadcn/ui migration)",
@@ -291,28 +294,6 @@
           "date": "2026-01-29",
           "time": "16:05",
           "files": [
-            "components/Accordion/index.tsx",
-            "components/Avatar/index.tsx",
-            "components/Badge/index.tsx",
-            "components/Blockquote/index.tsx",
-            "components/Button/index.tsx",
-            "components/Card/index.tsx",
-            "components/Checkbox/index.tsx",
-            "components/Dropdown/index.tsx",
-            "components/InfoTable/index.tsx",
-            "components/Input/index.tsx",
-            "components/Modal/index.tsx",
-            "components/Progress/index.tsx",
-            "components/Radio/index.tsx",
-            "components/Select/index.tsx",
-            "components/Skeleton/index.tsx",
-            "components/Spinner/index.tsx",
-            "components/Switch/index.tsx",
-            "components/Table/index.tsx",
-            "components/Tabs/index.tsx",
-            "components/Textarea/index.tsx",
-            "components/Toast/index.tsx",
-            "components/Tooltip/index.tsx",
             "docs/app/components/accordion/page.tsx",
             "docs/app/components/avatar/page.tsx",
             "docs/app/components/badge/page.tsx",
@@ -351,35 +332,6 @@
       ]
     },
     {
-      "date": "2026-01-28",
-      "items": [
-        {
-          "id": "9c79d61",
-          "type": "token",
-          "title": "fix(tokens): restore Geniefy brand orange as primary color",
-          "author": "김한솔",
-          "date": "2026-01-28",
-          "time": "11:41",
-          "files": [
-            "tokens.css"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/9c79d61dfc1d722213a51a296facb4561bc5d271"
-        },
-        {
-          "id": "79d271f",
-          "type": "add",
-          "title": "feat(components): add InfoTable (#6)",
-          "author": "conewarrior",
-          "date": "2026-01-28",
-          "time": "11:12",
-          "files": [
-            "components/InfoTable/index.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/79d271fb1a2ed85b3e721218567b61eb8b617090"
-        }
-      ]
-    },
-    {
       "date": "2026-01-27",
       "items": [
         {
@@ -402,46 +354,11 @@
           "date": "2026-01-27",
           "time": "18:19",
           "files": [
-            "components/Accordion/index.tsx",
-            "components/Alert/index.tsx",
-            "components/Badge/index.tsx",
-            "components/Checkbox/index.tsx",
-            "components/Dropdown/index.tsx",
-            "components/Input/index.tsx",
-            "components/Modal/index.tsx",
-            "components/Select/index.tsx",
-            "components/Tabs/index.tsx",
-            "components/Toast/index.tsx",
             "docs/app/components/alert/page.tsx",
             "docs/app/components/card/page.tsx",
-            "docs/app/components/select/page.tsx",
-            "docs/components/Button/index.tsx"
+            "docs/app/components/select/page.tsx"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/a228d96ef2bcb0bfc45b6a0b84178c028cfd61fb"
-        },
-        {
-          "id": "b0d51da",
-          "type": "token",
-          "title": "chore: update tokens.css to v0.2.0 and sync data files",
-          "author": "김한솔",
-          "date": "2026-01-27",
-          "time": "17:53",
-          "files": [
-            "tokens.css"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/b0d51da9d850c4a3e0d4f84b1af41ce42a677791"
-        },
-        {
-          "id": "943765c",
-          "type": "token",
-          "title": "refactor: symlink docs/styles/tokens.css to root",
-          "author": "김한솔",
-          "date": "2026-01-27",
-          "time": "17:15",
-          "files": [
-            "docs/styles/tokens.css"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/943765c2faa5e3857444ce117263a7b2c19373f0"
         },
         {
           "id": "9e160a1",
@@ -456,30 +373,6 @@
           "commitUrl": "https://github.com/conewarrior/design-system/commit/9e160a19e467aade656646a99bf0ba5469dab78c"
         },
         {
-          "id": "1bc8e59",
-          "type": "add",
-          "title": "feat(components): add Table (#2)",
-          "author": "conewarrior",
-          "date": "2026-01-27",
-          "time": "16:32",
-          "files": [
-            "components/Table/index.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/1bc8e597a6b3b249c6de613dfc81c439db6783bf"
-        },
-        {
-          "id": "4f18f02",
-          "type": "add",
-          "title": "feat(components): add Blockquote (#1)",
-          "author": "conewarrior",
-          "date": "2026-01-27",
-          "time": "16:22",
-          "files": [
-            "components/Blockquote/index.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/4f18f020e69d698e1ba7c70a95ce31fbdcf0d77c"
-        },
-        {
           "id": "fb854d2",
           "type": "docs",
           "title": "feat: Accordion 컴포넌트 사이즈 옵션 추가 (sm/lg)",
@@ -487,7 +380,6 @@
           "date": "2026-01-27",
           "time": "13:11",
           "files": [
-            "components/Accordion/index.tsx",
             "docs/app/components/accordion/page.tsx"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/fb854d200d9fbd87f28a01e9942df84b53c11c14"
@@ -524,13 +416,12 @@
         },
         {
           "id": "884f2c6",
-          "type": "token",
+          "type": "docs",
           "title": "feat: design-rules 확장 및 컴포넌트 문서 업데이트",
           "author": "김한솔",
           "date": "2026-01-27",
           "time": "12:26",
           "files": [
-            "components/Button/index.tsx",
             "docs/app/components/accordion/page.tsx",
             "docs/app/components/alert/page.tsx",
             "docs/app/components/avatar/page.tsx",
@@ -541,8 +432,7 @@
             "docs/app/components/dropdown/page.tsx",
             "docs/app/components/input/page.tsx",
             "docs/app/components/modal/page.tsx",
-            "docs/app/components/progress/page.tsx",
-            "tokens.css"
+            "docs/app/components/progress/page.tsx"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/884f2c6b9211d9e00aebbfd6adf58e2e4c72b549"
         },
@@ -572,19 +462,6 @@
       "date": "2026-01-26",
       "items": [
         {
-          "id": "ad4563e",
-          "type": "token",
-          "title": "chore: update GitHub org references from geniefy to conewarrior",
-          "author": "김한솔",
-          "date": "2026-01-26",
-          "time": "18:34",
-          "files": [
-            "docs/styles/tokens.css",
-            "tokens.css"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/ad4563ecb9cc875cf85519ec0502d61d896dfb9e"
-        },
-        {
           "id": "8c8e593",
           "type": "docs",
           "title": "feat: rename package @geniefy/ui to @design-geniefy/ui and publish to npm",
@@ -592,7 +469,6 @@
           "date": "2026-01-26",
           "time": "18:30",
           "files": [
-            "components/Tooltip/index.tsx",
             "docs/app/components/page.tsx"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/8c8e593736eef2b4c26c3470699ee5ee69f66297"
@@ -604,30 +480,12 @@
       "items": [
         {
           "id": "22a4823",
-          "type": "token",
+          "type": "docs",
           "title": "feat: 템플릿 페이지 및 컴포넌트 문서 추가",
           "author": "lily",
           "date": "2026-01-22",
           "time": "16:45",
           "files": [
-            "components/Accordion/index.tsx",
-            "components/Alert/index.tsx",
-            "components/Avatar/index.tsx",
-            "components/Badge/index.tsx",
-            "components/Card/index.tsx",
-            "components/Checkbox/index.tsx",
-            "components/Dropdown/index.tsx",
-            "components/Modal/index.tsx",
-            "components/Progress/index.tsx",
-            "components/Radio/index.tsx",
-            "components/Select/index.tsx",
-            "components/Skeleton/index.tsx",
-            "components/Spinner/index.tsx",
-            "components/Switch/index.tsx",
-            "components/Tabs/index.tsx",
-            "components/Textarea/index.tsx",
-            "components/Toast/index.tsx",
-            "components/Tooltip/index.tsx",
             "docs/app/components/accordion/page.tsx",
             "docs/app/components/alert/page.tsx",
             "docs/app/components/avatar/page.tsx",
@@ -646,40 +504,9 @@
             "docs/app/components/tabs/page.tsx",
             "docs/app/components/textarea/page.tsx",
             "docs/app/components/toast/page.tsx",
-            "docs/app/components/tooltip/page.tsx",
-            "docs/public/downloads/bold-vibrant-tokens.css",
-            "docs/public/downloads/corporate-pro-tokens.css",
-            "docs/public/downloads/dark-modern-tokens.css",
-            "docs/public/downloads/futuristic-tokens.css",
-            "docs/public/downloads/glassmorphism-tokens.css",
-            "docs/public/downloads/gpters-brand-tokens.css",
-            "docs/public/downloads/minimal-clean-tokens.css",
-            "docs/public/downloads/soft-gradient-tokens.css"
+            "docs/app/components/tooltip/page.tsx"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/22a4823552a5cad5f72a29ae416cbeafbcffd829"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-21",
-      "items": [
-        {
-          "id": "ce2799b",
-          "type": "token",
-          "title": "feat: 문서 사이트 네비게이션 구조 개선 및 Status 섹션 추가",
-          "author": "김한솔",
-          "date": "2026-01-21",
-          "time": "13:56",
-          "files": [
-            "docs/app/components/button/page.tsx",
-            "docs/app/components/input/page.tsx",
-            "docs/app/status/changes/components/page.tsx",
-            "docs/components/Button/index.tsx",
-            "docs/components/Input/index.tsx",
-            "docs/styles/tokens.css",
-            "tokens.css"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/ce2799b6b5c092252245401881832be812fdc08c"
         }
       ]
     }

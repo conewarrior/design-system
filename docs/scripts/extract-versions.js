@@ -1,151 +1,189 @@
 #!/usr/bin/env node
 /**
- * Git 태그에서 컴포넌트 버전별 코드를 추출
- * 빌드 시 실행되어 component-versions.json 생성
+ * GitHub API에서 컴포넌트 버전별 코드를 추출
+ * design-system-ui 레포의 태그 + 파일 내용을 조회하여
+ * component-versions.json, version-codes.json 생성
+ *
+ * 환경변수:
+ * - GITHUB_TOKEN: GitHub Personal Access Token (선택, rate limit 증가용)
  */
 
-const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
 // 설정
 const CONFIG = {
-  // 컴포넌트 디렉토리
+  // npm 패키지 레포
+  repo: 'conewarrior/design-system-ui',
+  // 컴포넌트 디렉토리 (레포 내 경로)
   componentsDir: 'components',
   // 출력 경로
   outputPath: path.join(__dirname, '../data/component-versions.json'),
-  // 버전별 코드 출력 경로
   codesOutputPath: path.join(__dirname, '../data/version-codes.json'),
-  // GitHub 저장소 URL
-  repoUrl: 'https://github.com/conewarrior/design-system',
 };
 
-/**
- * 모든 버전 태그 조회
- */
-function getAllVersionTags() {
+// GitHub API 호출
+async function fetchGitHub(endpoint, token) {
+  const headers = {
+    'Accept': 'application/vnd.github.v3+json',
+    'User-Agent': 'geniefy-design-system',
+  };
+  if (token) {
+    headers['Authorization'] = `token ${token}`;
+  }
+
+  const response = await fetch(`https://api.github.com${endpoint}`, { headers });
+  if (!response.ok) {
+    if (response.status === 404) return null;
+    throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+  }
+  return response.json();
+}
+
+// 모든 버전 태그 조회
+async function getAllVersionTags(token) {
   try {
-    const output = execSync('git tag -l "v*"', { encoding: 'utf-8' });
-    return output.trim().split('\n').filter(Boolean).sort((a, b) => {
-      // 버전 번호로 정렬 (v0.0.1 < v0.0.2)
-      const versionA = a.replace('v', '').split('.').map(Number);
-      const versionB = b.replace('v', '').split('.').map(Number);
-      for (let i = 0; i < 3; i++) {
-        if (versionA[i] !== versionB[i]) {
-          return versionA[i] - versionB[i];
+    const tags = await fetchGitHub(`/repos/${CONFIG.repo}/tags?per_page=100`, token);
+    if (!tags) return [];
+
+    return tags
+      .map(t => t.name)
+      .filter(name => name.startsWith('v'))
+      .sort((a, b) => {
+        const vA = a.replace('v', '').split('.').map(Number);
+        const vB = b.replace('v', '').split('.').map(Number);
+        for (let i = 0; i < 3; i++) {
+          if ((vA[i] || 0) !== (vB[i] || 0)) return (vA[i] || 0) - (vB[i] || 0);
         }
-      }
-      return 0;
-    });
+        return 0;
+      });
   } catch (error) {
     console.error('태그 조회 실패:', error.message);
     return [];
   }
 }
 
-/**
- * 특정 태그의 커밋 날짜 조회
- */
-function getTagDate(tag) {
+// 태그의 커밋 날짜 조회
+async function getTagDate(tag, token) {
   try {
-    const output = execSync(`git log -1 --format=%ai ${tag}`, { encoding: 'utf-8' });
-    return output.trim().split(' ')[0]; // YYYY-MM-DD
+    const commit = await fetchGitHub(`/repos/${CONFIG.repo}/commits/${tag}`, token);
+    if (!commit) return null;
+    return commit.commit.author.date.split('T')[0];
   } catch (error) {
     return null;
   }
 }
 
-/**
- * 특정 태그에서 컴포넌트 코드 조회
- */
-function getComponentCodeAtTag(componentName, tag) {
-  const filePath = `${CONFIG.componentsDir}/${componentName}/index.tsx`;
+// 특정 태그에서 컴포넌트 코드 조회
+async function getComponentCodeAtTag(componentName, tag, token) {
   try {
-    return execSync(`git show ${tag}:${filePath}`, { encoding: 'utf-8' });
+    const data = await fetchGitHub(
+      `/repos/${CONFIG.repo}/contents/${CONFIG.componentsDir}/${componentName}/index.tsx?ref=${tag}`,
+      token
+    );
+    if (!data || !data.content) return null;
+    return Buffer.from(data.content, 'base64').toString('utf-8');
   } catch (error) {
-    // 해당 태그에 컴포넌트가 없는 경우
     return null;
   }
 }
 
-/**
- * 현재 존재하는 컴포넌트 목록 조회
- */
-function getComponentList() {
+// 레포의 컴포넌트 목록 조회 (최신 main 브랜치)
+async function getComponentList(token) {
   try {
-    const componentsPath = path.join(process.cwd(), CONFIG.componentsDir);
-    return fs.readdirSync(componentsPath).filter(name => {
-      const indexPath = path.join(componentsPath, name, 'index.tsx');
-      return fs.existsSync(indexPath);
-    });
+    const data = await fetchGitHub(
+      `/repos/${CONFIG.repo}/contents/${CONFIG.componentsDir}`,
+      token
+    );
+    if (!data || !Array.isArray(data)) return [];
+    return data
+      .filter(item => item.type === 'dir' && !item.name.startsWith('_'))
+      .map(item => item.name);
   } catch (error) {
     console.error('컴포넌트 목록 조회 실패:', error.message);
     return [];
   }
 }
 
-/**
- * 두 버전 간 변경 사항 추출 (커밋 메시지 기반)
- */
-function getChangesBetweenTags(componentName, prevTag, currentTag) {
-  const filePath = `${CONFIG.componentsDir}/${componentName}/index.tsx`;
+// 두 태그 간 변경 사항 (커밋 메시지)
+async function getChangesBetweenTags(componentName, prevTag, currentTag, token) {
   try {
-    const output = execSync(
-      `git log --oneline ${prevTag}..${currentTag} -- ${filePath}`,
-      { encoding: 'utf-8' }
+    const compare = await fetchGitHub(
+      `/repos/${CONFIG.repo}/compare/${prevTag}...${currentTag}`,
+      token
     );
-    return output.trim().split('\n').filter(Boolean).map(line => {
-      // 커밋 해시 제거하고 메시지만
-      return line.replace(/^[a-f0-9]+ /, '');
-    });
+    if (!compare || !compare.commits) return [];
+
+    const filePath = `${CONFIG.componentsDir}/${componentName}/`;
+    return compare.commits
+      .filter(c => {
+        // 파일 변경 정보가 있으면 해당 컴포넌트 파일 변경 여부 확인
+        // compare API는 files를 포함하지 않으므로 커밋 메시지만 사용
+        return true;
+      })
+      .map(c => c.commit.message.split('\n')[0])
+      .slice(0, 10);
   } catch (error) {
     return [];
   }
 }
 
-/**
- * 메인 실행
- */
-function main() {
+// 메인 실행
+async function main() {
   console.log('컴포넌트 버전 데이터 추출 중...');
 
-  // CI 환경에서 이미 데이터가 있으면 건너뛰기 (Vercel은 shallow clone으로 태그가 없음)
+  const token = process.env.GITHUB_TOKEN;
+  if (!token) {
+    console.log('⚠️ GITHUB_TOKEN 미설정. Rate limit이 낮을 수 있습니다.\n');
+  }
+
+  // CI 환경에서 이미 데이터가 있으면 건너뛰기
   if (process.env.CI || process.env.VERCEL) {
     if (fs.existsSync(CONFIG.outputPath)) {
       const existing = JSON.parse(fs.readFileSync(CONFIG.outputPath, 'utf-8'));
       if (existing.data && Object.keys(existing.data).length > 0) {
-        console.log('✅ CI 환경 - 기존 데이터 사용 (태그 접근 불가)');
+        console.log('✅ CI 환경 - 기존 데이터 사용');
         return;
       }
     }
   }
 
-  // Git 루트로 이동
-  const gitRoot = execSync('git rev-parse --show-toplevel', { encoding: 'utf-8' }).trim();
-  process.chdir(gitRoot);
+  const tags = await getAllVersionTags(token);
+  const components = await getComponentList(token);
 
-  const tags = getAllVersionTags();
-  const components = getComponentList();
+  console.log(`태그: ${tags.length > 0 ? tags.join(', ') : '(없음)'}`);
+  console.log(`컴포넌트: ${components.length}개`);
 
-  console.log(`태그: ${tags.join(', ')}`);
-  console.log(`컴포넌트: ${components.join(', ')}`);
+  if (tags.length === 0) {
+    console.log('⚠️ 태그가 없습니다. 기존 데이터 유지.');
+
+    // 기존 데이터가 있으면 유지
+    if (fs.existsSync(CONFIG.outputPath)) return;
+
+    // 빈 데이터 생성
+    saveFallbackData(tags);
+    return;
+  }
 
   const componentVersions = {};
   const versionCodes = {};
 
   for (const component of components) {
+    console.log(`  ${component} 처리 중...`);
     componentVersions[component] = { versions: [] };
     versionCodes[component] = {};
 
     let prevTag = null;
 
     for (const tag of tags) {
-      const code = getComponentCodeAtTag(component, tag);
+      const code = await getComponentCodeAtTag(component, tag, token);
 
       if (code !== null) {
         const version = tag.replace('v', '');
-        const date = getTagDate(tag);
-        const changes = prevTag ? getChangesBetweenTags(component, prevTag, tag) : ['Initial version'];
+        const date = await getTagDate(tag, token);
+        const changes = prevTag
+          ? await getChangesBetweenTags(component, prevTag, tag, token)
+          : ['Initial version'];
 
         componentVersions[component].versions.push({
           version,
@@ -157,9 +195,11 @@ function main() {
         versionCodes[component][version] = code;
         prevTag = tag;
       }
+
+      // Rate limit 방지
+      await new Promise(resolve => setTimeout(resolve, 50));
     }
 
-    // 버전이 없으면 제거
     if (componentVersions[component].versions.length === 0) {
       delete componentVersions[component];
       delete versionCodes[component];
@@ -200,4 +240,35 @@ function main() {
   }
 }
 
-main();
+function saveFallbackData(tags) {
+  const outputDir = path.dirname(CONFIG.outputPath);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  fs.writeFileSync(CONFIG.outputPath, JSON.stringify({
+    generatedAt: new Date().toISOString(),
+    totalComponents: 0,
+    totalVersions: tags.length,
+    tags,
+    data: {},
+  }, null, 2));
+
+  fs.writeFileSync(CONFIG.codesOutputPath, JSON.stringify({
+    generatedAt: new Date().toISOString(),
+    data: {},
+  }, null, 2));
+
+  console.log('⚠️ 빈 데이터로 저장됨');
+}
+
+main().catch(error => {
+  console.error('오류 발생:', error);
+
+  if (fs.existsSync(CONFIG.outputPath)) {
+    console.log('⚠️ 기존 데이터 유지');
+    return;
+  }
+
+  saveFallbackData([]);
+});

@@ -98,18 +98,18 @@ async function getDependabotPR(repo, packageName, token) {
   }
 }
 
-// 최신 버전 조회 (npm registry)
+// 최신 버전 조회 (Verdaccio registry)
 async function getLatestVersion(packageName) {
   try {
-    const response = await fetch(`https://registry.npmjs.org/${packageName}/latest`);
+    const response = await fetch(`https://verdaccio.gpters.org/${packageName}/latest`);
     if (!response.ok) {
-      // 패키지가 아직 npm에 없는 경우
+      // 패키지가 아직 registry에 없는 경우
       return '0.0.1';
     }
     const data = await response.json();
     return data.version;
   } catch (error) {
-    console.error('npm 버전 조회 실패:', error.message);
+    console.error('Verdaccio 버전 조회 실패:', error.message);
     return '0.0.1';
   }
 }
