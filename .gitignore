@@ -1,22 +1,14 @@
-# Dependencies
-node_modules/
-
-# Build output
-dist/
-
-# Next.js build cache
-docs/.next/
-docs/out/
-
-# PDCA status
-.pdca-status.json
+.vercel
+.next
 .DS_Store
+node_modules
+content/design-rules.md
 
-# Planning documents (internal only)
-planning/
-
-# BKit memory files
-**/.bkit-memory.json
-
-docs/tsconfig.tsbuildinfo
-@/
+# bkit/PDCA
+.bkit-memory.json
+.pdca-status.json
+.pdca-snapshots/
+01-plan/
+02-design/
+03-analysis/
+04-report/

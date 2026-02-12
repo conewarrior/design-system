@@ -15,17 +15,17 @@ jobs:
     if: github.actor == 'dependabot[bot]'
 
     steps:
-      # 1. @design-geniefy/ui 업데이트인지 확인
-      - name: Check if @design-geniefy/ui update
+      # 1. @gpters-internal/ui 업데이트인지 확인
+      - name: Check if @gpters-internal/ui update
         id: check
         run: |
           TITLE="${{ github.event.pull_request.title }}"
-          if [[ "$TITLE" == *"@design-geniefy/ui"* ]]; then
+          if [[ "$TITLE" == *"@gpters-internal/ui"* ]]; then
             echo "is_geniefy_ui=true" >> $GITHUB_OUTPUT
-            echo "::notice::@design-geniefy/ui 업데이트 PR 감지"
+            echo "::notice::@gpters-internal/ui 업데이트 PR 감지"
           else
             echo "is_geniefy_ui=false" >> $GITHUB_OUTPUT
-            echo "::notice::@design-geniefy/ui가 아닌 업데이트, 스킵"
+            echo "::notice::@gpters-internal/ui가 아닌 업데이트, 스킵"
           fi
 
       # 2. Major 버전 업데이트 감지 (Breaking Change)
