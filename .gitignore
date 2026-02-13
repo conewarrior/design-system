@@ -12,3 +12,4 @@ content/design-rules.md
 02-design/
 03-analysis/
 04-report/
+.env*.local
