@@ -53,6 +53,7 @@ design-system/                  # Next.js 14 문서 사이트
 │   └── LayoutClient.tsx        # 레이아웃 클라이언트
 ├── lib/utils.ts                # cn() 유틸리티 (tailwind-merge + clsx)
 ├── styles/globals.css          # Tailwind v4 @theme 토큰 + 유틸리티 클래스
+├── content/blog/               # 블로그 글 (MDX, 폴더별 index.mdx + images/)
 ├── scripts/                    # prebuild 스크립트 (GitHub API 기반)
 └── data/                       # 자동 생성 JSON (빌드 시 갱신)
 ```
@@ -73,10 +74,16 @@ import { cn } from '../lib/utils'
 
 `@components/*`는 tsconfig paths로 `node_modules/@gpters-internal/ui/components/*`에 매핑된다.
 
+## 배포
+
+- Vercel 프로젝트: `docs` (kimhansols-projects-d104de35)
+- GitHub push 시 자동 배포
+- 환경변수: `VERDACCIO_TOKEN` (Vercel에 설정됨, npm 패키지 설치용)
+
 ## npm 레지스트리
 
 - 패키지: `@gpters-internal/ui` (Verdaccio 프라이빗 레지스트리)
-- `.npmrc`에 `@gpters-internal:registry=https://verdaccio.gpters.org/` 설정 필요
+- `.npmrc`: 레지스트리 URL + `${VERDACCIO_TOKEN}` 환경변수 참조
 - 컴포넌트 추가/수정은 별도 레포 `design-system-ui`에서 수행 후 `npm update @gpters-internal/ui`
 
 ## docs 텍스트 스타일링

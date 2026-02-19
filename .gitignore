@@ -3,13 +3,4 @@
 .DS_Store
 node_modules
 content/design-rules.md
-
-# bkit/PDCA
-.bkit-memory.json
-.pdca-status.json
-.pdca-snapshots/
-01-plan/
-02-design/
-03-analysis/
-04-report/
 .env*.local
