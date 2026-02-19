@@ -64,15 +64,50 @@ design-system/                  # Next.js 14 문서 사이트
 // 컴포넌트 참조 (tsconfig paths → npm 패키지 내부)
 import { Button } from "@components/button"
 
+// 프로젝트 루트 기준 절대 경로
+import { cn } from "@/lib/utils"
+
 // 문서 전용 레이아웃 컴포넌트 (상대 경로)
 import { PageHeader } from '../../ui/PageHeader'
 import { Container } from '../../ui/Container'
 
-// ui/ 내부에서 유틸리티 참조
-import { cn } from '../lib/utils'
+// 아이콘 (lucide-react)
+import { ChevronRight, Mail } from 'lucide-react'
 ```
 
-`@components/*`는 tsconfig paths로 `node_modules/@gpters-internal/ui/components/*`에 매핑된다.
+| 별칭 | 매핑 대상 |
+|------|-----------|
+| `@components/*` | `node_modules/@gpters-internal/ui/components/*` |
+| `@/*` | 프로젝트 루트 (`./`) |
+
+## 색상 아키텍처 (3-layer)
+
+`styles/globals.css`에 정의된 3계층 색상 시스템:
+
+```
+Adobe Spectrum 원시 팔레트 (--spectrum-gray-*, --spectrum-blue-*, ...)
+  ↓ :root / .dark 에서 매핑
+shadcn 시맨틱 토큰 (--background, --foreground, --primary, --border, ...)
+  ↓ @theme 에서 매핑
+Tailwind 유틸리티 클래스 (bg-background, text-foreground, border-border, ...)
+```
+
+- 라이트/다크 모드: `:root`와 `.dark`에서 Spectrum 원시 값을 다르게 매핑 (단순 반전 아님)
+- 추가 시맨틱 색상: `--success`, `--warning`, `--info` (shadcn 기본에 없음)
+- 색상 스케일: gray/blue/red/orange/green/yellow/cyan/purple 각 100-900
+
+## Tailwind v4 설정
+
+```css
+/* styles/globals.css */
+@import "tailwindcss";
+@config "../tailwind.config.ts";        /* content 경로 설정 */
+@source "../app/**/*.{ts,tsx}";          /* 명시적 소스 경로 */
+@source "../ui/**/*.{ts,tsx}";
+@custom-variant dark (&:is(.dark *));    /* next-themes 호환 */
+```
+
+- `next.config.js`: `trailingSlash: true` (모든 URL에 trailing slash 추가), `transpilePackages: ['@gpters-internal/ui']`
 
 ## 배포
 
@@ -85,6 +120,11 @@ import { cn } from '../lib/utils'
 - 패키지: `@gpters-internal/ui` (Verdaccio 프라이빗 레지스트리)
 - `.npmrc`: 레지스트리 URL + `${VERDACCIO_TOKEN}` 환경변수 참조
 - 컴포넌트 추가/수정은 별도 레포 `design-system-ui`에서 수행 후 `npm update @gpters-internal/ui`
+
+## 주의사항
+
+- `app/rules/page.tsx`는 npm 패키지 `node_modules/@gpters-internal/ui/design-rules.md`를 빌드 시점에 읽는다. 규칙 업데이트 시 `design-system-ui` 레포에서 수정 후 npm 패키지를 업데이트해야 반영됨.
+- `data/` 디렉토리 JSON 파일은 빌드 시 자동 생성되므로 직접 수정 불필요. `npm run build`가 prebuild 스크립트를 자동 실행한다.
 
 ## docs 텍스트 스타일링
 
