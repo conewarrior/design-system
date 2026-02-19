@@ -4,7 +4,7 @@ const config: Config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./ui/**/*.{js,ts,jsx,tsx,mdx}",
-    "../components/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@gpters-internal/ui/components/**/*.{js,ts,jsx,tsx}",
   ],
 };
 

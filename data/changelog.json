@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-02-13T05:58:53.225Z",
-  "totalChanges": 17,
+  "generatedAt": "2026-02-19T05:40:10.420Z",
+  "totalChanges": 16,
   "data": [
     {
       "date": "2026-02-12",
@@ -535,41 +535,6 @@
             "docs/app/components/page.tsx"
           ],
           "commitUrl": "https://github.com/conewarrior/design-system/commit/8c8e593736eef2b4c26c3470699ee5ee69f66297"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-22",
-      "items": [
-        {
-          "id": "22a4823",
-          "type": "docs",
-          "title": "feat: 템플릿 페이지 및 컴포넌트 문서 추가",
-          "author": "lily",
-          "date": "2026-01-22",
-          "time": "16:45",
-          "files": [
-            "docs/app/components/accordion/page.tsx",
-            "docs/app/components/alert/page.tsx",
-            "docs/app/components/avatar/page.tsx",
-            "docs/app/components/badge/page.tsx",
-            "docs/app/components/card/page.tsx",
-            "docs/app/components/checkbox/page.tsx",
-            "docs/app/components/dropdown/page.tsx",
-            "docs/app/components/modal/page.tsx",
-            "docs/app/components/page.tsx",
-            "docs/app/components/progress/page.tsx",
-            "docs/app/components/radio/page.tsx",
-            "docs/app/components/select/page.tsx",
-            "docs/app/components/skeleton/page.tsx",
-            "docs/app/components/spinner/page.tsx",
-            "docs/app/components/switch/page.tsx",
-            "docs/app/components/tabs/page.tsx",
-            "docs/app/components/textarea/page.tsx",
-            "docs/app/components/toast/page.tsx",
-            "docs/app/components/tooltip/page.tsx"
-          ],
-          "commitUrl": "https://github.com/conewarrior/design-system/commit/22a4823552a5cad5f72a29ae416cbeafbcffd829"
         }
       ]
     }
